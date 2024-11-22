@@ -42,7 +42,7 @@ Inspect: Use docker inspect <container_id> to get detailed information about the
 Check Docker Daemon Logs: Review Docker daemon logs using journalctl -u docker.service or sudo cat /var/log/docker.log (location may vary by system).
 Network Troubleshooting: Use commands like docker network ls, docker network inspect, and docker network connect to diagnose and resolve network issues.
 
-You login in office .. and see that your docker container is not available what will you do
+**You login in office .. and see that your docker container is not available what will you do**
 
 Check Docker Service: Ensure Docker is running using systemctl status docker or service docker status.
 List Containers: Use docker ps -a to list all containers, including stopped ones, to see if the container has stopped or failed.
