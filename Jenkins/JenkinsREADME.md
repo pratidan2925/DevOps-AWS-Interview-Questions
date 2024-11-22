@@ -1,6 +1,9 @@
 **1.  What is Jenkins ?**
+
 What: An open-source automation server.
+
 Purpose: Facilitates continuous integration (CI) and continuous delivery (CD) of software.
+
 How: Automates tasks like building, testing, and deploying code changes. Uses pipelines (scripted in a Jenkinsfile) to define these steps.
 
 **2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):**
