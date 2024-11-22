@@ -7,6 +7,7 @@ Purpose: Facilitates continuous integration (CI) and continuous delivery (CD) of
 How: Automates tasks like building, testing, and deploying code changes. Uses pipelines (scripted in a Jenkinsfile) to define these steps.
 
 **2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):**
+
 Continuous Integration (CI):
 What: A development practice where developers frequently integrate their code changes into a shared repository.
 Purpose: Detect and fix integration issues early.
@@ -22,15 +23,18 @@ How: Automates the entire process from code commit to production deployment, ens
 Overall Purpose: CI/CD aims to improve software quality and speed up the development and deployment process, making it easier to deliver new features and fixes to users frequently and reliably.
 
 **3.  What is Jenkins Workspace location**
+
 /var/lib/jenkins
 
 **4.  How can you take backup of Jenkins**
+
  Thin backup - install plugin thin backup
 Server backup - take the backup of the whole server(V.M) .And it is the best way as everything is backuped.
  WorkSpace backup - backup of the jenkins folder is done (/var/lib/jenkins/)
 
 **5. Can we change the home directory of jenkins**
-             Yes , You can change the directory by creating a pipeline .
+
+Yes , You can change the directory by creating a pipeline .
                      pipeline {
 Agent{
 node {customWorkspace '/data/mypipeline'}
@@ -43,7 +47,8 @@ node {customWorkspace '/data/mypipeline'}
 			}
 		}
            }
-6.  Difference between Scripted and Declarative Pipeline
+	   
+**6.  Difference between Scripted and Declarative Pipeline**
 Scripted and Declarative Pipelines are two ways to define Jenkins Pipeline as code. Both are used to create continuous delivery pipelines in Jenkins, but they differ in their syntax and approach.
 
 1. Scripted Pipeline:
@@ -93,10 +98,12 @@ pipeline {
                                }
                         }
                 }
-7. If your Jenkins master server goes down, here's what happens to your jobs:
-Jobs on the Master: These jobs will stop and need to be restarted once the master is back up.
-Jobs on Agent Nodes: If the agents can't communicate with the master, these jobs might fail or pause until the master is restored.
-Scheduled Jobs: New jobs won't start while the master is down; they'll be queued and will start once the master is back up.
+		
+**7. If your Jenkins master server goes down, here's what happens to your jobs:**
+   
+**Jobs on the Master:** These jobs will stop and need to be restarted once the master is back up.
+**Jobs on Agent Nodes:** If the agents can't communicate with the master, these jobs might fail or pause until the master is restored.
+**Scheduled Jobs:** New jobs won't start while the master is down; they'll be queued and will start once the master is back up.
 To minimize impact, consider setting up high availability and regular backups.
 
 Explain Master and slave Architecture .
