@@ -1,36 +1,36 @@
-Explain your current CI/CD setup elaborately.
+**1. Explain your current CI/CD setup elaborately.**
 - CI/CD stands for Continuous Integration and Continuous Delivery. We use GitHub and Jenkins for automation.
 - We have set up a webhook in GitHub triggering a CI Pipeline on Jenkins for each commit.
 
-Key components of a Jenkins pipeline
+**2. Key components of a Jenkins pipeline**
 - Explaining the different stages of the pipeline - build, test, and deployment, as well as the activities within each stage like code analysis, testing, building, and deployment.
 - Emphasizing the importance of handling secrets in the CI/CD process, including SSH keys, API keys, and login credentials for Kubernetes.
 
-Securing secrets in CI/CD tools
+**3. Securing secrets in CI/CD tools**
 - Different options for securing secrets in CI/CD tools like GitHub, GitLab, AWS Systems Manager, Azure Vault, and HashiCorp Vault
 - Importance of being prepared for both continuous integration (CI) and continuous delivery (CD) aspects in interviews
 
-Key Deployment Strategies in CD
+**4. Key Deployment Strategies in CD**
 - Blue Green Deployment involves switching traffic from old version to new version gradually
 - Canary Deployment involves gradually rolling out new version to a small subset of users
 
-Difference between blue-green deployment and canary deployment
+**5. Difference between blue-green deployment and canary deployment**
 - Blue-green deployment involves switching traffic from old to new versions instantly.
 - Canary deployment gradually shifts traffic to the new version to minimize risk.
 
-Blue green deployment for rolling back faulty applications
+**6. Blue green deployment for rolling back faulty applications**
 - Blue green deployment allows easy rollback by pointing load balancer to the healthy version
 - Other deployment strategies require careful explanation and rollback strategies
 
-Jenkins is the most popular CI tool with 90% usage.
+**7. Jenkins is the most popular CI tool with 90% usage.**
 - Jenkins setup is easy, with installation possible through Docker or a simple curl command.
 - Important to understand how to take backups for Jenkins logs or artifacts and how to scale up or down based on build volume.
 
-Setting up Jenkins on AWS with Auto Scaling Group
+**8. Setting up Jenkins on AWS with Auto Scaling Group**
 - Utilizing predictive scaling for traffic prediction and scaling up/down EC2 instances.
 - Regularly backing up Jenkins with dot Jenkins folder for data security.
 
-Q: Can you explain the CICD process in your current project ? or Can you talk about any CICD process that you have implemented ?
+**9: Can you explain the CICD process in your current project ? or Can you talk about any CICD process that you have implemented ?**
 A: In the current project we use the following tools orchestrated with Jenkins to achieve CICD.
 Maven, Sonar, AppScan, ArgoCD, and Kubernetes
 Coming to the implementation, the entire process takes place in 8 steps
@@ -43,7 +43,7 @@ Coming to the implementation, the entire process takes place in 8 steps
 7. Promote to Production: When the code is ready for production, it is manually promoted using ArgoCD to the production environment.
 8. Monitoring: The application is monitored for performance and availability using Kubernetes tools and other monitoring tools.
 
-Q: What are the different ways to trigger jenkins pipelines ?
+**10: What are the different ways to trigger jenkins pipelines ?**
 A: This can be done in multiple ways, To briefly explain about the different options,
  - Poll SCM: Jenkins can periodically check the repository for changes and automatically build if changes are detected. 
               This can be configured in the "Build Triggers" section of a job.
@@ -54,7 +54,7 @@ A: This can be done in multiple ways, To briefly explain about the different opt
   - Webhooks: A webhook can be created in GitHub to notify Jenkins when changes are pushed to the repository. 
               Jenkins can then automatically build the updated code. This can be set up in the "Build Triggers" section of a job and in the GitHub repository settings.
 
-Q: How to backup Jenkins ?
+**11: How to backup Jenkins ?**
 A: Backing up Jenkins is a very easy process, there are multiple default and configured files and folders in Jenkins that you might want to backup.
  - Configuration: The `~/.jenkins` folder. You can use a tool like rsync to backup the entire directory to another location.
   
@@ -69,7 +69,7 @@ A: Backing up Jenkins is a very easy process, there are multiple default and con
 One can schedule the backups to occur regularly, such as daily or weekly, to ensure that you always have a recent copy of your Jenkins environment available. You can use tools such as cron or Windows Task Scheduler to automate the backup process.
 
 
-Q: How do you store/secure/handle secrets in Jenkins ?
+**12: How do you store/secure/handle secrets in Jenkins ?**
 A: Again, there are multiple ways to achieve this, Let me give you a brief explanation of all the posible options.
   - Credentials Plugin: Jenkins provides a credentials plugin that can be used to store secrets such as passwords, API keys, and certificates. The secrets are encrypted and stored securely within Jenkins, and can be easily retrieved in build scripts or used in other plugins.
    
@@ -79,11 +79,11 @@ A: Again, there are multiple ways to achieve this, Let me give you a brief expla
    
    - Third-party Secret Management Tools: Jenkins can also be integrated with third-party secret management tools such as AWS Secrets Manager, Google Cloud Key Management Service, and Azure Key Vault.
 
-Q: What is latest version of Jenkins or which version of Jenkins are you using ?
+**13: What is latest version of Jenkins or which version of Jenkins are you using ?**
 A: 2.319.1
 
 
-Q: What is shared modules in Jenkins ?
+**14: What is shared modules in Jenkins ?**
 A: Shared modules in Jenkins refer to a collection of reusable code and resources that can be shared across multiple Jenkins jobs. This allows for easier maintenance, reduced duplication, and improved consistency across multiple build processes. For example, shared modules can be used in cases like:
        - Libraries: Custom Java libraries, shell scripts, and other resources that can be reused across multiple jobs.
         
@@ -93,7 +93,7 @@ A: Shared modules in Jenkins refer to a collection of reusable code and resource
         
         - Global Variables: Shared global variables can be defined and used across multiple jobs, making it easier to manage common build parameters such as version numbers, artifact repositories, and environment variables.
 
-Q: can you use Jenkins to build applications with multiple programming languages using different agents in different stages ?
+**15: can you use Jenkins to build applications with multiple programming languages using different agents in different stages ?**
 A: Yes, Jenkins can be used to build applications with multiple programming languages by using different build agents in different stages of the build process.
 Jenkins supports multiple build agents, which can be used to run build jobs on different platforms and with different configurations. By using different agents in different stages of the build process, you can build applications with multiple programming languages and ensure that the appropriate tools and libraries are available for each language.
 For example, you can use one agent for compiling Java code and another agent for building a Node.js application. The agents can be configured to use different operating systems, different versions of programming languages, and different libraries and tools.
@@ -101,7 +101,7 @@ Jenkins also provides a wide range of plugins that can be used to support multip
 Overall, Jenkins is a flexible and powerful tool that can be used to build applications with multiple programming languages and support different stages of the build process.
 
 
-Q: How to setup auto-scaling group for Jenkins in AWS ?
+**16: How to setup auto-scaling group for Jenkins in AWS ?**
 A: Here is a high-level overview of how to set up an autoscaling group for Jenkins in Amazon Web Services (AWS):
    - Launch EC2 instances: Create an Amazon Elastic Compute Cloud (EC2) instance with the desired configuration and install Jenkins on it. This instance will be used as the base image for the autoscaling group.
     
@@ -119,23 +119,23 @@ A: Here is a high-level overview of how to set up an autoscaling group for Jenki
 
  By using an autoscaling group for Jenkins, you can ensure that you have the appropriate number of instances available to handle the load on your build processes, and that new instances can be added or removed automatically as needed. This helps to ensure the reliability and scalability of your Jenkins environment.
 
-Q: How to add a new worker node in Jenkins ?
+**17: How to add a new worker node in Jenkins ?**
 A: Log into the Jenkins master and navigate to Manage Jenkins > Manage Nodes > New Node. Enter a name for the new node and select Permanent Agent. Configure SSH and click on Launch.
 
 
-Q: How to add a new plugin in Jenkins ?
+**18: How to add a new plugin in Jenkins ?**
 A: Using the CLI, java -jar jenkins-cli.jar install-plugin <PLUGIN_NAME>
 Using the UI,
 Click on the "Manage Jenkins" link in the left-side menu.
 Click on the "Manage Plugins" link.
 
 
-Q: What is JNLP and why is it used in Jenkins ?
+**19: What is JNLP and why is it used in Jenkins ?**
 A: In Jenkins, JNLP is used to allow agents (also known as "slave nodes") to be launched and managed remotely by the Jenkins master instance. This allows Jenkins to distribute build tasks to multiple agents, providing scalability and improving performance.
 When a Jenkins agent is launched using JNLP, it connects to the Jenkins master and receives build tasks, which it then executes. The results of the build are then sent back to the master and displayed in the Jenkins user interface.
 
 
-Q: What are some of the common plugins that you use in Jenkins ?
+**20: What are some of the common plugins that you use in Jenkins ?**
 A: Be prepared for answer, you need to have atleast 3-4 on top of your head, so that interview feels you use jenkins on a day-to-day basis.
 
 
