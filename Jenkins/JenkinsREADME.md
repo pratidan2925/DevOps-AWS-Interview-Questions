@@ -1,8 +1,9 @@
-1.  What is Jenkins ? 
+**1.  What is Jenkins ?**
 What: An open-source automation server.
 Purpose: Facilitates continuous integration (CI) and continuous delivery (CD) of software.
 How: Automates tasks like building, testing, and deploying code changes. Uses pipelines (scripted in a Jenkinsfile) to define these steps.
-2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):
+
+**2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):**
 Continuous Integration (CI):
 What: A development practice where developers frequently integrate their code changes into a shared repository.
 Purpose: Detect and fix integration issues early.
@@ -17,14 +18,15 @@ Purpose: Minimize manual intervention in the deployment process, delivering new 
 How: Automates the entire process from code commit to production deployment, ensuring rapid and reliable releases.
 Overall Purpose: CI/CD aims to improve software quality and speed up the development and deployment process, making it easier to deliver new features and fixes to users frequently and reliably.
 
-3.  What is Jenkins Workspace location
+**3.  What is Jenkins Workspace location**
 /var/lib/jenkins
-4.  How can you take backup of Jenkins
+
+**4.  How can you take backup of Jenkins**
  Thin backup - install plugin thin backup
 Server backup - take the backup of the whole server(V.M) .And it is the best way as everything is backuped.
  WorkSpace backup - backup of the jenkins folder is done (/var/lib/jenkins/)
 
-5. Can we change the home directory of jenkins
+**5. Can we change the home directory of jenkins**
              Yes , You can change the directory by creating a pipeline .
                      pipeline {
 Agent{
