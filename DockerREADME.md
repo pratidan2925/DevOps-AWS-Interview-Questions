@@ -5,6 +5,7 @@
 Docker is an open-source platform that enables developers to automate the deployment, scaling, and management of applications in lightweight, portable containers. Docker containers package software and its dependencies in a standardized unit, ensuring that the application runs consistently across different environments, whether on a developer's laptop, on-premises servers, or in the cloud.
 
 **What is the use of Docker ?**
+
 Consistent Environment: Docker ensures that applications run the same in development, testing, and production environments by packaging the application and its dependencies in a container.
 Isolation: Containers provide process and resource isolation, enabling multiple applications or services to run on the same host without interfering with each other.
 Portability: Docker containers can run on any system that supports Docker, making it easy to move applications between environments or cloud providers.
@@ -32,8 +33,8 @@ Answer: Both COPY and ADD are used to copy files from the host to the Docker ima
 
 Docker Image: An image is a read-only template with instructions for creating a Docker container. It contains the application code, libraries, dependencies, tools, and other files needed to run the application. Images are created from a Dockerfile and are the basis for creating containers.
 Docker Stack: A stack is a collection of multiple services that make up an application. It is defined using a docker-compose.yml file, which describes how to deploy and interconnect various services (containers). Docker Stack allows you to deploy a multi-container application as a single unit using Docker Swarm or Kubernetes for orchestration.
-**
-How to debug Docker**
+
+**How to debug Docker**
 
 Logs: Use docker logs <container_id> to retrieve the logs from a specific container. This helps in understanding what happened inside the container.
 Exec into Container: Use docker exec -it <container_id> /bin/bash to get an interactive shell inside the running container. This is useful for manual inspection and troubleshooting.
@@ -63,8 +64,7 @@ Pods: The smallest deployable units that can contain one or more containers.
 Services: A way to expose an application running on a set of pods as a network service.
 Deployments: Manage the deployment and scaling of a set of pods.
 
-**
-What is docker application**
+**What is docker application**
 
 A Docker application is a software application packaged in a Docker container. This container includes everything the application needs to run, such as the code, runtime, libraries, environment variables, and configuration files. Docker applications can be easily deployed, scaled, and managed across different environments, ensuring consistency and reliability
 How to create docker image from docker container
