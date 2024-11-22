@@ -621,3 +621,39 @@ When a Jenkins agent is launched using JNLP, it connects to the Jenkins master a
 A: Be prepared for answer, you need to have atleast 3-4 on top of your head, so that interview feels you use jenkins on a day-to-day basis.
 
 
+9. How to configure SonarQube in Jenkins?
+Install the SonarQube Scanner plugin in Jenkins.
+In Jenkins Global Tool Configuration, set the path for the SonarQube scanner.
+Add SonarQube details like server URL, login token, and version in the Jenkins settings.
+Use a Jenkins pipeline to run the SonarQube scanner during the build.
+10. Which tools have you used to deploy code on K8s using a pipeline?
+Tools like Jenkins, GitLab CI/CD, Azure DevOps Pipelines, and CircleCI can deploy code on Kubernetes by running commands like kubectl apply.
+11. How to inject secret in Jenkins pipeline?
+Use Jenkins Credentials for storing secrets.
+In a pipeline, retrieve them using the syntax:
+groovy
+Copy code
+withCredentials([usernamePassword(credentialsId: 'my-creds-id', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+    // Use USERNAME and PASSWORD in pipeline
+}
+
+
+12. Steps to configure Git and other tools in Jenkins?
+Install the Git plugin in Jenkins.
+In Jenkins Global Tool Configuration, configure the Git path.
+Use Git in pipelines with the checkout scm command.
+13. How to take backup of Jenkins?
+Backup the JENKINS_HOME directory, which contains job configurations, build history, and plugins.
+Use plugins like ThinBackup or script automation.
+
+18. What is Jenkins
+Jenkins is an open-source automation server used to build, test, and deploy software.
+19. Which types of pipeline you create
+I create both declarative and scripted pipelines in Jenkins to automate various stages of the software development lifecycle.
+20. Tell me the flow of a declarative pipeline
+A declarative pipeline typically includes:
+pipeline {} block defining the pipeline.
+agent {} block specifying where the pipeline will run.
+stages {} block defining a sequence of stages, each with steps to execute.
+Optional post {} block to define actions after the pipeline runs.
+
