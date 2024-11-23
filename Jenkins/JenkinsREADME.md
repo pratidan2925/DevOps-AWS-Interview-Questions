@@ -1,6 +1,6 @@
 **1.  What is Jenkins ?**
 
-What: An open-source automation server.
+Jenkins is an open-source automation server used to build, test, and deploy software.
 
 Purpose: Facilitates continuous integration (CI) and continuous delivery (CD) of software.
 
@@ -710,11 +710,15 @@ Use Git in pipelines with the checkout scm command.
 Backup the JENKINS_HOME directory, which contains job configurations, build history, and plugins.
 Use plugins like ThinBackup or script automation.
 
-18. What is Jenkins
-Jenkins is an open-source automation server used to build, test, and deploy software.
-19. Which types of pipeline you create
+
+
+
+**19. Which types of pipeline you create**
+    
 I create both declarative and scripted pipelines in Jenkins to automate various stages of the software development lifecycle.
-20. Tell me the flow of a declarative pipeline
+
+**20. Tell me the flow of a declarative pipeline**
+    
 A declarative pipeline typically includes:
 pipeline {} block defining the pipeline.
 agent {} block specifying where the pipeline will run.
