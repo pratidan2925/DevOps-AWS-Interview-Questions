@@ -48,15 +48,15 @@ Server backup - take the backup of the whole server(V.M) .And it is the best way
 
 Yes , You can change the directory by creating a pipeline .
 
-                     pipeline {
+pipeline {
                      
-Agent{
+     Agent{
 
-node {customWorkspace '/data/mypipeline'}
+              node {customWorkspace '/data/mypipeline'}
 
-	}
+	   }
  
-	stages {
+	          stages {
  
 			stage (create file){
    
@@ -69,8 +69,7 @@ node {customWorkspace '/data/mypipeline'}
 			}
    
 		}
-  
-           }
+   }
            
 	   
 **6.  Difference between Scripted and Declarative Pipeline**
@@ -325,8 +324,11 @@ Use the library in Jenkinsfile with the @Library('my-shared-library') _ annotati
 **Setup:**
 
 Create the library repository with the appropriate structure.
+
 Configure the library in Jenkins under Manage Jenkins > Configure System > Global Pipeline Libraries.
+
 Include the library in your pipelines using the @Library annotation.
+
 Shared libraries help in centralizing and reusing code, making Jenkins pipelines more efficient and easier to manage.
 
 
