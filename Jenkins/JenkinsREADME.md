@@ -10,18 +10,26 @@ How: Automates tasks like building, testing, and deploying code changes. Uses pi
 
 **Continuous Integration (CI):**
 What: A development practice where developers frequently integrate their code changes into a shared repository.
+
 Purpose: Detect and fix integration issues early.
+
 How: Automated builds and tests run every time code is committed, ensuring the codebase is always in a workable state.
 
 **Continuous Delivery (CD):**
 What: An extension of CI where code changes are automatically prepared for a release to production.
+
 Purpose: Ensure that the codebase can be deployed to production anytime.
+
 How: Automates the release process up to the point of deployment, including additional testing and staging steps.
 
 **Continuous Deployment (CD):**
+
 What: Similar to continuous delivery, every change that passes the automated tests is automatically deployed to production.
+
 Purpose: Minimize manual intervention in the deployment process, delivering new features and updates quickly.
+
 How: Automates the entire process from code commit to production deployment, ensuring rapid and reliable releases.
+
 Overall Purpose: CI/CD aims to improve software quality and speed up the development and deployment process, making it easier to deliver new features and fixes to users frequently and reliably.
 
 **3.  What is Jenkins Workspace location**
@@ -31,7 +39,9 @@ Overall Purpose: CI/CD aims to improve software quality and speed up the develop
 **4.  How can you take backup of Jenkins**
 
  Thin backup - install plugin thin backup
+ 
 Server backup - take the backup of the whole server(V.M) .And it is the best way as everything is backuped.
+
  WorkSpace backup - backup of the jenkins folder is done (/var/lib/jenkins/)
 
 **5. Can we change the home directory of jenkins**
@@ -105,17 +115,22 @@ pipeline {
 **7. If your Jenkins master server goes down, here's what happens to your jobs:**
    
 **Jobs on the Master:** These jobs will stop and need to be restarted once the master is back up.
+
 **Jobs on Agent Nodes:** If the agents can't communicate with the master, these jobs might fail or pause until the master is restored.
+
 **Scheduled Jobs:** New jobs won't start while the master is down; they'll be queued and will start once the master is back up.
 To minimize impact, consider setting up high availability and regular backups.
 
 **8. Explain Master and slave Architecture .**
 
 **Jenkins master**
+
 This is the primary server of Jenkins.
 It handles a number of tasks that include but are not limited to scheduling build jobs, recording and presenting build results, dispatching builds to slaves for execution, monitoring all the slaves offline as well as online, and others.
 Master Jenkins is capable of directly executing build jobs.
+
 **Jenkins slave**
+
 It runs on the remote server.
 The Jenkins server follows the requests of the Jenkins master and is compatible with all operating systems.
 Building jobs dispatched by the master are executed by the slave.
@@ -125,6 +140,7 @@ Using the SSH method: Uses the ssh protocol to connect to the agent. The connect
 Using the JNLP method: Uses java JNLP protocol (Java Network Launch Protocol).
 
 **9. If one job fails in jenkins but you want to continue with the other job ,is it possible**
+
 Yes, it's possible to configure Jenkins to continue with other jobs even if one job fails. Here’s how you can achieve this:
 Using Jenkins Pipeline:
 Define stages in your Jenkinsfile.
@@ -137,55 +153,82 @@ Ensure these actions are set to execute regardless of the build result.
 **10. How can you Managing different environments in Jenkins**
 
 **Pipeline Jobs:**
+
 Use pipelines to define environment-specific steps for build, test, and deployment.
 Set environment variables and parameters to handle different environments.
+
 **Nodes and Labels:**
+
 Assign specific nodes (servers) for different environments, labeled accordingly (e.g., dev, staging, prod).
 Direct jobs to the appropriate node based on these labels.
+
 **Separate Jobs:**
+
 Create distinct Jenkins jobs for each environment, named to reflect their purpose (e.g., project-dev, project-staging, project-prod).
 Config Files and Secrets Management:
 Use plugins to manage configuration files and securely store environment-specific credentials.
 Inject these configurations and credentials into jobs as needed.
+
 **Branch Strategies:**
+
 Use specific branch naming conventions in your version control system to represent different environments (e.g., dev, staging, main).
 These strategies ensure that each environment (development, staging, production) has its own configuration, resources, and deployment processes, allowing for organized and efficient CI/CD pipelines.
 
 **11. Which are options to create the Jenkins** 
+
 **Freestyle Project:** General-purpose, flexible job with configurable build steps and actions.
+
 **Pipeline:** Scripted continuous delivery pipeline using Groovy and defined in a Jenkinsfile.
+
 **Multibranch Pipeline:** Automatically creates pipelines for each branch and pulls requests in a repository.
+
 **GitHub Organization:** Scans a GitHub organization and creates jobs for each repository.
+
 **Folder:** Organizes jobs into folders for better management of large projects.
+
 **Multiconfiguration (Matrix) Project:** Runs jobs with different configurations, useful for testing across environments.
+
 **External Job:** Monitors and tracks the execution of jobs run outside Jenkins.
 
 
 **13. If i want to check the health  of EC2 instance which notification plugin you have to download.**
+
   To check the health of an EC2 instance and receive notifications in Jenkins, you can use the "Amazon EC2 Fleet Plugin" along     with "CloudBees Disk Usage Simple Plugin". However, for notifications specifically, you should use the "Amazon SNS Notification Plugin". This combination allows you to monitor the health of your EC2 instances and send notifications when specific events occur.
 Amazon EC2 Fleet Plugin: Manages EC2 instances as Jenkins agents.
 Amazon SNS Notification Plugin: Sends notifications to an SNS topic, which can then trigger alerts via email, SMS, or other endpoints.
 
 **14. Which types of parameters the used for CI-CD pipeline** 
+
 In CI/CD pipelines, various types of parameters can be used to customize and control the build, test, and deployment processes. These parameters allow for dynamic and flexible pipelines that can adapt to different scenarios and requirements. Here are some common types of parameters used in CI/CD pipelines:
+
 **String Parameter:**
+
 A simple text input that can be used to pass arbitrary strings.
 Example: Branch name, version number.
+
 **Boolean Parameter:**
+
 A checkbox that represents true or false values.
 Example: Toggle a feature on or off during the build.
 Example: Environment selection (development, staging, production).
+
 **File Parameter:**
+
 Allows the user to upload a file that can be used during the build.
 Example: Configuration files or test data.
+
 **Password Parameter:**
+
 A masked input field for sensitive information.
 Example: API keys, passwords.
+
 **Run Parameter:**
+
 Allows selecting a specific run of a job to use as a reference.
 Example: Use artifacts from a specific build.
 
 **15. What is shared library in Jenkins**
+
 In Jenkins, a shared library is a reusable code repository that you can use across multiple Jenkins pipelines to maintain consistency and reduce redundancy. Key features include:
 Reusability: Write common functions, variables, and classes once and use them in multiple pipelines.
 Modularity: Organize code into components for better maintenance.
@@ -207,17 +250,23 @@ Shared libraries help in centralizing and reusing code, making Jenkins pipelines
 
 
 
- Stages in a Jenkins Pipeline:
-Checkout/Source:
+ **16.Stages in a Jenkins Pipeline:**
+**Checkout/Source:**
+
 Purpose: To check out the source code from the version control system (e.g., Git).
 Typical Steps: Cloning the repository, checking out a specific branch or tag.
-Build:
+
+**Build:**
+
 Purpose: To compile or build the application from the source code.
 Typical Steps: Running build tools like Maven, Gradle, or npm to compile the code and generate artifacts.
-Test:
+
+**Test:**
+
 Purpose: To run automated tests to ensure the code works as expected.
 Typical Steps: Executing unit tests, integration tests, or end-to-end tests using testing frameworks like JUnit, TestNG, or Selenium.
-Deploy/Package:
+
+**Deploy/Package:**
 Purpose: To package the built application for deployment.
 Typical Steps: Creating deployment packages (e.g., JAR, WAR, Docker images), and storing them in an artifact repository.
 Deploy to Environment:
