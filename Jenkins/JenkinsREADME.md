@@ -8,15 +8,17 @@ How: Automates tasks like building, testing, and deploying code changes. Uses pi
 
 **2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):**
 
-Continuous Integration (CI):
+**Continuous Integration (CI):**
 What: A development practice where developers frequently integrate their code changes into a shared repository.
 Purpose: Detect and fix integration issues early.
 How: Automated builds and tests run every time code is committed, ensuring the codebase is always in a workable state.
-Continuous Delivery (CD):
+
+**Continuous Delivery (CD):**
 What: An extension of CI where code changes are automatically prepared for a release to production.
 Purpose: Ensure that the codebase can be deployed to production anytime.
 How: Automates the release process up to the point of deployment, including additional testing and staging steps.
-Continuous Deployment (CD):
+
+**Continuous Deployment (CD):**
 What: Similar to continuous delivery, every change that passes the automated tests is automatically deployed to production.
 Purpose: Minimize manual intervention in the deployment process, delivering new features and updates quickly.
 How: Automates the entire process from code commit to production deployment, ensuring rapid and reliable releases.
@@ -49,9 +51,10 @@ node {customWorkspace '/data/mypipeline'}
            }
 	   
 **6.  Difference between Scripted and Declarative Pipeline**
+
 Scripted and Declarative Pipelines are two ways to define Jenkins Pipeline as code. Both are used to create continuous delivery pipelines in Jenkins, but they differ in their syntax and approach.
 
-1. Scripted Pipeline:
+**1. Scripted Pipeline:**
    - Scripted Pipeline is based on Groovy scripting language.
    - It uses an imperative programming style, where you write a script using Groovy syntax to define your pipeline stages and steps.
    - Provides a lot of flexibility and allows you to define complex logic easily.
@@ -69,8 +72,8 @@ node {
                      sh 'kubectl apply -f deployment.yaml'
                      }
         }
-
-2. Declarative Pipeline:
+	
+**2. Declarative Pipeline:**
    - Declarative Pipeline is a more structured and opinionated way to define pipelines.
    - It uses a declarative syntax with a predefined set of keywords to define the pipeline stages and steps.
    - Designed to be more human-readable and easier to understand, especially for those who are not familiar with Groovy or scripting languages.
@@ -106,13 +109,13 @@ pipeline {
 **Scheduled Jobs:** New jobs won't start while the master is down; they'll be queued and will start once the master is back up.
 To minimize impact, consider setting up high availability and regular backups.
 
-Explain Master and slave Architecture .
+**8. Explain Master and slave Architecture .**
 
-Jenkins master
+**Jenkins master**
 This is the primary server of Jenkins.
 It handles a number of tasks that include but are not limited to scheduling build jobs, recording and presenting build results, dispatching builds to slaves for execution, monitoring all the slaves offline as well as online, and others.
 Master Jenkins is capable of directly executing build jobs.
-Jenkins slave
+**Jenkins slave**
 It runs on the remote server.
 The Jenkins server follows the requests of the Jenkins master and is compatible with all operating systems.
 Building jobs dispatched by the master are executed by the slave.
@@ -121,7 +124,7 @@ Jenkins -Master Connectivity
 Using the SSH method: Uses the ssh protocol to connect to the agent. The connection gets initiated from the Jenkins master. There should be connectivity over port 22 between master and agent.
 Using the JNLP method: Uses java JNLP protocol (Java Network Launch Protocol).
 
-If one job fails in jenkins but you want to continue with the other job ,is it possible
+**9. If one job fails in jenkins but you want to continue with the other job ,is it possible**
 Yes, it's possible to configure Jenkins to continue with other jobs even if one job fails. Here’s how you can achieve this:
 Using Jenkins Pipeline:
 Define stages in your Jenkinsfile.
@@ -131,11 +134,12 @@ Using Freestyle Projects:
 Configure post-build actions to trigger other jobs or execute tasks.
 Ensure these actions are set to execute regardless of the build result.
 
-How can you Managing different environments in Jenkins 
-Pipeline Jobs:
+**10. How can you Managing different environments in Jenkins **
+
+**Pipeline Jobs:**
 Use pipelines to define environment-specific steps for build, test, and deployment.
 Set environment variables and parameters to handle different environments.
-Nodes and Labels:
+**Nodes and Labels:**
 Assign specific nodes (servers) for different environments, labeled accordingly (e.g., dev, staging, prod).
 Direct jobs to the appropriate node based on these labels.
 Separate Jobs:
