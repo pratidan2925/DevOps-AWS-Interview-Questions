@@ -134,7 +134,7 @@ Using Freestyle Projects:
 Configure post-build actions to trigger other jobs or execute tasks.
 Ensure these actions are set to execute regardless of the build result.
 
-**10. How can you Managing different environments in Jenkins **
+**10. How can you Managing different environments in Jenkins**
 
 **Pipeline Jobs:**
 Use pipelines to define environment-specific steps for build, test, and deployment.
@@ -142,51 +142,50 @@ Set environment variables and parameters to handle different environments.
 **Nodes and Labels:**
 Assign specific nodes (servers) for different environments, labeled accordingly (e.g., dev, staging, prod).
 Direct jobs to the appropriate node based on these labels.
-Separate Jobs:
+**Separate Jobs:**
 Create distinct Jenkins jobs for each environment, named to reflect their purpose (e.g., project-dev, project-staging, project-prod).
 Config Files and Secrets Management:
 Use plugins to manage configuration files and securely store environment-specific credentials.
 Inject these configurations and credentials into jobs as needed.
-Branch Strategies:
+**Branch Strategies:**
 Use specific branch naming conventions in your version control system to represent different environments (e.g., dev, staging, main).
 These strategies ensure that each environment (development, staging, production) has its own configuration, resources, and deployment processes, allowing for organized and efficient CI/CD pipelines.
 
-Which are options to create the Jenkins 
-Freestyle Project: General-purpose, flexible job with configurable build steps and actions.
-Pipeline: Scripted continuous delivery pipeline using Groovy and defined in a Jenkinsfile.
-Multibranch Pipeline: Automatically creates pipelines for each branch and pulls requests in a repository.
-GitHub Organization: Scans a GitHub organization and creates jobs for each repository.
-Folder: Organizes jobs into folders for better management of large projects.
-Multiconfiguration (Matrix) Project: Runs jobs with different configurations, useful for testing across environments.
-External Job: Monitors and tracks the execution of jobs run outside Jenkins.
+**11. Which are options to create the Jenkins** 
+**Freestyle Project:** General-purpose, flexible job with configurable build steps and actions.
+**Pipeline:** Scripted continuous delivery pipeline using Groovy and defined in a Jenkinsfile.
+**Multibranch Pipeline:** Automatically creates pipelines for each branch and pulls requests in a repository.
+**GitHub Organization:** Scans a GitHub organization and creates jobs for each repository.
+**Folder:** Organizes jobs into folders for better management of large projects.
+**Multiconfiguration (Matrix) Project:** Runs jobs with different configurations, useful for testing across environments.
+**External Job:** Monitors and tracks the execution of jobs run outside Jenkins.
 
 
-If i want to check the health  of EC2 instance which notification plugin you have to download.
+**13. If i want to check the health  of EC2 instance which notification plugin you have to download.**
   To check the health of an EC2 instance and receive notifications in Jenkins, you can use the "Amazon EC2 Fleet Plugin" along     with "CloudBees Disk Usage Simple Plugin". However, for notifications specifically, you should use the "Amazon SNS Notification Plugin". This combination allows you to monitor the health of your EC2 instances and send notifications when specific events occur.
 Amazon EC2 Fleet Plugin: Manages EC2 instances as Jenkins agents.
 Amazon SNS Notification Plugin: Sends notifications to an SNS topic, which can then trigger alerts via email, SMS, or other endpoints.
-Which types of parameters the used for CI-CD pipeline 
+
+**14. Which types of parameters the used for CI-CD pipeline** 
 In CI/CD pipelines, various types of parameters can be used to customize and control the build, test, and deployment processes. These parameters allow for dynamic and flexible pipelines that can adapt to different scenarios and requirements. Here are some common types of parameters used in CI/CD pipelines:
-String Parameter:
+**String Parameter:**
 A simple text input that can be used to pass arbitrary strings.
 Example: Branch name, version number.
-Boolean Parameter:
+**Boolean Parameter:**
 A checkbox that represents true or false values.
 Example: Toggle a feature on or off during the build.
-Choice Parameter:
-A dropdown list allowing the user to select one option from a predefined list.
 Example: Environment selection (development, staging, production).
-File Parameter:
+**File Parameter:**
 Allows the user to upload a file that can be used during the build.
 Example: Configuration files or test data.
-Password Parameter:
+**Password Parameter:**
 A masked input field for sensitive information.
 Example: API keys, passwords.
-Run Parameter:
+**Run Parameter:**
 Allows selecting a specific run of a job to use as a reference.
 Example: Use artifacts from a specific build.
 
-What is shared library in Jenkins
+**15. What is shared library in Jenkins**
 In Jenkins, a shared library is a reusable code repository that you can use across multiple Jenkins pipelines to maintain consistency and reduce redundancy. Key features include:
 Reusability: Write common functions, variables, and classes once and use them in multiple pipelines.
 Modularity: Organize code into components for better maintenance.
