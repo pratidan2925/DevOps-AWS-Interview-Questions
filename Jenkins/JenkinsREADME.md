@@ -47,70 +47,122 @@ Server backup - take the backup of the whole server(V.M) .And it is the best way
 **5. Can we change the home directory of jenkins**
 
 Yes , You can change the directory by creating a pipeline .
+
                      pipeline {
+                     
 Agent{
+
 node {customWorkspace '/data/mypipeline'}
+
 	}
+ 
 	stages {
+ 
 			stage (create file){
+   
 				steps{
+    
 					sh 'touch NewFile'
+     
 				}
+    
 			}
+   
 		}
+  
            }
+           
 	   
 **6.  Difference between Scripted and Declarative Pipeline**
 
 Scripted and Declarative Pipelines are two ways to define Jenkins Pipeline as code. Both are used to create continuous delivery pipelines in Jenkins, but they differ in their syntax and approach.
 
 **1. Scripted Pipeline:**
+
    - Scripted Pipeline is based on Groovy scripting language.
+   - 
    - It uses an imperative programming style, where you write a script using Groovy syntax to define your pipeline stages and steps.
+   - 
    - Provides a lot of flexibility and allows you to define complex logic easily.
+   - 
    - Typically, you would use a scripted pipeline when you have complex requirements that cannot be easily expressed with declarative syntax or when you need to do advanced scripting or integration with existing libraries.
 
 Example of Scripted Pipeline:
+
 node {
+
             stage('Build') {
+            
                       sh 'maven clean package'
+                      
                      }
+                     
              stage('Test') {
+             
                       sh 'mvn test'
+                      
                      }
+                     
             stage('Deploy') {
+            
                      sh 'kubectl apply -f deployment.yaml'
+                     
                      }
+                     
         }
 	
 **2. Declarative Pipeline:**
+
    - Declarative Pipeline is a more structured and opinionated way to define pipelines.
+   - 
    - It uses a declarative syntax with a predefined set of keywords to define the pipeline stages and steps.
+   - 
    - Designed to be more human-readable and easier to understand, especially for those who are not familiar with Groovy or scripting languages.
+   - 
    - Provides limited flexibility compared to Scripted Pipeline but promotes best practices and helps maintain consistency across pipelines.
 
 Example of Declarative Pipeline:
 
 pipeline {
+
     agent any
+    
            stages {
+           
                  stage('Build') {
+                 
                         steps {
+                        
                               sh 'maven clean package'
+                              
                                }
+                               
                            }
+                           
                    stage('Test') {
+                   
                          steps {
+                         
                                 sh 'mvn test'
+                                
                                   }
+                                  
                               }
+                              
                     stage('Deploy') {
+                    
                             steps {
+                            
                                   sh 'kubectl apply -f deployment.yaml'
+                                  
                                      }
+                                     
                                }
+                               
                         }
+                        
                 }
+                
 		
 **7. If your Jenkins master server goes down, here's what happens to your jobs:**
    
@@ -126,28 +178,45 @@ To minimize impact, consider setting up high availability and regular backups.
 **Jenkins master**
 
 This is the primary server of Jenkins.
+
 It handles a number of tasks that include but are not limited to scheduling build jobs, recording and presenting build results, dispatching builds to slaves for execution, monitoring all the slaves offline as well as online, and others.
+
 Master Jenkins is capable of directly executing build jobs.
 
 **Jenkins slave**
 
 It runs on the remote server.
+
 The Jenkins server follows the requests of the Jenkins master and is compatible with all operating systems.
+
 Building jobs dispatched by the master are executed by the slave.
+
 The project can be suitably configured to choose a specific slave machine. 
-Jenkins -Master Connectivity
-Using the SSH method: Uses the ssh protocol to connect to the agent. The connection gets initiated from the Jenkins master. There should be connectivity over port 22 between master and agent.
-Using the JNLP method: Uses java JNLP protocol (Java Network Launch Protocol).
+
+**Jenkins -Master Connectivity**
+**Using the SSH method:**
+
+Uses the ssh protocol to connect to the agent. The connection gets initiated from the Jenkins master. There should be connectivity over port 22 between master and agent.
+
+**Using the JNLP method:**
+
+Uses java JNLP protocol (Java Network Launch Protocol).
 
 **9. If one job fails in jenkins but you want to continue with the other job ,is it possible**
 
 Yes, it's possible to configure Jenkins to continue with other jobs even if one job fails. Here’s how you can achieve this:
-Using Jenkins Pipeline:
+
+**Using Jenkins Pipeline:**
 Define stages in your Jenkinsfile.
+
 Use try-catch blocks or post conditions to handle failures.
+
 Trigger subsequent jobs using build step with wait: false to continue immediately.
-Using Freestyle Projects:
+
+**Using Freestyle Projects:**
+
 Configure post-build actions to trigger other jobs or execute tasks.
+
 Ensure these actions are set to execute regardless of the build result.
 
 **10. How can you Managing different environments in Jenkins**
@@ -230,19 +299,31 @@ Example: Use artifacts from a specific build.
 **15. What is shared library in Jenkins**
 
 In Jenkins, a shared library is a reusable code repository that you can use across multiple Jenkins pipelines to maintain consistency and reduce redundancy. Key features include:
+
 Reusability: Write common functions, variables, and classes once and use them in multiple pipelines.
+
 Modularity: Organize code into components for better maintenance.
+
 Version Control: Store and manage the library in a version-controlled repository like Git.
+
 Standardization: Enforce best practices and coding standards.
+
 Structure:
+
 src/: Groovy classes and scripts.
+
 vars/: Global Groovy scripts/functions.
+
 resources/: Static resources (e.g., config files).
-Example Usage:
+
+**Example Usage:**
+
 Define functions in vars/.
 Define classes in src/.
 Use the library in Jenkinsfile with the @Library('my-shared-library') _ annotation.
-Setup:
+
+**Setup:**
+
 Create the library repository with the appropriate structure.
 Configure the library in Jenkins under Manage Jenkins > Configure System > Global Pipeline Libraries.
 Include the library in your pipelines using the @Library annotation.
@@ -251,6 +332,7 @@ Shared libraries help in centralizing and reusing code, making Jenkins pipelines
 
 
  **16.Stages in a Jenkins Pipeline:**
+ 
 **Checkout/Source:**
 
 Purpose: To check out the source code from the version control system (e.g., Git).
@@ -267,32 +349,47 @@ Purpose: To run automated tests to ensure the code works as expected.
 Typical Steps: Executing unit tests, integration tests, or end-to-end tests using testing frameworks like JUnit, TestNG, or Selenium.
 
 **Deploy/Package:**
+
 Purpose: To package the built application for deployment.
 Typical Steps: Creating deployment packages (e.g., JAR, WAR, Docker images), and storing them in an artifact repository.
-Deploy to Environment:
+**Deploy to Environment:**
 Purpose: To deploy the application to different environments such as development, staging, or production.
-Typical Steps: Deploying to a server, cloud environment, or Kubernetes cluster using deployment scripts or tools like Ansible, Terraform, or Helm.
-Approval/Manual Intervention:
+
+**Typical Steps:** 
+
+Deploying to a server, cloud environment, or Kubernetes cluster using deployment scripts or tools like Ansible, Terraform, or Helm.
+
+**Approval/Manual Intervention:**
+
 Purpose: To pause the pipeline and wait for manual approval before proceeding to the next stage.
 Typical Steps: Sending notifications for approval, waiting for user input.
-Post-Deployment Verification:
+
+**Post-Deployment Verification:**
+
 Purpose: To verify the deployment and ensure the application is running correctly in the target environment.
 Typical Steps: Running smoke tests, health checks, or monitoring scripts.
-Notification:
+
+**Notification:**
+
 Purpose: To send notifications about the pipeline status to relevant stakeholders.
 Typical Steps: Sending emails, Slack messages, or updating a dashboard with the build status and results.
 
-How to change the port number of jenkins
-1.Locate Jenkins Installation Directory
+**17. How to change the port number of jenkins**
+
+**1.Locate Jenkins Installation Directory**
 Linux: /var/lib/jenkins
+
 Windows: C:\Program Files (x86)\Jenkins
+
 Mac: /usr/local/Cellar/jenkins-lts/<version>/libexec
+
 Linux:
 Navigate to Jenkins Directory: cd /var/lib/jenkins
 Open jenkins.xml:  sudo vim jenkins.xml
 Modify Port Number: Find --httpPort=8080 and change to --httpPort=9090.
 Save Changes: Press Esc, type :wq, press Enter.
 Restart Jenkins: sudo service jenkins restart
+
 Windows:
 Navigate to Jenkins Directory:
 Open File Explorer, go to C:\Program Files (x86)\Jenkins.
@@ -305,6 +402,7 @@ Save and close Notepad.
 Restart Jenkins Service:
 Open Run (Windows Key + R), type services.msc, press Enter.
 Right-click Jenkins, select Restart.
+
 Mac:
 Navigate to Jenkins Directory: cd /usr/local/Cellar/jenkins-lts/<version>/libexec
 Open jenkins.xml: sudo vim jenkins.xml
@@ -317,21 +415,27 @@ Additional Configurations
 Firewall Rules: Ensure the new port is allowed through your firewall.
 Reverse Proxy: Update any reverse proxy configurations if Jenkins is behind one.
 
-How to change the Jenkins backend 
-1.Change Jenkins Home Directory
+**18. How to change the Jenkins backend**
+
+**1.Change Jenkins Home Directory**
+
 Stop Jenkins Service: sudo systemctl stop jenkins
 Copy Jenkins Home Directory to New Location: sudo cp -r /var/lib/jenkins /new/path/to/jenkins_home
 Update Jenkins Configuration: Open the Jenkins configuration file: sudo nano /etc/default/jenkins
 Find the line with JENKINS_HOME= and update it to: JENKINS_HOME="/new/path/to/jenkins_home"
 Start Jenkins Service: sudo systemctl start jenkins
-2. Change Authentication Backend to LDAP
+
+**2. Change Authentication Backend to LDAP**
+
 Configure LDAP in Jenkins:
 Open Jenkins in your web browser.
 Navigate to Manage Jenkins > Configure Global Security.
 Select LDAP under Security Realm.
 Enter LDAP server details (URL, user search base, manager DN, etc.).
 Save the configuration.
-3. Change Storage Backend (e.g., Database)
+
+**3. Change Storage Backend (e.g., Database)**
+
 Install Database Plugin:
 Go to Jenkins Dashboard.
 Navigate to Manage Jenkins > Manage Plugins.
@@ -341,24 +445,37 @@ Go to Manage Jenkins > Configure System.
 Find the section for the installed database plugin.
 Enter database connection details (driver, URL, username, password).
 
-What is Jenkinsfile  ?
+**19. What is Jenkinsfile  ?**
+
 A Jenkinsfile is a text file that contains the definition of a Jenkins pipeline. It is written using a Domain Specific Language (DSL) based on Groovy. The Jenkinsfile defines the steps to be run in the pipeline, which can include building, testing, and deploying the application. There are two types of syntax for Jenkinsfiles: Declarative and Scripted.
-What is a cron job in Jenkins ? /What is 5 star Strategy .Explain
+
+**What is a cron job in Jenkins ? /What is 5 star Strategy .Explain**
+
 A cron job in Jenkins refers to the scheduled execution of Jenkins jobs at specific intervals using a cron-like syntax. This can be set up in the "Build Triggers" section of a Jenkins job configuration.
+
 Cron Syntax:   MINUTE   HOUR   DOM   MONTH   DOW
+
 MINUTE: Minutes (0 - 59)
+
 HOUR: Hours (0 - 23)
+
 DOM: Day of the month (1 - 31)
+
 MONTH: Month (1 - 12)
+
 DOW: Day of the week (0 - 7, with 0 and 7 representing Sunday)
 
 
 
-How to store credentials in Jenkins Security 
-To store credentials:
+**20. How to store credentials in Jenkins Security**
+**To store credentials:**
+
 Go to Manage Jenkins > Manage Credentials.
+
 Select the appropriate domain.
+
 Click Add Credentials.
+
 Fill in the fields and save.
 
 How to check Jenkins COnfiguration
