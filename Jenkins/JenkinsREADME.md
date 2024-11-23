@@ -2,6 +2,8 @@
 
 Jenkins is an open-source automation server used to build, test, and deploy software.
 
+Jenkins is an open-source automation server that helps automate the non-human part of the software development process, facilitating continuous integration and continuous delivery (CI/CD).
+
 Purpose: Facilitates continuous integration (CI) and continuous delivery (CD) of software.
 
 How: Automates tasks like building, testing, and deploying code changes. Uses pipelines (scripted in a Jenkinsfile) to define these steps.
@@ -48,9 +50,9 @@ Server backup - take the backup of the whole server(V.M) .And it is the best way
 
 Yes , You can change the directory by creating a pipeline .
 
-pipeline {
+       pipeline {
                      
-     Agent{
+          Agent{
 
               node {customWorkspace '/data/mypipeline'}
 
@@ -68,8 +70,9 @@ pipeline {
     
 			}
    
-		}
-   }
+	    }
+     
+         }
            
 	   
 **6.  Difference between Scripted and Declarative Pipeline**
@@ -90,19 +93,19 @@ Example of Scripted Pipeline:
 
 node {
 
-            stage('Build') {
+    stage('Build') {
             
-                      sh 'maven clean package'
+        sh 'maven clean package'
                       
                      }
                      
-             stage('Test') {
+        stage('Test') {
              
                       sh 'mvn test'
                       
                      }
                      
-            stage('Deploy') {
+        stage('Deploy') {
             
                      sh 'kubectl apply -f deployment.yaml'
                      
@@ -170,6 +173,7 @@ pipeline {
 **Jobs on Agent Nodes:** If the agents can't communicate with the master, these jobs might fail or pause until the master is restored.
 
 **Scheduled Jobs:** New jobs won't start while the master is down; they'll be queued and will start once the master is back up.
+
 To minimize impact, consider setting up high availability and regular backups.
 
 **8. Explain Master and slave Architecture .**
@@ -262,7 +266,9 @@ These strategies ensure that each environment (development, staging, production)
 **13. If i want to check the health  of EC2 instance which notification plugin you have to download.**
 
   To check the health of an EC2 instance and receive notifications in Jenkins, you can use the "Amazon EC2 Fleet Plugin" along     with "CloudBees Disk Usage Simple Plugin". However, for notifications specifically, you should use the "Amazon SNS Notification Plugin". This combination allows you to monitor the health of your EC2 instances and send notifications when specific events occur.
+  
 Amazon EC2 Fleet Plugin: Manages EC2 instances as Jenkins agents.
+
 Amazon SNS Notification Plugin: Sends notifications to an SNS topic, which can then trigger alerts via email, SMS, or other endpoints.
 
 **14. Which types of parameters the used for CI-CD pipeline** 
@@ -386,35 +392,52 @@ Windows: C:\Program Files (x86)\Jenkins
 Mac: /usr/local/Cellar/jenkins-lts/<version>/libexec
 
 Linux:
+
 Navigate to Jenkins Directory: cd /var/lib/jenkins
+
 Open jenkins.xml:  sudo vim jenkins.xml
+
 Modify Port Number: Find --httpPort=8080 and change to --httpPort=9090.
+
 Save Changes: Press Esc, type :wq, press Enter.
+
 Restart Jenkins: sudo service jenkins restart
 
 Windows:
+
 Navigate to Jenkins Directory:
+
 Open File Explorer, go to C:\Program Files (x86)\Jenkins.
-Open jenkins.xml:
-Right-click jenkins.xml, select Open with, choose Notepad.
-Modify Port Number:
-Find --httpPort=8080 and change to --httpPort=9090.
-Save Changes:
-Save and close Notepad.
-Restart Jenkins Service:
-Open Run (Windows Key + R), type services.msc, press Enter.
+
+Open jenkins.xml: Right-click jenkins.xml, select Open with, choose Notepad.
+
+Modify Port Number:Find --httpPort=8080 and change to --httpPort=9090.
+
+Save Changes: Save and close Notepad.
+
+Restart Jenkins Service:Open Run (Windows Key + R), type services.msc, press Enter.
 Right-click Jenkins, select Restart.
 
 Mac:
+
 Navigate to Jenkins Directory: cd /usr/local/Cellar/jenkins-lts/<version>/libexec
+
 Open jenkins.xml: sudo vim jenkins.xml
+
 Modify Port Number: Find --httpPort=8080 and change to --httpPort=9090.
+
 Save Changes: Press Esc, type :wq, press Enter.
+
 Restart Jenkins: brew services restart jenkins-lts
+
 Verify Changes
+
 Open a web browser and enter: http://<your-server-ip>:9090
+
 Additional Configurations
+
 Firewall Rules: Ensure the new port is allowed through your firewall.
+
 Reverse Proxy: Update any reverse proxy configurations if Jenkins is behind one.
 
 **18. How to change the Jenkins backend**
@@ -422,29 +445,45 @@ Reverse Proxy: Update any reverse proxy configurations if Jenkins is behind one.
 **1.Change Jenkins Home Directory**
 
 Stop Jenkins Service: sudo systemctl stop jenkins
+
 Copy Jenkins Home Directory to New Location: sudo cp -r /var/lib/jenkins /new/path/to/jenkins_home
+
 Update Jenkins Configuration: Open the Jenkins configuration file: sudo nano /etc/default/jenkins
+
 Find the line with JENKINS_HOME= and update it to: JENKINS_HOME="/new/path/to/jenkins_home"
+
 Start Jenkins Service: sudo systemctl start jenkins
 
 **2. Change Authentication Backend to LDAP**
 
 Configure LDAP in Jenkins:
+
 Open Jenkins in your web browser.
+
 Navigate to Manage Jenkins > Configure Global Security.
+
 Select LDAP under Security Realm.
+
 Enter LDAP server details (URL, user search base, manager DN, etc.).
+
 Save the configuration.
 
 **3. Change Storage Backend (e.g., Database)**
 
-Install Database Plugin:
+**Install Database Plugin:**
+
 Go to Jenkins Dashboard.
+
 Navigate to Manage Jenkins > Manage Plugins.
+
 Install the relevant database plugin (e.g., MySQL, PostgreSQL).
-Configure Database Connection:
+
+**Configure Database Connection:**
+
 Go to Manage Jenkins > Configure System.
+
 Find the section for the installed database plugin.
+
 Enter database connection details (driver, URL, username, password).
 
 **19. What is Jenkinsfile  ?**
@@ -470,6 +509,7 @@ DOW: Day of the week (0 - 7, with 0 and 7 representing Sunday)
 
 
 **20. How to store credentials in Jenkins Security**
+
 **To store credentials:**
 
 Go to Manage Jenkins > Manage Credentials.
@@ -480,236 +520,317 @@ Click Add Credentials.
 
 Fill in the fields and save.
 
-How to check Jenkins COnfiguration
+**21. How to check Jenkins COnfiguration**
+
 To check Jenkins configuration:
 Go to Manage Jenkins > Configure System.
 Review and modify settings as needed.
 
-What is Poll SCM
+**22. What is Poll SCM**
 Poll SCM is a build trigger that checks the source code repository for changes at specified intervals using cron syntax. If changes are found, a build is triggered.
+
 Suppose I have 2 Jobs , I want to trigger One job after the 2 nd job is complete.How will you trigger that job.
 o trigger one job after another:
+
 In Job 2 configuration, go to Post-build Actions.
+
 Select Build other projects and enter Job 1. This ensures Job 1 runs after Job 2 completes.
 
 
-
-
-What is Jenkins?
-Jenkins is an open-source automation server that helps automate the non-human part of the software development process, facilitating continuous integration and continuous delivery (CI/CD).
-
-What are the features of Jenkins?
+**23. What are the features of Jenkins?**
 Continuous Integration and Continuous Delivery: Automates build, test, and deployment processes.
+
 Easy Installation: Supports various platforms and plugins.
+
 Extensibility: Rich plugin ecosystem for integrating with other tools.
+
 Distributed Builds: Allows building on multiple machines simultaneously.
+
 Monitoring: Provides extensive monitoring and reporting of builds.
+
 Easy Configuration: Web-based GUI for easy setup and configuration.
+
 Extensive Plugin Support: Integrates with various version control systems, build tools, and deployment frameworks.
 
-What is Groovy in Jenkins?
+**24. What is Groovy in Jenkins?**
 Groovy is the scripting language used in Jenkins pipelines. Jenkins uses Groovy for defining jobs and pipelines as code, which allows for better automation and flexibility.
 
-How do you install Jenkins?
+**25. How do you install Jenkins?**
+
 Jenkins can be installed on various operating systems. Here’s a basic outline for installation on Linux:
+
 Download Jenkins WAR file or install using package manager (e.g., apt for Ubuntu).
+
 Start Jenkins using java -jar jenkins.war.
+
 Access Jenkins at http://localhost:8080 (default port).
 
-Which commands can be used to begin Jenkins?
-To start Jenkins using the WAR file: java -jar jenkins.war
-To start Jenkins as a service on Linux: systemctl start jenkins
+**26. Which commands can be used to begin Jenkins?**
 
-What is “Continuous Integration” with reference to Jenkins?
-Continuous Integration (CI) is the practice of automating the integration of code changes from multiple contributors into a single software project. Jenkins automates the build and testing of applications, ensuring early detection of integration issues.
+**To start Jenkins using the WAR file:** java -jar jenkins.war
 
-What are the differences between Continuous Integration, Continuous Delivery, and Continuous Deployment?
+**To start Jenkins as a service on Linux:** systemctl start jenkins
+
+
+**27. What are the differences between Continuous Integration, Continuous Delivery, and Continuous Deployment?**
+
 Continuous Integration (CI): Automates the build and testing of code changes.
+
 Continuous Delivery (CD): Extends CI to automate the deployment of code changes to a staging or production environment.
+
 Continuous Deployment (CD): Automatically deploys code changes to production without manual intervention after passing automated tests.
 
-What is a CI/CD pipeline?
+**28. What is a CI/CD pipeline?**
+
 A CI/CD pipeline is a set of automated steps that allows teams to deliver code changes more frequently and reliably. It typically includes stages like build, test, deploy, and monitor.
 
-What is a Jenkins pipeline?
+**29. What is a Jenkins pipeline?**
+
 A Jenkins pipeline is a suite of plugins that support implementing and integrating continuous delivery pipelines into Jenkins. It's a way to define continuous integration and deployment workflows as code using a domain-specific language (DSL).
 
-Name the three different types of pipelines in Jenkins?
+**30. Name the three different types of pipelines in Jenkins?**
+
 Scripted Pipeline: Uses Groovy-based DSL.
+
 Declarative Pipeline: Simplified and more structured DSL.
+
 Multibranch Pipeline: Automatically creates a new pipeline for each branch in a repository.
 
-How can you set up a Jenkins job?
+**31. How can you set up a Jenkins job?**
 Create a new Jenkins job, configure source code management, define build triggers, specify build steps (like executing shell commands or running scripts), configure post-build actions, and save the job configuration.
 
-What are the requirements for using Jenkins?
+**32. What are the requirements for using Jenkins?**
 Requirements include Java Runtime Environment (JRE), disk space for builds and plugins, and adequate memory based on usage.
 
-Name the two components that Jenkins is mostly integrated with.
+**33. Name the two components that Jenkins is mostly integrated with.**
 Jenkins is commonly integrated with version control systems (e.g., Git, SVN) and build tools (e.g., Maven, Gradle).
 
-Name some of the useful plugins in Jenkins.
+**34. Name some of the useful plugins in Jenkins.**
+
 Git Plugin: Integrates Jenkins with Git repositories.
+
 Pipeline Plugin: Supports defining Jenkins pipelines as code.
+
 GitHub Integration Plugin: Integrates Jenkins with GitHub.
+
 Email Extension Plugin: Sends email notifications based on build statuses.
+
 Docker Plugin: Integrates Jenkins with Docker for build and deployment.
 
-How can you create a backup and copy files in Jenkins?
+**35. How can you create a backup and copy files in Jenkins?**
+
 Backup Jenkins by copying the JENKINS_HOME directory.
+
 Use Jenkins plugins like "ThinBackup" for scheduled backups.
+
 Manually copy files using system commands.
 
-How can you deploy a custom build of a core plugin?
+**36. How can you deploy a custom build of a core plugin?**
+
 Custom builds of core plugins can be deployed by replacing the existing plugin .hpi or .jpi file in the JENKINS_HOME/plugins directory and restarting Jenkins.
 
-What could be the steps to move or copy Jenkins from one server to another?
+**37. What could be the steps to move or copy Jenkins from one server to another?**
+
 Copy the JENKINS_HOME directory to the new server.
+
 Install the same Jenkins version and plugins on the new server.
+
 Start Jenkins and adjust configuration as necessary.
 
-Name some more continuous Integration tools other than Jenkins.
+**38. Name some more continuous Integration tools other than Jenkins.**
 CircleCI, Travis CI, GitLab CI/CD, TeamCity, Bamboo.
 
-Assume that you have a pipeline. The first job that you performed was successful, but the second one failed. What would you do now?
+**39.Assume that you have a pipeline. The first job that you performed was successful, but the second one failed. What would you do now?**
 Analyze the build log to identify the cause of failure.
+
 Make necessary adjustments to the pipeline script or job configuration.
+
 Trigger a new build of the failed job after fixing the issue.
 
-Explain the process in which Jenkins works?
+**40. Explain the process in which Jenkins works?**
+
 Jenkins works by polling or receiving notifications from version control systems about code changes.
+
 It triggers builds based on defined job configurations, executes build steps, runs tests, and archives artifacts.
+
 Jenkins can also deploy applications to servers or cloud platforms as part of CI/CD pipelines.
 
-What is the Jenkins file?
-A Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline. It allows defining pipelines as code using a Groovy-based DSL.
+**41. Differentiate between Maven, Ant, and Jenkins.**
 
-Differentiate between Maven, Ant, and Jenkins.
 Maven and Ant: Build tools used to compile, package, and deploy applications.
+
 Jenkins: Automation server used for continuous integration and continuous delivery. It orchestrates builds and deployments using plugins and pipelines.
 
-Differentiate between Bamboo and Jenkins?
+**42. Differentiate between Bamboo and Jenkins?**
+
 Jenkins: Open-source automation server with a vast plugin ecosystem, widely used for CI/CD.
+
 Bamboo: Atlassian's commercial CI/CD tool with tighter integrations with other Atlassian products like Jira and Bitbucket.
 
-What is the difference between Jenkins and Hudson?
+**43. What is the difference between Jenkins and Hudson?**
+
 Jenkins: Fork of Hudson, an open-source automation server used for CI/CD, with a more active development community and extensive plugin support.
+
 Hudson: An older version of the same software, less actively maintained.
 
-Why is Jenkins used with Selenium?
+**44. Why is Jenkins used with Selenium?**
+
 Jenkins is used with Selenium for automating the testing of web applications. It triggers Selenium tests as part of CI pipelines, allowing automated regression testing and faster feedback on code changes.
 
-What is the process to integrate Git with Jenkins?
+**45. What is the process to integrate Git with Jenkins?**
+
 Install the Jenkins Git plugin.
+
 Configure Jenkins jobs to pull source code from Git repositories.
+
 Provide credentials if accessing private repositories.
+
 Define build and test steps in Jenkins pipelines or jobs.
 
-Explain Kubernetes, and how can you integrate Jenkins with Kubernetes?
+**46. Explain Kubernetes, and how can you integrate Jenkins with Kubernetes?**
+
 Kubernetes is an open-source container orchestration platform for automating deployment, scaling, and management of containerized applications.
+
 Jenkins can be integrated with Kubernetes using plugins like Kubernetes Plugin or Kubernetes Continuous Deploy Plugin to dynamically provision Jenkins agents as Kubernetes pods.
 
-What is DSL Jenkins?
+**47. What is DSL Jenkins?**
+
 DSL (Domain Specific Language) in Jenkins refers to the syntax used to define Jenkins pipelines as code. It provides a structured way to define and execute CI/CD workflows.
 
-What is the process to configure Third-party tools in Jenkins?
+**48. What is the process to configure Third-party tools in Jenkins?**
+
 Third-party tools can be configured in Jenkins using plugins specific to those tools. For example, for integrating with Slack, install and configure the Slack Notification Plugin in Jenkins.
 
-What are some of the default environmental variables in Jenkins?
+**49. What are some of the default environmental variables in Jenkins?**
+
 BUILD_NUMBER, JOB_NAME, BUILD_ID, WORKSPACE, JENKINS_URL, GIT_COMMIT, NODE_NAME, EXECUTOR_NUMBER, etc.
 
-What are some of the critical aspects of the Jenkins pipeline?
+**50. What are some of the critical aspects of the Jenkins pipeline?**
 Structure and stages of the pipeline, error handling, artifact management, parallel execution, testing and deployment automation, and integration with other tools.
 
-Let’s say there is a broken build in the Jenkins project, then what can be done?
+**51. Let’s say there is a broken build in the Jenkins project, then what can be done?**
+
 Investigate the cause of the broken build using build logs and Jenkins interface.
+
 Fix the issue in the codebase.
+
 Trigger a new build to verify the fix and ensure successful integration.
 
-How to deploy a custom build of a core plugin?
-Already answered in question 16.
+**52. What is the process of making a Multibranch Pipeline in Jenkins?**
 
-What is the process of making a Multibranch Pipeline in Jenkins?
 Define a Multibranch Pipeline project in Jenkins.
+
 Configure source control repository and credentials.
+
 Jenkins automatically creates a pipeline for each branch and Pull Request in the repository.
 
-How can the parameters be defined in Jenkins?
-Parameters can be defined in Jenkins jobs or pipelines using the "This build is parameterized" option. Parameters can be of different types (e.g., string, boolean, choice) and are passed to build steps.
+**53. Explain the ways to configure Jenkins node agent to communicate with Jenkins master?**
 
-Explain the ways to configure Jenkins node agent to communicate with Jenkins master?
 To configure a Jenkins node (agent) to communicate with the Jenkins master:
+
 Install Java: Ensure Java is installed on the node.
+
 Configure SSH: Use SSH credentials or set up JNLP (Java Web Start) for communication.
+
 Connect to Master: In Jenkins UI, add a new node configuration under Manage Jenkins > Manage Nodes > New Node, providing details like node name, connection method (SSH, JNLP), and credentials.
 
-What is the use of the JENKINS_HOME directory?
+**54. What is the use of the JENKINS_HOME directory?**
+
 JENKINS_HOME is the directory where Jenkins stores its configuration settings, job definitions, build logs, plugins, and other related data. It is essential for Jenkins' operation and maintenance, including backups and migration.
 
-Explain a backup plugin and its uses.
+**55. Explain a backup plugin and its uses**.
+
 A backup plugin in Jenkins (like the ThinBackup plugin) allows users to schedule and automate backups of the JENKINS_HOME directory. It ensures that critical Jenkins configurations, job configurations, build histories, and plugins are regularly backed up to prevent data loss.
 
-What do you understand by a trigger concerning a pipeline?
+**56. What do you understand by a trigger concerning a pipeline?**
+
 A trigger in Jenkins pipeline refers to an event or condition that initiates the execution of a pipeline job. Triggers can include SCM polling (checking for changes in source control), cron-based schedules, webhook notifications from external systems, or manual triggering by users.
 
-What are the three security mechanisms Jenkins uses to authenticate users?
+**57. What are the three security mechanisms Jenkins uses to authenticate users?**
+
 Jenkins uses the following security mechanisms for user authentication:
+
 Jenkins Internal Database: Users are managed within Jenkins itself.
+
 LDAP Integration: Jenkins can authenticate users against an LDAP directory.
+
 Third-Party OAuth: Integration with OAuth providers like GitHub, Google, or Bitbucket for authentication.
 
+**58. Explain your current CI/CD setup elaborately.**
 
-
-
-
-
-**1. Explain your current CI/CD setup elaborately.**
 - CI/CD stands for Continuous Integration and Continuous Delivery. We use GitHub and Jenkins for automation.
+- 
 - We have set up a webhook in GitHub triggering a CI Pipeline on Jenkins for each commit.
 
-**2. Key components of a Jenkins pipeline**
+**59. Key components of a Jenkins pipeline**
+
 - Explaining the different stages of the pipeline - build, test, and deployment, as well as the activities within each stage like code analysis, testing, building, and deployment.
+  
 - Emphasizing the importance of handling secrets in the CI/CD process, including SSH keys, API keys, and login credentials for Kubernetes.
 
-**3. Securing secrets in CI/CD tools**
+**60. Securing secrets in CI/CD tools**
+
 - Different options for securing secrets in CI/CD tools like GitHub, GitLab, AWS Systems Manager, Azure Vault, and HashiCorp Vault
+  
 - Importance of being prepared for both continuous integration (CI) and continuous delivery (CD) aspects in interviews
 
-**4. Key Deployment Strategies in CD**
+**61. Key Deployment Strategies in CD**
+
 - Blue Green Deployment involves switching traffic from old version to new version gradually
+  
 - Canary Deployment involves gradually rolling out new version to a small subset of users
 
-**5. Difference between blue-green deployment and canary deployment**
+**62. Difference between blue-green deployment and canary deployment**
+
 - Blue-green deployment involves switching traffic from old to new versions instantly.
+  
 - Canary deployment gradually shifts traffic to the new version to minimize risk.
 
-**6. Blue green deployment for rolling back faulty applications**
+**63. Blue green deployment for rolling back faulty applications**
+
 - Blue green deployment allows easy rollback by pointing load balancer to the healthy version
+  
 - Other deployment strategies require careful explanation and rollback strategies
 
-**7. Jenkins is the most popular CI tool with 90% usage.**
+**64. Jenkins is the most popular CI tool with 90% usage.**
+
 - Jenkins setup is easy, with installation possible through Docker or a simple curl command.
+  
 - Important to understand how to take backups for Jenkins logs or artifacts and how to scale up or down based on build volume.
 
-**8. Setting up Jenkins on AWS with Auto Scaling Group**
+**65. Setting up Jenkins on AWS with Auto Scaling Group**
+
 - Utilizing predictive scaling for traffic prediction and scaling up/down EC2 instances.
+  
 - Regularly backing up Jenkins with dot Jenkins folder for data security.
 
-**9: Can you explain the CICD process in your current project ? or Can you talk about any CICD process that you have implemented ?**
+**66: Can you explain the CICD process in your current project ? or Can you talk about any CICD process that you have implemented ?**
+
 A: In the current project we use the following tools orchestrated with Jenkins to achieve CICD.
 Maven, Sonar, AppScan, ArgoCD, and Kubernetes
-Coming to the implementation, the entire process takes place in 8 steps
-1. Code Commit: Developers commit code changes to a Git repository hosted on GitHub.
-2. Jenkins Build: Jenkins is triggered to build the code using Maven. Maven builds the code and runs unit tests.
-3. Code Analysis: Sonar is used to perform static code analysis to identify any code quality issues, security vulnerabilities, and bugs.
-4. Security Scan: AppScan is used to perform a security scan on the application to identify any security vulnerabilities.
-5. Deploy to Dev Environment: If the build and scans pass, Jenkins deploys the code to a development environment managed by Kubernetes.
-6. Continuous Deployment: ArgoCD is used to manage continuous deployment. ArgoCD watches the Git repository and automatically deploys new changes to the development environment as soon as they are committed.
-7. Promote to Production: When the code is ready for production, it is manually promoted using ArgoCD to the production environment.
-8. Monitoring: The application is monitored for performance and availability using Kubernetes tools and other monitoring tools.
 
-**10: What are the different ways to trigger jenkins pipelines ?**
+Coming to the implementation, the entire process takes place in 8 steps
+
+ Code Commit: Developers commit code changes to a Git repository hosted on GitHub.
+ 
+ Jenkins Build: Jenkins is triggered to build the code using Maven. Maven builds the code and runs unit tests.
+ 
+ Code Analysis: Sonar is used to perform static code analysis to identify any code quality issues, security vulnerabilities, and bugs.
+ 
+ Security Scan: AppScan is used to perform a security scan on the application to identify any security vulnerabilities.
+
+ Deploy to Dev Environment: If the build and scans pass, Jenkins deploys the code to a development environment managed by Kubernetes.
+    
+ Continuous Deployment: ArgoCD is used to manage continuous deployment. ArgoCD watches the Git repository and automatically deploys new changes to the development environment as soon as they are committed.
+    
+ Promote to Production: When the code is ready for production, it is manually promoted using ArgoCD to the production environment.
+
+Monitoring: The application is monitored for performance and availability using Kubernetes tools and other monitoring tools.
+
+**67: What are the different ways to trigger jenkins pipelines ?**
+
 A: This can be done in multiple ways, To briefly explain about the different options,
+
  - Poll SCM: Jenkins can periodically check the repository for changes and automatically build if changes are detected. 
               This can be configured in the "Build Triggers" section of a job.
               
@@ -719,8 +840,10 @@ A: This can be done in multiple ways, To briefly explain about the different opt
   - Webhooks: A webhook can be created in GitHub to notify Jenkins when changes are pushed to the repository. 
               Jenkins can then automatically build the updated code. This can be set up in the "Build Triggers" section of a job and in the GitHub repository settings.
 
-**11: How to backup Jenkins ?**
+**68: How to backup Jenkins ?**
+
 A: Backing up Jenkins is a very easy process, there are multiple default and configured files and folders in Jenkins that you might want to backup.
+
  - Configuration: The `~/.jenkins` folder. You can use a tool like rsync to backup the entire directory to another location.
   
     - Plugins: Backup the plugins installed in Jenkins by copying the plugins directory located in JENKINS_HOME/plugins to another location.
@@ -734,8 +857,10 @@ A: Backing up Jenkins is a very easy process, there are multiple default and con
 One can schedule the backups to occur regularly, such as daily or weekly, to ensure that you always have a recent copy of your Jenkins environment available. You can use tools such as cron or Windows Task Scheduler to automate the backup process.
 
 
-**12: How do you store/secure/handle secrets in Jenkins ?**
+**69: How do you store/secure/handle secrets in Jenkins ?**
+
 A: Again, there are multiple ways to achieve this, Let me give you a brief explanation of all the posible options.
+
   - Credentials Plugin: Jenkins provides a credentials plugin that can be used to store secrets such as passwords, API keys, and certificates. The secrets are encrypted and stored securely within Jenkins, and can be easily retrieved in build scripts or used in other plugins.
    
    - Environment Variables: Secrets can be stored as environment variables in Jenkins and referenced in build scripts. However, this method is less secure because environment variables are visible in the build logs.
@@ -744,12 +869,15 @@ A: Again, there are multiple ways to achieve this, Let me give you a brief expla
    
    - Third-party Secret Management Tools: Jenkins can also be integrated with third-party secret management tools such as AWS Secrets Manager, Google Cloud Key Management Service, and Azure Key Vault.
 
-**13: What is latest version of Jenkins or which version of Jenkins are you using ?**
+**70: What is latest version of Jenkins or which version of Jenkins are you using ?**
+
 A: 2.319.1
 
 
-**14: What is shared modules in Jenkins ?**
+**71: What is shared modules in Jenkins ?**
+
 A: Shared modules in Jenkins refer to a collection of reusable code and resources that can be shared across multiple Jenkins jobs. This allows for easier maintenance, reduced duplication, and improved consistency across multiple build processes. For example, shared modules can be used in cases like:
+
        - Libraries: Custom Java libraries, shell scripts, and other resources that can be reused across multiple jobs.
         
         - Jenkinsfile: A shared Jenkinsfile can be used to define the build process for multiple jobs, reducing duplication and making it easier to manage the build process for multiple projects.
@@ -758,16 +886,23 @@ A: Shared modules in Jenkins refer to a collection of reusable code and resource
         
         - Global Variables: Shared global variables can be defined and used across multiple jobs, making it easier to manage common build parameters such as version numbers, artifact repositories, and environment variables.
 
-**15: can you use Jenkins to build applications with multiple programming languages using different agents in different stages ?**
+**72: can you use Jenkins to build applications with multiple programming languages using different agents in different stages ?**
+
 A: Yes, Jenkins can be used to build applications with multiple programming languages by using different build agents in different stages of the build process.
+
 Jenkins supports multiple build agents, which can be used to run build jobs on different platforms and with different configurations. By using different agents in different stages of the build process, you can build applications with multiple programming languages and ensure that the appropriate tools and libraries are available for each language.
+
 For example, you can use one agent for compiling Java code and another agent for building a Node.js application. The agents can be configured to use different operating systems, different versions of programming languages, and different libraries and tools.
+
 Jenkins also provides a wide range of plugins that can be used to support multiple programming languages and build tools, making it easy to integrate different parts of the build process and manage the dependencies required for each stage.
+
 Overall, Jenkins is a flexible and powerful tool that can be used to build applications with multiple programming languages and support different stages of the build process.
 
 
-**16: How to setup auto-scaling group for Jenkins in AWS ?**
+**73: How to setup auto-scaling group for Jenkins in AWS ?**
+
 A: Here is a high-level overview of how to set up an autoscaling group for Jenkins in Amazon Web Services (AWS):
+
    - Launch EC2 instances: Create an Amazon Elastic Compute Cloud (EC2) instance with the desired configuration and install Jenkins on it. This instance will be used as the base image for the autoscaling group.
     
     - Create Launch Configuration: Create a launch configuration in AWS Auto Scaling that specifies the EC2 instance type, the base image (created in step 1), and any additional configuration settings such as storage, security groups, and key pairs.
@@ -784,63 +919,83 @@ A: Here is a high-level overview of how to set up an autoscaling group for Jenki
 
  By using an autoscaling group for Jenkins, you can ensure that you have the appropriate number of instances available to handle the load on your build processes, and that new instances can be added or removed automatically as needed. This helps to ensure the reliability and scalability of your Jenkins environment.
 
-**17: How to add a new worker node in Jenkins ?**
+**74: How to add a new worker node in Jenkins ?**
+
 A: Log into the Jenkins master and navigate to Manage Jenkins > Manage Nodes > New Node. Enter a name for the new node and select Permanent Agent. Configure SSH and click on Launch.
 
 
-**18: How to add a new plugin in Jenkins ?**
+**75: How to add a new plugin in Jenkins ?**
+
 A: Using the CLI, java -jar jenkins-cli.jar install-plugin <PLUGIN_NAME>
+
 Using the UI,
+
 Click on the "Manage Jenkins" link in the left-side menu.
+
 Click on the "Manage Plugins" link.
 
 
-**19: What is JNLP and why is it used in Jenkins ?**
+**76: What is JNLP and why is it used in Jenkins ?**
+
 A: In Jenkins, JNLP is used to allow agents (also known as "slave nodes") to be launched and managed remotely by the Jenkins master instance. This allows Jenkins to distribute build tasks to multiple agents, providing scalability and improving performance.
+
 When a Jenkins agent is launched using JNLP, it connects to the Jenkins master and receives build tasks, which it then executes. The results of the build are then sent back to the master and displayed in the Jenkins user interface.
 
 
-**20: What are some of the common plugins that you use in Jenkins ?**
+**77: What are some of the common plugins that you use in Jenkins ?**
+
 A: Be prepared for answer, you need to have atleast 3-4 on top of your head, so that interview feels you use jenkins on a day-to-day basis.
 
 
-9. How to configure SonarQube in Jenkins?
+**78. How to configure SonarQube in Jenkins?**
+
 Install the SonarQube Scanner plugin in Jenkins.
+
 In Jenkins Global Tool Configuration, set the path for the SonarQube scanner.
+
 Add SonarQube details like server URL, login token, and version in the Jenkins settings.
+
 Use a Jenkins pipeline to run the SonarQube scanner during the build.
-10. Which tools have you used to deploy code on K8s using a pipeline?
+
+**79. Which tools have you used to deploy code on K8s using a pipeline?**
+
 Tools like Jenkins, GitLab CI/CD, Azure DevOps Pipelines, and CircleCI can deploy code on Kubernetes by running commands like kubectl apply.
-11. How to inject secret in Jenkins pipeline?
+
+**80. How to inject secret in Jenkins pipeline?**
+
 Use Jenkins Credentials for storing secrets.
+
 In a pipeline, retrieve them using the syntax:
+
 groovy
+
 Copy code
+
 withCredentials([usernamePassword(credentialsId: 'my-creds-id', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+
     // Use USERNAME and PASSWORD in pipeline
 }
 
 
-12. Steps to configure Git and other tools in Jenkins?
+**81. Steps to configure Git and other tools in Jenkins?**
+
 Install the Git plugin in Jenkins.
+
 In Jenkins Global Tool Configuration, configure the Git path.
+
 Use Git in pipelines with the checkout scm command.
-13. How to take backup of Jenkins?
-Backup the JENKINS_HOME directory, which contains job configurations, build history, and plugins.
-Use plugins like ThinBackup or script automation.
 
 
 
-
-**19. Which types of pipeline you create**
-    
-I create both declarative and scripted pipelines in Jenkins to automate various stages of the software development lifecycle.
-
-**20. Tell me the flow of a declarative pipeline**
+**22. Tell me the flow of a declarative pipeline**
     
 A declarative pipeline typically includes:
+
 pipeline {} block defining the pipeline.
+
 agent {} block specifying where the pipeline will run.
+
 stages {} block defining a sequence of stages, each with steps to execute.
+
 Optional post {} block to define actions after the pipeline runs.
 
