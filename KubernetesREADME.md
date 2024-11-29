@@ -1,5 +1,5 @@
 # Kubernetes
----
+
 #### Difference between Docker and Kubernetes
 - Docker is a container platform while Kubernetes is a container orchestration platform.
 - Kubernetes offers features like auto healing, auto scaling, cluster management, and enterprise capabilities.
