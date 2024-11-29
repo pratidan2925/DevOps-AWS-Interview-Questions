@@ -1,69 +1,43 @@
-#### Kubernetes vs. Docker
 
-Definition:
 
-Docker is a container platform focused on creating and managing containers.
-Kubernetes is an orchestration platform that manages containerized applications across a cluster of machines.
-Functionality:
+"Difference between Docker and Kubernetes: Kubernetes interview questions part 1."
 
-Kubernetes provides features like auto-scaling and self-healing, which are essential for maintaining application availability.
-Docker, being a single-node platform, does not inherently offer these orchestration capabilities.
-Scalability:
+Kubernetes interview questions part one
+- Testing the viewers' understanding of past videos
+- Assessing how well the concepts have been grasped
 
-Kubernetes allows for the creation of clusters that can manage multiple nodes, ensuring high availability.
-If a node in a Kubernetes cluster fails, workloads can be automatically moved to another node, minimizing downtime.
-Kubernetes Architecture Components
+Difference between Docker and Kubernetes
+- Docker is a container platform while Kubernetes is a container orchestration platform.
+- Kubernetes offers features like auto healing, auto scaling, cluster management, and enterprise capabilities.
 
-Control Plane:
+Cloud Control Manager in Kubernetes
+- Cloud Control Manager is responsible for managing default controllers in Kubernetes.
+- Cloud Control Manager helps in implementing Kubernetes on cloud providers, allowing them to contribute to the logic for specific services like load balancers.
 
-Includes the API server, responsible for handling requests and managing the cluster's state.
-The scheduler allocates resources to various workloads based on predefined criteria.
-Data Plane:
+QProxy updates IP tables to route requests from a node Port service to Pods
+- Container runtime is required for containers to run
+- Kubernetes supports multiple container runtimes, including Docker shim
 
-Comprises components like kubelet, which manages the lifecycle of pods, and kube-proxy, which handles network routing and load balancing.
-Container runtime, which is the environment where containers run; Kubernetes supports multiple runtimes.
-Storage:
+Difference between Docker container and Kubernetes pod
+- A pod is a runtime specification in Kubernetes written in YAML files
+- A pod can have one or multiple containers that can communicate using the same network and share resources
 
-etcd serves as a key-value store for all Kubernetes objects, ensuring data persistence and consistency across the cluster.
-Kubernetes Services Types
+Namespace provides logical isolation of resources in a Kubernetes cluster.
+- Namespace allows multiple projects and teams to work within the same Kubernetes cluster.
+- Developers within a namespace have logical separation and can work on their respective projects.
 
-Cluster IP:
+Q proxy is responsible for routing requests to pods using IP tables.
+- Q proxy updates the IP tables on every Linux machine.
+- By default, IP tables are used for routing in Kubernetes.
 
-The default service type that provides a virtual IP address accessible only within the cluster.
-Ideal for internal communication among services.
-NodePort:
+Three different types of services in Kubernetes: cluster IP mode, node Port mode, and load balancer mode.
+- Cluster IP mode allows access to the service only within the Kubernetes cluster.
+- Node Port mode enables access to the service using the Node IP and port number defined in the service.yaml file.
 
-Exposes a service on a static port on each node's IP address, allowing external access to the service through the node's IP and port.
-Useful for exposing services without requiring a load balancer.
-LoadBalancer:
+Pod lifecycle and management in Kubernetes
+- The cubelet continuously monitors the status of pods and sends notifications to the API server when a pod goes down.
+- The API server informs the replica set controller to scale up the pod count if necessary.
 
-Creates an external load balancer in supported cloud environments, providing a public IP for accessing the service.
-Facilitates external traffic management and scaling.
-Namespaces in Kubernetes
-
-Logical Isolation:
-
-Namespaces provide a method to separate resources within the same cluster, allowing multiple teams or projects to coexist without interfering with each other.
-Each namespace can have its own set of resources, policies, and access controls.
-Resource Management:
-
-Helps in organizing resources in a multi-tenant environment, ensuring that teams can manage their projects independently.
-Facilitates resource quota management and limits on resource consumption per namespace.
-RBAC Integration:
-
-Role-Based Access Control (RBAC) can be used to enforce security policies within namespaces, allowing for fine-grained access control.
-Teams can be restricted to their own namespaces, enhancing security and management efficiency.
-Kubernetes Interview Preparation
-
-Common Questions:
-
-Candidates should be prepared to explain the differences between Docker containers and Kubernetes pods, as well as the main components of Kubernetes architecture.
-Understanding the role of kube-proxy, kubelet, and service types is crucial for interviews.
-Practical Knowledge:
-
-Familiarity with day-to-day operations in a Kubernetes environment, including deployment, monitoring, and troubleshooting, is often assessed.
-Knowledge of scaling applications, managing configurations, and implementing security practices in Kubernetes is essential.
-Mock Interviews:
-
-Engaging in mock interviews can help assess understanding and readiness, allowing candidates to practice articulating their knowledge effectively.
-Reflecting on personal scores or feedback from peers can enhance learning and preparation for actual interviews.
+Day-to-day activities on Kubernetes
+- We manage Kubernetes clusters and ensure application deployment with monitoring.
+- We troubleshoot issues related to pods, services, and routing traffic. We also perform maintenance activities for worker nodes.
