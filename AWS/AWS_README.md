@@ -783,3 +783,56 @@ Answer:
 Public Subnet: A public subnet is associated with a route table that has a route to an internet gateway, allowing resources within the subnet to access the internet.
 Private Subnet: A private subnet is associated with a route table that does not have a route to an internet gateway, restricting direct access to the internet. Typically, traffic from private subnets can access the internet via a NAT gateway or NAT instance.
 
+#### How do you execute jobs in AWS?
+AWS provides various services to execute jobs, such as AWS Lambda for serverless execution, AWS Batch for batch processing jobs, AWS Step Functions for orchestrating workflows, and AWS ECS/EKS for containerized jobs. You can use the AWS Management Console, CLI, SDKs, or Infrastructure as Code tools like Terraform to configure and trigger these jobs.
+
+#### What is VPC?
+A Virtual Private Cloud (VPC) is a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. You have full control over your virtual networking environment, including selecting your own IP address range, creating subnets, and configuring route tables and network gateways.
+
+#### How can you define a public and private subnet in VPC?
+A public subnet is one that has a route to an Internet Gateway, allowing instances within the subnet to communicate directly with the internet. A private subnet does not have a route to an Internet Gateway but can connect to the internet via a NAT Gateway or NAT instance in a public subnet.
+
+#### How an EC2 instance can fetch something from the internet?
+An EC2 instance can fetch something from the internet if it is in a public subnet with an associated Elastic IP or public IP address and a route to an Internet Gateway. If in a private subnet, it can access the internet using a NAT Gateway or NAT instance in a public subnet.
+#### How does a request from the app go to the internet?
+For a request from an app on an EC2 instance to reach the internet, the instance must have a route to an Internet Gateway (for public subnets) or through a NAT Gateway/NAT instance (for private subnets). Additionally, security groups and NACLs must allow outbound traffic to the desired internet destinations.
+
+
+#### If you restrict the security group, NACL, and the NAT Gateways, then how can you connect and fetch something from S3?
+You can use VPC endpoints for S3, which allow instances in a VPC to securely access S3 without traversing the internet. You must configure the endpoint in your VPC and update route tables and security groups to allow traffic to the endpoint.
+
+#### What is the difference between NACL and Security groups?
+Security Groups are stateful and operate at the instance level, automatically allowing return traffic. NACLs (Network ACLs) are stateless and operate at the subnet level, requiring explicit rules for both inbound and outbound traffic. Security Groups are generally easier to manage for instance-level security, while NACLs offer an additional layer of control at the subnet level.
+
+#### AMI and snapshot difference?
+An AMI (Amazon Machine Image) is a template for creating an EC2 instance and includes an operating system, application server, and applications. A snapshot is a point-in-time backup of an EBS (Elastic Block Store) volume, which can be used to create new volumes or restore data to an existing volume.
+
+
+#### What will you do to make your application more secure?
+To make an application more secure, you can implement several measures:
+Use IAM roles and policies to enforce the principle of least privilege.
+Enable encryption for data at rest and in transit.
+Implement multi-factor authentication (MFA).
+Regularly update and patch your systems and software.
+Monitor and audit access and activity using services like AWS CloudTrail and AWS Config.
+Use security groups and NACLs to control traffic to and from your instances.
+Implement secure coding practices and conduct regular security reviews and testing.
+
+
+#### What is the difference between ALB and NLB?
+ALB (Application Load Balancer) operates at the application layer (Layer 7) and supports advanced routing features, such as host-based and path-based routing, and provides SSL termination. NLB (Network Load Balancer) operates at the transport layer (Layer 4) and is designed for high performance, low latency, and handling millions of requests per second. NLB can also handle TCP and UDP traffic, while ALB is focused on HTTP/HTTPS traffic.
+How to give bucket access to one user without console access?
+You can give bucket access to a user by creating an IAM policy that grants the necessary permissions (e.g., s3
+, s3
+) and attaching it to the IAM user. This allows the user to interact with the S3 bucket programmatically via the AWS CLI, SDKs, or API without needing console access.
+
+#### Is there any possible way to recover the object after deleted?
+If S3 versioning is enabled on the bucket, you can recover a deleted object by retrieving a previous version of the object. If versioning is not enabled, the object cannot be recovered after deletion.
+
+#### How to restrict or give permission to a specific object?
+To restrict or give permission to a specific object, you can use bucket policies, IAM policies, or object ACLs (Access Control Lists). These policies can specify actions (e.g., s3
+) and conditions to allow or deny access to specific objects.
+
+
+#### What are inline-based policies?
+Inline policies are policies that are directly attached to a single IAM user, group, or role. They are useful for specific permissions that are not intended to be reused. Unlike managed policies, inline policies are not shared and are directly associated with the entity to which they are attached.
