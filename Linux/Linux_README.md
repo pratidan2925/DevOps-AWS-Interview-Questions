@@ -204,5 +204,79 @@ IIS (Internet Information Services) is Microsoft's web server software for hosti
 - An interpreter translates source code into machine code line-by-line and executes it immediately. Languages like Python and JavaScript use interpreters.
 - compiler translates the entire source code into machine code at once, creating an executable file. Languages like C and C++ use compilers.
 - Interpreted languages offer faster development and platform independence but slower execution, while compiled languages offer faster execution and standalone executables but slower development cycles.
+
+
+#### Run a Task/Script in the Background:
+Command: nohup command &
+Explanation: nohup allows a command to continue running even after the terminal is closed. The & puts the command in the background.
+
+#### Kernel-Related Messages:
+Command: dmesg
+Explanation: dmesg displays kernel-related messages including hardware and system startup messages.
+
+#### List Configured Physical Volumes:
+Command: pvdisplay or pvs
+Explanation: pvdisplay or pvs shows information about physical volumes in LVM (Logical Volume Manager).
+
+#### Display Memory Usage:
+Command: free
+Explanation: free displays memory usage, including swap space.
+
+#### Check Disk Usage by User:
+Command: du -sh /home/*
+Explanation: du (disk usage) displays the amount of space used by each user's home directory.
+
+#### Check Linux Filesystem:
+Command: lsblk -f
+Explanation: lsblk -f lists block devices and their filesystem information.
+
+#### Sort Content from a File:
+Command: sort file
+Explanation: sort arranges the lines in a file in alphabetical or numerical order.
+
+#### Display Unique Content from a File:
+Command: sort file | uniq
+Explanation: sort arranges lines, and uniq removes duplicate lines.
+
+#### Search Multiple Words in a File:
+Command: egrep "word1|word2" file
+Explanation: egrep (or grep -E) searches for multiple patterns separated by |.
+
+#### Count Lines in a File:
+Command: wc -l file
+Explanation: wc -l counts the number of lines in a file.
+
+#### Check if Two Files are Identical:
+Command: cmp fileA fileB
+Explanation: cmp compares two files byte by byte.
+
+#### Compare and Display Differences Between Files:
+Command: diff -u fileA fileB
+Explanation: diff -u shows the differences between two files in a unified format.
+
+#### Record Terminal Activity:
+Command: script filename
+Explanation: script records all terminal activity to a file.
+
+#### Display Starting Two Characters of Each Line:
+Command: cut -c 1-2 file.txt
+Explanation: cut -c 1-2 extracts the first two characters from each line.
+
+#### Display a Specific Line from a File:
+Command: sed -n '5p' file.txt
+Explanation: sed -n '5p' prints the fifth line of the file.
+
+#### Replace a Specific Word in a File:
+Command: sed -i 's/from/to/g' file.txt
+Explanation: sed -i 's/from/to/g' replaces all occurrences of from with to in the file.
+
+#### Extend Size of a File Without Adding Data:
+Command: truncate -s 100M file.txt
+Explanation: truncate -s changes the size of a file to 100 MB without modifying its contents.
+
+#### Check CPU/Core/Thread Info:
+Command: lscpu
+Explanation: lscpu provides detailed information about CPU architecture and cores.
+
  
 
