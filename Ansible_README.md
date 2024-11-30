@@ -50,20 +50,26 @@ Playbooks orchestrate the execution of tasks in a defined order.
 Tasks can include installing packages, copying files, configuring services, and more.
 
 #### 3. Interview important playbooks
- ###### Multi-OS
-—
+###### Multi-OS Ansible Playbook
+
+```yaml
 - hosts: all
   become: yes
-   tasks:
-  - name: Install Apache on Ubuntu
-    apt: name=apache2 state=present
-    when: ansible_os_family == "Debian"
-    ignore_errors: True
+  tasks:
+    - name: Install Apache on Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+      ignore_errors: True
 
-  - name: Install httpd on RedHat
-    yum: name=httpd state=present
-    when: ansible_os_family == "RedHat"
-    ignore_errors: True
+    - name: Install httpd on RedHat
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+      ignore_errors: True
+
 
 ###### Handler playbook
 ---
@@ -84,7 +90,7 @@ Tasks can include installing packages, copying files, configuring services, and 
        service:
          name: httpd
          state: started
-
+```
 #### 4. What is the default Inventory path ? How can you change the path of the Inventory
 The default inventory file is typically located at /etc/ansible/hosts. This file contains information about the hosts (servers) that Ansible will manage.
 Changing the Inventory Path
@@ -156,6 +162,7 @@ Handlers are used in Ansible to perform actions in response to events. They are 
 #### 6. What is the use of Ansible template?
 Ansible templates are used to create configuration files dynamically. They use the Jinja2 templating engine to allow the insertion of variables and conditional logic. Templates are helpful for generating configuration files that need to be customized for different environments or systems.
 #### 7. Write a playbook to copy a file from one server to another server
+```
 ---
 - name: Copy a file from one server to another
   hosts: source_server
@@ -165,7 +172,7 @@ Ansible templates are used to create configuration files dynamically. They use t
         src: /path/to/source/file
         dest: /path/to/destination/file
       delegate_to: destination_server
----
+```
 #### 8. Ansible Galaxy and Collection
 Ansible Galaxy: Ansible Galaxy is a repository for Ansible roles and collections. It allows users to share and download pre-built roles and collections to speed up their automation projects.
 Collections: Collections are a way to package and distribute Ansible content, including roles, modules, plugins, and documentation. They help organize and distribute Ansible content more effectively.
