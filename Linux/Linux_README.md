@@ -754,6 +754,33 @@ Command: lscpu
 Explanation: lscpu provides detailed information about CPU architecture and cores.
 
 
+#### 1. What is the awk command in Linux?
+A. powerful text-processing programming language transforming data.
+
+#### 2. How do you check free space available in Linux?
+A. display the amount of disk space used and available on Linux file systems.
+
+#### 3. How can you connect to remote servers without a password? How is this achieved?
+A. Using SSH Key Authentication.
+Generate SSH key pair with ssh-keygen.
+Copy the public key to the remote server using ssh-copy-id user@remote_host.
+Ensure the ~/.ssh/authorized_keys file on the remote server contains your public key.
+
+#### 4. How do you connect to a remote Linux server using SSH?
+A. Use the ssh command: ssh user@remote_server.
+
+
+#### 5. How do you monitor system performance in Linux?
+A. Use commands like top, htop, vmstat, iostat, and sar.
+
+#### 6.How do you check the network connectivity in Linux?
+A. Use the ping command: ping <hostname or IP>. For example, ping google.com.
+
+#### 7. What are the ping, telnet, curl, and wget commands in Linux?
+A. ping: Checking network connectivity
+telnet: it will connect another servers
+curl: curl is used in command lines or scripts to transfer data
+wget: download file It supports HTTP, HTTPS, and FTP protocols
 
 
  
