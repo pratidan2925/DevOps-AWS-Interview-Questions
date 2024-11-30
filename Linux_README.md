@@ -8,11 +8,11 @@
 
 "chmod" is a command in Linux used to change permissions for files and directories. It allows you to specify who can read, write, or execute a file or directory. You can use symbolic or octal notation to set permissions. For example, chmod u+x file.txt adds execute permission for the owner of "file.txt", while chmod 755 file.txt gives the owner full permissions and read/execute permissions to the group and others.
 
-Read -  4      
+-Read -  4      
 
-write - 2     
+-write - 2     
 
-execute - 1
+-execute - 1
  ---
 #### 777 in Linux
 
