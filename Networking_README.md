@@ -1,4 +1,4 @@
-#Networking
+# Networking
 
 #### what is TCP IP protocol
 TCP/IP (Transmission Control Protocol/Internet Protocol) is a set of communication protocols used to connect network devices on the internet. It defines how data should be transmitted, routed, and received across networks . TCP (Transmission Control Protocol): Ensures reliable, ordered delivery of data between applications.
