@@ -165,35 +165,35 @@ more is used to view the content of a file one page at a time, which is useful f
 # WINDOWS
 
  #### Why linux is more secure than windows explain in short.
-             Linux is often seen as more secure than Windows for a few simple reasons:
-Open Source: Since the code is open for everyone to see, many people can check and fix security problems quickly.
-User Permissions: Linux restricts what regular users can do, making it harder for viruses to cause damage.
-Built-In Security: It has strong security tools like SELinux and AppArmor that help protect the system.
-Variety: There are many different versions of Linux, so a virus for one version might not work on another.
-Less Targeted: Fewer people use Linux compared to Windows, so it's less of a target for hackers.
+ Linux is often seen as more secure than Windows for a few simple reasons:
+**Open Source:** Since the code is open for everyone to see, many people can check and fix security problems quickly.
+**User Permissions:** Linux restricts what regular users can do, making it harder for viruses to cause damage.
+**Built-In Security:** It has strong security tools like SELinux and AppArmor that help protect the system.
+**Variety:** There are many different versions of Linux, so a virus for one version might not work on another.
+**Less Targeted:** Fewer people use Linux compared to Windows, so it's less of a target for hackers.
 These factors make Linux generally more secure.
 
 
 #### Difference between Linux and windows
-Source Code:
+**Source Code:**
 Linux: Open source, allowing anyone to view, modify, and distribute the code.
 Windows: Closed source, proprietary software owned by Microsoft.
-Cost:
+**Cost:**
 Linux: Generally free to use and distribute.
 Windows: Requires a paid license.
-User Permissions:
+**User Permissions:**
 Linux: Enforces strict user permissions and roles, enhancing security.
 Windows: Uses a user account control system, which is less strict compared to Linux.
-Customization:
+**Customization:**
 Linux: Highly customizable, from the kernel to the user interface.
 Windows: Limited customization options; changes are mostly superficial (e.g., themes).
-Software Installation:
+**Software Installation:**
 Linux: Uses package managers (e.g., apt, yum) to install software from repositories.
 Windows: Software is typically installed using executable (.exe) files from various sources.
-Security:
+**Security:**
 Linux: Generally considered more secure due to its permissions system, smaller user base, and open-source nature.
 Windows: More targeted by malware due to its larger user base and popularity.
-Performance:
+**Performance:**
 Linux: Known for its efficiency and performance, particularly on older hardware.
 Windows: Requires more resources, especially for newer versions.
  
@@ -201,8 +201,8 @@ Windows: Requires more resources, especially for newer versions.
 IIS (Internet Information Services) is Microsoft's web server software for hosting websites and applications on Windows servers. It provides features for managing, securing, and scaling web services with support for various programming languages and protocols.
 
 #### 4. What is interpreter and compiler
-An interpreter translates source code into machine code line-by-line and executes it immediately. Languages like Python and JavaScript use interpreters.
-compiler translates the entire source code into machine code at once, creating an executable file. Languages like C and C++ use compilers.
-Interpreted languages offer faster development and platform independence but slower execution, while compiled languages offer faster execution and standalone executables but slower development cycles.
+- An interpreter translates source code into machine code line-by-line and executes it immediately. Languages like Python and JavaScript use interpreters.
+- compiler translates the entire source code into machine code at once, creating an executable file. Languages like C and C++ use compilers.
+- Interpreted languages offer faster development and platform independence but slower execution, while compiled languages offer faster execution and standalone executables but slower development cycles.
  
 
