@@ -39,17 +39,17 @@ terraform destroy: Destroys all resources managed by Terraform, effectively remo
 -Providers: Plugins that Terraform uses to interact with cloud providers, SaaS providers, and other APIs. Each provider manages resources for its service.
 Configuration: Define providers in the configuration file using the provider block. Example:
 hcl
--provider "aws" {
--  region = "us-west-2"
-- }
-
+``` provider "aws" {
+ region = "us-west-2"
+ }
+```
 
 #### Describe how to use the terraform import command.
 - Purpose: Imports existing infrastructure into Terraform’s state. It allows Terraform to manage resources that were created outside of Terraform.
 - Usage: Run terraform import <resource_type>.<resource_name> <resource_id>. Example:
 bash
 
-- terraform import aws_instance.my_instance i-1234567890abcdef0
+  ``` terraform import aws_instance.my_instance i-1234567890abcdef0 ```
 
 
 #### How do you manage multiple environments (e.g., development, staging, production) in Terraform?
@@ -64,7 +64,8 @@ bash
 #### Explain how you can use Terraform to manage dependencies between resources.
 - Implicit Dependencies: Terraform automatically manages dependencies based on resource references. For example, if one resource references another, Terraform will create them in the correct order.
 - Explicit Dependencies: Use depends_on to explicitly define dependencies when automatic ordering isn’t sufficient.
-How do you perform resource tainting and why is it useful?
+  
+#### How do you perform resource tainting and why is it useful?
 - Tainting: Marks a resource for recreation. Useful for forcing a resource to be replaced when it’s in a bad state or has changed in an unintended way.
 - Command: Use terraform taint <resource_name>. To remove the taint, use terraform untaint <resource_name>.
   
@@ -118,7 +119,7 @@ Re-run terraform apply: After fixing issues, re-run terraform apply to complete 
 #### How do you manage provider version constraints in Terraform configurations?
 - Specify Version: Define version constraints in the required_providers block of the configuration file.
 Example:
-
+```
 terraform {
   required_providers {
     aws = {
@@ -127,7 +128,7 @@ terraform {
     }
   }
 }
-
+```
 
 #### Explain the purpose and use of terraform graph.
 Purpose: Generates a visual representation of the dependency graph for resources managed by Terraform.
@@ -135,8 +136,7 @@ Usage: Run terraform graph | dot -Tsvg > graph.svg to create a visual graph in S
 #### How do you configure remote backends in Terraform, and why are they useful?
 Configuration: Define a backend in the terraform block of your configuration file.
 Example:
-hcl
-Copy code
+```
 terraform {
   backend "s3" {
     bucket         = "my-tf-state"
@@ -145,7 +145,7 @@ terraform {
     dynamodb_table = "my-tf-lock"
   }
 }
-
+```
 
 Usefulness: Remote backends store the state file centrally, allowing collaboration, state locking, and versioning.
 Describe how to use the Terraform Registry.
@@ -154,12 +154,11 @@ Usage: Search for modules or providers on the Terraform Registry website, and us
 #### How do you handle conditional logic in Terraform?
 Use count and for_each: Conditional resource creation can be managed using count or for_each based on conditions.
 Example:
-hcl
-Copy code
+```
 resource "aws_instance" "example" {
   count = var.create_instance ? 1 : 0
 }
-
+```
 
 #### What are some best practices for writing reusable and maintainable Terraform code?
 Use Modules: Break down configurations into reusable modules.
@@ -169,8 +168,7 @@ Document: Document modules and configurations for clarity.
 #### Explain the purpose and usage of data sources in Terraform.
 Purpose: Data sources allow Terraform to query and retrieve information from external sources or existing infrastructure.
 Usage: Define data sources using the data block and use their attributes in resource configurations. Example:
-hcl
-Copy code
+```
 data "aws_ami" "latest_amazon_linux" {
   owners = ["amazon"]
   most_recent = true
@@ -178,6 +176,7 @@ data "aws_ami" "latest_amazon_linux" {
     name = "amzn2-ami-hvm-*-x86_64-gp2"
   }
 }
+```
 #### How do you handle breaking changes introduced in new Terraform versions?
 Review Changelogs: Check release notes for breaking changes.
 Test in Staging: Apply changes in a staging environment before production.
