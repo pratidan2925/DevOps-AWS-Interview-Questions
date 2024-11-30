@@ -784,4 +784,159 @@ wget: download file It supports HTTP, HTTPS, and FTP protocols
 
 
  
+#### What is the boot process in Linux?
+The Linux boot process involves several stages:
+BIOS/UEFI: Initializes hardware and loads the bootloader from disk.
+Bootloader (GRUB, LILO, etc.): Loads the kernel into memory and passes control to it.
+Kernel Initialization: The kernel initializes system hardware, mounts the root filesystem, and starts the init process.
+Init/Systemd: The init process (or systemd on modern systems) starts essential system services and the user environment.
+Runlevel Initialization: Based on the runlevel or target, specific services and processes are started.
+Login: The system is ready for user logins.
+
+
+#### How can you create a zero-size file in Linux?
+Use the touch command: touch filename. This creates an empty file if it does not already exist or updates the timestamp if it does.
+
+#### What are soft links and hard links in Linux? How do you create them? What are the differences between these two types of links?
+Soft Links (Symbolic Links): They are references to another file or directory. Created using ln -s target link_name. They can span filesystems and can point to directories.
+Hard Links: They are references to the same inode as the target file, essentially creating another directory entry for the same file. Created using ln target link_name. Hard links cannot span filesystems and cannot be used for directories.
+Differences:
+Soft links can be broken if the target is deleted, while hard links remain valid.
+Hard links cannot link to directories (except for . and ..).
+
+
+#### What is the first line typically written in a shell script? What is its meaning? What happens if this line is omitted, and how do you run the script in such a case?
+The first line is usually #!/bin/bash or #!/bin/sh, known as a shebang. It specifies the interpreter to execute the script.
+If omitted, the script will not have a specified interpreter, and you need to explicitly call the interpreter to run it, e.g., bash script.sh.
+
+
+#### How can you run a shell script in the background in Linux?
+Use & at the end of the command: ./script.sh &. This runs the script in the background.
+
+
+#### What is a crontab in Linux? Explain how it works and how to configure and schedule a job using crontab.
+A crontab is a file that contains a list of commands to be executed at specified intervals. It uses the cron daemon to schedule and run these jobs.
+Configure a job:
+Edit the crontab file using crontab -e.
+Add a line with the format: * * * * * command_to_run, where the five asterisks represent minute, hour, day of month, month, and day of week, respectively.
+Save the file to schedule the job.
+
+
+#### How do you allow ports in Linux?
+Use firewall management tools like iptables or firewalld:
+With iptables: iptables -A INPUT -p tcp --dport port_number -j ACCEPT.
+With firewalld: firewall-cmd --add-port=port_number/tcp --permanent followed by firewall-cmd --reload.
+
+
+#### How do you troubleshoot a remote server that is experiencing issues?
+Check Connectivity: Use ping, traceroute, or telnet to test network connectivity.
+Check Logs: Examine system and application logs for errors.
+Resource Utilization: Use commands like top, free, df, and du to check resource usage.
+SSH Access: Ensure you can SSH into the server and verify service statuses with systemctl or service.
+
+
+#### What are the ping, telnet, curl, and wget commands in Linux?
+ping: Tests network connectivity to a host.
+telnet: Connects to a specific port on a remote host to test connectivity.
+curl: Transfers data to or from a server using various protocols (e.g., HTTP, FTP).
+wget: Downloads files from the web using HTTP, HTTPS, or FTP.
+
+
+#### How can you check the status of services in a Linux machine?
+Use systemctl status service_name or service service_name status for services managed by systemd or SysVinit, respectively.
+
+#### do you kill a process in Linux?
+Use the kill command with the process ID (PID): kill PID.
+For more forceful termination, use kill -9 PID.
+
+
+#### What are the nice and renice commands in Linux?
+nice: Starts a process with a specified priority level (niceness). Example: nice -n 10 command.
+renice: Changes the priority of an already running process. Example: renice -n 10 -p PID.
+
+
+#### What is an inode in Linux?
+An inode is a data structure on a filesystem that stores information about a file or directory, such as its size, owner, permissions, and disk location, but not its name.
+
+#### How do you check CPU utilization in Linux?
+Use commands like top, htop, or mpstat (from the sysstat package) to view CPU usage statistics.
+
+
+#### What are the differences between the top and htop commands?
+top: Provides a text-based interface for monitoring system processes and resource usage.
+htop: An enhanced, interactive version of top with a more user-friendly interface, color-coding, and the ability to scroll through the process list.
+
+
+#### What is a mount in Linux, and how do you create one?
+A mount is the process of making a filesystem accessible at a specific directory in the existing filesystem tree. To create one:
+Use the mount command: mount /dev/device /mount_point.
+
+#### How do you troubleshoot live logs in Linux?
+Use commands like tail -f /path/to/logfile to view real-time log updates.
+Check logs in directories like /var/log/ for system and application logs.
+
+#### What is the sed command in Linux?
+sed (stream editor) is used for parsing and transforming text from input streams or files. Example: sed 's/old/new/g' file replaces all occurrences of "old" with "new".
+
+#### What is the awk command in Linux?
+awk is a text-processing tool used for pattern scanning and processing. It can perform operations on text files and data streams. Example: awk '{print $1}' file prints the first field of each line.
+
+#### What are the grep and egrep commands in Linux?
+grep: Searches for patterns within files. Example: grep 'pattern' file.
+egrep: An extended version of grep that supports extended regular expressions.
+
+#### How can you list only directories in a Linux environment?
+Use ls -d */ to list directories in the current directory.
+
+#### How do you check the processes running in Linux?
+Use ps aux or top to list running processes. For a more detailed view, pstree can be used to display processes in a tree format.
+
+#### How do you get a Java thread dump in Linux?
+Use the jstack command followed by the PID of the Java process: jstack PID.
+
+#### How can you check the running ports on a Linux machine?
+Use netstat -tuln or ss -tuln to list all listening ports and associated services.
+
+#### How do you declare a variable in a shell script?
+Declare a variable using variable_name=value. For example: name="John".
+
+#### What do $?, $#, and $* represent in shell scripting?
+$?: The exit status of the last executed command.
+$#: The number of positional parameters passed to the script.
+$*: All the positional parameters passed to the script as a single string.
+
+#### How do you read a command line input in a shell script?
+Use the read command: read variable_name. Example: read name.
+
+#### What is umask in Linux?
+umask is a command that sets default file creation permissions. It defines the default permissions that are masked out when files or directories are created.
+
+
+#### How do you change file permissions in Linux?
+Use the chmod command. Example: chmod 755 filename sets read, write, and execute permissions for the owner, and read and execute permissions for others.
+
+#### How can you connect to remote servers without a password? How is this achieved?
+Use SSH keys for passwordless authentication. Generate a key pair using ssh-keygen, and copy the public key to the remote server’s ~/.ssh/authorized_keys file using ssh-copy-id.
+
+
+#### How do you open a file in read-only mode in the vi editor?
+Use the command vi -R filename or open the file normally and enter command mode, then type :view filename.
+
+
+#### What is the purpose of the export command in Linux?
+The export command sets environment variables that are available to child processes. Example: export VAR=value.
+
+#### How do you send error logs and stdout logs to different files in Linux?
+Use redirection operators. Example: command > stdout.log 2> error.log.
+
+#### What is the nohup command in Linux?
+nohup (no hang up) allows a command to continue running even after the user has logged out. Example: nohup command &.
+
+
+#### What does the netstat command do in Linux?
+netstat displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+
+
+#### How do you run a script at boot level in Linux?
+Place the script in /etc/init.d/ and create a symlink to it in the appropriate runlevel directories (e.g., /etc/rc.local for traditional SysVinit systems). For systemd, create a service file and enable it using systemctl enable service_name.
 
