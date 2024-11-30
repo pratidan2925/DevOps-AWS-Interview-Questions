@@ -896,3 +896,98 @@ To establish a connection between EC2 instances:
 Ensure both instances are in the same VPC or have VPC peering.
 Configure security groups to allow inbound traffic on the necessary ports (e.g., SSH, HTTP).
 Use the private IP address of the target instance to connect.
+
+
+#### 4. What are the types of storage accounts in AWS S3?
+Answer: AWS S3 offers several storage classes:
+Standard: High durability and availability for frequently accessed data.
+Intelligent-Tiering: Automatically moves data between two access tiers when access patterns change.
+Standard-IA (Infrequent Access): Lower cost for data that is accessed less frequently but requires rapid access when needed.
+One Zone-IA: Lower cost than Standard-IA but stores data in a single AZ.
+Glacier: Low-cost storage for long-term archival with retrieval times in minutes to hours.
+Glacier Deep Archive: Lowest-cost storage for long-term archival with retrieval times in hours.
+
+
+#### 5. Are you familiar with lifecycle management in S3 buckets? How do you set up lifecycle policies?
+Answer: Yes, I am familiar with lifecycle management in S3 buckets. Lifecycle policies help manage object storage by automatically transitioning objects to different storage classes or expiring them after a specified period. To set up lifecycle policies:
+Go to the S3 bucket in the AWS Management Console.
+Select the "Management" tab and then "Lifecycle".
+Create a new lifecycle rule, specify the prefix or tags to identify the objects, and define the actions (transition or expiration).
+Save the rule.
+
+#### 6. What are the differences between load balancers, and why do we need them?
+Answer: Load balancers distribute incoming traffic across multiple servers to ensure high availability and reliability. In AWS, the main types of load balancers are:
+Application Load Balancer (ALB): Operates at the application layer (Layer 7), ideal for HTTP/HTTPS traffic, supports advanced routing features.
+Network Load Balancer (NLB): Operates at the transport layer (Layer 4), handles high traffic with low latency, suitable for TCP/UDP traffic.
+Classic Load Balancer (CLB): Operates at both the application and network layers but is legacy and less feature-rich compared to ALB and NLB.
+
+
+#### 7. Have you worked with Auto Scaling Groups (ASG)?
+Answer: Yes, I have worked with Auto Scaling Groups (ASG). ASGs automatically adjust the number of EC2 instances based on demand to maintain performance and optimize costs. They ensure the right number of instances are running to handle the load, and they can automatically scale in or out based on defined policies.
+
+
+#### 11. Which AWS services do you consider when setting up a CI/CD pipeline for a microservices application?
+Answer: When setting up a CI/CD pipeline for a microservices application, consider the following AWS services:
+AWS CodeCommit: Source code repository.
+AWS CodeBuild: Build service for compiling code and running tests.
+AWS CodeDeploy: Deployment service to automate application deployments.
+AWS CodePipeline: Orchestration service to define the CI/CD workflow.
+Amazon ECR: Docker container registry to store and manage Docker images.
+Amazon ECS or EKS: Container orchestration services to run and manage microservices.
+
+
+#### 12. On a day with unusually high traffic for an e-commerce application, how would you, as a cloud engineer, manage the current setup to handle the load smoothly?
+Answer: To manage high traffic:
+Auto Scaling: Ensure Auto Scaling Groups are configured to automatically scale instances based on demand.
+Load Balancers: Verify that load balancers are correctly distributing traffic and can handle increased load.
+Caching: Use caching mechanisms like Amazon CloudFront or ElastiCache to reduce the load on the backend.
+Database Scaling: Scale the database vertically or horizontally, and use read replicas to offload read traffic.
+Monitoring: Continuously monitor the system with CloudWatch to identify and address bottlenecks.
+
+
+#### 13. If traffic is currently handled on a single instance, how would you upgrade for high availability in AWS?
+Answer: To upgrade for high availability:
+Load Balancer: Add an Application Load Balancer (ALB) to distribute traffic across multiple instances.
+Auto Scaling: Configure an Auto Scaling Group (ASG) to automatically adjust the number of instances based on demand.
+Multiple Availability Zones: Deploy instances across multiple Availability Zones to ensure redundancy and fault tolerance.
+RDS Multi-AZ: Use Amazon RDS Multi-AZ deployment for database high availability and failover support.
+
+
+#### 14. When auto-scaling instances, how do you manage the backend RDS database?
+Answer: To manage the backend RDS database during auto-scaling:
+Read Replicas: Use RDS read replicas to offload read traffic from the primary database.
+Scaling: Monitor database performance and scale up the RDS instance or adjust instance classes as needed.
+Connection Management: Implement connection pooling to efficiently manage database connections from scaled instances.
+Multi-AZ Deployment: Ensure the RDS database is configured for Multi-AZ deployment to enhance availability and failover capabilities.
+
+
+#### 15. Have you ever set up cross-account access for S3? For example, if the QA team needs access to the production database.
+Answer: Yes, I have set up cross-account access for S3. This involves:
+IAM Roles: Create an IAM role in the target account with the necessary permissions.
+Trust Relationship: Update the trust relationship in the role to allow the source account to assume the role.
+Bucket Policy: Update the S3 bucket policy to grant access to the IAM role from the source account.
+
+
+#### 16. How can an S3 account in Account A access an S3 account in Account B?
+Answer: To allow an S3 account in Account A to access an S3 bucket in Account B:
+Create IAM Role: Create an IAM role in Account B with permissions to access the S3 bucket.
+Set Trust Relationship: Configure the trust relationship to allow IAM users or roles from Account A to assume the role.
+Bucket Policy: Update the S3 bucket policy in Account B to grant access to the IAM role.
+
+
+#### 17. Can you differentiate between IAM policies and IAM roles?
+Answer:
+IAM Policies: Documents that define permissions and can be attached to users, groups, or roles. They specify what actions are allowed or denied on which resources.
+IAM Roles: Identities that can be assumed by trusted entities (users, applications, services) to gain temporary access to AWS resources. Roles have associated policies that define their permissions.
+
+
+#### 18. Can you explain the STS assumption role policy?
+Answer: The STS (Security Token Service) AssumeRole API allows an entity to assume a role and obtain temporary security credentials. This is commonly used to grant cross-account access. The entity must be granted permission to assume the role through the role's trust policy, which specifies which entities are allowed to assume the role.
+
+
+#### 19. Have you experienced any challenging issues or incidents in your project? How did you and your team identify and resolve them?
+Answer: Yes, one challenging issue was a significant performance degradation in a production environment. We identified the problem through:
+Monitoring Tools: Using CloudWatch and Prometheus to detect abnormal metrics and logs.
+Root Cause Analysis: Conducting a thorough investigation to isolate the issue, which was related to database connection limits.
+Resolution: Implementing connection pooling and increasing database instance size to handle the load.
+Post-Incident Review: Conducted a post-incident review to document the incident and improve processes to prevent future occurrences.
