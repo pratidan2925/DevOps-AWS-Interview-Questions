@@ -503,6 +503,85 @@ Stateful Applications: Use application-specific backup tools or mechanisms for s
 Disaster Recovery Plan: Implement a disaster recovery plan to restore the entire cluster or specific components.
 Scenario: I implemented persistent volume snapshots and backed up critical Kubernetes configurations to ensure quick recovery in case of failures.
 
+#### What is a StatefulSet, and when would you use it?
+A StatefulSet is a Kubernetes resource for managing stateful applications. Unlike Deployments, which handle stateless applications, StatefulSets maintain a sticky identity for each pod, which includes a stable, unique network identifier and persistent storage. This is crucial for applications that require stable network identities or persistent storage, such as databases and distributed systems.
+Explain the concept of Persistent Volumes (PV) and Persistent Volume Claims (PVC).
+Persistent Volumes (PV): PVs are storage resources in a Kubernetes cluster that have been provisioned by an administrator. They are independent of individual pods and provide a way to manage and abstract storage.
+Persistent Volume Claims (PVC): PVCs are requests for storage by users. They specify the amount of storage needed and any specific requirements. The Kubernetes control plane matches PVCs with available PVs and binds them, allowing pods to use the requested storage.
+
+
+#### How does the Kubernetes scheduler work?
+The Kubernetes scheduler is responsible for assigning pods to nodes based on resource availability and constraints. It evaluates nodes for resource requirements (CPU, memory), affinity/anti-affinity rules, taints/tolerations, and other constraints. The scheduler then selects the most suitable node and schedules the pod to run on it.
+
+
+#### What is a DaemonSet, and how is it used?
+A DaemonSet ensures that a specific pod runs on all (or some) nodes in a Kubernetes cluster. It is typically used for running background services that need to be present on every node, such as log collectors, monitoring agents, or network plugins.
+
+
+#### Describe the purpose and use of a Kubernetes Ingress.
+A Kubernetes Ingress manages external access to services within a cluster, typically HTTP/HTTPS. It provides routing rules to direct incoming traffic to the appropriate services based on hostnames and paths. Ingress controllers implement these rules and manage traffic routing.
+
+
+#### How do you monitor a Kubernetes cluster?
+Monitoring a Kubernetes cluster involves using tools and services to track the health and performance of the cluster and its components. Common approaches include:
+Prometheus: For collecting and querying metrics.
+Grafana: For visualizing metrics collected by Prometheus.
+ELK Stack: For centralized logging and search capabilities.
+Kubernetes Dashboard: For a web-based UI to monitor cluster status.
+
+
+#### What is Helm, and how does it simplify Kubernetes management?
+Helm is a package manager for Kubernetes that simplifies the deployment and management of applications. It uses Helm charts, which are pre-configured templates for Kubernetes resources. Helm charts streamline the installation, upgrade, and rollback of applications by providing a consistent and reusable way to define and deploy resources.
+
+
+#### Explain the use of Kubernetes ConfigMaps and Secrets.
+ConfigMaps: ConfigMaps are used to store non-sensitive configuration data in key-value pairs. They provide a way to separate configuration from application code and allow dynamic configuration updates.
+Secrets: Secrets are used to store sensitive information, such as passwords, tokens, and keys. They are encoded and stored securely, and access can be restricted to authorized pods and users.
+
+
+#### What are Kubernetes Operators, and how do they work?
+Kubernetes Operators are a method of extending Kubernetes to manage complex applications. They use custom resources and controllers to automate the deployment, scaling, and management of stateful applications. Operators encapsulate the knowledge and operational procedures of application management into code, enabling Kubernetes to manage these applications as a native resource.
+
+
+#### How do you handle logging in a Kubernetes environment?
+Logging in a Kubernetes environment typically involves:
+Centralized Logging: Using tools like Fluentd, Logstash, or the ELK Stack to collect and aggregate logs from all pods and nodes.
+Cloud Provider Solutions: Utilizing services like AWS CloudWatch Logs, Google Cloud Logging, or Azure Monitor for log management.
+Sidecar Containers: Deploying sidecar containers alongside your application pods to handle log collection and forwarding.
+
+
+#### What is the purpose of taints and tolerations in Kubernetes?
+Taints: Taints are applied to nodes to prevent pods from being scheduled on them unless the pods can tolerate the taint. This is useful for dedicating nodes for specific workloads or preventing non-critical workloads from running on nodes with special requirements.
+Tolerations: Tolerations are applied to pods to allow them to be scheduled on nodes with matching taints. They ensure that pods can be scheduled on nodes with specific conditions.
+
+
+#### How do you secure a Kubernetes cluster?
+Securing a Kubernetes cluster involves multiple strategies:
+RBAC: Implement Role-Based Access Control to manage permissions.
+Network Policies: Define rules to control traffic between pods.
+Pod Security Policies: Enforce security configurations for pod containers.
+Secrets Management: Use Kubernetes Secrets for sensitive data.
+API Server Security: Secure the API server with authentication and authorization.
+Regular Updates: Keep Kubernetes and its components up to date with the latest security patches.
+
+
+#### What is a Kubernetes Job, and how does it differ from a Deployment?
+A Kubernetes Job is used for running one or more pods to completion, typically for batch processing or tasks that need to run to a defined end state. Jobs ensure that a specified number of pods successfully complete their work.
+A Deployment, on the other hand, manages the lifecycle of stateless applications, ensuring that a specified number of pod replicas are running and available at all times. Deployments are used for continuous services rather than batch jobs.
+
+
+#### Explain the concept of Kubernetes Network Policies.
+Kubernetes Network Policies define rules to control the traffic between pods within a cluster. They specify which pods can communicate with each other based on labels, namespaces, and IP addresses. Network Policies help enforce security and segmentation within a Kubernetes network.
+
+
+#### How do you troubleshoot a failing Pod in Kubernetes?
+Troubleshooting a failing Pod involves several steps:
+Check Pod Status: Use kubectl describe pod <pod-name> to get detailed information about the pod and its events.
+View Logs: Use kubectl logs <pod-name> to view container logs for error messages.
+Inspect Events: Look for any related events using kubectl get events to identify issues.
+Check Resource Usage: Ensure that the pod has adequate resources (CPU, memory) by examining the resource usage.
+Verify Configuration: Check that environment variables, ConfigMaps, and Secrets are correctly configured.
+Debug Containers: Use kubectl exec to access the container and debug issues interactively.
 
 
 
