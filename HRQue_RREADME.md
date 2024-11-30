@@ -57,13 +57,139 @@ I want to work here because your organization is known for its innovative approa
 - On which tool i will get an opportunity to work on
 - 
 --- 
-  At last say i would like to work with you
+ - At last say i would like to work with you
 In order to match expectations of current industry standard or requirements where I need to improve myself ?
 Nntr bolaycha i would like to tell you ....... Me hey study krt ahe hey improve krt ahe or smjl Tula kahi yete te tyan v4rl nhi tya vr kaam kele bolaycha
 Sagl zal ki end la bolaycha if u have few minutes please tell me little about yourself.... For ex postion experience etc bhari vatte
 And ek line last la bolaycha thank you for your valuable feedback and thank you for your time to join this call have a nice day bye bye
 Hey Aaj sangitl te points note kr nd zal possible tr try krt jaa
  Khup bhari note vr end hote interview
- --- 
-Hey me aadhi krt nvto pn ata start kela
+ Hey me aadhi krt nvto pn ata start kela
 Sometimes last impression is best impression 😜
+
+---
+
+responsibilities
+In this role, I designed and implemented secure and efficient DevSecOps pipelines, integrating security practices into the CI/CD process to enhance application security. I managed a multi-cloud environment using AWS and Azure, ensuring high availability, disaster recovery, and cost optimization through automation and cross-cloud redundancy. I also leveraged tools like Terraform, Ansible, and Jenkins to automate infrastructure provisioning, configuration management, and deployment, ensuring seamless integration, testing, and deployment across environments. My work included implementing critical security measures, such as IaC security scans and secrets management, and optimizing application performance using load balancing and event-driven AWS Lambda functions. Additionally, I managed artifact repositories, enforced code quality checks with SonarQube, and ensured effective collaboration through Git and GitHub.
+
+
+
+
+
+#### 1. Suppose you are working alone; how do you handle a P1 or critical issue?
+Answer:
+When dealing with a P1 issue, my first step is to quickly assess the situation by checking monitoring systems and alerts. I prioritize identifying the root cause and work on a rollback plan or a temporary fix if necessary. I communicate the issue and progress transparently to the relevant stakeholders, ensuring they are updated at regular intervals. Once the issue is under control, I focus on implementing a permanent solution and documenting the incident to prevent future occurrences.
+#### 2. Suppose you are working alone and receive two critical P1 issues simultaneously. How do you handle it?
+Answer:
+In such cases, I first assess the impact and severity of both issues, prioritizing the one affecting business-critical systems. While addressing the first issue, I ensure the second one is acknowledged and communicate the delay to relevant stakeholders. If the second issue requires immediate attention, I either delegate to a backup team or automate a quick containment strategy (like re-routing traffic) while focusing on the highest priority. Clear communication is essential here to manage expectations while multitasking effectively.
+#### 3. How do you handle work pressure?
+Answer:
+I handle work pressure by staying organized, prioritizing tasks based on their urgency and impact, and breaking down larger tasks into smaller, more manageable ones. During high-pressure situations, I maintain a calm and focused approach, communicate with the team to ensure alignment, and avoid burnout by taking short breaks when needed. Stress management techniques like deep breathing or stepping away briefly also help me stay sharp and productive.
+#### 4. How do you manage work issues and conflict?
+Answer:
+To manage conflicts, I first ensure open and clear communication to understand each person's perspective. I believe in addressing conflicts early before they escalate, encouraging a collaborative approach to problem-solving. I remain neutral, listen to all sides, and work on finding a compromise that meets the team’s objectives while fostering respect. If necessary, I escalate the issue to management while ensuring it doesn't impact the team’s overall performance.
+#### 5. Suppose you have a deadline and need to work extra time. How do you manage that?
+Answer:
+If a deadline is approaching and extra work is required, I first evaluate the task's scope and prioritize the most critical aspects. I am open to working longer hours but ensure that I pace myself to avoid burnout. Proper time management, such as setting milestones and focusing on high-impact activities, helps me meet deadlines efficiently. If needed, I communicate with stakeholders about the extra effort required and align on any possible deadline extensions.
+#### 6. What strategies can you employ to meet deadlines?
+Answer:
+Clear Task Prioritization: Break down tasks and prioritize based on impact and urgency.
+Regular Progress Monitoring: Use tools like Kanban boards or sprint trackers to monitor progress and adjust as needed.
+Resource Optimization: Delegate where appropriate and automate repetitive tasks to save time.
+Time Management: Set mini-deadlines and allocate specific time blocks for high-priority work.
+Proactive Communication: Keep stakeholders informed on progress and potential blockers well in advance.
+Anticipate Risks: Have contingency plans for possible setbacks and adjust schedules accordingly.
+#### 7. How do you collaborate with a team?
+Answer:
+I collaborate by encouraging open communication and ensuring everyone understands their roles and responsibilities. I use tools like Slack or Microsoft Teams for regular check-ins and use project management tools like Jira or Trello for task tracking. I foster an environment where team members feel comfortable sharing ideas and challenges. I also lead by example, offering support, sharing feedback, and actively listening to others’ suggestions, ensuring we all work towards the same goal.
+
+
+
+
+ --- 
+
+Providing build machine and workflow for developers
+
+
+Developers do changes locally, execute local build, push changes to SCM, create MR/PR, run CI pipelines, merge into major branch
+In special cases like urgent production fixes, create AIX branch, make changes, merge back to major branch
+✦
+Implementing a solution to reduce local build time
+02:13
+Proposing a large AWS machine for code cloning and execution to expedite results
+Implementing access to the AWS machine only via command line, logging developer commands, and automated process to stop EC2 machine
+✦
+Key activities to manage access and logging for a Cloud instance.
+06:52
+Provided access via session manager and IM user for restricted access to instance.
+Captured commands executed in Cloudwatch for auditing and analysis purposes.
+✦
+Setting up EC2 machine, attaching policies, and configuring CloudWatch
+09:08
+Creating policies from scratch and attaching to the EC2 machine
+Configuring CloudWatch for monitoring and logging
+✦
+Setup developer access to AWS resources
+13:30
+Creating access key and secret key for developer authentication.
+Configuring AWS CLI and using AWS CLI commands to connect via session manager.
+✦
+Monitoring user activities and setting up automatic stop using EventBridge
+15:45
+Capturing user session commands for auditing purposes
+Setting up scheduled rule in EventBridge for automatic instance stop
+✦
+Managing self-managed node groups with different instance types and configurations for tools like Jenkins and Grafana.
+19:57
+Self-managed node groups allow deploying applications based on requirements of different CD tools.
+Custom configurations like Kubernetes plug-in and Fleet Manager used for large pipelines in Jenkins.
+✦
+Cloud/Devops Engineer's daily activities involve managing caching, secrets management, and integrating with other tools.
+22:03
+Caching management involves storing and using caches for smaller tasks using S3 and AWS Secret Manager.
+Integration with other tools like Garett, Grafana, Prometheus, and Jenkins for creating statistics and dashboards.
+✦
+Importance of Access Management and Configuration in Cloud/DevOps
+26:17
+Access management is crucial for authenticating services and managing user permissions.
+Configuration using tools like Terraform ensures quick replication and proper auditing.
+✦
+Maintaining availability through multiple environments
+28:19
+Implement new features in integration environment before moving to production
+Use Terrant tool to manage infrastructure code across multiple environments easily
+✦
+Transition from Harbor to JFrog Artifactory
+32:18
+Challenges with Harbor led to the decision to switch to JFrog due to lack of features, downtime, and backup issues.
+To implement production-grade JFrog Artifactory, various components like Artifactory UI, Maven, Docker, and X-ray are required for communication and artifact storage.
+✦
+X-ray component for artifact security scanning and deletion
+34:12
+X-ray component scans artifacts for security vulnerabilities and issues, allowing for deletion of critical alerts.
+Importance of jrog Artifactory Edge node in managing large number of consumers, developers, pipelines, and environments for deployment.
+✦
+Importance of Edge node in production grade J artifactory setup
+38:05
+Edge node enables high availability and faster application deployment
+Machine control used for managing components and infrastructure setup
+✦
+Setting up artifact storage using MySQL cluster and S3
+Artifacts uploaded are stored in MySQL database for metadata information
+Actual artifacts are stored in S3 for efficient storage and retrieval
+Managing cloud infrastructure efficiency
+Experimenting with different instance types to optimize costs and performance
+Documenting and suggesting better instance types for cost savings and improved performance
+Utilizing Confluence for documentation and decision-making
+Confluence is commonly used for documentation in organizations to present data to management and application teams for decision-making on resources.
+Improving performance, reducing costs, and enhancing architectural decisions are key responsibilities for a DevOps Engineer.
+Implementing Git cache for faster pipeline execution
+Nightly Jenkins job creates tarball of repositories for caching purposes
+Using 'git clone' with '--reference' option to fetch only changes from remote repository for faster pipeline execution
+Moved artifactory artifact to AWS S3 for faster download
+Artifactory artifact download was slow due to being hosted on a different internal cloud
+Ran independent stages in parallel to reduce build time
+Implementing code coverage and deployment strategies as a Cloud/Devops Engineer
+Execute code coverage on changed files for faster performance
+Used strategies for deployment, but too much to cover in single video
+
