@@ -1347,3 +1347,73 @@ Answer: SonarQube is a code quality and security analysis tool that provides ins
 #### What is code coverage in SonarQube?
 Answer: Code coverage in SonarQube measures the percentage of code that is executed by automated tests. It helps identify untested parts of the codebase and assess the effectiveness of your test suite. Higher code coverage generally indicates better testing and higher confidence in code quality, though it is not the sole measure of code quality.
 
+
+#### Tell me about yourself, daily tasks, and project.
+Introduction: Provide a brief summary of your background, including your experience as a DevOps engineer, key skills, and career highlights.
+Daily Tasks: Common tasks include monitoring and managing infrastructure, writing and maintaining CI/CD pipelines, automating deployments, troubleshooting issues, and collaborating with development teams.
+Project: Describe a notable project, such as setting up a CI/CD pipeline, deploying applications to Kubernetes, or implementing infrastructure as code with Terraform. Mention your role, the technologies used, and the impact of the project.
+
+
+#### Have you written any Jenkins Pipeline from scratch?
+Yes, I have written Jenkins Pipelines from scratch. These pipelines include stages for building, testing, and deploying applications. I typically use Jenkins Pipeline DSL (Declarative or Scripted) to define the pipeline structure, steps, and stages.
+
+
+#### Mention some plugins you have used in Jenkins.
+Git Plugin: Integrates with Git repositories.
+Pipeline Plugin: Enables the creation of Jenkins Pipelines.
+Docker Pipeline Plugin: Allows using Docker in Jenkins pipelines.
+Blue Ocean Plugin: Provides a modern UI for Jenkins.
+Slack Notification Plugin: Sends notifications to Slack channels.
+
+#### What is CI/CD?
+CI (Continuous Integration): The practice of automatically integrating code changes from multiple contributors into a shared repository several times a day. This process includes automated testing to ensure code quality.
+CD (Continuous Deployment/Delivery): Automates the release process by deploying code changes to production or staging environments automatically (Continuous Deployment) or making it ready for deployment (Continuous Delivery).
+
+
+#### How can you create a backup and copy files in Jenkins?
+Backup: Use the ThinBackup plugin to back up Jenkins configurations, jobs, and builds. Configure the plugin to schedule backups and store them in a specified location.
+Copy Files: Use the Copy Artifact plugin to copy files from one Jenkins job to another, or use shell scripts in Jenkins Pipelines to copy files using commands like cp.
+
+
+#### Assume you have 2 Jenkins jobs. The first job completed successfully, but the 2nd job failed. What will you do?
+Investigate the logs and error messages of the failed job to determine the cause. Troubleshoot the issue by checking configurations, dependencies, or scripts. Fix the underlying problem and rerun the failed job. Ensure proper error handling and notifications are in place.
+
+#### Can you tell me the process to integrate Git with Jenkins?
+Install Git Plugin: Ensure the Git plugin is installed in Jenkins.
+Configure Repository: Go to the Jenkins job configuration page and under the "Source Code Management" section, select "Git" and provide the repository URL and credentials.
+Set Triggers: Configure build triggers to start the job automatically on changes, such as using SCM polling or webhooks.
+
+#### Can you tell me what is DSL in Jenkins?
+DSL (Domain-Specific Language): Jenkins DSL is used to define Jenkins jobs and pipelines in code. Jenkins Pipeline DSL allows you to create complex build workflows and automate tasks using either Declarative or Scripted syntax.
+
+#### Why use Jenkins instead of Bamboo? Difference between them.
+Jenkins: Open-source, highly extensible, and widely used for CI/CD. It has a large plugin ecosystem and community support.
+Bamboo: A commercial product by Atlassian, integrates tightly with other Atlassian tools like Jira and Bitbucket. It offers built-in CI/CD features and a more integrated user experience.
+
+
+Differences: Jenkins is more customizable and has a larger plugin ecosystem, while Bamboo provides a more integrated experience with Atlassian tools and may have better support for enterprise features.
+
+
+#### How to deploy a custom build of a code plugin to Jenkins?
+Build Plugin: Create or modify the plugin code and build it using Maven (usually with mvn clean install).
+Deploy: Copy the resulting .hpi or .jpi file to the Jenkins plugins directory ($JENKINS_HOME/plugins). Restart Jenkins to load the new plugin.
+#### What is the use of the Jenkins home directory?
+The Jenkins home directory ($JENKINS_HOME) is where Jenkins stores all its data, including job configurations, build artifacts, plugin files, user data, and system configurations.
+
+
+#### How do you take a backup of Jenkins Jobs?
+Use the ThinBackup plugin to back up Jenkins jobs and configurations. Alternatively, you can manually back up the $JENKINS_HOME directory to a secure location.
+
+
+#### What is the way to configure Jenkins nodes agent with Jenkins master?
+Add Node: Go to Manage Jenkins > Manage Nodes and Clouds > New Node.
+Configure Node: Provide a name, select the node type (e.g., Permanent Agent), and configure the node settings such as remote root directory and launch method (e.g., via SSH or JNLP).
+Launch Node: Ensure the agent is properly launched and connected to the Jenkins master.
+
+
+#### How will you manage a platform?
+Monitoring and Maintenance: Implement monitoring and alerting systems, perform regular updates and patch management.
+Automation: Use infrastructure as code (e.g., Terraform, Ansible) for consistent configuration and deployment.
+Scaling: Ensure the platform can scale horizontally and vertically based on load.
+Security: Regularly review and update security practices, manage access controls, and perform vulnerability assessments.
+
