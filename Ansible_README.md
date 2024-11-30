@@ -216,7 +216,21 @@ Summary
 Ansible is a powerful automation tool used for configuration management, application deployment, and infrastructure provisioning. It offers various features such as handlers, templates, and vaults for secure management. Ansible Tower enhances Ansible's capabilities by providing a centralized management interface, role-based access control, and job scheduling.
 
 
+#### 12. Ansible ping Command: Provide Command for 1. All Playbooks, 2. Single Playbook, 3. When I Want to Run Playbook on Any Specific Inventory Without Mentioning it in the Command
+Answer:
+Ping All Hosts: ansible all -m ping
+Ping a Specific Host: ansible <hostname> -m ping
+Run Playbook on Specific Inventory: If you want to run a playbook on a specific inventory without specifying it in the command, set the inventory parameter in the ansible.cfg file or define it in the playbook itself.
 
+
+#### 13. Ansible Static and Dynamic Inventory
+Answer:
+Static Inventory: A static inventory is a list of managed nodes defined in a file, typically called hosts or inventory, where you explicitly list the IPs or hostnames.
+Dynamic Inventory: A dynamic inventory fetches information from external sources like cloud providers (AWS, Azure) or a database to get the list of managed nodes.
+
+
+#### 14. Suppose I Want to Run a Playbook on Any Specific Inventory: How Should I Do It?
+Answer: You can run a playbook on a specific inventory by specifying the inventory file in the command, e.g., ansible-playbook -i <inventory-file> playbook.yml.
 
 8.How can you distribute tasks on Ansible?
 9. Extra module in Ansible 
