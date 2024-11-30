@@ -6,19 +6,19 @@ Terraform backend file
 Terraform state file
 
 #### Explain the difference between Terraform and other Infrastructure as Code (IaC) tools like Ansible, Puppet, and Chef.
-Terraform: Primarily used for provisioning and managing infrastructure. It follows a declarative approach, where you define the desired state of your infrastructure, and Terraform figures out how to achieve it. It’s used for managing resources across various cloud providers.
-Ansible: A configuration management tool that uses a procedural approach. It focuses on configuring software on existing servers and automating tasks like installations and updates. It’s agentless, using SSH for communication.
-Puppet: A configuration management tool that uses a declarative approach similar to Terraform but focuses on system configuration and management. Puppet uses a client-server model where agents are installed on nodes.
-Chef: Similar to Puppet, it’s a configuration management tool that uses a procedural approach. It manages infrastructure by writing recipes and cookbooks in Ruby. It also uses a client-server model.
+- Terraform: Primarily used for provisioning and managing infrastructure. It follows a declarative approach, where you define the desired state of your infrastructure, and Terraform figures out how to achieve it. It’s used for managing resources across various cloud providers.
+- Ansible: A configuration management tool that uses a procedural approach. It focuses on configuring software on existing servers and automating tasks like installations and updates. It’s agentless, using SSH for communication.
+- Puppet: A configuration management tool that uses a declarative approach similar to Terraform but focuses on system configuration and management. Puppet uses a client-server model where agents are installed on nodes.
+- Chef: Similar to Puppet, it’s a configuration management tool that uses a procedural approach. It manages infrastructure by writing recipes and cookbooks in Ruby. It also uses a client-server model.
 
 #### How do you manage state in Terraform, and what are some best practices for state management?
-Manage State: Terraform maintains the state of your infrastructure in a state file (terraform.tfstate). This file keeps track of the resources Terraform manages and their current state.
-Best Practices:
-Use Remote Backends: Store state files in remote backends (e.g., AWS S3 with DynamoDB for locking) to ensure consistency and collaboration.
-Lock State Files: Use locking mechanisms to prevent concurrent modifications.
-Secure State Files: Ensure state files are encrypted and access is controlled to protect sensitive information.
-Regular Backups: Keep backups of state files to recover from accidental deletions or corruption.
-Describe the purpose of Terraform modules and how you would use them in a project.
+- Manage State: Terraform maintains the state of your infrastructure in a state file (terraform.tfstate). This file keeps track of the resources Terraform manages and their current state.
+- Best Practices:
+- Use Remote Backends: Store state files in remote backends (e.g., AWS S3 with DynamoDB for locking) to ensure consistency and collaboration.
+- Lock State Files: Use locking mechanisms to prevent concurrent modifications.
+- Secure State Files: Ensure state files are encrypted and access is controlled to protect sensitive information.
+- Regular Backups: Keep backups of state files to recover from accidental deletions or corruption.
+#### Describe the purpose of Terraform modules and how you would use them in a project.
 Purpose: Modules are reusable and encapsulate a group of resources. They help organize and standardize Terraform code, making it easier to manage and maintain.
 Usage: Create modules in separate directories with their own main.tf, variables.tf, and outputs.tf. Use the module block in your main configuration to call these modules and pass necessary variables.
 
@@ -38,10 +38,10 @@ terraform destroy: Destroys all resources managed by Terraform, effectively remo
 #### What are Terraform providers, and how do you configure them?
 -Providers: Plugins that Terraform uses to interact with cloud providers, SaaS providers, and other APIs. Each provider manages resources for its service.
 Configuration: Define providers in the configuration file using the provider block. Example:
-- hcl
+hcl
 -provider "aws" {
 -  region = "us-west-2"
--}
+- }
 
 
 #### Describe how to use the terraform import command.
@@ -81,6 +81,7 @@ Run terraform init: This will download the updated provider version.
 - Multiple Regions: Deploy resources across multiple regions to ensure high availability.
 - Backup State: Use remote state backends with versioning and backups.
 - Redundancy: Implement redundant infrastructure components (e.g., multiple load balancers, databases in HA configurations).
+  
 #### Explain the use of terraform fmt and terraform validate in maintaining code quality.
 - terraform fmt: Formats Terraform configuration files to a canonical format, improving readability and consistency.
 - terraform validate: Validates the syntax and configuration of Terraform files, checking for errors and ensuring that configurations are valid.
