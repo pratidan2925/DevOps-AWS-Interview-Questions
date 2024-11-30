@@ -991,3 +991,139 @@ Monitoring Tools: Using CloudWatch and Prometheus to detect abnormal metrics and
 Root Cause Analysis: Conducting a thorough investigation to isolate the issue, which was related to database connection limits.
 Resolution: Implementing connection pooling and increasing database instance size to handle the load.
 Post-Incident Review: Conducted a post-incident review to document the incident and improve processes to prevent future occurrences.
+
+
+#### 6. VPC and What Is the Main Function of VPC
+Answer: A Virtual Private Cloud (VPC) is a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. The main function of a VPC is to provide network security, segmentation, and isolation within the AWS cloud.
+
+#### 7. How to Connect RDS with EC2 Instance: Give Specific Steps
+Answer:
+Ensure RDS is in the Same VPC: Make sure your RDS instance is in the same VPC as your EC2 instance.
+Security Group Configuration: Modify the security group associated with the RDS instance to allow inbound traffic from the EC2 instance’s IP address or security group.
+Connect Using Client: Use a database client like MySQL Workbench or connect directly from the EC2 instance using a command like mysql -h <RDS-endpoint> -u <username> -p.
+
+#### 8. My S3 Bucket is Private and There Are Multiple Files in That Bucket. Now I Want to Make a Specific File Public. How Can I Do That?
+Answer:
+Navigate to the S3 console and open the bucket.
+Find the specific file you want to make public.
+Select the file, click on the "Permissions" tab, and then "Edit" under "Public access."
+Check the box for "Grant public read access to this object(s)" and save the changes.
+
+#### 18. What is the use case of AWS Config service?
+Answer: AWS Config is used for:
+Configuration Tracking: Monitoring and recording configuration changes of AWS resources.
+Compliance Auditing: Assessing and auditing the compliance of resources with configuration policies.
+Change Management: Reviewing historical changes and relationships between resources.
+Governance: Ensuring that resources adhere to organizational policies and regulations.
+
+
+#### 19. How to track AWS cloud service changes?
+Answer: To track AWS cloud service changes, use:
+AWS CloudTrail: Provides a log of API calls and changes to AWS services.
+AWS Config: Monitors and records configuration changes and compliance.
+AWS CloudWatch: Tracks metrics and logs related to service performance and changes.
+
+
+#### 20. What is the use of DynamoDB?
+Answer: Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It is used for:
+High-Performance Applications: Supporting applications that require low-latency data access.
+Flexible Schema: Handling dynamic and unstructured data.
+Scalable Workloads: Managing workloads with high read and write throughput.
+
+
+#### 21. If you want to give someone temporary access for like 1 hour, how to do it, and how to configure that?
+Answer: To provide temporary access in AWS:
+Use AWS IAM Roles: Create a role with the required permissions and configure it with a trust relationship.
+Configure Session Duration: Set a temporary security token for the role with a specific session duration (e.g., 1 hour) using AWS Security Token Service (STS).
+Provide Access: Share the temporary credentials with the user.
+
+
+#### How do you differentiate within an AWS account dev env, test env, and prod env?
+
+Differentiate environments within an AWS account by using:
+Separate VPCs for each environment.
+Tagging resources with environment-specific tags.
+Using different IAM roles and policies for each environment.
+Employing naming conventions to distinguish resources.
+
+
+#### Types of EC2 instances?
+EC2 instance types are categorized based on use cases:
+General Purpose (e.g., t3, m5)
+Compute Optimized (e.g., c5)
+Memory Optimized (e.g., r5, x1e)
+Storage Optimized (e.g., i3, d2)
+Accelerated Computing (e.g., p3, g4)
+
+
+#### How can you encrypt the already created unencrypted EBS without creating a fresh EC2 instance?
+To encrypt an already created unencrypted EBS volume:
+Create a snapshot of the unencrypted volume.
+Copy the snapshot and enable encryption during the copy process.
+Create a new encrypted volume from the encrypted snapshot.
+Detach the old volume and attach the new encrypted volume to the instance.
+
+#### How can you deploy two websites on an EC2 instance?
+To deploy two websites on an EC2 instance:
+Use Different Ports: Configure each website to run on different ports and set up appropriate security group rules.
+Use Virtual Hosts: If using a web server like Apache or Nginx, configure virtual hosts to serve different websites based on domain names or paths.
+Example with Nginx: Configure Nginx with multiple server blocks to handle requests for each domain or path.
+
+
+#### 10. What is the best way to design a 3-tier architecture, which services are included, and how to select services to design it?
+Answer: A 3-tier architecture typically includes:
+Presentation Layer: The user interface layer, which can be implemented using web servers or application frameworks.
+Application Layer: The business logic layer, often built using application servers or microservices.
+Data Layer: The database layer, using relational or NoSQL databases.
+When selecting services:
+Consider Scalability: Choose services that can scale based on application needs.
+Ensure Security: Implement security features such as encryption and access controls.
+Optimize Performance: Use services that provide high performance and low latency.
+Evaluate Cost: Select services that fit within budget constraints.
+
+
+#### 11. What are the strategies for infrastructure optimization, and what actions will you take to reduce infrastructure costs?
+Answer: Strategies for infrastructure optimization include:
+Right-Sizing: Adjust resource sizes to match actual usage.
+Auto-Scaling: Use auto-scaling to handle varying workloads efficiently.
+Cost Monitoring: Regularly review and analyze infrastructure costs.
+Reserved Instances: Purchase reserved instances for predictable workloads to reduce costs.
+Serverless: Use serverless architectures for infrequent or variable workloads.
+
+
+#### 12. How does auto-scaling work? Does it involve changing the AMI in the auto-scaling group?
+Answer: Auto-scaling automatically adjusts the number of instances based on predefined conditions such as CPU usage or traffic volume. It does not directly involve changing the AMI (Amazon Machine Image) in the auto-scaling group; however, you can update the launch configuration or launch template with a new AMI to deploy new instances with updated configurations.
+
+
+#### 13. If someone created or deleted resources in AWS, how can you find out which user did what action? Which AWS service can help to find out these details?
+Answer: AWS CloudTrail is the service that helps track user actions and changes in AWS. It records API calls made by or on behalf of your AWS account, including who made the call and what actions were taken. You can review CloudTrail logs to identify the user and actions associated with resource changes.
+
+
+#### 14. What is the difference between Latency-Based Routing and Geo DNS?
+Answer:
+Latency-Based Routing: Directs user requests to the AWS region that provides the lowest latency for the end-user based on real-time network performance.
+Geo DNS: Routes user requests based on geographic location, directing them to the nearest region or data center according to predefined geographic rules.
+
+
+#### 15. What is the difference between a Domain and a Hosted Zone?
+Answer:
+Domain: A domain is a human-readable address that identifies a specific location on the internet (e.g., example.com).
+Hosted Zone: A hosted zone is a container in Route 53 that holds information about how you want to route traffic for a domain (e.g., DNS records for example.com).
+
+
+#### 16. When we create a VPC, what components will be created by default?
+Answer: When creating a VPC, the following components are created by default:
+Main Route Table: The default route table associated with the VPC.
+Default Security Group: A default security group for the VPC.
+Default Network ACL: A default network access control list (ACL) for the VPC.
+Internet Gateway: (If explicitly attached) A gateway for internet access.
+DHCP Options Set: A default DHCP options set with DNS settings.
+
+
+#### 17. How to recover a CloudFormation stack if it's stuck in "CREATE_IN_PROGRESS" or "FAILED" status?
+Answer: To recover a CloudFormation stack:
+Check Events: Review the stack events to identify the cause of the failure.
+Fix Issues: Address any issues with the stack resources or template.
+Retry: If the stack is in "CREATE_IN_PROGRESS," you may need to wait or manually cancel and retry the stack creation.
+Delete and Recreate: If the stack is in a failed state and cannot recover, consider deleting the stack and recreating it.
+
