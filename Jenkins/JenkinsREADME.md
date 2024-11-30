@@ -999,3 +999,6 @@ stages {} block defining a sequence of stages, each with steps to execute.
 
 Optional post {} block to define actions after the pipeline runs.
 
+
+#### 23. What is job in jenkins 
+A Jenkins job is a task or process automated within Jenkins to perform actions like building, testing, or deploying software. It's configured with specific instructions on how and when to execute these tasks, helping teams automate workflows in continuous integration and delivery pipelines.
