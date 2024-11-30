@@ -69,9 +69,10 @@ Tasks can include installing packages, copying files, configuring services, and 
         state: present
       when: ansible_os_family == "RedHat"
       ignore_errors: True
-
+```
 
 ###### Handler playbook
+```
 ---
  - name: Handlers Example
    hosts: webservers
