@@ -230,3 +230,65 @@ By default, the terraform.tfstate file is located in the same directory where th
 Answer: The terraform taint command is used to mark a resource for recreation in the next Terraform apply. This means that the resource will be destroyed and recreated when you run terraform apply next. It's typically used when you want to force a resource to be replaced without making any changes to its configuration.
 #### 2. Terraform show
 Answer: The terraform show command is used to display the Terraform state or the plan in a human-readable format. It helps to visualize the resources and outputs managed by Terraform.
+
+#### 5. Main Use of terraform init
+Answer: The terraform init command initializes a working directory containing Terraform configuration files. It downloads the necessary provider plugins and prepares the backend configuration.
+
+#### 9. Alternative to Dry Run for terraform apply: What is the Alternative Method?
+Answer: The alternative to using terraform apply -dry-run is to use terraform plan. This command will show you what actions Terraform will take without actually applying the changes.
+
+#### 10. Terraform import Command Questions
+Answer: The terraform import command is used to import existing infrastructure into your Terraform state. This is useful when you want to manage existing resources with Terraform. For example, you can use terraform import aws_instance.my_instance i-abcd1234 to import an AWS EC2 instance.
+
+#### 11. Terraform destroy Command Questions
+Answer: The terraform destroy command is used to destroy all the resources defined in the Terraform configuration. It’s the opposite of terraform apply, as it tears down the infrastructure that was provisioned.
+
+
+#### How do you manage credentials in Terraform?
+In Terraform, credentials can be managed using environment variables, shared credentials files, or IAM roles and policies. Sensitive data can be managed using HashiCorp Vault, AWS Secrets Manager, or other secret management solutions.
+
+#### How would you use Terraform to deploy infrastructure in Azure?
+To use Terraform for deploying infrastructure in Azure, you start by writing configuration files using the HCL syntax to define the desired state of your infrastructure. Then, you run terraform init to initialize the configuration, terraform plan to preview the changes, and terraform apply to create the resources in Azure. Terraform interacts with Azure through the Azure provider, which is configured with your Azure credentials.
+
+
+#### 7. How state-file helps with configuring resources
+Keeps Track of Infrastructure State: The state-file records the current state of your managed infrastructure.
+Enables Plan and Apply: Allows Terraform to plan changes by comparing the state-file with configuration files.
+Resource Management: Ensures resources are created, updated, or deleted as needed to match the desired state.
+Collaboration: Shared state-files allow teams to collaborate on infrastructure changes.
+
+
+#### 8. Explain the Terraform workflow
+Write: Define infrastructure as code in .tf configuration files.
+Initialize: Run terraform init to set up the working directory and download necessary plugins.
+Plan: Run terraform plan to preview changes that will be applied.
+Apply: Run terraform apply to apply the changes and create/update infrastructure.
+Destroy: Run terraform destroy to remove all managed infrastructure.
+
+#### What is called a NULL resource in Terraform?
+A null_resource in Terraform is a resource that allows you to define and run provisioners without managing a specific resource. It can be used for running arbitrary code or commands during the Terraform apply phase.
+What is called terraform fmt?
+terraform fmt is a command that formats Terraform configuration files to a canonical style and format, ensuring consistency and readability across the codebase.
+
+#### How do you manage tfstate file in Terraform?
+Terraform state files can be managed using:
+Local backend (default, stores state locally).
+Remote backends (e.g., AWS S3 with DynamoDB for locking, Terraform Cloud, HashiCorp Consul) to enable collaboration and state locking.
+
+
+#### How do you create multiple EC2 instances in Terraform?
+You can create multiple EC2 instances in Terraform using the count or for_each meta-argument:
+hcl
+Copy code
+```
+resource "aws_instance" "example" {
+    count = 3
+    ami = "ami-0c55b159cbfafe1f0"
+    instance_type = "t2.micro"
+}
+```
+
+#### AWS has released a new service, how does Terraform behave?
+When AWS releases a new service, Terraform providers (e.g., the AWS provider) are updated to support the new service. Users need to upgrade their Terraform provider version to use the new service.
+
+
