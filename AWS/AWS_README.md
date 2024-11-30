@@ -605,9 +605,181 @@ User's device connects to the IP address.
  
  
  
- 
- 
- 
- 
+#### 1. Tell me about your professional experience and day-to-day activities.
+Answer: I have been working as a DevOps Engineer for the past few years, focusing on automation, infrastructure management, and continuous integration/continuous deployment (CI/CD) pipelines. My day-to-day activities include:
+Monitoring: Using tools like Prometheus and Grafana to monitor system performance and identify issues.
+Automation: Writing Ansible playbooks and using Terraform for infrastructure as code to automate the provisioning and management of resources.
+CI/CD: Managing Jenkins pipelines to ensure smooth build, test, and deployment processes.
+Collaboration: Working closely with development and operations teams to resolve issues and improve processes.
+Scripting: Writing Python and Shell scripts to automate repetitive tasks.
+Incident Management: Responding to incidents and performing root cause analysis to prevent recurrence.
 
+#### 2. What is the difference between IAM users and roles?
+Answer:
+IAM Users: These are AWS identities associated with a person or service. Users have permanent long-term credentials and specific permissions assigned directly to them.
+IAM Roles: These are identities that can be assumed by users, applications, or services. Roles have temporary security credentials and are used to delegate permissions without sharing long-term credentials. Roles can be assumed by entities within or across AWS accounts.
+
+#### 3. What is the main difference between root users and IAM users?
+Answer:
+Root User: The root user has full administrative access to the AWS account. This user is created when the account is first set up and has unrestricted access to all resources and services.
+IAM Users: IAM users are created by the root user or other administrators and have specific permissions assigned to them. They do not have full administrative access unless explicitly granted.
+
+#### 4. Do you know what EC2 is? Explain why EC2 is used.
+Answer: Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is used for:
+Scalability: Easily scale up or down based on demand.
+Flexibility: Choose from a variety of instance types, storage options, and networking configurations.
+Cost-Effectiveness: Pay only for the compute capacity you use.
+Reliability: Benefit from Amazon's proven infrastructure with high availability and fault tolerance.
+
+
+#### 5. What is the difference between on-demand instances and spot instances?
+Answer:
+On-Demand Instances: You pay for compute capacity by the hour or second with no long-term commitments. Ideal for unpredictable workloads or applications that cannot be interrupted.
+Spot Instances: You bid for unused EC2 capacity, which can be significantly cheaper than on-demand instances. However, AWS can terminate spot instances when it needs the capacity back, making them suitable for fault-tolerant and flexible applications.
+
+
+#### 6. Why do we use Auto Scaling in AWS? What are the types of auto-scaling groups? Explain them.
+Answer: Auto Scaling ensures that you have the right number of EC2 instances available to handle the load for your application. It improves availability and reduces costs by scaling resources based on demand.
+Types of Auto Scaling Groups:
+Dynamic Scaling: Adjusts the number of instances based on demand patterns using policies.
+Scheduled Scaling: Adds or removes instances at specific times based on a schedule.
+Predictive Scaling: Uses machine learning to predict future traffic and adjusts the number of instances accordingly.
+
+
+#### 7. Imagine you have an EC2 instance with auto-scaling enabled, set to scale out whenever the instance reaches peak load. However, you notice that auto-scaling is not functioning as expected. What could be the potential reasons for this issue, and how would you troubleshoot it?
+Answer: Potential reasons and troubleshooting steps include:
+Incorrect Scaling Policies: Verify that the scaling policies are correctly defined and triggered based on the correct metrics.
+Instance Limits: Check if the account has reached its instance limits.
+Health Checks: Ensure health checks are configured correctly, and instances are passing them.
+CloudWatch Alarms: Verify that CloudWatch alarms are set up correctly to trigger scaling actions.
+Auto Scaling Group Configuration: Review the configuration of the Auto Scaling group to ensure it matches the desired setup.
+
+
+#### 8. Suppose you are using an EC2 instance that frequently shuts down unexpectedly. How would you automate the process so that the EC2 instance automatically restarts whenever it shuts down?
+Answer: To automate the restart of an EC2 instance:
+CloudWatch Alarm: Create a CloudWatch alarm that triggers whenever the instance status changes to stopped.
+SNS Topic: Configure the CloudWatch alarm to send a notification to an SNS topic.
+Lambda Function: Create a Lambda function that subscribes to the SNS topic and runs a script to start the instance.
+IAM Role: Ensure the Lambda function has an IAM role with permissions to start EC2 instances.
+
+
+#### 9. What is Amazon S3, and what are its primary use cases?
+Answer: Amazon S3 (Simple Storage Service) is an object storage service that provides scalable, durable, and secure storage for any amount of data. Primary use cases include:
+Backup and Restore: Store backup copies of data.
+Archive: Archive infrequently accessed data.
+Big Data Analytics: Store and analyze large datasets.
+Content Distribution: Distribute static content such as images, videos, and software.
+Data Lake: Centralize data storage for various analytics and machine learning applications.
+
+
+#### 10. Can you explain the different types of storage classes available in Amazon S3? How to secure the object in S3 bucket?
+Answer:
+Storage Classes:
+Standard: High durability and availability for frequently accessed data.
+Intelligent-Tiering: Automatically moves data between access tiers based on changing access patterns.
+Standard-IA (Infrequent Access): Lower cost for data accessed less frequently.
+One Zone-IA: Lower cost than Standard-IA but stores data in a single availability zone.
+Glacier: Low-cost storage for long-term archival with retrieval times in minutes to hours.
+Glacier Deep Archive: Lowest-cost storage for long-term archival with retrieval times in hours.
+Securing Objects:
+Bucket Policies: Define who can access the bucket and its objects.
+IAM Policies: Restrict access to specific users or roles.
+Encryption: Enable server-side encryption for objects at rest.
+Access Control Lists (ACLs): Control access to individual objects.
+Bucket Versioning: Maintain multiple versions of objects for data protection.
+
+ 
+ 
+####  4. What is VPC? Components of VPC
+A Virtual Private Cloud (VPC) is a virtual network dedicated to your AWS account. Components of a VPC include subnets, route tables, internet gateways, NAT gateways, security groups, and network ACLs (NACLs).
+
+#### 5. Types of subnet in VPC
+There are two types of subnets in a VPC: public subnets and private subnets.
+
+#### 6. Explain how to identify which is private and which is public subnet
+A public subnet is one that has a route to an internet gateway, allowing instances within it to communicate directly with the internet. A private subnet lacks a direct route to the internet gateway, making its instances isolated from direct internet access.
+
+#### 7. What is NACL? Why did you use NACL? Difference between NACL and security group
+A Network Access Control List (NACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. NACLs are used to provide an additional layer of security and are stateless, meaning they do not track the state of connections. Security groups, on the other hand, are stateful and are applied at the instance level.
+
+#### 8. What is KMS in AWS
+AWS Key Management Service (KMS) is a managed service that enables you to create and control the encryption keys used to encrypt your data.
+
+#### 9. Tell me 5 options or ways to secure AWS services or applications
+Use IAM roles and policies to enforce the principle of least privilege.
+Enable multi-factor authentication (MFA) for all users.
+Encrypt data at rest and in transit using services like AWS KMS and SSL/TLS.
+Regularly audit and rotate access keys and passwords.
+Implement VPC security measures such as security groups and NACLs.
+
+#### 10. What is VPC peering
+VPC peering allows you to connect two VPCs privately using AWS's network, enabling instances in either VPC to communicate with each other as if they are within the same network.
+
+#### 11. What is main requirement you must meet in order to create VPC peering
+The main requirement is that the VPCs must not have overlapping CIDR blocks.
+
+#### 12. Can we connect VPCs from different regions if yes how
+Yes, you can connect VPCs from different regions using inter-region VPC peering.
+
+#### 13. Is it necessary to create or declare VPC while creating RDS instance
+Yes, you need to specify a VPC when creating an RDS instance, and the RDS instance will be launched within that VPC.
+
+#### 14. What is RDS and what is the most important use case of RDS
+Amazon Relational Database Service (RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud. The most important use case is to provide a scalable, highly available, and cost-effective database solution without the need for managing the underlying infrastructure.
+
+#### 15. Can you increase the capacity of an existing RDS if yes tell me the steps
+Yes, you can increase the capacity of an existing RDS instance by modifying the instance size through the AWS Management Console or using the AWS CLI. Steps include:
+Select the RDS instance.
+Choose "Modify."
+Select a new instance type or storage allocation.
+Apply the changes.
+
+#### 16. What is EC2? Types of EC2?
+Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity in the AWS cloud. Types of EC2 instances include:
+General Purpose (e.g., t3, m5)
+Compute Optimized (e.g., c5)
+Memory Optimized (e.g., r5)
+Storage Optimized (e.g., i3)
+GPU Instances (e.g., p3)
+High Memory Instances
+
+#### 17. Suppose you create an EC2 without a key pair, can you access that EC2 instance?
+Without a key pair, you cannot use SSH to access the EC2 instance. You would need to use a different authentication method, such as a systems manager or user data to configure an access method.
+
+#### 21. How to run a script which you need to install while creating EC2
+You can use the EC2 user data feature to run a script at the launch of the instance. The script is provided in the user data field during the EC2 instance configuration.
+
+#### 22. Types of load balancer
+Application Load Balancer (ALB)
+Network Load Balancer (NLB)
+Classic Load Balancer (CLB)
+
+#### 23. Explain in details in which condition which load balancer is best suitable
+ALB: Best for HTTP/HTTPS traffic, providing advanced routing, SSL termination, and user authentication.
+NLB: Best for TCP/UDP traffic, providing high performance and low latency.
+CLB: Best for simple load balancing of HTTP/HTTPS and TCP traffic.
+
+#### 24. What is Lambda?
+AWS Lambda is a serverless compute service that runs your code in response to events and automatically manages the underlying compute resources.
+
+#### 25. What do you mean by trigger and event?
+A trigger is a service or resource that invokes your Lambda function, while an event is the data passed to the function when it's triggered.
+
+#### 26. Which language you used in Lambda
+I've used Python for writing AWS Lambda functions.
+
+#### 27. Explain where and why you used Lambda
+I used Lambda for automating tasks such as processing S3 bucket events, responding to DynamoDB changes, and running scheduled tasks without managing servers.
+
+#### 28. What is CloudWatch
+Amazon CloudWatch is a monitoring and management service that provides data and actionable insights for AWS, hybrid, and on-premises applications and infrastructure resources.
+
+#### 29. EKS and its configuration
+Amazon Elastic Kubernetes Service (EKS) is a managed service that makes it easy to run Kubernetes on AWS. Configuration involves setting up an EKS cluster, creating worker nodes, and configuring kubectl to manage the cluster.
+
+
+#### 15. In VPC, How to Identify Which Subnet is Private and Which Subnet is Public?
+Answer:
+Public Subnet: A public subnet is associated with a route table that has a route to an internet gateway, allowing resources within the subnet to access the internet.
+Private Subnet: A private subnet is associated with a route table that does not have a route to an internet gateway, restricting direct access to the internet. Typically, traffic from private subnets can access the internet via a NAT gateway or NAT instance.
 
