@@ -223,3 +223,125 @@ Use environment variables for sensitive data
 Optimize resource allocations (e.g., CPU, memory limits)
 Implement proper logging and monitoring configurations
 Use external databases and services instead of local ones
+
+
+
+
+
+
+
+
+
+
+### What is the difference between virtualization and containerization?
+Answer: Virtualization involves creating virtual machines (VMs) that emulate physical hardware, allowing multiple operating systems to run on a single physical machine. Each VM includes its own OS, which can lead to higher resource usage. Containerization, on the other hand, involves running multiple containers on a single OS kernel, sharing the same OS but isolated from each other. Containers are more lightweight and start faster compared to VMs.
+
+
+### How to do the port mapping to the container?
+Answer: Port mapping is done using the -p or --publish flag when running a Docker container. The syntax is -p [host_port]:[container_port]. For example, docker run -p 8080:80 my-image maps port 80 inside the container to port 8080 on the host machine, allowing access to the container's service through the host's port.
+
+
+### How can you get shell access to a running container?
+Answer: To get shell access to a running container, use the docker exec command. For example, docker exec -it <container_id> /bin/bash or docker exec -it <container_id> /bin/sh opens an interactive terminal session to the container, depending on the available shell in the container.
+
+
+### What is the difference between RUN and CMD in a Dockerfile?
+Answer: RUN is used to execute commands during the image build process and create a new layer in the image. For example, RUN apt-get update installs packages while building the image. CMD specifies the default command to run when the container starts, but it can be overridden at runtime. For example, CMD ["nginx", "-g", "daemon off;"] starts Nginx by default when the container is launched.
+
+
+### What is a Dockerfile?
+Answer: A Dockerfile is a text file containing a set of instructions for building a Docker image. It defines the base image, software packages, environment variables, commands to run, and other configurations required to create an image. The Dockerfile is used by Docker to automate the image creation process.
+
+
+### How did you create Docker Compose?
+Answer: Docker Compose is used to define and run multi-container Docker applications. You create a docker-compose.yml file that specifies the services, networks, and volumes for your application. For example:
+yaml
+Copy code
+
+```
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+Run docker-compose up to start the services defined in the file.
+
+```
+### What is the Docker namespace?
+Answer: Docker namespaces provide isolation for resources between containers. For example, the net namespace isolates network interfaces, allowing containers to have their own network stack. Docker uses namespaces to ensure that containers do not interfere with each other and maintain separation between container environments.
+
+### What is the life cycle of a Docker container?
+Answer: The lifecycle of a Docker container includes:
+Create: The container is created from an image.
+Start: The container is started and begins running its main process.
+Run: The container executes its process and performs tasks.
+Stop: The container’s main process is terminated, but the container still exists.
+Remove: The container is deleted, freeing up resources. It can be removed with docker rm.
+
+
+### Why is the docker system prune used? What does it do?
+Answer: docker system prune is used to clean up unused Docker objects, including stopped containers, unused networks, dangling images, and build cache. It helps reclaim disk space by removing resources that are no longer needed. Be cautious, as this command can delete data that you might need later.
+
+
+### What is the purpose of Docker Host?
+Answer: The Docker Host is the machine (physical or virtual) where Docker is installed and running. It provides the environment for Docker containers to run, manage, and communicate. The Docker Host handles the execution of containers, networking, and storage. It can be a local development machine, a remote server, or a cloud instance.
+
+
+### Interviewer : You have noticed that the default Docker directory /var/lib/docker is getting full as you continue downloading images and generating logs. What Precautions you take to avoid this and tell me the steps to achieve ?
+
+In, Our previous environment we made sure that our / space is not exceeding more that 50% and we used to store all docker Appdata in separate directory By creating an EBS volume and attaching it to instance. post that,
+lsblk
+fdisk disckname
+lsblk
+adding filesystem - mkfs.ext4 /dev/xvdf1
+
+once done we create a directory called /dockerdata with "mkdir /dockerdata" and By adding an entry to /etc/fstab, EBS volume is mounted every time the system starts. Once all done we do the changes to the docker service directory file accordingly .
+
+### Interviewer :Okay, Imagine you are managing Docker images on your system. How would you list all the dangling images, and then how would you delete ?
+
+docker images --filter=dangling=true This command shows the unwanted none files
+
+docker images -q --filter=dangling=true This command will delete unwanted none files
+
+
+#### 8. Can you write a simple Dockerfile?
+```
+FROM python:3.8-slim      # Use an official Python runtime as a parent image
+WORKDIR /app              # Set the working directory in the container
+COPY . /app   # Copy the current directory contents into the container at /app
+
+ Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+Make port 80 available to the world outside this container
+EXPOSE 80
+ Define environment variable
+ENV NAME World
+
+Run app.py when the container launches
+CMD ["python", "app.py"]
+
+```
+#### 20. What is the difference between CMD and ENTRYPOINT in Docker?
+Answer:
+CMD: Provides default arguments for the entrypoint. If an executable is not provided in the CMD instruction, the container will use the ENTRYPOINT executable. CMD can be overridden by passing arguments during docker run.
+ENTRYPOINT: Defines the main command to run within the container. It is not overridden by arguments passed during docker run unless the --entrypoint flag is used. ENTRYPOINT is typically used to ensure that a particular command always runs.
+Example:
+ Dockerfile with CMD
+FROM ubuntu
+CMD ["echo", "Hello, World!"]
+
+ Dockerfile with ENTRYPOINT
+FROM ubuntu
+ENTRYPOINT ["echo"]
+CMD ["Hello, World!"]
+
+Running docker run <image> Hi would result in:
+With CMD: Hi
+With ENTRYPOINT: echo Hi
