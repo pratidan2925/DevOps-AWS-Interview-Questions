@@ -153,11 +153,12 @@ Usage Example: sed 's/error/success/' logfile.txt - Replaces the first occurrenc
 Purpose: Displays the content of files and concatenates them.
 Functionality: Outputs the entire content of a file to the terminal.
 Usage Example: cat filename.txt - Displays the full content of filename.txt.
----
-more:
+
+- more:
 Purpose: Displays the content of files one screen at a time.
 Functionality: Allows for paginated viewing of long text files, enabling scrolling through the content.
 Usage Example: more filename.txt - Displays the content of filename.txt one screen at a time.
 Summary:
 cat is used to quickly display the full content of a file.
 more is used to view the content of a file one page at a time, which is useful for long files.
+---
