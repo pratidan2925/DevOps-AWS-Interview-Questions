@@ -836,3 +836,63 @@ To restrict or give permission to a specific object, you can use bucket policies
 
 #### What are inline-based policies?
 Inline policies are policies that are directly attached to a single IAM user, group, or role. They are useful for specific permissions that are not intended to be reused. Unlike managed policies, inline policies are not shared and are directly associated with the entity to which they are attached.
+
+#### How to access the S3 bucket privately?
+To access an S3 bucket privately, you can:
+Use VPC endpoints to route traffic to S3 without using the public internet.
+Configure bucket policies and IAM policies to restrict access to specific VPCs or IP ranges.
+Use S3 access points to create specific access policies.
+
+
+#### What is the difference between a NAT instance and a NAT Gateway?
+NAT Instance:
+An EC2 instance configured to act as a NAT.
+Requires manual management (scaling, high availability, updates).
+Limited to instance types and sizes.
+NAT Gateway:
+Managed service provided by AWS.
+Automatically scales and is highly available within an Availability Zone.
+Easier to set up and maintain.
+
+#### How can you restrict particular IPs accessing EC2 instances?
+You can restrict IPs accessing EC2 instances by configuring security group rules and network ACLs to allow or deny traffic from specific IP addresses or ranges.
+
+
+#### What is called VPC peering?
+VPC peering is a networking connection between two VPCs that allows them to route traffic to each other privately. VPCs can be in the same or different AWS accounts and regions.
+
+#### What is called Transit Gateway?
+AWS Transit Gateway is a service that connects VPCs and on-premises networks through a central hub. It simplifies network management by allowing you to route traffic between multiple VPCs and VPN connections using a single gateway.
+
+
+#### What are the types of autoscaling?
+Types of autoscaling in AWS include:
+Dynamic Scaling: Adjusts capacity based on demand using predefined policies.
+Scheduled Scaling: Adjusts capacity based on a schedule.
+Predictive Scaling: Uses machine learning to predict future traffic and adjust capacity accordingly.
+
+
+#### To prevent DDOS attacks, which load balancer is used?
+To help prevent DDoS attacks, AWS recommends using the AWS Shield service in conjunction with Elastic Load Balancing (ELB), including both Application Load Balancer (ALB) and Network Load Balancer (NLB).
+
+
+#### What is called a sticky session?
+A sticky session (session affinity) is a feature that binds a user's session to a specific instance in a load-balanced environment, ensuring that all requests from the user are directed to the same instance.
+
+
+#### What is called Lambda?
+AWS Lambda is a serverless compute service that lets you run code in response to events without provisioning or managing servers. It automatically scales and charges only for the compute time consumed.
+
+#### What is called a Trust relationship in AWS?
+A trust relationship in AWS is a policy that grants permission to one AWS account to access resources in another AWS account. It is commonly used in IAM roles to allow cross-account access.
+
+
+#### What is called Public Subnet and Private Subnet?
+A public subnet has a route to an Internet Gateway, allowing instances to communicate directly with the internet. A private subnet does not have a route to an Internet Gateway and is typically used for instances that should not be directly accessible from the internet.
+
+
+#### How do you establish a connection between EC2 instance to another EC2 instance?
+To establish a connection between EC2 instances:
+Ensure both instances are in the same VPC or have VPC peering.
+Configure security groups to allow inbound traffic on the necessary ports (e.g., SSH, HTTP).
+Use the private IP address of the target instance to connect.
