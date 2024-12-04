@@ -769,6 +769,73 @@ Service Accounts: Creating a service account with a RoleBinding or ClusterRoleBi
 Scenario: For a project, I used eksctl to generate the kubeconfig for an EKS cluster and configured Jenkins with the necessary credentials to manage deployments.
 
 
+
+#### 5. What do you understand by Docker and Kubernetes?
+Answer:
+Docker: Docker is a platform that enables the creation, deployment, and management of lightweight, portable containers that run applications and their dependencies in isolated environments. It simplifies application deployment by ensuring consistency across different environments.
+Kubernetes: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides features like self-healing, load balancing, and automated rollouts and rollbacks, making it easier to manage complex containerized applications at scale.
+#### 9. If you want to expose your application to the public internet or access your application within a cluster, how would you do that in Kubernetes?
+Answer: To expose an application to the public internet in Kubernetes, you can use a Service of type LoadBalancer. For access within the cluster, you can use a Service of type ClusterIP.
+
+Public Internet:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+```
+Within Cluster:
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: ClusterIP
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+```
+#### 10. Why do we need a ConfigMap in Kubernetes?
+Answer: ConfigMaps in Kubernetes are used to manage configuration data separately from application code. This allows for:
+Decoupling Configuration and Code: Configurations can be updated without altering or rebuilding the application image.
+Environment-Specific Settings: Different configurations can be applied to different environments (e.g., development, staging, production).
+Simplified Management: Centralized management of configuration settings, which can be injected into pods as environment variables or mounted as files.
+#### What elements are included in Kubernetes manifest files?
+Kubernetes manifest files typically include:
+apiVersion: The version of the Kubernetes API.
+kind: The type of Kubernetes object (e.g., Pod, Service, Deployment).
+metadata: Metadata about the object, such as name and labels.
+spec: Specification of the desired state of the object, such as containers, replicas, and volumes.
+#### What is a ReplicaSet and what is a Controller in Kubernetes?
+ReplicaSet: Ensures that a specified number of pod replicas are running at any given time. It automatically replaces Pods if they fail or are deleted.
+Controller: A broader concept that includes various types of controllers (e.g., ReplicaSet, Deployment, StatefulSet) responsible for managing and maintaining the desired state of resources.
+#### What is uDeploy?
+uDeploy (UrbanCode Deploy) is an IBM tool for automating application deployments. It provides capabilities for managing deployments across multiple environments, ensuring consistency, and facilitating release management.
+#### What is healing in Kubernetes? What about in OpenShift?
+Kubernetes Healing: Refers to the self-healing capabilities of Kubernetes, where it automatically replaces failed Pods and reschedules them to healthy nodes. This includes restarting containers and ensuring that the desired state is maintained.
+OpenShift Healing: Similar to Kubernetes, OpenShift provides self-healing features. It extends Kubernetes' capabilities with additional tools for managing and monitoring application health.
+#### What is a KubeConfig file and how do you access it?
+A KubeConfig file contains configuration information for accessing Kubernetes clusters. It includes details like the cluster endpoint, authentication information, and context settings. It is usually located at ~/.kube/config and accessed by using the kubectl command-line tool.
+#### What technical concept have you explored in depth?
+I have explored container orchestration with Kubernetes in depth. This includes setting up and managing clusters, deploying applications, handling scaling and updates, and integrating with various monitoring and logging tools.
+
+
+
+
+
+
 ---
 # Helm
 What is Helm?
