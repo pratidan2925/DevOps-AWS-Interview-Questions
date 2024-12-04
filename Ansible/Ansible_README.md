@@ -238,6 +238,8 @@ Answer: You can run a playbook on a specific inventory by specifying the invento
 11. Custom module and core module.
 
 
-
+#### 2. What are Ansible roles, and how do you use them?
+Answer: Ansible roles are a way to organize Ansible playbooks into reusable components. Each role is structured to contain tasks, handlers, variables, files, templates, and other elements required to perform a particular function. Roles can be reused across different playbooks.
+Scenario: In my work, I create Ansible roles to manage the configuration of servers, such as installing and configuring Apache. This approach allows me to reuse the role in multiple environments, ensuring consistency and reducing duplication.
 
 
