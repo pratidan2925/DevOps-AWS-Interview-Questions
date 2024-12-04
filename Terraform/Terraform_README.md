@@ -291,4 +291,21 @@ resource "aws_instance" "example" {
 #### AWS has released a new service, how does Terraform behave?
 When AWS releases a new service, Terraform providers (e.g., the AWS provider) are updated to support the new service. Users need to upgrade their Terraform provider version to use the new service.
 
+#### 21. How do you dynamically retrieve VPC details from AWS to create an EC2 instance using IaC?
+Answer: To dynamically retrieve VPC details, I use the data sources in Terraform. For example, I can use the aws_vpc data source to fetch the VPC ID:
+hcl
+Copy code
+```
+data "aws_vpc" "selected" {
+  default = true
+}
+```
+14. How do you dynamically retrieve VPC details from AWS to create an EC2 instance using IaC?
+Answer: To dynamically retrieve VPC details, I use data sources in Terraform:
+VPC Data Source: data "aws_vpc" "selected" {} to retrieve VPC ID.
+Subnet Data Source: data "aws_subnet" "selected" {} to get subnet details.
+Security Group Data Source: data "aws_security_group" "selected" {} to get security group information.
+Scenario: In a project, I used Terraform data sources to automatically fetch VPC and subnet details based on tags, ensuring that the EC2 instances were deployed in the correct environments without hardcoding resource IDs.
 
+Then, I use this information to create an EC2 instance.
+Scenario: In a project, I used Terraform to automatically retrieve the VPC ID and subnet details, allowing for the dynamic and flexible deployment of EC2 instances across different environments.
