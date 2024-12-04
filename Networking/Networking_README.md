@@ -64,3 +64,10 @@ Analyze resource usage and identify processes consuming high CPU.
 Check for resource limits and requests in Kubernetes or other environments.
 Optimize application performance, adjust configurations, or scale resources as needed.
 Implement monitoring and alerts to proactively manage CPU utilization.
+
+
+
+58. What is gRPC and its uses?
+gRPC (Google Remote Procedure Call) is a high-performance RPC framework that uses HTTP/2 for transport, Protocol Buffers as the interface description language, and enables efficient communication between services. It's commonly used in microservices architectures for inter-service communication due to its performance and support for multiple programming languages.
+59. What is DNS?
+The Domain Name System (DNS) translates human-readable domain names (like www.example.com) into IP addresses that computers use to identify each other on the network. DNS allows users to access websites using easy-to-remember names instead of numerical IP addresses.
