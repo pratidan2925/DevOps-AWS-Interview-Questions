@@ -1,3 +1,138 @@
+
+#### What is Ansible?
+ Ansible is an open-source IT automation tool used for configuration management, application deployment, and task automation.
+#### What is the use of Ansible? 
+Ansible is used for automating repetitive tasks, managing configurations, deploying applications, and orchestrating complex workflows.
+#### What are the features of Ansible?
+- Agentless architecture
+- Easy to learn and use with YAML
+- Idempotent operations
+- Extensible with modules and plugins
+- Strong security with SSH
+#### What are the advantages of Ansible?
+Simple setup and use
+No need for agents
+Reduces manual repetitive tasks
+Consistent configurations across systems
+Scalable and efficient
+#### What is Ansible Galaxy?
+ Ansible Galaxy is a repository for Ansible roles where users can share and reuse roles created by the community.
+#### What is CI/CD? 
+Continuous Integration (CI) and Continuous Deployment (CD) are practices that automate the integration and deployment of code changes to improve software quality and delivery speed.
+#### What is configuration management? 
+Configuration management involves maintaining consistency of a system's performance, functional, and physical attributes with its design, operational information, and requirements.
+#### What are Ansible server requirements? 
+Ansible requires Python 2.7 or 3.5+ on the control node and managed nodes. It also requires an SSH connection to the managed nodes.
+#### What are Ansible tasks? 
+Tasks are single units of work that Ansible executes on the managed nodes, defined within a playbook.
+Explain a few of the basic terminologies or concepts in Ansible
+Playbook: A YAML file containing tasks.
+Inventory: A file listing managed nodes.
+Modules: Units of code that perform specific tasks.
+Roles: Reusable collections of tasks and configurations.
+Handlers: Special tasks triggered by other tasks.
+
+#### What is a playbook? 
+A playbook is a YAML file containing a series of tasks and configurations to be executed on managed nodes.
+What are Ad hoc commands? Give an example
+ Ad hoc commands are one-liner Ansible commands used for quick, simple tasks. Example: ansible all -m ping.
+Compare Ansible with Chef
+Ansible: Agentless, uses YAML for configuration, simpler setup.
+Chef: Agent-based, uses Ruby, more complex setup, but more mature.
+
+#### What is a YAML file and how do we use it in Ansible?
+ YAML (Yet Another Markup Language) is a human-readable data serialization format. Ansible uses YAML for writing playbooks and configuration files.
+Code difference between JSON and YAML:
+      #JSON
+      ```
+             {
+               "name": "John",
+                "age": 30,
+                "city": "New York"
+             }
+
+                         # YAML
+            name: John
+            age: 30
+            city: New York
+            ```
+#### How is Ansible different from Puppet?
+Ansible: Agentless, uses YAML, push configuration.
+Puppet: Agent-based, uses its own language, pull configuration.
+
+
+#### What is Ansible-doc? 
+Ansible-doc displays documentation on Ansible modules and plugins.
+What is the code you need to write for accessing a variable name? 
+{{ variable_name }}
+What is the method to check the inventory vars defined for the host?
+ Use the command: ansible -m debug -a "var=hostvars['hostname']" localhost
+#### Explain Ansible facts
+ Facts are system properties gathered by Ansible from managed nodes during a playbook run.
+Discuss the method to create an empty file with Ansible
+ Use the file module with state=touch.
+ ```
+- name: Create an empty file
+  file:
+    path: /path/to/file
+    state: touch
+```
+#### Explain Ansible modules in detail 
+Modules are reusable, standalone scripts that Ansible runs on your behalf. They perform specific tasks like managing files, installing packages, or managing services.
+#### What are callback plug-ins in Ansible?
+ Callback plugins enable adding new behaviors or extending Ansible’s output processing.
+#### What is Ansible inventory and its types?
+ Inventory is a file that lists the managed nodes. Types include static and dynamic inventories.
+#### What is an Ansible vault?
+Ansible Vault allows encrypting sensitive data within Ansible files
+ How do we write an Ansible handler with multiple tasks?
+ Handlers can only perform a single task, but you can chain multiple handlers together.
+```
+handlers:
+  - name: handler1
+    command: echo "Handler 1"
+  - name: handler2
+    command: echo "Handler 2"
+```
+#### How to generate encrypted passwords for a user module? 
+Use the mkpasswd command from the whois package.
+
+
+#### Explain the concept of blocks under Ansible
+
+Blocks group tasks and can handle errors, rescue, and always operations.
+```
+- block:
+    - name: Example task
+      debug:
+        msg: "This is a task within a block"
+  rescue:
+    - name: Rescue task
+      debug:
+        msg: "This task runs on error"
+  always:
+    - name: Always task
+      debug:
+        msg: "This task always runs"
+```
+#### Do you have any idea of how to turn off the facts in Ansible? 
+Set gather_facts: no in the playbook.
+#### What are the registered variables under Ansible? 
+Registered variables store the output of tasks for later use.
+#### By default, the Ansible reboot module waits for how many seconds. Is there any way to increase it? 
+By default, it waits for 600 seconds. You can increase it using the reboot_timeout parameter.
+#### Can docker modules be implemented in Ansible? If so, how can you use it?
+ Yes, Ansible can manage Docker containers using community.docker modules.
+```
+- name: Start a Docker container
+  community.docker.docker_container:
+    name: my_container
+    image: my_image
+```
+#### How do you test Ansible projects? 
+Use tools like Molecule and Testinfra for testing Ansible roles and playbooks.
+
+
 #### How many agents you can use in ansible / With how many agents you work in ansible
   - Ansible is agentless. (Agentless: No agents required on managed nodes, only SSH and Python.)
   - 
