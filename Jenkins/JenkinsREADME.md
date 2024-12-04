@@ -1417,3 +1417,16 @@ Automation: Use infrastructure as code (e.g., Terraform, Ansible) for consistent
 Scaling: Ensure the platform can scale horizontally and vertically based on load.
 Security: Regularly review and update security practices, manage access controls, and perform vulnerability assessments.
 
+
+#### 7. Can you describe the CI/CD workflow in your project?
+Answer: In my recent project, the CI/CD workflow involved Jenkins triggering builds on code commits to the GitHub repository. The pipeline included stages like code checkout, building Docker images, running unit tests, and deploying the application to a Kubernetes cluster. Successful builds would be automatically deployed to a staging environment, and after approval, to production.
+Scenario: This workflow helped us maintain a continuous delivery approach, where every code change could be tested and deployed automatically, significantly reducing the time to market.
+
+#### 8. How do you handle the continuous delivery (CD) aspect in your projects?
+Answer: I handle continuous delivery by automating the deployment process using CI/CD pipelines in Jenkins or Azure DevOps. The pipelines are configured to automatically deploy to staging environments after every successful build and run integration tests. Upon passing the tests, the pipeline triggers a manual or automated deployment to production.
+Scenario: In one project, I configured Jenkins pipelines to automatically deploy Docker containers to a Kubernetes cluster on each commit to the main branch. This approach allowed the team to focus on feature development while ensuring that deployments were consistent and repeatable.
+
+#### 9. What methods do you use to check for code vulnerabilities?
+Answer: I use tools like SonarQube, OWASP Dependency-Check, and Snyk to scan code and dependencies for vulnerabilities. These tools are integrated into the CI/CD pipeline to ensure that code is analyzed at every commit and build stage.
+Scenario: In a project, I integrated SonarQube into our Jenkins pipeline to perform static code analysis. The pipeline would fail if any critical vulnerabilities were found, ensuring that only secure code was deployed to production.
+
