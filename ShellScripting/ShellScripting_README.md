@@ -34,5 +34,8 @@ Answer: To access a service from any directory in Linux, ensure that the service
 #### 33. Where should system services be saved?
 Answer: System services should be saved in the appropriate directories based on the init system used. For systemd, service files are typically stored in /etc/systemd/system/ for custom services or /lib/systemd/system/ for system-provided services. For SysVinit, service scripts are usually located in /etc/init.d/.
 
-
+#### 4. What’s the difference between a cron job and running it under sudo?
+Answer: A cron job is a scheduled task that runs as the user who created the job. Running a cron job under sudo allows it to execute with elevated privileges, meaning it can perform tasks that require root access, such as system-level operations. Without sudo, the cron job is limited to the permissions of the user who created it.
+#### 5. How do you address security issues in cron jobs?
+Answer: To address security issues in cron jobs, I ensure that only necessary permissions are granted to the jobs, avoid storing sensitive data in scripts, use secure paths and environment variables, regularly review and audit cron jobs, and run jobs with the least privilege necessary. I also ensure that any output from cron jobs is logged and monitored for anomalies.
 
