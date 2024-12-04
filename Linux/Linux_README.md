@@ -1551,3 +1551,15 @@ Suppose you have an EC2 server in which Linux is running and you get an alert th
 How will you find out the top 10 files that are occupying the most space?
 "Use the command du -ah / | sort -rh | head -n 10 to list the top 10 largest files and directories."
 
+
+
+Do you know how to run cron jobs on a Linux server?
+"Yes, you can use the crontab command to schedule cron jobs. Edit the crontab with crontab -e and add the job with the appropriate schedule and command."
+In Linux, how do you change the permissions of files?
+"Use the chmod command to change file permissions. For example, chmod 755 file.txt sets read, write, and execute permissions for the owner, and read and execute permissions for others."
+How do you change the ownership of files in Linux?
+"Use the chown command. For example, chown user:group file.txt changes the owner and group of the file."
+
+
+
+
