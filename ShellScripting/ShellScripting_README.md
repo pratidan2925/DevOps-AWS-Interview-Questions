@@ -15,6 +15,24 @@ Features: Bash shell has more features than Korn shell, including command line e
    Compatibility: Bash shell is backward compatible with the Bourne shell (sh), which means that scripts written for sh can be run with bash without modification. Korn shell is not fully compatible with sh, which means that some sh scripts may need to be modified to run on ksh.
 
 
+#### 8. What are some limitations of Shell scripting?
+Answer: Shell scripting can be less efficient for complex logic and data manipulation compared to other programming languages. It lacks advanced data structures and error-handling features, making it challenging to debug and maintain large scripts. Shell scripts are also platform-dependent and may have compatibility issues across different environments.
+#### 31. What are some basic Bash commands?
+Answer: Basic Bash commands include:
+ls: Lists directory contents.
+cd: Changes the directory.
+cp: Copies files or directories.
+mv: Moves or renames files or directories.
+rm: Removes files or directories.
+cat: Displays file contents.
+echo: Prints text to the terminal.
+grep: Searches for patterns in files.
+#### 9. What’s the difference between $* and $@ in Bash?
+Answer: In Bash, $* treats all positional parameters as a single string, while $@ treats them as separate strings. When quoted, " $* " joins all arguments into a single string with spaces between them, while " $@ " treats each argument as a separate quoted string.
+#### 32. How do you access a service from any directory in Linux?
+Answer: To access a service from any directory in Linux, ensure that the service's executable is in a directory listed in the PATH environment variable. You can add the directory containing the executable to PATH by modifying your shell's configuration file (e.g., .bashrc or .bash_profile) and then reloading it with source ~/.bashrc.
+#### 33. Where should system services be saved?
+Answer: System services should be saved in the appropriate directories based on the init system used. For systemd, service files are typically stored in /etc/systemd/system/ for custom services or /lib/systemd/system/ for system-provided services. For SysVinit, service scripts are usually located in /etc/init.d/.
 
 
 
