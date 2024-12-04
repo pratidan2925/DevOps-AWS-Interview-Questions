@@ -571,3 +571,12 @@ Containerization: Involves running multiple containers on a single OS instance, 
 
 
 
+ Explain Docker file creation steps
+Choose a Base Image: Start with a base image that fits your application (e.g., FROM python:3.8).
+Set Working Directory: Use WORKDIR to set the working directory inside the container.
+Copy Files: Use COPY to copy application files from the host to the container.
+Install Dependencies: Use RUN to install necessary dependencies (e.g., RUN pip install -r requirements.txt).
+Expose Ports: Use EXPOSE to specify which ports the container listens on.
+Define Command: Use CMD or ENTRYPOINT to specify the command that runs when the container starts.
+
+
