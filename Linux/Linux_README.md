@@ -940,3 +940,19 @@ netstat displays network connections, routing tables, interface statistics, masq
 #### How do you run a script at boot level in Linux?
 Place the script in /etc/init.d/ and create a symlink to it in the appropriate runlevel directories (e.g., /etc/rc.local for traditional SysVinit systems). For systemd, create a service file and enable it using systemctl enable service_name.
 
+
+#### 6. How do you set up Apache on a Linux server?
+Answer:
+Update the package index using sudo apt-get update (Debian/Ubuntu) or sudo yum update (RHEL/CentOS).
+Install Apache with sudo apt-get install apache2 or sudo yum install httpd.
+Start the Apache service using sudo systemctl start apache2 or sudo systemctl start httpd.
+Enable Apache to start on boot using sudo systemctl enable apache2 or sudo systemctl enable httpd.
+Verify the installation by accessing the server's IP address in a web browser.
+#### 7. What are the steps to convert HTTP to HTTPS?
+Answer:
+Obtain an SSL certificate from a trusted Certificate Authority (CA).
+Install the SSL certificate on the web server (Apache/Nginx).
+Update the web server configuration to redirect HTTP traffic to HTTPS by modifying the server block and enabling the mod_ssl module (Apache) or configuring SSL in the server block (Nginx).
+Test the configuration by accessing the site via HTTPS.
+Optionally, update DNS settings if required.
+
