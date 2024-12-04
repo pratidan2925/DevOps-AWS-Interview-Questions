@@ -2748,3 +2748,28 @@ A deployment is going on and at the same time auto scaling happens (just coincid
 To eliminate this problem, you can use immutable infrastructure practices. Ensure that the AMI used by the auto-scaling group is updated to match the latest deployment code before the scaling event occurs. You can achieve this by integrating your CI/CD pipeline to trigger AMI updates as part of the deployment process. This way, new instances launched by auto-scaling will always use the updated AMI.
 What is called Fargate service in AWS?
 AWS Fargate is a serverless compute engine for containers that works with Amazon ECS and EKS. It allows you to run containers without managing the underlying infrastructure, simplifying scaling and reducing operational overhead.
+
+
+
+
+How did you grant permissions for Lambda functions to access resources?
+I granted permissions using AWS IAM roles. The Lambda function assumes an IAM role with the necessary policies to access
+
+
+
+
+Can you compare NLB (Network Load Balancer) and ALB (Application Load Balancer)?
+NLB (Network Load Balancer): Operates at the transport layer (Layer 4), handling TCP and UDP traffic. It is designed for high performance and can handle millions of requests per second with low latency.
+ALB (Application Load Balancer): Operates at the application layer (Layer 7), handling HTTP and HTTPS traffic. It supports advanced routing, SSL termination, and application-aware load balancing.resources like S3 buckets, DynamoDB tables, or other AWS services.
+
+On AWS, suppose you have deployed an application on EC2. It has to access files from an S3 bucket, but it is not able to access it. How will you troubleshoot it?
+"I’d check the IAM role attached to the EC2 instance to ensure it has the correct permissions for S3 access. I’d also verify the S3 bucket policy and any network-related issues, such as VPC configurations."
+On AWS, have you worked with ElastiCache or Kafka?
+"I’ve worked with AWS ElastiCache to set up and manage caching solutions with Redis or Memcached. I have experience with Apache Kafka for streaming data and real-time analytics."
+Suppose your EC2 server has become slow. How will you troubleshoot it?
+"I would start by checking system metrics like CPU, memory, and disk I/O using tools like top, htop, and iostat. I’d also review application logs and performance metrics from CloudWatch."
+
+
+
+
+
