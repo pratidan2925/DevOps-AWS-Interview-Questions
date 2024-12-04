@@ -39,3 +39,32 @@ Answer: A cron job is a scheduled task that runs as the user who created the job
 #### 5. How do you address security issues in cron jobs?
 Answer: To address security issues in cron jobs, I ensure that only necessary permissions are granted to the jobs, avoid storing sensitive data in scripts, use secure paths and environment variables, regularly review and audit cron jobs, and run jobs with the least privilege necessary. I also ensure that any output from cron jobs is logged and monitored for anomalies.
 
+
+23. Write a BASH Script for Prime numbers.
+Answer:
+```
+#!/bin/bash
+# Function to check if a number is prime
+is_prime() {
+    n=$1
+    if [ $n -le 1 ]; then
+        echo "$n is not a prime number."
+        return
+    fi
+    for (( i=2; i*i<=$n; i++ ))
+    do
+        if [ $((n % i)) -eq 0 ]; then
+            echo "$n is not a prime number."
+            return
+        fi
+    done
+    echo "$n is a prime number."
+}
+
+# Accept a number from the user
+read -p "Enter a number: " num
+
+# Check if the number is prime
+is_prime $num
+
+```
