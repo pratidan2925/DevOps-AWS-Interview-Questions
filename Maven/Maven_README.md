@@ -65,3 +65,9 @@ Nexus is a repository manager used to store and manage artifacts like binaries, 
 Can we use S3 instead of Nexus?
 While S3 can be used to store artifacts, it does not provide the same features as Nexus, such as version management, repository indexing, and metadata support. Nexus offers more comprehensive artifact management capabilities, including support for different repository formats and advanced features like proxying external repositories. However, for simple artifact storage, S3 can be a viable option.
 
+
+
+Where should Nexus credentials be stored securely?
+Nexus credentials should be stored in secure locations such as environment variables, encrypted secrets management tools, or configuration files with restricted access.
+What is Maven, and what are its primary uses?
+Maven is a build automation and project management tool primarily used for Java projects. It manages project dependencies, builds artifacts, and standardizes project structures through XML configuration files (pom.xml).
