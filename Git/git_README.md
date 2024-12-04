@@ -216,9 +216,35 @@ Automation: Perform routine tasks like versioning, release management, and notif
 Community and Open Source: Encourage contributions and automate workflows for open-source projects.
 
 
+#### 5. How do you securely store credentials in GitHub?
+Answer: To securely store credentials in GitHub, I use GitHub Secrets, which are encrypted environment variables that can be used in GitHub Actions workflows. Sensitive information like API keys or passwords should never be hardcoded in the repository.
+Scenario: In one project, I stored AWS credentials as GitHub Secrets, which were then accessed securely in a GitHub Actions workflow to deploy resources to AWS.
+
+#### 7. How is pull request approval managed in GitHub?
+Answer: Pull request approval in GitHub is managed through the use of reviewers and branch protection rules. Reviewers are assigned to review the code changes, and approvals are required before the pull request can be merged. Branch protection rules can enforce requirements like mandatory code reviews and passing CI checks.
+Scenario: In my team, we set up branch protection rules to require at least two approvals before merging any pull request to the main branch. This ensures code quality and prevents unreviewed changes from being deployed.
+
+#### 11. What are some key features of GitHub?
+Answer: Key features of GitHub include:
+Version Control: GitHub provides robust Git-based version control for code repositories.
+Pull Requests: A collaborative feature that allows for code review and discussion before merging changes.
+Actions: GitHub's CI/CD service for automating workflows directly from the repository.
+Issues: A tracking system for bugs, enhancements, and project management.
+Wiki: A documentation platform within the repository.
+Security: Features like Dependabot, code scanning, and GitHub Secrets for securing the repository.
+Scenario: I use GitHub's pull request and issue tracking features extensively in my projects to manage code changes and track development progress.
 
 
-#### #### 24. Difference between Git and SubVersion
+#### 14. What is a GitHub workflow, and how is it used?
+Answer: A GitHub workflow is an automated process defined in a YAML file within a GitHub repository. It is used to automate tasks such as building, testing, and deploying code. Workflows are triggered by events like pushes, pull requests, or on a schedule.
+Scenario: I created a GitHub Actions workflow to automatically build and test a Node.js application on every pull request. The workflow ensured that only code passing all tests could be merged into the main branch.
+
+#### 15. How do you handle merge conflicts in Git?
+Answer: To handle merge conflicts in Git, I first identify the conflicting files using git status. Then, I manually edit the conflicted files to resolve the conflicts, marking the resolution in the file. After resolving all conflicts, I add the files to the staging area and commit the changes.
+Scenario: During a project, I frequently encountered merge conflicts due to parallel development efforts. I resolved these conflicts by carefully reviewing the changes from both branches, ensuring that the final merged code was correct and functional.
+
+
+#### 24. Difference between Git and SubVersion
 
 #### #### 25. Head command in git
 
