@@ -15,3 +15,45 @@ Answer: To isolate packages for a Python-based application:
 Virtual Environments: Use venv or virtualenv to create a virtual environment.
 Package Management: Use pip to install packages within the virtual environment, preventing conflicts with globally installed packages.
 Scenario: I created a virtual environment using python3 -m venv myenv and installed all required packages within it for a Python project, avoiding any interference with the global Python environment.
+
+
+
+#### 13. What are Python decorators?
+Answer: Python decorators are a powerful feature that allows you to modify the behavior of a function or class method. They are applied using the @decorator_name syntax above the function definition. Decorators can be used for logging, access control, memoization, and more.
+Example:
+```
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+```
+#### 14. What are lambdas in Python?
+Answer: Lambdas in Python are anonymous functions defined using the lambda keyword. They can have any number of arguments but only one expression. They are often used for short, throwaway functions.
+Example:
+```
+python
+Copy code
+add = lambda x, y: x + y
+print(add(2, 3))  # Output: 5
+```
+#### 15. How to achieve this: str = "hello" expected output: "olleh"
+Answer: To reverse the string "hello" and produce the output "olleh", you can use slicing in Python:
+```
+str = "hello"
+reversed_str = str[::-1]
+print(reversed_str)  # Output: "olleh"
+```
+
+
+
+
+
+
