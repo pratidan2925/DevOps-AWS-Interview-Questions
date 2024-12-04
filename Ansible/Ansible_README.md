@@ -496,3 +496,39 @@ Visual Dashboard: Provides a visual interface to manage playbooks, inventory, an
 Role-based Access Control: Manage user access based on roles.
 Job Scheduling: Schedule automation tasks and monitor job progress.
 Inventory Management: Easily manage dynamic and static inventory.
+
+
+
+37. Ansible playbook to copy files from server A to server B
+yaml
+Copy code
+- hosts: server_a
+  tasks:
+    - name: Copy file to server B
+      copy:
+        src: /path/to/source/file
+        dest: /path/to/destination/on/server_b
+
+
+
+
+
+
+8. Check whether the file is present or not; if yes, change port number from 80 to 8080 using Ansible Playbook.
+yaml
+Copy code
+- hosts: localhost
+  tasks:
+    - name: Check if file exists
+      stat:
+        path: /etc/nginx/nginx.conf
+      register: file_check
+
+
+    - name: Change port from 80 to 8080
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: 'listen 80;'
+        line: 'listen 8080;'
+      when: file_check.stat.exists
+
