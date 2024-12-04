@@ -300,8 +300,8 @@ data "aws_vpc" "selected" {
   default = true
 }
 ```
-14. How do you dynamically retrieve VPC details from AWS to create an EC2 instance using IaC?
-Answer: To dynamically retrieve VPC details, I use data sources in Terraform:
+
+
 VPC Data Source: data "aws_vpc" "selected" {} to retrieve VPC ID.
 Subnet Data Source: data "aws_subnet" "selected" {} to get subnet details.
 Security Group Data Source: data "aws_security_group" "selected" {} to get security group information.
