@@ -376,3 +376,23 @@ Scenario: In my work, I use Docker for containerizing applications, while Kubern
    - Answer: I create Docker images by writing Dockerfiles, which are text documents that specify the steps needed to assemble a Docker image. Best practices include using minimal base images, leveraging layers for caching, minimizing the number of layers, and securing the images by scanning for vulnerabilities.
 
 
+
+
+#### 19. How do you handle credentials for a PHP application accessing MySQL or any other secrets in Docker?
+Answer: For securely managing credentials in Docker:
+Environment Variables: Store secrets as environment variables and pass them securely to the container.
+Secrets Management: Use Docker secrets (with Docker Swarm) or AWS Secrets Manager to manage sensitive data.
+Encrypted Files: Use encrypted configuration files or external secret management tools.
+Scenario: I used AWS Secrets Manager to store and retrieve database credentials for a PHP application running in Docker, ensuring that sensitive information was not exposed in the Docker image or environment.
+
+#### 20. What is the command for running container logs?
+Answer: The command to view logs from a running Docker container is:
+```
+docker logs <container_id_or_name>
+```
+Scenario: I frequently use docker logs my_container to troubleshoot issues by checking the application logs in the container.
+
+
+#### 25. Do you only update Docker images in Kubernetes, or do you also update replicas, storage levels, and CPU allocation?
+Answer: In Kubernetes, I update not only Docker images but also replicas, storage, and CPU/memory allocation as needed. This is typically done by updating the Deployment or StatefulSet manifests.
+Scenario: I scaled up a deployment by increasing the number of replicas and adjusted the resource requests and limits for CPU and memory to meet the increased load requirements.
