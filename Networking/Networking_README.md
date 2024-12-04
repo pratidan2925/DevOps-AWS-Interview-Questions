@@ -51,3 +51,16 @@ This loopback address allows a device to communicate with itself, useful for tes
 
 #### 8.  Explain Reverse proxy concept
 A reverse proxy sits between clients and backend servers, forwarding client requests to the appropriate backend server and returning the response to the client. It improves performance, security, and reliability by load balancing, caching, SSL termination, and URL rewriting.
+
+
+
+What are the differences between HTTP and HTTPS?
+HTTP (HyperText Transfer Protocol): A protocol used for transmitting data over the web. It is not encrypted, making it vulnerable to interception.
+HTTPS (HyperText Transfer Protocol Secure): An extension of HTTP that uses encryption (SSL/TLS) to secure data transmitted between the client and server, providing confidentiality and integrity.
+
+How do you handle and resolve CPU-related tickets?
+To handle CPU-related tickets, you would:
+Analyze resource usage and identify processes consuming high CPU.
+Check for resource limits and requests in Kubernetes or other environments.
+Optimize application performance, adjust configurations, or scale resources as needed.
+Implement monitoring and alerts to proactively manage CPU utilization.
