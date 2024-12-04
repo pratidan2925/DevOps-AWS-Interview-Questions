@@ -834,7 +834,65 @@ I have explored container orchestration with Kubernetes in depth. This includes 
 
 
 
-
+How can a pod in one node communicate with a pod in a different node?
+Pods in different nodes can communicate with each other through the Kubernetes network overlay. Kubernetes provides a network model where each pod gets its own IP address, and all pods can communicate with each other across nodes using these IP addresses. This communication is facilitated by the CNI (Container Network Interface) plugins used for networking in the cluster.
+What strategies would you implement to manage pods when traffic increases on a Kubernetes cluster?
+Horizontal Pod Autoscaling (HPA): Automatically scale the number of pod replicas based on CPU utilization or other custom metrics.
+Cluster Autoscaler: Adjust the number of nodes in the cluster based on resource needs.
+Load Balancing: Use Kubernetes services like LoadBalancer or Ingress to distribute traffic evenly.
+Resource Requests and Limits: Define resource requests and limits to ensure efficient resource allocation and avoid resource contention.
+Deployment strategies in Kubernetes
+Rolling Update: Gradually replace old versions of pods with new ones. This strategy ensures zero downtime and allows rolling back if necessary.
+Blue-Green Deployment: Deploy a new version of the application alongside the old version (blue and green). Switch traffic to the new version (green) once it's ready.
+Canary Deployment: Gradually roll out the new version to a small subset of users before fully deploying it. This helps in monitoring the new version’s performance and behavior.
+Recreate Deployment: Terminate all existing pods and create new ones with the updated version. This approach results in downtime but is straightforward.
+Shadow Deployment: Deploy the new version alongside the old one and route a copy of live traffic to the new version to test its performance under real conditions without affecting users.
+What are deployment strategies?
+Deployment strategies are approaches for releasing new versions of software. Common strategies include:
+Blue-Green Deployment
+Canary Deployment
+Rolling Deployment
+Recreate Deployment
+A/B Testing
+What is Kubernetes architecture?
+Kubernetes architecture includes:
+Master Node: Manages the cluster and includes components like the API server, scheduler, controller manager, and etcd.
+Worker Nodes: Run containerized applications and include components like kubelet, kube-proxy, and container runtime (e.g., Docker).
+Pod: The smallest deployable unit in Kubernetes, which encapsulates one or more containers.
+Services, ConfigMaps, Secrets, and other resources for managing and configuring applications.
+Tell me about a recent project you completed using Amazon EKS.
+In a recent project, I set up a Kubernetes cluster using Amazon EKS to manage containerized applications. I configured the cluster for high availability, integrated it with AWS services like RDS and S3, and deployed applications using Helm charts. I also set up monitoring with CloudWatch and Prometheus.
+What are the benefits of using Amazon EKS?
+Managed Service: Amazon EKS handles Kubernetes control plane management and maintenance.
+Scalability: Automatically scales worker nodes and integrates with AWS services for scaling applications.
+Security: Provides built-in security features and integrates with AWS IAM for access control.
+Integration: Seamlessly integrates with other AWS services, such as RDS, S3, and CloudWatch.
+How did you manage your EKS project using the CLI?
+I used the AWS CLI and kubectl to manage the EKS cluster. The CLI allowed me to configure cluster settings, deploy applications, and monitor resources. Commands like aws eks update-kubeconfig were used to update kubeconfig for kubectl access.
+Which components need to communicate with each other in this context?
+API Server: Communicates with etcd, scheduler, and controllers.
+Scheduler: Communicates with API server and nodes.
+Controllers: Communicate with the API server to maintain desired state.
+Nodes: Communicate with the API server and pods.
+What are Helm charts used for?
+Helm charts are used for defining, installing, and managing Kubernetes applications. They provide a templated approach to deploying applications, allowing for parameterized and repeatable deployments.
+Which type of load balancer did you use for your EKS project?
+For my EKS project, I used an Application Load Balancer (ALB) to manage HTTP/HTTPS traffic and provide advanced routing capabilities. It allowed for path-based routing and SSL termination.
+How do two containers within the same pod communicate with each other?
+Containers within the same pod communicate using localhost and the port number on which the service is listening. They share the same network namespace, making inter-container communication straightforward.
+Did you implement any monitoring solutions for your EKS project?
+Yes, I implemented monitoring using Prometheus for collecting metrics and Grafana for visualization. I also used CloudWatch for logging and monitoring AWS resources.
+If a container goes down and is automatically restored, how does the end-user maintain access given the IP address changes?
+In Kubernetes, services with a stable DNS name and load balancer handle IP address changes. Services ensure that traffic is routed to healthy pods regardless of their IP addresses.
+Can you explain how DNS works?
+DNS (Domain Name System) translates human-readable domain names into IP addresses. When a client makes a request, DNS servers resolve the domain name to an IP address, allowing the client to communicate with the desired server.
+What are the different types of Kubernetes services?
+ClusterIP: Exposes the service on a cluster-internal IP. Only accessible within the cluster.
+NodePort: Exposes the service on each node’s IP at a static port. Accessible from outside the cluster.
+LoadBalancer: Creates an external load balancer to route traffic to the service. Provides a public IP.
+Headless Service: Does not allocate a cluster IP and returns the pods’ IPs directly.
+Which ingress controller did you use?
+I used the NGINX Ingress Controller for managing ingress traffic in Kubernetes. It provided flexible routing rules and SSL termination capabilities.
 
 ---
 # Helm
