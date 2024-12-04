@@ -469,6 +469,18 @@ While you're in the middle of working on a feature when you realize you need to 
 You can use git stash to temporarily save your current changes without committing them. After resolving the urgent bug fix, you can return to your feature work by applying the stashed changes using git stash apply.
 
 
+
+
+How do you uncommit the changes that have already been pushed to GitHub?
+To uncommit changes that have already been pushed to GitHub, you can use:
+sh
+Copy code
+git revert <commit_hash>
+This creates a new commit that undoes the changes. For more complex scenarios, you might need to use git reset and git push --force, but this can rewrite history and should be used with caution.
+What is the difference between git pull and git fetch?
+git fetch downloads new data from a remote repository but does not merge it into your working directory. git pull performs git fetch followed by git merge, integrating the fetched changes into your current branch.
+
+
 #### 24. Difference between Git and SubVersion
 
 #### #### 25. Head command in git
