@@ -379,6 +379,77 @@ Scenario: During a project, I frequently encountered merge conflicts due to para
 #### 14. How do you handle merging branches in Git?
 Answer: Merging branches in Git involves checking out the branch you want to merge into, usually main or master, and using git merge <branch-name> to combine the changes from the specified branch. If conflicts arise, they need to be resolved manually before committing the merge. I also use git rebase for a cleaner commit history when necessary.
 
+
+
+
+
+
+
+#### How do you compare 2 commits in git?
+Use the command git diff commit1 commit2 to view the differences between two commits. You can also use git log to find commit hashes and git diff to compare changes.
+#### What is git rebase?
+git rebase integrates changes from one branch into another by moving the entire branch to begin on the tip of another branch. It can be used to maintain a linear project history and apply changes on top of a different base commit.
+#### Difference between git rebase and merge.
+git merge: Combines the histories of two branches, resulting in a merge commit that maintains the original branch structure.
+git rebase: Reapplies commits from one branch onto another, creating a linear history by integrating changes directly without a merge commit.
+#### Suppose you have deleted a file in git history. How will you find the deleted file and how will you restore it? What commands will you use?
+Find Deleted File: Use git log --diff-filter=D --summary to find information about deleted files.
+Restore Deleted File: Use git checkout <commit> -- path/to/deleted/file to restore the file from a specific commit. Alternatively, use git restore --source=<commit> path/to/deleted/file if using Git 2.23 or newer.
+
+
+
+
+
+
+#### What are some key features of GitHub?
+Key features of GitHub include repository hosting, version control, collaboration tools (issues, pull requests, code reviews), CI/CD with GitHub Actions, project management tools (projects, milestones), and integrations with various third-party services.
+#### How do you securely store credentials in GitHub?
+Credentials should not be stored directly in GitHub repositories. Instead, use GitHub Secrets to store sensitive information securely. Secrets are encrypted and can be used in GitHub Actions workflows. Additionally, tools like Vault by HashiCorp can be integrated for managing secrets securely.
+#### Where is the Jenkinsfile typically stored?
+The Jenkinsfile, which defines the pipeline as code, is typically stored in the root directory of the repository. This allows Jenkins to automatically detect and execute the pipeline when changes are pushed to the repository.
+#### How is pull request approval managed in GitHub?
+Pull request approval in GitHub is managed using code review workflows. Collaborators review the changes, provide feedback, and approve or request changes. Protected branches can be configured to require a certain number of approvals before a pull request can be merged. Additionally, status checks and CI/CD integration can enforce passing tests before approval.
+#### What is a GitHub workflow, and how is it used?
+A GitHub workflow is an automated process defined in a YAML file within the .github/workflows directory of a repository. Workflows specify a series of jobs to be executed based on triggers such as push events, pull requests, or scheduled times. They are used to automate CI/CD pipelines, testing, deployments, and other tasks.
+#### How do you handle merge conflicts in Git?
+To handle merge conflicts in Git, you can:
+Identify the files with conflicts using git status.
+Open the conflicted files and manually resolve the conflicts by choosing the correct code.
+Mark the conflicts as resolved using git add <file>.
+Complete the merge with git commit or git merge --continue.
+Alternatively, use tools like git mergetool for a graphical interface to resolve conflicts.
+#### What is GIT stash?
+Git stash temporarily shelves (or stashes) changes you've made to your working directory, allowing you to clean your working directory without committing your unfinished work. This is useful when you want to switch branches without committing incomplete changes.
+#### What is a branching strategy?
+A branching strategy is a set of guidelines and workflows that a development team follows to manage branches in a version control system. Common strategies include Git Flow, GitHub Flow, and trunk-based development, each with its own rules for creating, merging, and deleting branches.
+#### What is the command to discard changes in the working dir?
+To discard changes in the working directory, you can use:
+sh
+Copy code
+git checkout -- <file>
+or to discard all changes:
+sh
+Copy code
+git reset --hard
+
+
+#### How do you handle codes in Nexus satisfactorily?
+To handle code artifacts in Nexus:
+Use repository management best practices.
+Organize artifacts into appropriate repositories.
+Implement retention policies to clean up old or unused artifacts.
+Use versioning to manage different versions of artifacts.
+Set up access controls to ensure security.
+#### How do you manage GITHUB roles?
+GitHub roles can be managed by:
+Using GitHub’s built-in role system (owner, collaborator, team member).
+Setting repository permissions (read, write, admin) for individual users or teams.
+Using branch protection rules to enforce required reviews and other policies.
+Using GitHub organizations to manage multiple repositories and teams.
+
+
+
+
 #### 24. Difference between Git and SubVersion
 
 #### #### 25. Head command in git
