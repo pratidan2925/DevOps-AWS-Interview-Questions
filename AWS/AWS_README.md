@@ -2785,3 +2785,87 @@ In AWS, have you worked with multiple accounts?
 "Yes, I’ve worked with multiple AWS accounts, using AWS Organizations for managing them and cross-account roles for permissions and access control."
 What is EKS, and what are its benefits?
 EKS (Elastic Kubernetes Service): A managed Kubernetes service provided by AWS. Benefits include simplified cluster management, integrated with AWS services, automated upgrades, and built-in security and scalability features.
+
+
+4. What is a Bastion Host?
+A Bastion Host is a special-purpose server designed to provide access to a private network from an external network. It typically sits within the public subnet, and users SSH into the Bastion host to access resources inside the private network.
+.
+27. What is AWS RDS?
+Amazon RDS (Relational Database Service) is a managed service for relational databases like MySQL, PostgreSQL, Oracle, and SQL Server. It handles tasks like database patching, backups, and scaling.
+28. How to upgrade the DB version in RDS?
+Select the DB instance in the RDS console.
+Modify the instance and choose a new DB engine version.
+Apply changes either immediately or during the next maintenance window.
+29. What is an Internet-facing Load Balancer?
+It is a load balancer that routes incoming traffic from the internet to backend instances. The load balancer has a public IP address that clients can use.
+30. How to divert traffic using ALB (Application Load Balancer) for a specific service?
+In ALB, you can configure listener rules based on the host or path. For example, if a URL contains /api, you can direct the traffic to a specific target group.
+
+
+1. What is the use of CIDR range in VPC?
+The CIDR (Classless Inter-Domain Routing) range defines the IP address range for your VPC. It allows you to create subnets and assign IP addresses to instances within the VPC. By using CIDR notation, you control how many IP addresses are available within your VPC. A typical CIDR block looks like 10.0.0.0/16, where /16 indicates the size of the network.
+2. What are the main requirements you need to meet when you create an Auto Scaling group?
+Launch Configuration/Template: Specifies EC2 instance types, AMI, key pair, security groups, etc.
+Minimum and Maximum Instances: Defines the scaling boundaries.
+Health Check: Ensures that instances are healthy.
+Scaling Policies: Defines when to scale in or out, based on metrics like CPU utilization.
+ IAM Roles, Users, Policies
+IAM User: An entity that you create in AWS to represent the person or application that uses the IAM user to interact with AWS services.
+IAM Role: An AWS identity that has specific permissions. It can be assumed by IAM users or AWS services to gain temporary access to resources.
+IAM Policy: A document that defines permissions and can be attached to IAM users, groups, or roles to specify allowed actions on AWS resources.
+62. AWS Lambda and API Gateway
+AWS Lambda: A serverless compute service that runs your code in response to events and automatically manages the compute resources.
+API Gateway: A fully managed service that makes it easy for developers to create, publish, maintain, and secure APIs at any scale. It can invoke AWS Lambda functions in response to HTTP requests.
+63. What is VPN?
+A Virtual Private Network (VPN) creates a secure and encrypted connection over a less secure network, such as the Internet. It enables remote users to access private networks securely, ensuring data confidentiality and integrity.
+64. Ways to minimize AWS cost
+Use Reserved Instances: Commit to using instances for a longer period (1 or 3 years) to save on costs.
+Auto-Scaling: Automatically adjust the number of EC2 instances based on demand.
+Spot Instances: Use spot instances for non-critical workloads at lower prices.
+Monitor Usage: Use AWS Cost Explorer to analyze spending and adjust resources.
+Choose the Right Services: Use serverless architectures where possible, such as Lambda, to reduce costs.
+65. Types of Load Balancer and its use cases
+Application Load Balancer (ALB): Routes traffic based on HTTP/HTTPS requests, ideal for microservices and containerized applications.
+Network Load Balancer (NLB): Handles TCP traffic at scale, suitable for high-performance applications and extreme load.
+Classic Load Balancer (CLB): Supports both HTTP and TCP traffic, useful for existing applications running in EC2.
+1. What is Point-in-Time Backup?
+Answer: A Point-in-Time Backup refers to capturing the state of a system or data at a specific moment. It enables restoration to that exact point, ensuring minimal data loss in case of failures. In AWS, services like RDS provide point-in-time backups, allowing you to restore databases to any second within the retention period.
+2. How to Add an EBS Volume to EC2?
+Answer:
+Attach the EBS Volume:
+In the AWS Management Console, go to EC2, select your instance, and click Actions > Attach Volume.
+Choose the EBS volume and attach it to the instance.
+Connect to the EC2 Instance:
+SSH into your EC2 instance.
+List Available Disks:
+Run lsblk to view available block devices and verify the EBS volume is attached.
+Create a Filesystem (if needed):
+Format the volume using: sudo mkfs -t ext4 /dev/xvdf (replace /dev/xvdf with your EBS volume device).
+Mount the EBS Volume:
+Create a directory: sudo mkdir /mnt/ebs
+Mount the volume: sudo mount /dev/xvdf /mnt/ebs
+Persist the Mount (Optional):
+Add the mount to /etc/fstab for persistence after a reboot.
+3. What if You Want to Access Data on an EC2 Instance but Lost the Key Pair?
+Answer:
+Stop the Instance: Stop the EC2 instance (don’t terminate it).
+Detach the Root Volume:
+Go to Volumes in the EC2 Dashboard, detach the root EBS volume from the instance.
+Attach the Volume to Another EC2 Instance:
+Attach the root EBS volume as a secondary volume to another EC2 instance with an accessible key pair.
+Mount the Volume:
+SSH into the second instance, run lsblk to check the new volume, and mount it to access the data.
+Modify the SSH Configuration:
+If necessary, navigate to /etc/ssh/ and modify the authorized_keys file to include the new public key.
+Detach and Reattach:
+Detach the volume from the temporary instance and reattach it as the root volume to the original instance.
+Start the Instance: Start the instance and log in with the new key pair.
+
+
+
+
+
+
+
+
+
