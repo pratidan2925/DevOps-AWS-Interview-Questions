@@ -935,6 +935,55 @@ Health Checks: Ensure the readiness and liveness probes are correct.
 
 
 
+38. Deployment strategies
+Rolling Update: Replaces pods gradually to ensure no downtime.
+Blue-Green Deployment: Two environments (Blue and Green) are used, and traffic is switched to the new environment after testing.
+Canary Deployment: Deploys a new version to a subset of users to test before a full rollout.
+31. Difference between Stateful and DaemonSet
+StatefulSet: Ensures each pod has a unique identity and stable storage, useful for stateful applications like databases.
+DaemonSet: Ensures that a copy of a pod runs on all or selected nodes. It is commonly used for monitoring agents or logging daemons.
+32. What is Ingress Controller?
+Ingress Controller manages ingress resources in Kubernetes, handling routing rules for HTTP and HTTPS traffic. It directs external traffic to the appropriate service based on routing rules.
+33. How to set a config map file for secret and data?
+ConfigMaps and Secrets can be created from files using the following commands:
+bash
+Copy code
+kubectl create configmap my-config --from-file=config-file.conf
+kubectl create secret generic my-secret --from-file=secret-file.txt
+
+
+These can be mounted into a pod as environment variables or as files.
+34. What is Liveness and Readiness Probe?
+Liveness Probe: Checks if the pod is alive; if not, Kubernetes will restart it.
+Readiness Probe: Checks if the pod is ready to receive traffic. If it fails, the pod will not receive any new requests.
+48. What is a Rolling Update?
+A rolling update is a deployment strategy that gradually replaces instances of the previous version of the application with the new version.
+
+
+
+
+22. Types of services in Kubernetes. Explain each service with its use case
+ClusterIP: Exposes the service within the cluster, useful for internal communication between pods.
+NodePort: Exposes the service on each node’s IP at a static port, accessible from outside the cluster.
+LoadBalancer: Creates an external load balancer that routes traffic to the pods. This is commonly used in cloud environments.
+Headless Service: Used when you want to bypass the load-balancer-like behavior and get direct access to pod IP addresses for stateful applications.
+23. What is pod affinity?
+Pod affinity allows you to control which nodes your pods run on based on labels and other metadata. It’s useful for spreading workloads across nodes or co-locating related workloads.
+24. How do pods communicate with each other when a key is lost?
+Pods usually communicate through Kubernetes services or by using the pod’s IP. If a key is lost (like a secret or a certificate), you can re-inject it through a new secret or config map, and Kubernetes will automatically mount the updated secret in the pods.
+
+
+
+
+
+
+39. What is Helm Chart?
+Helm is a Kubernetes package manager that helps define, install, and upgrade even the most complex Kubernetes applications using charts, which are pre-configured templates for Kubernetes resources.
+
+
+
+
+
 ---
 # Helm
 What is Helm?
