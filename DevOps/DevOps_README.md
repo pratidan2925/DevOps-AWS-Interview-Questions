@@ -209,3 +209,10 @@ Rollback and Test: Roll back changes if necessary and re-test before redeploying
 
 
 
+What is a change request, and how is it handled in a DevOps environment?
+A change request is a formal proposal to modify an existing system or process. In a DevOps environment, it is typically handled through a change management process that includes approval workflows, impact assessment, testing, and deployment.
+As the sole DevOps engineer working with a few developers, how do you collaborate and manage tasks?
+Regular communication through meetings or updates.
+Use task management tools like Jira or Trello to track progress and issues.
+Establish clear guidelines for deployment processes and infrastructure changes.
+Document processes and share knowledge to ensure alignment with the development team.
