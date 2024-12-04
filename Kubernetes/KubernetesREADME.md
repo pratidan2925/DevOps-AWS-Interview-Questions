@@ -1,5 +1,117 @@
 # Kubernetes
 
+How is Kubernetes different from Docker Swarm?
+Kubernetes: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides features like service discovery, load balancing, automated rollouts/rollbacks, and self-healing.
+Docker Swarm: Docker Swarm is Docker's native clustering and orchestration tool. It focuses on simplicity and Docker-native integration, providing basic orchestration capabilities without some of the advanced features of Kubernetes.
+
+What is Kubernetes?
+Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It abstracts the underlying infrastructure, providing a consistent and declarative API to manage containerized applications at scale.
+
+How is Kubernetes related to Docker?
+Kubernetes can run Docker containers, but Kubernetes itself is not tied to Docker. It supports various container runtimes (containerd, CRI-O, etc.) through its Container Runtime Interface (CRI). Kubernetes provides orchestration capabilities for containers, irrespective of the container runtime.
+
+What is Container Orchestration?
+Container orchestration is the automated process of managing, deploying, scaling, and networking containers. It ensures that applications run as expected in dynamic and large-scale containerized environments, handling tasks like load balancing, service discovery, and automated deployments.
+
+How does Kubernetes simplify containerized Deployment?
+Kubernetes simplifies containerized deployment by providing:
+Automated Deployments: Declarative configuration for defining application deployments.
+Scalability: Automated scaling of applications based on resource usage.
+Service Discovery and Load Balancing: Automatically routes traffic to containers using Services.
+Self-healing: Restarts or replaces containers that fail or become unresponsive.
+
+What is Minikube?
+Minikube is a tool that runs a single-node Kubernetes cluster locally on your machine. It is designed for development and testing Kubernetes applications on a local environment before deploying to a production Kubernetes cluster.
+
+What is Kubectl?
+kubectl is the command-line tool used to interact with Kubernetes clusters. It allows users to deploy and manage applications, inspect cluster resources, manage cluster nodes, and view logs.
+
+What is Kubelet?
+kubelet is the primary node agent that runs on each node in a Kubernetes cluster. It ensures containers are running in a Pod by managing their lifecycle, handling container probes, and reporting node health to the Kubernetes control plane.
+
+What do you understand about Kube-proxy?
+kube-proxy is a Kubernetes network proxy that runs on each node in the cluster. It maintains network rules required to forward traffic to Pods and services based on IP and port address.
+
+What is the role of kube-apiserver and kube-scheduler?
+kube-apiserver: The Kubernetes API server exposes the Kubernetes API, which is the central management point for the Kubernetes cluster. It handles API requests, validates and configures data, and maintains the state of the cluster.
+kube-scheduler: The Kubernetes scheduler is responsible for placing Pods onto available nodes in the cluster. It selects nodes based on resource requirements, node affinity/anti-affinity rules, and other constraints.
+
+Can you briefly talk about the Kubernetes controller manager?
+The Kubernetes controller manager is a component of the Kubernetes control plane that runs controller processes. These controllers include Node Controller, ReplicaSet Controller, Endpoint Controller, and many others. They monitor the state of cluster resources and work to ensure the desired state matches the actual state.
+
+What is ETCD?
+etcd is a distributed key-value store used by Kubernetes to store cluster configuration and state. It serves as the cluster's backing store for all cluster data, including the state of the Kubernetes API objects, configuration details, and metadata.
+
+What do you understand about load balancers in Kubernetes?
+In Kubernetes, a load balancer is a Service type that exposes an application running on a set of Pods as a network service. It automatically distributes incoming traffic across the Pods that belong to the Service, providing load balancing for the application.
+
+What is the difference between a replica set and a replication controller?
+ReplicaSet: A ReplicaSet is the next-generation Replication Controller. It ensures a specific number of Pod replicas are running at any given time. It supports more expressive Pod selectors and is the preferred choice for deployments.
+Replication Controller: A Replication Controller is an older Kubernetes object that ensures a specified number of Pod replicas are running. It is recommended to use ReplicaSet or Deployment instead of Replication Controller for newer deployments.
+
+What is a Headless Service?
+A Headless Service in Kubernetes is a Service that does not have a cluster IP assigned. It is used for services that do not require load balancing or a stable network identity. DNS records are created for each Pod in the Headless Service.
+
+What are K8s?
+"K8s" is a shorthand term used for "Kubernetes". It's derived from the word "Kubernetes" itself, taking the first and last letters, and replacing the 8 letters in between with a number.
+
+What are the features of Kubernetes?
+Container Orchestration: Automated deployment, scaling, and management of containerized applications.
+Service Discovery and Load Balancing: Automatic DNS-based service discovery and load balancing for application services.
+Self-healing: Auto-restart, rescheduling, and replication of containers in case of failures.
+Storage Orchestration: Automatic mounting of storage systems.
+Automated Rollouts/Rollbacks: Support for deployment patterns like blue-green and canary deployments.
+Secrets and Configuration Management: Secure storage and management of sensitive information.
+Batch Execution: Management of batch and CI workloads.
+
+What are the main components of Kubernetes architecture?
+Master Components: kube-apiserver, etcd, kube-scheduler, kube-controller-manager.
+Node Components: kubelet, kube-proxy, container runtime (like Docker, containerd).
+Networking: Pod network, Service network, DNS.
+Add-ons: DNS, Dashboard, Ingress controllers.
+
+What is the role of Kube-apiserver?
+Already answered in question 10.
+
+What process runs on Kubernetes Master Node?
+Kubernetes Master Node runs processes like kube-apiserver, etcd, kube-scheduler, and kube-controller-manager to manage and control the Kubernetes cluster.
+
+What is the job of the kube-scheduler?
+Already answered in question 10.
+
+What is ‘Heapster’ in Kubernetes?
+Heapster was a Kubernetes-native project for cluster-wide monitoring and performance analysis. It collected and stored performance metrics from Kubernetes nodes and containers. However, Heapster is deprecated in favor of Metrics Server and other monitoring solutions.
+
+What is a Namespace in Kubernetes?
+A Namespace in Kubernetes is a virtual cluster inside a Kubernetes cluster. It provides a way to partition a Kubernetes cluster into multiple virtual clusters, allowing teams or projects to have their own isolated environments.
+
+Name the initial namespaces from which Kubernetes starts?
+Kubernetes starts with four initial namespaces:
+default: The default namespace for objects with no other namespace.
+kube-system: Namespace for objects created by Kubernetes system.
+kube-public: Contains public information about the cluster.
+kube-node-lease: Used by the kubelet to update node status
+
+What is the Kubernetes controller manager?
+The Kubernetes controller manager is a daemon that embeds the core control loops shipped with Kubernetes. It runs various controllers that regulate the state of the cluster, such as Node Controller, ReplicaSet Controller, Endpoint Controller, Namespace Controller, and others.
+
+What are the types of controller managers?
+There are several types of controller managers in Kubernetes, each responsible for managing different aspects of the cluster:
+Node Controller: Manages nodes and their lifecycle.
+ReplicaSet Controller: Ensures the desired number of Pod replicas are running.
+Endpoint Controller: Populates the Endpoints object (joins Services & Pods).
+Namespace Controller: Manages namespaces.
+Service Account & Token Controllers: Manage API access tokens and service accounts.
+Persistent Volume Controller: Manages Persistent Volumes.
+
+What are the different services within Kubernetes?
+In Kubernetes, services are abstractions that define a logical set of Pods and a policy by which to access them. Types of services include:
+ClusterIP: Exposes a service on an internal IP address.
+NodePort: Exposes a service on a static port on each node.
+LoadBalancer: Exposes a service using a cloud provider’s load balancer.
+ExternalName: Maps a service to a DNS name.
+Headless Service: Provides a DNS entry but does not load balance.
+
 #### 24. What are nodes in Kubernetes?
 Answer: Nodes in Kubernetes are the worker machines that run containerized applications. Each node contains the necessary components to run Pods, including the container runtime, kubelet (agent that manages containers), and kube-proxy (handles network communication). Nodes can be physical or virtual machines and are managed by the Kubernetes control plane.
 #### 25. What is a Pod in Kubernetes?
