@@ -650,6 +650,24 @@ I have used Terraform for infrastructure provisioning and management. In a recen
 
 
 
+35. What are modules in Ansible and Terraform?
+Ansible Modules: Are reusable units of code that perform tasks such as creating a user, installing packages, or starting a service.
+Terraform Modules: Are reusable configuration sets that can be called to manage resources like EC2 instances, VPCs, etc., across multiple environments.
+3. How to import existing resources using Terraform?
+To import existing infrastructure into Terraform:
+Use the command terraform import <resource_type>.<resource_name> <unique_id>.
+Example: terraform import aws_instance.my_instance i-1234567890abcdef0.
+You must manually write the resource block in your configuration that matches the resource you are importing.
+4. Suppose I Lost a State File but Have Resources Running—How to Recover That State File?
+Answer:
+Use Terraform Import: You can use terraform import to reimport the existing resources into a new state file. For each resource, run:
+
+terraform import <resource_type>.<resource_name> <resource_id>
+
+
+Rebuild State: After importing the resources, you may need to manually define the corresponding resource configurations in your Terraform files to match the current state of your infrastructure.
+
+
 
 
 
