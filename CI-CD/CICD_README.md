@@ -33,3 +33,8 @@ Dependency Scanning: Using tools like Dependabot to automatically scan and updat
 Penetration Testing: Regular penetration testing to identify vulnerabilities in deployed applications.
 Security Audits: Conducting regular security audits and reviews of the code and infrastructure.
 Scenario: In a project where security was a top priority, I integrated SonarQube into our Jenkins pipeline to automatically scan for code vulnerabilities with each build, ensuring that any issues were caught early in the development process.
+
+#### 15. Explain Continuous Deployment vs. Continuous Delivery.
+Answer:
+Continuous Delivery: The practice of ensuring that the code is always in a deployable state, but the deployment is triggered manually.
+Continuous Deployment: Extends Continuous Delivery by automatically deploying every change that passes all stages of the CI/CD pipeline to production, without manual intervention.
