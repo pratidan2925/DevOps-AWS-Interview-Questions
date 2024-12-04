@@ -1430,3 +1430,78 @@ Scenario: In one project, I configured Jenkins pipelines to automatically deploy
 Answer: I use tools like SonarQube, OWASP Dependency-Check, and Snyk to scan code and dependencies for vulnerabilities. These tools are integrated into the CI/CD pipeline to ensure that code is analyzed at every commit and build stage.
 Scenario: In a project, I integrated SonarQube into our Jenkins pipeline to perform static code analysis. The pipeline would fail if any critical vulnerabilities were found, ensuring that only secure code was deployed to production.
 
+#### 16. What steps do you take when a build fails in Jenkins?
+Answer: When a build fails in Jenkins, I take the following steps:
+Review Logs: Check the build logs to identify the root cause of the failure.
+Analyze Code Changes: Review the recent code changes that triggered the build.
+Test Locally: Reproduce the issue in a local environment if possible.
+Fix the Issue: Make the necessary code or configuration changes to resolve the issue.
+Re-run the Build: Trigger a new build to ensure the issue is resolved.
+Scenario: In a recent project, a Jenkins build failed due to a missing dependency in the pipeline script. I quickly identified the issue by reviewing the logs, updated the pipeline to include the dependency, and re-ran the build successfully.
+
+#### 16. How do you schedule tasks in Jenkins?
+Answer: In Jenkins, tasks can be scheduled using the Build periodically option, which uses a cron-like syntax. For example, H/15 * * * * schedules a task to run every 15 minutes. You can also trigger tasks based on SCM changes, at a specific time, or after the completion of another job.
+
+#### 17. What’s the difference between Cron jobs and Jenkins scheduling?
+Answer: Cron jobs are system-level tasks scheduled on a Unix/Linux server using the cron daemon, whereas Jenkins scheduling is specific to Jenkins jobs and is managed within the Jenkins UI. Jenkins provides more flexibility, such as conditional triggers, SCM polling, and integration with other build and deployment tools.
+
+#### 18. What are agents in Jenkins, and how are they used?
+Answer: Agents in Jenkins are machines that perform the work scheduled by the master (controller). They run Jenkins jobs, including builds, tests, and deployments. Agents can be physical or virtual machines, and they help distribute the workload across multiple nodes, improving efficiency and scalability.
+
+#### 26. What types of pipelines are there in Jenkins?
+Answer: In Jenkins, the main types of pipelines are:
+Declarative Pipeline: A simpler and more structured pipeline syntax.
+Scripted Pipeline: A more flexible and powerful pipeline syntax based on Groovy.
+Multibranch Pipeline: A pipeline that automatically manages branches and pull requests in a repository.
+Pipeline as Code: Storing pipeline definitions in version control alongside the application code.
+Scenario: I implemented a multibranch pipeline in Jenkins, which automatically triggered builds for each branch and pull requests in the GitHub repository.
+
+
+#### 27. Can you define environment variables inside your Jenkins pipeline?
+Answer: Yes, environment variables can be defined in a Jenkins pipeline using the environment block in a declarative pipeline or using env in a scripted pipeline.
+```
+pipeline {
+    environment {
+        VAR_NAME = "value"
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Variable value: ${env.VAR_NAME}"
+            }
+        }
+    }
+}
+```
+Scenario: In a Jenkins pipeline, I defined environment variables to store sensitive information like API keys, ensuring they were only accessible within the pipeline.
+
+#### 28. What is the role of artifacts in Jenkins, and why do we need to push them to Nexus instead of building and storing them locally?
+Answer: Artifacts in Jenkins are the output files (e.g., binaries, Docker images) produced by a build process. Pushing them to Nexus (or another artifact repository) is important because:
+Centralized Storage: Ensures that all artifacts are centrally stored and versioned.
+Accessibility: Makes artifacts accessible to other teams and environments.
+Retention & Management: Nexus provides better artifact management, including retention policies and access control.
+Scenario: In a CI/CD pipeline, I pushed build artifacts to Nexus to ensure they were available for subsequent deployment stages and for audit purposes.
+#### 12. What are some key features of Jenkins?
+Answer: Key features of Jenkins include:
+Pipeline as Code: Jenkins supports defining CI/CD pipelines using code (Jenkinsfile).
+Extensibility: Jenkins has a vast plugin ecosystem to integrate with various tools and services.
+Distributed Builds: Jenkins supports distributed builds across multiple nodes using the master-slave architecture.
+Automation: Jenkins automates tasks like building, testing, and deploying applications.
+Integration: Jenkins integrates with various SCMs, artifact repositories, and cloud platforms.
+Scenario: I utilize Jenkins' pipeline as code and distributed build capabilities to automate and manage complex CI/CD workflows across multiple environments.
+#### 9. What is the master-slave architecture in Jenkins?
+Answer: The master-slave architecture in Jenkins consists of a master node and one or more slave nodes. The master node orchestrates the build processes, manages the job queue, and assigns jobs to the slave nodes, which execute the builds.
+Scenario: In a previous setup, I configured Jenkins to distribute build tasks across multiple slave nodes. This setup improved build performance by parallelizing tasks and reducing the load on the master node.
+
+#### 10. How do you integrate LDAP with AWS and Jenkins?
+Answer: LDAP can be integrated with AWS IAM for centralized user management, and with Jenkins for authentication and authorization. For AWS, you can use AWS Directory Service to connect to an on-premises Active Directory or create a new managed directory. For Jenkins, the LDAP plugin is used to authenticate users against an LDAP directory.
+Scenario: In one project, I integrated Jenkins with an LDAP server to authenticate users based on their organization credentials. This setup simplified user management and ensured that only authorized users could access Jenkins.
+#### 6. Where is the Jenkinsfile typically stored?
+Answer: The Jenkinsfile is typically stored in the root directory of the project's source code repository. This file defines the CI/CD pipeline as code, enabling version control and easier collaboration.
+Scenario: In my projects, I store the Jenkinsfile in the GitHub repository along with the application code. This approach allows the pipeline to be automatically executed when changes are made to the repository.
+
+
+
+
+
+
