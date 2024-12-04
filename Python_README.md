@@ -56,4 +56,14 @@ print(reversed_str)  # Output: "olleh"
 
 
 
+What did you use Python and Shell Scripting for?
+Answer: I have used Python and Shell scripting for various tasks, including:
+Python: Writing automation scripts, developing tools for data processing, and integrating with APIs.
+Shell Scripting: Automating system tasks, such as file backups, batch processing, and server maintenance.
+How did you back up a file?
+Answer: To back up a file, I have used commands like cp or rsync for simple file copies, or created automated backup scripts using Shell or Python. Tools like tar can be used to compress and archive files before backing them up to another location or storage system.
+Do you have experience with Python?
+Yes, I have experience with Python. I’ve used it for scripting, automation tasks, and developing Lambda functions.
+What programming languages are you proficient in?
+I am proficient in Python, Shell scripting, JavaScript (Node.js), and Java. I also have experience with Bash and Groovy for various DevOps tasks.
 
