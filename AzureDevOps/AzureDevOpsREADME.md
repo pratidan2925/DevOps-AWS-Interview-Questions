@@ -183,3 +183,41 @@ Production Stage: Deploy to the production environment with separate configurati
 I would use Git reflog to recover the deleted commit. Reflog keeps a record of all references to the commits in the repository, allowing us to identify and restore the missing commit. If necessary, I would also check the backups or use Azure DevOps features like branch policies and pull requests to prevent such incidents in the future.
 
 
+38. Did you use an Azure pipeline?
+Yes, I have used Azure Pipelines for CI/CD purposes.
+39. Did you use YAML or normal scripts to write the pipeline?
+I used YAML to define Azure Pipelines, as it provides a declarative way to specify the pipeline configuration.
+40. If possible, give me an overview of the Azure pipeline.
+An Azure pipeline typically consists of the following components:
+Pipeline: The top-level component that defines the process of building, testing, and deploying code.
+Stages: Logical phases of the CI/CD process, such as build, test, and deploy.
+Jobs: A collection of steps that run sequentially within a stage. Each job runs on an agent.
+Steps: Individual tasks or scripts that are executed in a job. Common steps include checkout, script, and task.
+Triggers: Conditions that trigger the pipeline, such as code commits, pull requests, or schedule-based triggers.
+Example of a simple Azure pipeline defined in YAML:
+trigger:
+- main
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    python -m unittest discover
+  displayName: 'Run tests'
+
+
+
+
+
+
+
