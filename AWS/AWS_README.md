@@ -2773,3 +2773,15 @@ Suppose your EC2 server has become slow. How will you troubleshoot it?
 
 
 
+
+
+
+
+
+Suppose you get an error, "connection timed out." What will you check?
+"I’d check network connectivity, firewall rules, and whether the service is running on the target host. I’d also verify DNS resolution and any relevant service configurations."
+
+In AWS, have you worked with multiple accounts?
+"Yes, I’ve worked with multiple AWS accounts, using AWS Organizations for managing them and cross-account roles for permissions and access control."
+What is EKS, and what are its benefits?
+EKS (Elastic Kubernetes Service): A managed Kubernetes service provided by AWS. Benefits include simplified cluster management, integrated with AWS services, automated upgrades, and built-in security and scalability features.
