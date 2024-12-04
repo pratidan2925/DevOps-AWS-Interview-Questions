@@ -516,3 +516,12 @@ Answer: To handle this situation, I would first run terraform plan to detect any
 Scenario: In a previous project, I encountered this issue and decided to update the Terraform code to include the manual policy change. This ensured that Terraform managed all future updates to the S3 bucket policy.
 
 
+
+
+
+
+
+
+
+
+
