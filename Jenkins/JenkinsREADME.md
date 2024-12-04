@@ -1699,3 +1699,30 @@ Copy code
 This will run the script on June 10th at 12:00.
 49. Terraform Taint
 terraform taint marks a resource for recreation on the next apply, ensuring it is destroyed and recreated.
+
+
+
+
+
+
+
+
+5. How to Write a Script to Run Any Stage of a Pipeline Multiple Times if That Stage Fails?
+Answer:
+In Jenkins or any CI/CD pipeline, you can use retry mechanisms to run a failed stage multiple times. For example, in Jenkins (Declarative Pipeline), you can use the retry block:
+pipeline {
+  stages {
+    stage('Deploy') {
+      steps {
+        script {
+          retry(3) {
+            sh './deploy.sh'
+          }
+        }
+      }
+    }
+  }
+}
+
+
+This will retry the Deploy stage up to 3 times if it fails.
