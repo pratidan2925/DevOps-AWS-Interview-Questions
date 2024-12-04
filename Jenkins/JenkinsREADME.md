@@ -1533,3 +1533,75 @@ Slack Notification: Sends build notifications to Slack channels.
 
 
 
+
+
+
+
+
+What is the master-slave architecture in Jenkins?
+In Jenkins, the master-slave architecture refers to the distribution of build tasks across multiple nodes. The master node handles the scheduling of jobs, monitoring of slaves, and storing build results. Slave nodes, also known as agents, execute the build jobs. This architecture helps in scaling and distributing the load.
+How do you integrate LDAP with AWS and Jenkins?
+For AWS, you can integrate LDAP through AWS IAM Identity Center (formerly AWS Single Sign-On) or by setting up an AD Connector for AWS Managed Microsoft AD. For Jenkins, you can use the LDAP plugin to configure and integrate Jenkins with your LDAP server for authentication and user management.
+
+What are some key features of Jenkins?
+Key features of Jenkins include pipeline as code (Jenkinsfile), extensive plugin ecosystem, distributed builds, integration with various SCM tools, CI/CD support, real-time build and test feedback, and a web-based user interface for job configuration and monitoring.
+What are the benefits and uses of CI/CD?
+CI/CD benefits include faster delivery of code changes, improved code quality through automated testing, early detection of bugs, streamlined deployment processes, and reduced manual intervention. CI/CD is used for automating the build, test, and deployment processes, ensuring reliable and frequent releases.
+What steps do you take when a build fails in Jenkins?
+When a build fails in Jenkins, you should:
+Review the build logs to identify the cause of the failure.
+Check for errors in the code or configuration.
+Verify the environment and dependencies.
+Re-run the build to see if the issue persists.
+Fix the identified issues and commit the changes.
+Re-trigger the build to ensure the fix resolves the problem.
+How do you execute jobs parallelly in Jenkins?
+To execute jobs in parallel in Jenkins, you can use the parallel directive in a declarative pipeline or create multiple jobs and configure them to run concurrently. Example in Jenkinsfile:
+groovy
+Copy code
+stage('Parallel Stage') {
+    parallel {
+        stage('Job 1') {
+            steps {
+                // steps for job 1
+            }
+        }
+        stage('Job 2') {
+            steps {
+                // steps for job 2
+            }
+        }
+    }
+}
+
+
+Maven Lifecycle?
+Maven's default lifecycle consists of three phases: clean, default, and site. The default lifecycle includes phases such as validate, compile, test, package, verify, install, and deploy.
+How do you upgrade Jenkins?
+To upgrade Jenkins, you can:
+Backup Jenkins configuration and data.
+Download the latest Jenkins WAR file.
+Replace the old WAR file with the new one.
+Restart the Jenkins service.
+Verify that all plugins are compatible and update them if necessary.
+What is called a Parameterised Job in Jenkins?
+A parameterized job in Jenkins is a job that accepts parameters from the user when the job is triggered. This allows the job to be executed with different inputs. Parameters can include strings, choices, booleans, etc.
+How do you manage space issues in the Jenkins server?
+To manage space issues in Jenkins:
+Regularly clean up old build artifacts and logs.
+Use the Workspace Cleanup Plugin to clean up workspaces.
+Archive and rotate logs.
+Increase disk space if necessary.
+Monitor disk usage and configure alerts.
+What is called a multibranch project in the Jenkins server?
+A multibranch project in Jenkins is a project that can automatically detect and manage branches in a repository. Jenkins creates a separate sub-project for each branch and allows individual branch configurations and build processes.
+How do you secure the Jenkins server?
+To secure Jenkins:
+Enable authentication and authorization.
+Use secure communication (HTTPS).
+Restrict access using roles and permissions.
+Regularly update Jenkins and plugins.
+Use security plugins like the OWASP Dependency-Check Plugin.
+Backup Jenkins configurations and data.
+
+
