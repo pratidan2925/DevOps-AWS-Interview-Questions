@@ -558,7 +558,15 @@ How will you find out which process is consuming more CPU or memory in Linux?
 
 
 
-
+In the Docker image, you have gibberish that can be seen in the output that starts with SHA. What is that? It is a very important part.
+The gibberish starting with SHA is a SHA-256 hash that uniquely identifies the Docker image. This hash ensures that the image content is consistent and verifies the integrity of the image. It is crucial for managing image versions and ensuring that deployments use the correct image.
+On Docker level, have you worked on fixing container vulnerabilities or something like that?
+"Yes, I’ve used tools like Docker Bench for Security and Clair to scan images for vulnerabilities and applied updates to address security issues."
+Suppose you have 2 Docker containers. One is an application container and the other is a database container. Both are in the same network, but the application container is not able to connect to the database container. How will you troubleshoot it?
+"Check if the database container is running and accessible within the network. Verify the network configuration, container names, and connection details. Ensure that the database service is listening on the correct port and that there are no firewall rules blocking the connection."
+What are the differences between virtualization and containerization?
+Virtualization: Involves creating multiple virtual machines (VMs) on a single physical machine, each with its own OS. VMs are isolated and can run different OS versions but have higher overhead due to multiple OS instances.
+Containerization: Involves running multiple containers on a single OS instance, sharing the host OS kernel. Containers are lightweight and faster to start, with lower overhead compared to VMs.
 
 
 
