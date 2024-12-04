@@ -67,6 +67,12 @@ Implement monitoring and alerts to proactively manage CPU utilization.
 
 
 
+18. What is CDN?
+A CDN (Content Delivery Network) is a distributed network of servers that deliver web content based on a user's geographic location, improving performance and redundancy.
+5. What is SSL and TLS?
+SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic protocols designed to provide communication security over a network. TLS is the successor to SSL, offering improved security.
+
+
 58. What is gRPC and its uses?
 gRPC (Google Remote Procedure Call) is a high-performance RPC framework that uses HTTP/2 for transport, Protocol Buffers as the interface description language, and enables efficient communication between services. It's commonly used in microservices architectures for inter-service communication due to its performance and support for multiple programming languages.
 59. What is DNS?
