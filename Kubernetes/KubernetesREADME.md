@@ -894,6 +894,47 @@ Headless Service: Does not allocate a cluster IP and returns the pods’ IPs dir
 Which ingress controller did you use?
 I used the NGINX Ingress Controller for managing ingress traffic in Kubernetes. It provided flexible routing rules and SSL termination capabilities.
 
+
+
+
+7. Suppose I Have an Application Running and a Few Pods Failed—What Steps Would You Take to Minimize Downtime?
+Answer:
+Check Pod Status:
+Use kubectl get pods to check the status of the failed pods and the reason for failure (kubectl describe pod <pod-name>).
+Check Resource Usage:
+Verify if resource constraints (CPU, memory) are causing the failure. Check using kubectl top nodes and kubectl top pods.
+Scale Up the Application:
+Temporarily scale up the replicas of the working pods using kubectl scale deployment <deployment-name> --replicas=<number>.
+Look for Logs:
+Check the logs of the failed pods using kubectl logs <pod-name> to identify any specific issues.
+Check Node Health:
+Ensure the nodes are healthy by using kubectl get nodes. If any nodes are in a failed state, troubleshoot accordingly (e.g., check the kubelet logs).
+Use Auto Healing:
+Kubernetes automatically tries to reschedule failed pods. Ensure the pod disruption budget and replica count are configured correctly for auto-healing.
+Evict Unhealthy Pods:
+Use kubectl delete pod <pod-name> to evict unhealthy pods, allowing Kubernetes to reschedule new pods in their place.
+Implement Rolling Updates:
+If there are issues with the application, perform a rolling update to deploy new versions of the app while maintaining availability (kubectl set image deployment/<deployment-name>).
+
+
+15. K8s Components
+Key components include:
+Kube-apiserver: Manages requests and serves the Kubernetes API.
+etcd: Stores the cluster state.
+Kube-scheduler: Schedules pods on nodes.
+Kube-controller-manager: Runs controller processes.
+Kubelet: Agent running on nodes, responsible for managing containers.
+16. How to communicate between pods?
+Pods communicate using Services and ClusterIP, which provide a stable IP address to access the pod.
+6. Application is running in K8s shows error 400, what steps can you take to solve the issue?
+Check Logs: Inspect pod logs using kubectl logs <pod-name>.
+Service Configuration: Ensure the service is configured correctly to route traffic to the correct port.
+Ingress and Load Balancer: Verify Ingress and LoadBalancer settings.
+Health Checks: Ensure the readiness and liveness probes are correct.
+
+
+
+
 ---
 # Helm
 What is Helm?
