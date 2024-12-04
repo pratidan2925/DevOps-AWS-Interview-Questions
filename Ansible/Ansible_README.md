@@ -484,3 +484,15 @@ Answer: Yes, I have written Ansible playbooks to automate various tasks. Playboo
 
 Can you tell me the use cases for Ansible playbooks? And what have you done?
 Answer: Ansible playbooks are used for automating tasks such as software installation, configuration management, and system updates. For example, I've used Ansible playbooks to deploy web applications, configure server settings, and ensure consistency across multiple servers. Playbooks can also be used to manage user accounts, deploy databases, and orchestrate complex multi-step processes.
+
+
+
+
+56. Ansible Roles
+Ansible roles are a way to organize playbooks and associated files into reusable units. Roles typically contain tasks, handlers, variables, files, templates, and modules. They allow for easy sharing and reuse of Ansible code.
+57. Ansible Tower and its advantages
+Ansible Tower is a web-based interface for managing Ansible automation. Advantages include:
+Visual Dashboard: Provides a visual interface to manage playbooks, inventory, and jobs.
+Role-based Access Control: Manage user access based on roles.
+Job Scheduling: Schedule automation tasks and monitor job progress.
+Inventory Management: Easily manage dynamic and static inventory.
