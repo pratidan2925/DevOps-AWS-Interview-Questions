@@ -217,7 +217,10 @@ steps:
 
 
 
-
+51. What are the advantages of Azure DevOps?
+Integration with Azure: Seamless integration with other Azure services.
+Pipeline Automation: Build, test, and deploy automatically.
+Collaboration Tools: Work items, boards, and repos help teams collaborate effectively.
 
 
 
