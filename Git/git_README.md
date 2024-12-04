@@ -450,6 +450,25 @@ Using GitHub organizations to manage multiple repositories and teams.
 
 
 
+What is the purpose of `.gitignore?
+The .gitignore file specifies which files or directories should be ignored by Git version control. It helps prevent sensitive or unnecessary files, such as build artifacts or configuration files, from being included in commits and pushed to the repository.
+How do git merge and git rebase differ?
+git merge: Combines changes from one branch into another, creating a new merge commit. It preserves the branch history.
+git rebase: Applies commits from one branch onto another, creating a linear history by rewriting commits. It results in a cleaner history but alters commit hashes.
+How do git reset and git revert differ?
+git reset: Moves the current branch’s HEAD to a specified commit and can change the working directory and index. It’s used to discard commits or changes.
+git revert: Creates a new commit that undoes the changes introduced by a previous commit. It preserves history by adding a new commit rather than altering past commits.
+How do git fetch and git pull differ?
+git fetch: Retrieves updates from a remote repository but does not merge them into the current branch. It updates the local copy of the remote branches.
+git pull: Fetches updates from a remote repository and merges them into the current branch, combining the fetch and merge actions.
+How do you check the differences between two commits in Git?
+Use the command git diff <commit1> <commit2> to see the differences between two commits. You can also use git log to find commit hashes and then git diff to compare them.
+How do you check the status of the working directory in Git?
+Use the command git status to view the current status of the working directory and staging area, including untracked, modified, or staged files.
+While you're in the middle of working on a feature when you realize you need to address an urgent bug fix that requires your immediate attention. How would you handle temporarily setting aside your current changes to focus on the bug fix without committing incomplete work?
+You can use git stash to temporarily save your current changes without committing them. After resolving the urgent bug fix, you can return to your feature work by applying the stashed changes using git stash apply.
+
+
 #### 24. Difference between Git and SubVersion
 
 #### #### 25. Head command in git
