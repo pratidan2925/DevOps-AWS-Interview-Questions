@@ -656,3 +656,140 @@ Kubeconfig: Downloading or generating the kubeconfig file from the cluster manag
 Service Accounts: Creating a service account with a RoleBinding or ClusterRoleBinding to assign permissions.
 Scenario: For a project, I used eksctl to generate the kubeconfig for an EKS cluster and configured Jenkins with the necessary credentials to manage deployments.
 
+
+---
+# Helm
+What is Helm?
+Helm is a package manager for Kubernetes that helps you manage Kubernetes applications through easy-to-create packages called charts. It streamlines the installation, upgrading, and management of Kubernetes applications.
+
+What are the advantages of Helm?
+Reusability: Charts can be easily shared and reused.
+Templating: Allows parameterization and templating of Kubernetes manifests.
+Versioning: Supports versioning of application deployments.
+Simplicity: Simplifies complex application deployments into a single command.
+Ecosystem: Access to a wide range of charts from Helm Hub and other repositories.
+
+Why use Helm?
+Helm simplifies the deployment and management of Kubernetes applications by packaging them into reusable, versioned charts. It enhances productivity and consistency across environments.
+
+What are Helm Charts?
+Helm Charts are packages of pre-configured Kubernetes resources. They include YAML definitions for Kubernetes resources such as Deployments, Services, ConfigMaps, etc., along with customizable templates and configuration values.
+
+What is the Folder Structure of Helm Chart?
+A typical Helm Chart folder structure includes:
+bash
+Copy code
+mychart/
+├── Chart.yaml         # Metadata about the chart
+├── values.yaml        # Default configuration values
+├── templates/         # Directory containing Kubernetes manifests (YAML templates)
+├── charts/            # Directory containing dependencies (optional)
+└── README.md          # Chart documentation
+
+
+Which different types of fields need to be specified for dependencies in Helm Chart?
+Dependencies in Helm Charts are specified in the requirements.yaml file, where you define charts that your chart depends on, along with their version constraints.
+
+How can we create Helm Charts?
+Helm Charts can be created using the helm create command, which generates a basic chart structure. You can then customize this structure to define your application's Kubernetes resources.
+
+How does Helm work?
+Helm works by deploying charts (packaged applications) into Kubernetes clusters. It uses a client-server architecture where the Helm client interacts with the Kubernetes API server to manage releases of charts.
+
+What are the concepts used in Helm?
+Helm uses concepts such as Charts (packaged applications), Releases (instances of charts deployed in Kubernetes), Repositories (storage for Helm charts), and Values (configuration parameters for charts).
+
+How can we install a specific Chart version in Helm?
+To install a specific version of a chart, use:helm install myrelease repo_name/chart_name --version 1.2.3
+How can we set multiple values with Helm?
+Multiple values can be set using a YAML file or by passing individual --set parameters during chart installation or upgrade:
+helm install myrelease repo_name/chart_name --set key1=value1 --set key2=value2
+
+How does Helm update Kubernetes?
+Helm updates Kubernetes by managing deployments and updates of applications packaged as Helm charts. It applies Kubernetes manifests defined in charts to the Kubernetes cluster.
+
+How do we list all the available charts under a Helm Repo?
+Use the command helm search repo to list all available charts in a Helm repository.
+
+How do we validate Helm Chart content?
+Helm charts can be validated using helm lint, which checks the chart’s structure, metadata, and Kubernetes manifests for correctness.
+
+How can we uninstall Helm Chart on specific resources?
+To uninstall a Helm release (chart):helm uninstall myrelease
+Does Helm still use Tiller?
+No, Helm v3 does not use Tiller. Tiller was removed in Helm v3 for security and simplicity reasons.
+
+What is replicaCount in Helm?
+replicaCount in Helm charts specifies the number of replicas (instances) of a Kubernetes Deployment or StatefulSet that should be created and maintained.
+
+What is _helpers.tpl in Helm?
+_helpers.tpl is a special file in Helm charts where reusable template helpers (functions) are defined using Go's text/template and spring functions. These helpers can simplify template logic and make charts more maintainable.
+
+Can a Helm chart have multiple deployments?
+Yes, a Helm chart can define multiple Kubernetes deployments (or other resources) in the templates/ directory. Each deployment is typically encapsulated in its own YAML manifest file.
+
+Where do you store Helm charts?
+Helm charts can be stored in local directories or published to Helm repositories (like Helm Hub or your own repository).
+
+Where are Helm repos stored locally?
+Helm repositories are stored locally in the ~/.helm/repository/ directory by default.
+
+What is Helm values.yaml?
+values.yaml is a file in Helm charts where default configuration values for the chart are defined. Users can override these values during chart installation or upgrade.
+
+What is Helm Kubernetes?
+Helm Kubernetes refers to the integration of Helm with Kubernetes. Helm manages Kubernetes applications (deployments, services, etc.) by packaging them as charts and deploying them onto Kubernetes clusters.
+
+What is Helm DevOps?
+Helm DevOps refers to the use of Helm in DevOps practices for automating deployment, scaling, and management of Kubernetes applications. It enhances collaboration and repeatability in deploying cloud-native applications.
+
+Who invented Helm?
+Helm was initially developed by Deis (now part of Microsoft) and later contributed to the CNCF (Cloud Native Computing Foundation).
+
+What are the benefits of Helm?
+Benefits of Helm include simplifying Kubernetes application deployment, enabling versioned releases, enhancing reusability of application configurations, and providing a templating mechanism for Kubernetes manifests.
+
+Is Helm open source?
+Yes, Helm is an open-source project maintained by the CNCF. It is available under the Apache License 2.0.
+
+What is Helm deployment?
+Helm deployment refers to deploying applications onto Kubernetes clusters using Helm charts. It involves packaging applications into charts and managing their lifecycle using Helm commands.
+
+What is Helm Hub?
+Helm Hub is the official Helm chart repository where users can find, share, and deploy Helm charts for various Kubernetes applications.
+
+What is a Helm artifact?
+In the context of Helm, an artifact refers to a packaged Helm chart file (.tgz file) that contains all the necessary Kubernetes manifests and configuration files for deploying an application onto Kubernetes.
+
+What is the Helm chart used for?
+Helm charts are used for packaging, distributing, and managing Kubernetes applications. They provide an easy way to define, install, and upgrade complex Kubernetes applications and their dependencies.
+
+How do you push a Helm chart?
+To push a Helm chart to a repository, you can use the helm push command (though it's not part of core Helm and may require additional plugins or repositories).
+
+What is the Umbrella chart in Helm?
+An Umbrella chart in Helm is a special type of chart that encapsulates multiple Helm subcharts. It allows deploying and managing multiple related applications or microservices as a single unit.
+
+How does Helm upgrade work?
+helm upgrade command updates an existing Helm release (chart) by applying changes to the Kubernetes resources defined in the chart. It can update container images, configuration values, and other aspects of the deployed application.
+
+Does Helm have an API?
+Helm itself does not have a REST API, but it provides a CLI and client libraries (like Helm SDK) that interact with Kubernetes API server for managing deployments.
+
+What is Helm init?
+helm init was a command in Helm v2 used to initialize Helm and install Tiller (the Helm server-side component) into Kubernetes cluster. In Helm v3, Tiller is no longer used, so helm init is unnecessary.
+
+What is values.yaml in Helm?
+values.yaml is a YAML file used in Helm charts to define default configuration values for the chart. Users can override these values during installation or upgrade using --set flags or a separate YAML file.
+
+What is fullname in Helm?
+fullname in Helm refers to the fully-qualified name of a release instance (or deployment) of a Helm chart. It combines the release name and the namespace to uniquely identify the deployment in Kubernetes.
+
+What is Helm value?
+In Helm, a value refers to a configuration parameter or setting that can be customized during the installation or upgrade of a Helm chart. Values are typically defined in values.yaml or provided using --set flags.
+
+What is fullname in Helm?
+fullname in Helm refers to the fully-qualified name of a release instance of a Helm chart. It is constructed using the release name and the namespace where the release is deployed. For example, if you deploy a Helm chart with release name myapp in namespace default, the fullname might be myapp-default.
+
+What is Helm value?
+In Helm, a value refers to a configuration parameter or setting that can be customized during the installation or upgrade of a Helm chart. Values are typically defined in values.yaml or provided using --set flags during chart installation.
