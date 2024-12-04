@@ -974,6 +974,13 @@ Pods usually communicate through Kubernetes services or by using the pod’s IP.
 
 
 
+21. Some of the most common issues you faced while working with Kubernetes
+Pod CrashLoopBackOff: This happens when a pod crashes repeatedly due to misconfigurations or resource constraints.
+DNS Resolution Failures: Services sometimes cannot resolve other pods due to DNS misconfiguration.
+Container Image Pull Issues: Wrong image tag or unauthenticated private registries can cause issues.
+Resource Limit Exceeded: Pods getting evicted when they exceed the resource requests/limits.
+
+
 
 
 
