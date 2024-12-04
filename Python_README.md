@@ -67,3 +67,12 @@ Yes, I have experience with Python. I’ve used it for scripting, automation tas
 What programming languages are you proficient in?
 I am proficient in Python, Shell scripting, JavaScript (Node.js), and Java. I also have experience with Bash and Groovy for various DevOps tasks.
 
+
+
+
+How do you execute a shell script within a Python script?
+You can use the subprocess module in Python to execute shell scripts. For example:
+python
+Copy code
+import subprocess
+subprocess.run(["/path/to/script.sh"], check=True)
