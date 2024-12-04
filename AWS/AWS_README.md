@@ -2689,3 +2689,62 @@ I worked on a project where I designed a VPC to isolate and secure resources. I 
 
 
 
+So, on AWS what all resources have you worked on?
+"I’ve worked with a variety of AWS resources including EC2, S3, RDS, Lambda, IAM, VPC, ELB, CloudFormation, and CloudWatch. I’ve used these resources for setting up scalable applications, managing infrastructure, and monitoring performance."
+Have you worked with ECS?
+"Yes, I’ve worked with Amazon ECS for orchestrating containerized applications. I’ve used ECS for deploying and managing Docker containers, setting up task definitions, and configuring services for load balancing and scaling."
+On EC2, have you worked with auto-scaling groups? Based on what metrics did you scale?
+"Yes, I’ve set up auto-scaling groups on EC2. I’ve configured scaling based on metrics such as CPU utilization, memory usage, and network traffic. I’ve also used custom metrics with CloudWatch to trigger scaling actions."
+Suppose if you have to add storage to EC2. How would you do that? Can we do it without shutting down the server?
+"You can add storage to an EC2 instance by attaching an additional EBS volume. This can be done without shutting down the server. After attaching the volume, you’ll need to format it and mount it to the desired directory."
+Suppose you have to deploy an application on AWS. Can you explain how you would create an infrastructure for this?
+"To deploy an application on AWS, I would typically start by defining the infrastructure using AWS services like EC2 for compute, RDS for databases, S3 for storage, and ELB for load balancing. I’d use CloudFormation or Terraform to automate the infrastructure setup. I’d also configure security groups, IAM roles, and monitoring with CloudWatch."
+Can you explain if you need to deploy a backend application with frontend and databases? What resources will you use on AWS, and how will you create it?
+"For a full-stack deployment, I’d use EC2 or ECS for the backend application, S3 and CloudFront for the frontend application, and RDS or DynamoDB for the database. I’d use CloudFormation or Terraform to define and deploy the infrastructure, configure security groups to allow necessary traffic, and set up auto-scaling and load balancing if needed."
+
+Is it possible to convert a public subnet in a VPC to a private subnet?
+Yes, it is possible to convert a public subnet to a private subnet. To do this, you need to:
+Remove the route to the Internet Gateway in the subnet's route table.
+Optionally, modify security groups and network ACLs as needed to ensure that the subnet only allows internal traffic.
+What is called an application load balancer?
+An Application Load Balancer (ALB) operates at the application layer (Layer 7) and provides advanced routing capabilities based on HTTP/HTTPS protocols. It can route traffic based on hostnames, paths, headers, and other request attributes.
+
+How do you recover the deleted object in S3?
+To recover a deleted object in S3, you need to have versioning enabled. Retrieve a previous version of the object:
+sh
+Copy code
+aws s3api get-object --bucket my-bucket --key my-object --version-id versionID my-obj
+
+What is called Snowball?
+AWS Snowball is a data transfer service that uses secure physical devices to transfer large amounts of data into and out of AWS. It helps with data migration, disaster recovery, and remote data collection.
+What is called Code Deploy in AWS?
+AWS CodeDeploy is a deployment service that automates application deployments to various compute services, such as Amazon EC2, AWS Lambda, and on-premises servers. It ensures that deployments are repeatable and scalable.
+Can you attach a single EBS volume to multiple EC2 instances at the same time?
+No, a single EBS volume can only be attached to one EC2 instance at a time. For shared storage, you can use EFS (Elastic File System) or FSx.
+
+
+Do you have any end-to-end infra exposure?
+Yes, I have experience with end-to-end infrastructure management, including designing, implementing, and managing infrastructure components across various environments. This involves working with cloud services, automation tools, and monitoring systems to ensure a robust and scalable infrastructure.
+Do you know about static website hosting?
+Yes, static website hosting involves serving web pages that are pre-built and do not require server-side processing. These sites are often hosted on services like Amazon S3, GitHub Pages, or Netlify. Static site hosting is efficient and cost-effective because it relies on serving static files directly to users.
+How to set up the path for LBA?
+For setting up a Load Balancer (LBA) path, you need to configure routing rules based on the paths of incoming requests. In AWS, for example, you can use Application Load Balancers (ALB) to define path-based routing rules. You set up listeners on the ALB that direct traffic to different target groups based on URL paths.
+What is centralized logging?
+Centralized logging involves aggregating log data from multiple sources into a single, centralized system. This approach allows for easier management, search, and analysis of logs from various services and servers. Tools like Elasticsearch, Logstash, and Kibana (ELK Stack) or cloud services like AWS CloudWatch are commonly used for centralized logging.
+How to set up logging in CloudWatch?
+To set up logging in AWS CloudWatch, follow these steps:
+Create a Log Group: In the CloudWatch console, create a log group to organize logs.
+Create a Log Stream: Within the log group, create log streams to manage different log sources.
+Configure Log Agents: Install and configure CloudWatch agents or integrate AWS SDKs in your applications to send logs to CloudWatch.
+Monitor and Analyze Logs: Use CloudWatch Logs Insights to query and analyze your logs.
+On the environment level, what security measures will you take? Not on the subnet level and not on the server level.
+Environment-level security measures include:
+IAM Policies: Implement strict IAM policies to control access to AWS resources.
+VPC Security Groups: Use security groups to control inbound and outbound traffic.
+Network ACLs: Configure network ACLs to provide an additional layer of security.
+Encryption: Ensure data encryption at rest and in transit.
+Audit and Monitoring: Use AWS CloudTrail and AWS Config to monitor and audit activities.
+A deployment is going on and at the same time auto scaling happens (just coincidence). When the auto scaling happens and the deployment will deploy the new code to existing servers and then auto scaling happens and the image (AMI) that has been saved in the auto scaling group is the older one. So when the auto scaling happens, a new server comes up that has an old code and one of the existing servers has the new code. How will you eliminate this problem?
+To eliminate this problem, you can use immutable infrastructure practices. Ensure that the AMI used by the auto-scaling group is updated to match the latest deployment code before the scaling event occurs. You can achieve this by integrating your CI/CD pipeline to trigger AMI updates as part of the deployment process. This way, new instances launched by auto-scaling will always use the updated AMI.
+What is called Fargate service in AWS?
+AWS Fargate is a serverless compute engine for containers that works with Amazon ECS and EKS. It allows you to run containers without managing the underlying infrastructure, simplifying scaling and reducing operational overhead.
