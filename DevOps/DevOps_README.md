@@ -118,3 +118,14 @@ In summary, while Agile and DevOps share common goals of improving software deve
 -Post-Mortem: Conduct a review to understand the cause and prevent future occurrences.
 
 
+#### 1. What are the day-to-day activities of a DevOps Engineer?
+Answer: The day-to-day activities of a DevOps Engineer typically include monitoring and maintaining the CI/CD pipelines, automating infrastructure provisioning using tools like Terraform or Ansible, managing and configuring cloud resources, implementing security best practices, troubleshooting issues with deployments or infrastructure, collaborating with development teams to improve code quality and deployment efficiency, and ensuring the availability and reliability of the production environment.
+
+
+#### 3. How do you overcome hurdles in DevOps?
+Answer: Overcoming hurdles in DevOps requires a combination of strong technical skills, effective communication, and a collaborative mindset. I focus on continuous learning to keep up with new tools and practices, breaking down complex problems into smaller, manageable tasks, and working closely with cross-functional teams to identify and address issues early in the development process. Automation and monitoring are also key in preventing and quickly resolving problems.
+
+#### 5. Why do we need Shell scripting in DevOps?
+Answer: Shell scripting is essential in DevOps for automating repetitive tasks, managing servers, and configuring environments. It allows for efficient execution of complex tasks, such as setting up environments, deploying applications, and automating maintenance processes. Shell scripts are also useful in integrating different tools and processes within a DevOps pipeline
+
+
