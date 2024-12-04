@@ -1,3 +1,24 @@
+
+#### 17. **How do you collaborate with cross-functional teams to provision and manage Azure resources effectively?**
+    - Answer: I collaborate with infrastructure, development, and operations teams by defining infrastructure requirements collaboratively, utilizing version-controlled templates (Terraform or ARM), and implementing CI/CD pipelines for automated provisioning and configuration management.
+
+#### 18. **Explain your approach to implementing data pipelines for Azure Data Factory, Azure Data Lake, and Azure Databricks using Azure DevOps.**
+    - Answer: I design and implement data pipelines using Azure DevOps for Azure Data Factory to orchestrate data workflows, Azure Data Lake for big data storage, and Azure Databricks for data processing and analytics. This involves automating data integration, transformation, and orchestration tasks within CI/CD pipelines.
+#### 13. **What is Azure Monitor, and how does it help in monitoring Azure resources?**
+    - Answer: Azure Monitor is a platform service that provides a comprehensive solution for collecting, analyzing, and acting on telemetry data from Azure resources. It supports monitoring metrics, logs, and application insights for performance, availability, and diagnostics.
+
+#### 14. **Explain the process of setting up alerts in Azure Monitor. What considerations do you take into account when defining alert rules?**
+    - Answer: I set up alerts in Azure Monitor by defining alert rules based on metrics, logs, or activity logs. Considerations include setting alert conditions (thresholds or anomalies), defining alert severities, specifying alert actions (e.g., email notifications or webhook integrations), and configuring alert suppression to avoid noise.
+
+
+#### 19. **How do you ensure security and compliance in Azure environments, particularly with respect to CI/CD pipelines and infrastructure deployments?**
+    - Answer: I implement security best practices such as role-based access control (RBAC), network security groups (NSGs), and encryption for data at rest and in transit. I conduct regular security assessments, integrate security testing into CI/CD pipelines, and monitor for compliance with regulatory requirements (e.g., GDPR, HIPAA).
+
+#### 20. **Describe a complex problem you solved related to Azure infrastructure or DevOps practices.**
+    - Answer: I encountered a scalability issue where an Azure Kubernetes Service (AKS) cluster experienced performance degradation under heavy load. I optimized cluster configurations, adjusted resource requests and limits for pods, and implemented horizontal pod autoscaling based on custom metrics. This resulted in improved application performance and reliability under varying workloads.
+
+
+
 #### Azure Components with Respect to AWS
 Compute
 Azure Virtual Machines vs. AWS EC2 (Elastic Compute Cloud)
