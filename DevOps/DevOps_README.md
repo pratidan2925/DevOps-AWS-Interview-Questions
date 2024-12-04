@@ -128,4 +128,13 @@ Answer: Overcoming hurdles in DevOps requires a combination of strong technical 
 #### 5. Why do we need Shell scripting in DevOps?
 Answer: Shell scripting is essential in DevOps for automating repetitive tasks, managing servers, and configuring environments. It allows for efficient execution of complex tasks, such as setting up environments, deploying applications, and automating maintenance processes. Shell scripts are also useful in integrating different tools and processes within a DevOps pipeline
 
+#### 1. What are your daily responsibilities as a DevOps engineer?
+Answer: As a DevOps engineer, my daily responsibilities include:
+Monitoring: Keeping an eye on infrastructure and application performance using monitoring tools like Prometheus and Grafana.
+Automation: Developing and maintaining automation scripts and CI/CD pipelines using tools like Jenkins, Ansible, and Terraform.
+Infrastructure Management: Managing cloud infrastructure (e.g., AWS, Azure) and ensuring its scalability, availability, and security.
+Collaboration: Working closely with development teams to integrate new features, troubleshoot issues, and optimize processes.
+Incident Response: Responding to incidents and performing root cause analysis to prevent future occurrences.
+Code Review: Reviewing code changes, particularly those related to infrastructure as code (IaC), to ensure they adhere to best practices.
+Scenario: My day often begins with a stand-up meeting where I sync up with the team on ongoing tasks, followed by a review of any alerts or incidents that may have occurred. I spend a good portion of the day automating processes, updating infrastructure, and collaborating with developers to ensure seamless deployments.
 
