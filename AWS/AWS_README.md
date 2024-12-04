@@ -2644,5 +2644,48 @@ Monitor and Log: Use AWS CloudWatch for logging and monitoring web requests and 
 
 
 
+9. How container differs from ec2
+Containers:
+Lightweight, isolated environments sharing the host OS kernel.
+Faster startup, efficient resource utilization.
+Ideal for microservices and stateless applications.
+EC2 Instances:
+Full virtual machines with dedicated resources and OS.
+Slower startup, more overhead.
+Suitable for stateful applications and full control over the OS.
+
+
+
+Can you explain VPCs? How can you distinguish between a private subnet and a public subnet?
+VPC (Virtual Private Cloud): A VPC is a logically isolated section of a cloud provider’s network where you can launch resources in a virtual network that you define.
+Private Subnet: A subnet that does not have a route to the internet. Instances in a private subnet cannot communicate directly with the internet.
+Public Subnet: A subnet with a route to the internet, typically through an Internet Gateway. Instances in a public subnet can communicate with the internet.
+What are NACLs and NAT gateways, and how are they used?
+NACLs (Network Access Control Lists): Stateless firewalls at the subnet level that control inbound and outbound traffic. They allow or deny traffic based on rules.
+NAT Gateways: Managed services that allow instances in a private subnet to access the internet for updates or downloads while keeping them private from incoming internet traffic.
+What have you exactly worked with ECS?
+"I’ve worked with ECS to deploy Docker containers, set up task definitions, configure services for load balancing and auto-scaling, and integrate with other AWS services."
+Have you worked with RDS?
+"Yes, I’ve worked with Amazon RDS for managing relational databases, including configuring instances, backups, and monitoring performance."
+How will you copy data from one RDS to another RDS?
+"You can use the mysqldump or pg_dump utilities for MySQL or PostgreSQL databases, respectively, to export data from the source RDS and import it into the target RDS. Alternatively, you can use AWS Database Migration Service for more complex migrations."
+What is an Elastic IP?
+An Elastic IP (EIP) is a static IP address provided by AWS that can be associated with instances or other resources. It allows for persistent IP addresses that can be reassigned as needed.
+Where did you run your EKS project, on a local machine or in a cloud environment?
+I ran the EKS project in a cloud environment, specifically on AWS, to leverage the managed Kubernetes service and integrate with other AWS services.
+Describe a project where you focused on cloud cost optimization.
+In a cloud cost optimization project, I analyzed resource usage and implemented:
+Right-Sizing: Adjusted instance sizes based on actual usage.
+Auto-Scaling: Enabled auto-scaling for compute and storage resources.
+Cost Allocation Tags: Used tags to track and manage costs by project or team.
+Reserved Instances: Purchased reserved instances for predictable workloads.
+What is the purpose of a Lambda function?
+A Lambda function is a serverless compute service provided by AWS. It allows you to run code in response to events without provisioning or managing servers, supporting various triggers like HTTP requests, database changes, or file uploads.
+Which programming language did you use to write your Lambda functions?
+I have used various programming languages for Lambda functions, including Python, Node.js, and Java. The choice of language depends on the specific requirements and existing codebase.
+Tell me about a project involving a Virtual Private Cloud (VPC).
+I worked on a project where I designed a VPC to isolate and secure resources. I set up public and private subnets, configured NAT gateways for outbound internet access, and established security groups and network ACLs for controlled access.
+
+
 
 
