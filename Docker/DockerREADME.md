@@ -469,4 +469,27 @@ Bridge Network: Default network mode for containers, allowing communication betw
 Host Network: Containers share the host’s network stack, bypassing network isolation.
 Overlay Network: Enables communication between containers across different hosts, often used with Docker Swarm or Kubernetes.
 Macvlan Network: Assigns a unique MAC address to a container, making it appear as a separate physical device on the network.
+30. Tell me the flow of Dockerfile
+A Dockerfile typically follows this flow:
+FROM to specify the base image.
+RUN to execute commands to install dependencies
+COPY or ADD to copy files into the container.
+CMD or ENTRYPOINT to specify the default command to run.
+31. How to add argument in CMD while creating a Docker container (I need to add multiple arguments)
+You can add multiple arguments in CMD by specifying them as a JSON array:
+dockerfile
+Copy code
+CMD ["arg1", "arg2", "arg3"]
+Where do you configure Docker Hub credentials and RDS credentials?
+Docker Hub Credentials: Typically configured in the Docker CLI using docker login, or stored in Kubernetes secrets for use in deployments.
+RDS Credentials: Usually stored in environment variables or Kubernetes secrets to ensure secure access to the database.
+How do you ignore certain files while creating a Dockerfile?
+To ignore certain files, use a .dockerignore file. It works similarly to .gitignore, specifying files and directories to exclude from the Docker build context.
+What are Dockerfiles and pipelines? How are they used in CI/CD?
+Dockerfiles: Text files that contain instructions for building Docker images. They define the environment and application setup within a container.
+Pipelines: Sequences of automated steps used in CI/CD to build, test, and deploy applications. Pipelines use Dockerfiles to create consistent build environments and streamline the deployment process.
+What is called docker networking?
+Docker networking allows containers to communicate with each other, the host, and external networks. Docker provides several network drivers, including bridge, host, overlay, and macvlan, to suit different use cases.
+
+
 
