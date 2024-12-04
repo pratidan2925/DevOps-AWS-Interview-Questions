@@ -1529,3 +1529,25 @@ How do you combine two lines from two sorted files in Linux?
  Use paste command to merge lines from two files side by side.
 paste file1.txt file2.txt   # Combine lines from file1.txt and file2.txt
 
+
+
+
+What is realm command?
+realm is a command-line tool used to manage and configure Kerberos realms and other related security realms on Linux systems, often used to join a Linux machine to an Active Directory domain.
+What type of Linux machine do you use most frequently?
+I frequently use Ubuntu for development and Amazon Linux for AWS environments. Both are popular choices for their stability and compatibility with various tools.
+How do you check disk space in Linux? What command do you use?
+To check disk space, I use the df -h command, which displays disk space usage in a human-readable format.
+What command do you use in Linux to check CPU utilization?
+To check CPU utilization, I use the top or htop command. Alternatively, mpstat from the sysstat package provides detailed CPU usage statistics.
+HHow do you manage services and applications on a Linux server?
+On a Linux server, I manage services using systemd commands like systemctl start/stop/restart/status <service>. Applications can be managed using package managers like apt for Debian-based systems or yum for Red Hat-based systems. I also use SSH for remote management and configuration files to control application settings.
+In Linux, do you know what hard links and soft links are?
+"Yes, hard links point to the same inode on the filesystem, meaning they reference the same file data. Soft links, or symbolic links, are pointers to another file or directory, which can be on different filesystems and have different inode numbers."
+How will you create a user in Linux? Now make that user a Sudo user. How will you do that?
+"To create a user, you can use the useradd command. For example: sudo useradd newuser. To set a password: sudo passwd newuser. To make the user a sudo user, you would add them to the sudo group: sudo usermod -aG sudo newuser."
+Suppose you have an EC2 server in which Linux is running and you get an alert that your server's disk space utilization has gone above 90%. How will you troubleshoot it?
+"I would use commands like df -h to check disk usage and du -sh /* to identify large directories. I’d also review logs and remove unnecessary files or directories."
+How will you find out the top 10 files that are occupying the most space?
+"Use the command du -ah / | sort -rh | head -n 10 to list the top 10 largest files and directories."
+
