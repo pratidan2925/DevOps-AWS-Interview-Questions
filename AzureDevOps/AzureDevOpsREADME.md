@@ -129,3 +129,57 @@ Azure Test Plans -
 2. Self hosted agents - This is a service which you set up and manage yourself this can be custom VM on Azure or on premise in the self hosted agent you need the install the necessary software’s to perform bills a self hosted agents can be windows Linux, Mac or container
 
 
+
+#### How do you create a service connection in Azure DevOps?
+To create a service connection in Azure DevOps:
+Navigate to the project settings in Azure DevOps.
+Select "Service connections" under the Pipelines section.
+Click "New service connection" and choose the type of connection (e.g., Azure Resource Manager).
+Follow the prompts to authenticate and configure the connection, providing necessary credentials and permissions.
+Save the service connection for use in pipelines and other tasks.
+
+
+#### 3. What were the things that you were doing in Azure DevOps?
+In Azure DevOps, I managed CI/CD pipelines, integrated code repositories with Azure Repos, configured build and release pipelines, set up automated testing, managed package dependencies with Azure Artifacts, and used Azure Boards for project management and tracking work items.
+
+
+#### 4. Can you explain what Azure Boards are and why someone would use them?
+Azure Boards is a service in Azure DevOps that provides tools for planning, tracking, and discussing work across teams. It includes features like Kanban boards, backlogs, sprint planning, and work item tracking. Teams use Azure Boards to manage their workflows, prioritize tasks, and ensure visibility and collaboration on project progress.
+
+
+#### 5. Are there any other containerization tools that Azure DevOps supports besides containers?
+Yes, Azure DevOps supports other containerization tools besides Docker, such as Kubernetes (AKS), Helm for managing Kubernetes applications, and OpenShift. It also integrates with container registries like Azure Container Registry and Docker Hub.
+
+
+
+Can you walk me through the project you worked on prior to this organization?
+In my previous role, I worked on a project to automate the deployment of a microservices-based application using Azure DevOps. I was responsible for setting up CI/CD pipelines, configuring infrastructure as code using Terraform, and monitoring the application's performance with Azure Monitor and Grafana. The project aimed to improve deployment efficiency and reduce downtime.
+
+
+6. Have you ever worked on any Java-based projects?
+Yes, I have worked on Java-based projects where I set up CI/CD pipelines using Maven and Gradle for build automation, configured unit and integration tests, and deployed applications to environments like Tomcat and JBoss servers using Azure DevOps.
+7. Consider a scenario where a person from the development team is writing code in C# or .NET and he's putting his code into repositories.
+In this scenario, I would ensure that the code repository (e.g., Azure Repos or GitHub) is set up and configured correctly. I would then create a CI/CD pipeline in Azure DevOps to automate the build, test, and deployment processes for the C# or .NET application, ensuring that code quality and deployment consistency are maintained.
+8. Can you create a pipeline till production and walk me through the steps involved?
+To create a pipeline till production:
+Set up Source Control: Connect the repository (e.g., Azure Repos or GitHub) to Azure DevOps.
+Build Pipeline: Define a build pipeline to compile the code, run unit tests, and generate build artifacts.
+Release Pipeline: Create a release pipeline to deploy the build artifacts to different environments (e.g., dev, staging, production).
+Deploy to Production: Configure the final stage of the release pipeline to deploy to the production environment, including necessary approvals and pre-deployment checks.
+Monitor and Rollback: Set up monitoring and alerting to track the deployment and configure rollback mechanisms in case of issues.
+9. Can you explain a situation where you had to troubleshoot a problem with an Azure DevOps pipeline?
+I once encountered an issue where a build pipeline was failing due to missing dependencies. I reviewed the pipeline logs to identify the error, updated the pipeline configuration to include the necessary dependency installation steps, and tested the pipeline to ensure it completed successfully.
+10. How do you use Azure DevOps to collaborate with other developers on a project?
+Azure DevOps facilitates collaboration through Azure Repos for code sharing, Azure Boards for tracking tasks and work items, and Azure Pipelines for continuous integration and deployment. Pull requests are used for code reviews, and discussions and comments help maintain communication. Additionally, Azure DevOps integrates with tools like Microsoft Teams and Slack for real-time collaboration.
+11. How do you measure the success of an Azure DevOps pipeline? What metrics do you track?
+Success is measured by tracking metrics such as build success rate, deployment frequency, mean time to recovery (MTTR), lead time for changes, and change failure rate. These metrics help evaluate the efficiency and reliability of the CI/CD processes and identify areas for improvement.
+12. Your team is developing a new microservices application. Describe how you would configure Azure DevOps pipelines to automate building, testing, and deploying the application to different environments with separate configurations.
+I would configure a multi-stage pipeline in Azure DevOps:
+Build Stage: Compile the code, run unit tests, and create Docker images for the microservices.
+Test Stage: Deploy the microservices to a test environment, run integration and end-to-end tests.
+Staging Stage: Deploy to a staging environment with configurations matching production, run additional tests.
+Production Stage: Deploy to the production environment with separate configuration settings, using approvals and gated deployments to ensure stability.
+13. How would you handle a scenario where a developer accidentally deletes a critical commit from the Git repository?
+I would use Git reflog to recover the deleted commit. Reflog keeps a record of all references to the commits in the repository, allowing us to identify and restore the missing commit. If necessary, I would also check the backups or use Azure DevOps features like branch policies and pull requests to prevent such incidents in the future.
+
+
