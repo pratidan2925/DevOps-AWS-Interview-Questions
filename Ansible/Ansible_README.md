@@ -442,3 +442,45 @@ Copy code
 
 
 Explanation: This playbook installs curl on all hosts specified in the inventory file. The become: yes directive escalates privileges to root to perform the installation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How do you install Nginx in the Ansible playbook?
+To install Nginx in an Ansible playbook:
+yaml
+Copy code
+- name: Install Nginx
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Nginx package
+      apt:
+        name: nginx
+        state: present
+What are Register targets in Ansible?
+In Ansible, register is used to capture the output of a task and store it in a variable. This registered variable can be used in subsequent tasks for conditional execution or debugging.
+How do you use Ansible?
+Answer: I use Ansible to automate configuration management, application deployment, and task automation. Ansible uses playbooks written in YAML to define the desired state of the system and execute tasks across multiple machines. It's agentless and relies on SSH for communication, making it straightforward to implement and use.
+You have written Ansible playbooks, can you explain?
+Answer: Yes, I have written Ansible playbooks to automate various tasks. Playbooks are YAML files that define a series of tasks to be executed on remote servers. Each playbook contains one or more plays, which map a set of tasks to a group of hosts. For example, I’ve used playbooks to install and configure software, deploy applications, and manage system settings.
+
+Can you tell me the use cases for Ansible playbooks? And what have you done?
+Answer: Ansible playbooks are used for automating tasks such as software installation, configuration management, and system updates. For example, I've used Ansible playbooks to deploy web applications, configure server settings, and ensure consistency across multiple servers. Playbooks can also be used to manage user accounts, deploy databases, and orchestrate complex multi-step processes.
