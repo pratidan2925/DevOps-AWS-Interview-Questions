@@ -2865,6 +2865,38 @@ Start the Instance: Start the instance and log in with the new key pair.
 
 
 
+52. Explain S3 Object Lifecycle Policy
+S3 Object Lifecycle policies automatically move objects between storage classes (e.g., from Standard to Glacier) or delete them after a set period of time.
+50. AWS CodeBuild
+AWS CodeBuild is a fully managed build service that compiles source code, runs tests, and produces packages for deployment.
+40. Types of S3 Buckets
+Standard: Offers high durability, availability, and performance.
+Intelligent-Tiering: Automatically moves data to the most cost-effective access tier.
+Standard-IA (Infrequent Access): For data accessed less frequently, but requires rapid access when needed.
+Glacier: For archival storage with longer retrieval times.
+41. Difference between private and public subnet
+Public Subnet: Has a route to the internet via an Internet Gateway.
+Private Subnet: No direct route to the internet. Resources here use NAT Gateways for outbound internet access.
+42. Difference between Security Group (SG) and NACL
+Security Group: Operates at the instance level and is stateful (incoming traffic is automatically allowed back out).
+Network ACL: Operates at the subnet level and is stateless (both inbound and outbound rules need to be specified).
+43. What is the EBS Volume?
+Amazon Elastic Block Store (EBS) provides block-level storage for use with EC2 instances. It is durable and allows you to persist data beyond the life of an EC2 instance.
+44. VPC Peering
+VPC Peering is a connection between two VPCs that allows them to route traffic to each other using private IP addresses.
+45. What is EBS?
+Elastic Block Store (EBS) is a block-level storage service for use with EC2 instances.
+46. How to mount an EBS volume and increase its size?
+Attach the volume to the instance using the EC2 console.
+Mount the volume on your EC2 instance using commands like mount.
+To resize, use resize2fs or the AWS console to modify the volume size.
+6. IAM Roles, Assume Roles, and Present Role?
+Answer:
+IAM Roles: An IAM role is an AWS identity with permissions that can be assumed by AWS services or users to perform specific actions. Roles are used for granting temporary credentials without long-term access keys.
+Assume Role: The sts:AssumeRole API allows you to switch roles or allow another user or service to assume a role temporarily. For example, EC2 can assume an S3 access role to read from an S3 bucket.
+Present Role: The current or present role is the role that an entity (like an EC2 instance or Lambda function) is operating under at a given moment, allowing it to access specific resources based on attached policies.
+
+
 
 
 
