@@ -1665,3 +1665,37 @@ Shared Libraries in Jenkins are reusable pieces of code that can be shared acros
 Give me the best architecture of the master-slave model. How to arrange Jenkins on this and what are the benefits of it?
 In a master-slave Jenkins architecture, the master node handles the scheduling of jobs and coordination, while the slave nodes execute the jobs. The master is responsible for managing the build configurations, job scheduling, and artifact storage. The slaves handle the actual execution of builds, tests, and deployments. This setup allows for distributed builds, which can improve performance and scalability by leveraging multiple machines to handle different tasks. Benefits include parallel execution, better resource utilization, and the ability to manage different build environments.
 
+
+
+26. 5 ways to trigger a CI/CD pipeline
+Git Push: A pipeline can start on push to the repository.
+Manual Trigger: You can manually trigger a build in Jenkins or other CI/CD tools.
+Cron/Timed Job: Pipelines can be scheduled to run at specific times.
+API Trigger: Webhooks or APIs can trigger the pipeline when specific events occur.
+Pull Request: A pipeline can be triggered when a new pull request is created or updated
+
+
+
+
+
+
+
+
+nts.
+36. Explain the flow of a CI/CD pipeline
+Code Commit: Developers push code to a repository.
+Build: The CI tool builds the code and runs tests.
+Test: Automated tests run to verify the build.
+Deploy: The code is deployed to staging or production environments.
+
+
+47. What is Cron Job and how to schedule a Cron Job for any specific date and time?
+Cron jobs are scheduled tasks in Unix-like systems. You can schedule a cron job by editing the crontab file:
+bash
+Copy code
+0 12 10 6 * /path/to/script.sh
+
+
+This will run the script on June 10th at 12:00.
+49. Terraform Taint
+terraform taint marks a resource for recreation on the next apply, ensuring it is destroyed and recreated.
