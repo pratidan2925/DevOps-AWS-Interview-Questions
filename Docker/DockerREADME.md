@@ -396,3 +396,77 @@ Scenario: I frequently use docker logs my_container to troubleshoot issues by ch
 #### 25. Do you only update Docker images in Kubernetes, or do you also update replicas, storage levels, and CPU allocation?
 Answer: In Kubernetes, I update not only Docker images but also replicas, storage, and CPU/memory allocation as needed. This is typically done by updating the Deployment or StatefulSet manifests.
 Scenario: I scaled up a deployment by increasing the number of replicas and adjusted the resource requests and limits for CPU and memory to meet the increased load requirements.
+
+
+
+#### What are the two layers in Docker?
+Docker Engine: The runtime environment that runs and manages Docker containers. It includes the Docker Daemon and the Docker CLI.
+Docker Images: Read-only templates used to create containers. They contain the application and its dependencies.
+#### 7. Why Docker Swarm?
+Answer: Docker Swarm is a native clustering and orchestration tool for Docker containers. It is used because:
+Simplicity: Swarm is easy to set up and integrates seamlessly with existing Docker environments.
+Native Docker Integration: It uses the same Docker CLI and API, making it familiar to Docker users.
+Scalability: Swarm allows scaling applications up or down by simply adjusting the number of replicas.
+High Availability: Swarm provides built-in support for high availability and load balancing.
+#### Difference between Docker and container.
+Docker: A platform for developing, shipping, and running applications using container technology. It includes tools and services for creating and managing containers.
+Container: A lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, runtime, system tools, and libraries.
+#### Have you written a Dockerfile from scratch? Tell me some commands and explain.
+Example Dockerfile:
+```
+# Use an official base image
+FROM ubuntu:20.04
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    vim
+
+# Set environment variables
+ENV APP_HOME /app
+
+# Create and set working directory
+WORKDIR $APP_HOME
+
+# Copy application files
+COPY . $APP_HOME
+
+# Expose application port
+EXPOSE 8080
+
+# Define entry point
+CMD ["bash"]
+
+```
+Commands Explained:
+FROM: Specifies the base image.
+RUN: Executes commands during the image build process.
+ENV: Sets environment variables.
+WORKDIR: Sets the working directory inside the container.
+COPY: Copies files from the host to the container.
+EXPOSE: Exposes a port for communication.
+CMD: Specifies the default command to run when the container starts.
+#### What is the difference between CMD and ENTRYPOINT in Docker?
+CMD: Provides default arguments for the container’s entry point. It can be overridden by providing arguments when running the container. Example: CMD ["nginx", "-g", "daemon off;"].
+ENTRYPOINT: Sets the default executable to be run when the container starts. It is not overridden by arguments provided at runtime. Example: ENTRYPOINT ["nginx"].
+#### Can you describe your project focused on reducing Docker image sizes?
+In a recent project, I optimized Docker images by:
+Using Multi-Stage Builds: Split the build process into multiple stages to minimize the final image size.
+Minimizing Layers: Combined commands in the Dockerfile to reduce the number of layers.
+Selecting Smaller Base Images: Used lightweight base images like alpine instead of ubuntu.
+Removing Unnecessary Files: Ensured that build artifacts and caches were removed in the final image.
+#### What is the difference between CMD and ENTRYPOINT in a Dockerfile?
+CMD: Provides default arguments for the ENTRYPOINT command or specifies the default command to run when the container starts. It can be overridden by providing arguments during container run.
+ENTRYPOINT: Configures the main command that will be executed when the container starts. It defines the container’s behavior and is not easily overridden.
+#### Have you used Docker Compose? How would you ensure multiple containers start in a specific sequence?
+Yes, I have used Docker Compose. To ensure containers start in a specific sequence, you can use the depends_on option in the docker-compose.yml file. This defines dependencies between services and ensures that they start in the required order.
+#### What is the purpose of the RUN instruction in a Dockerfile?
+The RUN instruction in a Dockerfile is used to execute commands during the image build process. It allows you to install packages, configure the environment, and set up the image with the necessary tools and dependencies.
+#### Can you explain Docker networking?
+Docker networking allows containers to communicate with each other and with the outside world. Docker provides different network modes:
+Bridge Network: Default network mode for containers, allowing communication between containers on the same host.
+Host Network: Containers share the host’s network stack, bypassing network isolation.
+Overlay Network: Enables communication between containers across different hosts, often used with Docker Swarm or Kubernetes.
+Macvlan Network: Assigns a unique MAC address to a container, making it appear as a separate physical device on the network.
+
