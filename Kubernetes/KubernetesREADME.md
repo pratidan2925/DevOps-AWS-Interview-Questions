@@ -981,7 +981,12 @@ Pods usually communicate through Kubernetes services or by using the pod’s IP.
 Helm is a Kubernetes package manager that helps define, install, and upgrade even the most complex Kubernetes applications using charts, which are pre-configured templates for Kubernetes resources.
 
 
+60. RBAC explain
+RBAC (Role-Based Access Control) is a method of regulating access to resources based on the roles of individual users within an organization. In Kubernetes, RBAC allows administrators to define what actions users can perform on which resources, enhancing security and managing permissions.
 
+
+17. What is Headless Service?
+A headless service does not allocate a ClusterIP. Instead, it allows direct DNS-based service discovery to the individual pods.
 
 
 ---
