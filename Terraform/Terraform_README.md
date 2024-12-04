@@ -1,9 +1,66 @@
-What is the use of Terraform ?
-What is a module?
-Terraform state role back
-Terraform remote backend
-Terraform backend file
-Terraform state file
+Terraform
+Terraform Commands Overview
+terraform init: Prepares your working directory for other commands.
+terraform validate: Checks whether the configuration is valid.
+terraform plan: Shows changes required by the current configuration.
+terraform apply: Creates or updates infrastructure.
+terraform destroy: Destroys previously-created infrastructure.
+Plugin Discovery with Terraform
+       terraform init helps Terraform interpret configuration files in the operational directory. It identifies required plugins, searches              for installed plugins, downloads additional plugins if necessary, determines the plugin versions to use, and writes a security device file to ensure consistent plugin versions.
+Policies in Terraform Versions
+               Policies cannot be added to the open-source version of Terraform Enterprise or the Pro version. Only the Premium version of Terraform Enterprise can implement policies.
+Modules in Terraform
+             A module in Terraform is a container for multiple resources used together. The root module, which includes resources defined in .tf files, is required for every Terraform configuration.
+Locking Terraform Module Versions
+         To lock module versions, use the Terraform module registry as a source and specify the version attribute in the module within the Terraform configuration file. For GitHub repositories, specify the branch, version, and query string with ?ref.
+Terraform Cloud
+             Terraform Cloud is an application that facilitates team collaboration. Terraform runs in a consistent environment, provides access to shared state and secret data, access controls, a private registry for modules, detailed policy controls, and more.
+Null Resource in Terraform
+               A null resource implements the typical resource lifecycle but performs no additional actions. The trigger argument allows specifying values that, when changed, will cause the resource to be replaced. It is mainly used as a container for arbitrary actions by a provisioner.
+Recovering from a Failed Apply
+           Store your configuration in version control and commit changes before each modification. Use version control to revert to an older configuration if needed, and recommit the previous version to make it the current version in the version control system.
+Terragrunt and Use Cases
+            Terragrunt is a wrapper that provides tools for keeping configurations DRY, working with multiple Terraform modules, and managing remote state. Use cases include:
+Keeping Terraform code DRY
+Keeping remote state configuration DRY
+Keeping CLI flags DRY
+Executing Terraform commands on multiple modules at once
+Working with multiple AWS accounts
+Remote Backend in Terraform
+                A remote backend in Terraform stores the state and can run operations in Terraform Cloud. It supports commands like init, plan, apply, destroy, get, output, providers, state, taint, untaint, validate, and more. It can work with a single or multiple Terraform Cloud workspaces.
+Tainted Resource
+                   Tainted resources are marked for destruction and recreation on the next apply command. Marking a resource as tainted updates the state file, showing that the resource will be destroyed and recreated during the next apply.
+Preventing Duplicate Resource Errors
+Delete the resource to stop Terraform from managing it.
+Discard the resource from the APIs.
+Use the import action to eliminate the resource.
+Responsibilities of Terraform Core
+            Terraform Core, a statically-compiled binary in Go, manages:
+Resource state
+Execution of plans
+Communication with plugins via RPC
+Construction of the Resource Graph
+Reading and interpolation of configuration files and modules
+Rollback from Serious Errors
+         Recommit the previous version of the code to make it the current version in a VCS, triggering a Terraform run with the old code. If the state file is corrupted, use the State Rollback Feature in Terraform Enterprise to revert to the previous state.
+Provider Initialization
+            When a new provider is added, Terraform must initialize it by downloading and installing the provider’s plugin. Provider initialization occurs during terraform init.
+Interpolation Variables
+                    Within strings in Terraform, you can interpolate values using ${}, such as ${var.foo}. Interpolation allows referencing variables, resource attributes, calling functions, performing simple math, and using conditionals. Escape interpolation with double dollar signs: $${foo} renders as ${foo}.
+Implicit and Explicit Dependencies
+          Implicit dependencies are automatically detected by Terraform. For example, a VM resource depending on a network interface:
+hcl
+Copy code
+resource "azurerm_virtual_machine" "vm" {
+  network_interface_ids = [azurerm_network_interface.nic.id]
+}
+
+Explicit dependencies are manually set using the depends_on keyword.
+Differences Between Implicit and Explicit Dependencies
+            Implicit dependencies exist only within the class code, not in its public interface. Explicit dependencies appear in a constructor for class-level dependencies or in a method’s parameter list for local dependencies.
+
+
+
 
 #### Explain the difference between Terraform and other Infrastructure as Code (IaC) tools like Ansible, Puppet, and Chef.
 - Terraform: Primarily used for provisioning and managing infrastructure. It follows a declarative approach, where you define the desired state of your infrastructure, and Terraform figures out how to achieve it. It’s used for managing resources across various cloud providers.
