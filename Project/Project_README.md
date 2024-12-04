@@ -17,3 +17,20 @@ One major challenge was ensuring seamless deployment without downtime. We tackle
 
 
 
+
+
+Can you explain the workflow of a CI/CD project you've worked on?
+In a CI/CD project:
+Code Commit: Developers commit code to a version control system.
+Build: The CI system triggers a build process, compiling and packaging the code.
+Test: Automated tests are run to validate the build.
+Deploy: If tests pass, the code is deployed to staging or production environments.
+Monitor: Post-deployment, monitoring tools check the application’s health and performance.
+Did you run your project manually or on a periodic schedule?
+It depends on the project. For continuous integration and deployment tasks, I set up automated pipelines to run on a schedule or trigger-based events. For one-time or ad-hoc tasks, I ran them manually.
+What types of projects have you previously worked on?
+I have worked on various projects, including:
+CI/CD Pipelines: Automated the build, test, and deployment processes using Jenkins, GitLab CI, and other tools.
+Containerization: Implemented Docker and Kubernetes for managing containerized applications.
+Infrastructure Automation: Used Terraform and Ansible for provisioning and configuring cloud infrastructure.
+Monitoring and Logging: Set up Prometheus, Grafana, and ELK Stack for monitoring and log management.
