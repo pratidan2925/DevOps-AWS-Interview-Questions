@@ -534,6 +534,29 @@ docker build --build-arg my_arg=value .
 
 
 
+In Docker, have you written a Dockerfile or Docker Compose? What is the difference between RUN, CMD, and ENTRYPOINT?
+"Yes, I’ve written both Dockerfiles and Docker Compose files. RUN is used to execute commands during the image build process. CMD provides default arguments for the ENTRYPOINT or the command to run when a container starts. ENTRYPOINT sets the command that will be executed when the container starts and is usually used to configure the container to run as an executable."
+Can you tell the command you used to build the images and run the container?
+"To build an image, use: docker build -t myimage .. To run a container, use: docker run -d --name mycontainer myimage."
+Suppose we have to run that container in the background. How can we do that?
+"Use the -d flag with the docker run command to run the container in detached mode. For example: docker run -d myimage."
+Suppose if you have to expose any kind of port. How can we do that?
+"Use the -p flag with the docker run command to map a port on the host to a port on the container. For example: docker run -p 8080:80 myimage exposes port 80 in the container on port 8080 of the host."
+Suppose you have 2 Docker containers running and you need to connect from one Docker container to another. How will you do that? And how to connect them if they are in different networks?
+"If the containers are in the same network, they can connect using container names as hostnames. If they are in different networks, you can use Docker's network bridging or create a new network that both containers join."
+Can you pass your ENTRYPOINT and CMD as part of Docker run?
+"Yes, you can override the ENTRYPOINT and CMD specified in the Dockerfile using docker run. For example: docker run --entrypoint /bin/bash myimage to override ENTRYPOINT, or docker run myimage /bin/bash to override CMD."
+Suppose you have an application running on a Docker container and your application has some data that you need to keep even if the container dies or restarts. How will you do that?
+"Use Docker volumes to persist data. Create a volume with docker volume create myvolume and mount it to the container with docker run -v myvolume:/data myimage."
+Can we use the same volume for different containers?
+"Yes, you can use the same volume for multiple containers. This allows containers to share data and access the same files."
+How do you check the resource utilization of a Docker container?
+"Use the docker stats command to view real-time resource usage of running containers."
+How will you find out which process is consuming more CPU or memory in Linux?
+"Use the top or htop command to see processes sorted by CPU or memory usage."
+
+
+
 
 
 
