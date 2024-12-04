@@ -2899,5 +2899,10 @@ Present Role: The current or present role is the role that an entity (like an EC
 
 
 
+25. What is CloudWatch and its use cases?
+Amazon CloudWatch is a monitoring and observability service that provides data and actionable insights for AWS infrastructure and applications. It is used for:
+Monitoring EC2 instances, Lambda functions, RDS.
+Log aggregation via CloudWatch Logs.
+Alarming based on defined metrics.
 
 
