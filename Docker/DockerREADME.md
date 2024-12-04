@@ -1,8 +1,8 @@
-#### **What is Docker ?**
+#### What is Docker ?
 
 Docker is an open-source platform that enables developers to automate the deployment, scaling, and management of applications in lightweight, portable containers. Docker containers package software and its dependencies in a standardized unit, ensuring that the application runs consistently across different environments, whether on a developer's laptop, on-premises servers, or in the cloud.
 
-#### **What is the use of Docker ?**
+#### What is the use of Docker ?
 
 Consistent Environment: Docker ensures that applications run the same in development, testing, and production environments by packaging the application and its dependencies in a container.
 Isolation: Containers provide process and resource isolation, enabling multiple applications or services to run on the same host without interfering with each other.
