@@ -421,3 +421,41 @@ terraform destroy: Removes all resources defined in the configuration.
 terraform show: Displays the current state or plan.
 #### 30. What are Modules in Terraform?
 Answer: Modules in Terraform are reusable components that encapsulate a set of resources and configurations. They help organize code by grouping related resources together, making it easier to manage and reuse. Modules can be sourced from local directories, version control repositories, or the Terraform Registry.
+
+#### 15. How do you manage unmanaged AWS resources in Terraform?
+Answer: Unmanaged AWS resources can be managed in Terraform using the terraform import command. This command imports existing resources into the Terraform state file, allowing Terraform to manage them.
+Scenario: I once imported an existing S3 bucket into Terraform using terraform import aws_s3_bucket.example my-bucket, enabling us to manage the bucket alongside other resources in our Terraform configuration.
+
+#### 16. How do you pass arguments to a VPC while using the terraform import command?
+Answer: When using the terraform import command, you specify the resource type and name followed by the identifier. For example, to import a VPC, you would use:
+```
+terraform import aws_vpc.example_vpc vpc-12345678
+```
+Scenario: I passed the VPC ID as an argument to the terraform import command to import an existing VPC into the Terraform state, allowing us to manage it along with other resources.
+
+#### 17. What are the prerequisites before importing a VPC in Terraform?
+Answer: Before importing a VPC into Terraform, ensure that:
+Terraform Configuration Exists: A matching Terraform resource configuration for the VPC is present in the .tf file.
+Resource Identifier: The VPC ID (or other unique identifiers) is available for import.
+Terraform State: The state file is backed up in case of issues during the import.
+Scenario: Before importing a VPC, I ensured that the Terraform configuration matched the existing VPC structure, avoiding potential conflicts during the import process.
+
+#### 18. If an S3 bucket was created through Terraform but someone manually added a policy to it, how do you handle this situation using IaC?
+Answer: To reconcile the manual changes, I would:
+Review the State: Use terraform state show to check the current state.
+Update Configuration: Manually update the Terraform configuration to match the manually added policy.
+Apply Changes: Run terraform apply to bring the actual state in line with the desired configuration.
+Scenario: In a project, I updated the Terraform configuration to include a manually added S3 bucket policy, ensuring that future Terraform runs didn't inadvertently remove it.
+#### 22. How do you manage unmanaged AWS resources in Terraform?
+Answer: To manage unmanaged AWS resources in Terraform, I use the terraform import command to import existing resources into the Terraform state. After importing, I ensure the resources are defined in the Terraform configuration file to manage them going forward.
+Scenario: I imported several manually created S3 buckets and EC2 instances into Terraform, allowing me to standardize and manage these resources through Terraform in subsequent deployments.
+
+#### 15. What are the prerequisites before importing a VPC in Terraform?
+Answer: Before importing a VPC into Terraform, ensure that the VPC and all related resources (like subnets, route tables, etc.) are already defined in the Terraform configuration. The resources should match the existing setup to avoid discrepancies.
+Scenario: I verified that the VPC and associated resources were correctly defined in the Terraform configuration before importing the existing VPC. This step ensured smooth importation without conflicts.
+
+#### 16. If an S3 bucket was created through Terraform but someone manually added a policy to it, how do you handle this situation using IaC?
+Answer: To handle this situation, I would first run terraform plan to detect any drift between the actual state and the Terraform configuration. Then, I would decide whether to update the Terraform code to include the manual changes or remove the manual changes and revert to the Terraform-managed state.
+Scenario: In a previous project, I encountered this issue and decided to update the Terraform code to include the manual policy change. This ensured that Terraform managed all future updates to the S3 bucket policy.
+
+
