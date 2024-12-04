@@ -243,6 +243,8 @@ Scenario: I created a GitHub Actions workflow to automatically build and test a 
 Answer: To handle merge conflicts in Git, I first identify the conflicting files using git status. Then, I manually edit the conflicted files to resolve the conflicts, marking the resolution in the file. After resolving all conflicts, I add the files to the staging area and commit the changes.
 Scenario: During a project, I frequently encountered merge conflicts due to parallel development efforts. I resolved these conflicts by carefully reviewing the changes from both branches, ensuring that the final merged code was correct and functional.
 
+#### 14. How do you handle merging branches in Git?
+Answer: Merging branches in Git involves checking out the branch you want to merge into, usually main or master, and using git merge <branch-name> to combine the changes from the specified branch. If conflicts arise, they need to be resolved manually before committing the merge. I also use git rebase for a cleaner commit history when necessary.
 
 #### 24. Difference between Git and SubVersion
 
