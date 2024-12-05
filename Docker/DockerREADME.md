@@ -160,7 +160,7 @@ Namespaces provide isolation for containers by ensuring that a container's proce
 #### What is Docker Machine?
  Docker Machine is a tool that simplifies the installation of Docker on virtual hosts and provisions Docker hosts on local and cloud infrastructure.
 
-## How to check for Docker Client and Docker Server version? 
+#### How to check for Docker Client and Docker Server version? 
 Run the command docker version.
 
 #### How do you get the number of containers running, paused, and stopped?
