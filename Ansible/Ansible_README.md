@@ -54,21 +54,21 @@ Tasks are single units of work that Ansible executes on the managed nodes, defin
 #### What is a YAML file and how do we use it in Ansible?
  YAML (Yet Another Markup Language) is a human-readable data serialization format. Ansible uses YAML for writing playbooks and configuration files.
 Code difference between JSON and YAML:
-      #JSON
+ -  JSON
       ```
              {
                "name": "John",
                 "age": 30,
                 "city": "New York"
              }
-             ```
+      ```
 
-         # YAML
+     -  YAML
         ```
             name: John
             age: 30
             city: New York
-            ```
+        ```
 #### How is Ansible different from Puppet?
 **Ansible:** Agentless, uses YAML, push configuration.
 **Puppet:** Agent-based, uses its own language, pull configuration.
