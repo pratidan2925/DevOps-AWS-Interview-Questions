@@ -61,8 +61,10 @@ Code difference between JSON and YAML:
                 "age": 30,
                 "city": "New York"
              }
+             ```
 
-                         # YAML
+         # YAML
+        ```
             name: John
             age: 30
             city: New York
