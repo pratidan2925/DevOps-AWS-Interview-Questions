@@ -1,42 +1,53 @@
 
 #### What is Ansible?
  Ansible is an open-source IT automation tool used for configuration management, application deployment, and task automation.
+
 #### What is the use of Ansible? 
 Ansible is used for automating repetitive tasks, managing configurations, deploying applications, and orchestrating complex workflows.
+
 #### What are the features of Ansible?
 - Agentless architecture
 - Easy to learn and use with YAML
 - Idempotent operations
 - Extensible with modules and plugins
 - Strong security with SSH
+
 #### What are the advantages of Ansible?
 Simple setup and use
 No need for agents
 Reduces manual repetitive tasks
 Consistent configurations across systems
 Scalable and efficient
+
 #### What is Ansible Galaxy?
  Ansible Galaxy is a repository for Ansible roles where users can share and reuse roles created by the community.
+
 #### What is CI/CD? 
 Continuous Integration (CI) and Continuous Deployment (CD) are practices that automate the integration and deployment of code changes to improve software quality and delivery speed.
+
 #### What is configuration management? 
 Configuration management involves maintaining consistency of a system's performance, functional, and physical attributes with its design, operational information, and requirements.
+
 #### What are Ansible server requirements? 
 Ansible requires Python 2.7 or 3.5+ on the control node and managed nodes. It also requires an SSH connection to the managed nodes.
+
 #### What are Ansible tasks? 
 Tasks are single units of work that Ansible executes on the managed nodes, defined within a playbook.
-Explain a few of the basic terminologies or concepts in Ansible
-Playbook: A YAML file containing tasks.
-Inventory: A file listing managed nodes.
-Modules: Units of code that perform specific tasks.
-Roles: Reusable collections of tasks and configurations.
-Handlers: Special tasks triggered by other tasks.
+
+#### Explain a few of the basic terminologies or concepts in Ansible
+**Playbook:** A YAML file containing tasks.
+**Inventory:** A file listing managed nodes.
+**Modules:** Units of code that perform specific tasks.
+**Roles:** Reusable collections of tasks and configurations.
+**Handlers:** Special tasks triggered by other tasks.
 
 #### What is a playbook? 
-A playbook is a YAML file containing a series of tasks and configurations to be executed on managed nodes.
-What are Ad hoc commands? Give an example
+- A playbook is a YAML file containing a series of tasks and configurations to be executed on managed nodes.
+
+#### What are Ad hoc commands? Give an example
  Ad hoc commands are one-liner Ansible commands used for quick, simple tasks. Example: ansible all -m ping.
-Compare Ansible with Chef
+
+#### Compare Ansible with Chef
 Ansible: Agentless, uses YAML for configuration, simpler setup.
 Chef: Agent-based, uses Ruby, more complex setup, but more mature.
 
@@ -63,10 +74,13 @@ Puppet: Agent-based, uses its own language, pull configuration.
 
 #### What is Ansible-doc? 
 Ansible-doc displays documentation on Ansible modules and plugins.
-What is the code you need to write for accessing a variable name? 
+
+#### What is the code you need to write for accessing a variable name? 
 {{ variable_name }}
-What is the method to check the inventory vars defined for the host?
+
+#### What is the method to check the inventory vars defined for the host?
  Use the command: ansible -m debug -a "var=hostvars['hostname']" localhost
+ 
 #### Explain Ansible facts
  Facts are system properties gathered by Ansible from managed nodes during a playbook run.
 Discuss the method to create an empty file with Ansible
@@ -79,13 +93,17 @@ Discuss the method to create an empty file with Ansible
 ```
 #### Explain Ansible modules in detail 
 Modules are reusable, standalone scripts that Ansible runs on your behalf. They perform specific tasks like managing files, installing packages, or managing services.
+
 #### What are callback plug-ins in Ansible?
  Callback plugins enable adding new behaviors or extending Ansible’s output processing.
+ 
 #### What is Ansible inventory and its types?
  Inventory is a file that lists the managed nodes. Types include static and dynamic inventories.
+ 
 #### What is an Ansible vault?
 Ansible Vault allows encrypting sensitive data within Ansible files
- How do we write an Ansible handler with multiple tasks?
+
+ #### How do we write an Ansible handler with multiple tasks?
  Handlers can only perform a single task, but you can chain multiple handlers together.
 ```
 handlers:
@@ -117,10 +135,13 @@ Blocks group tasks and can handle errors, rescue, and always operations.
 ```
 #### Do you have any idea of how to turn off the facts in Ansible? 
 Set gather_facts: no in the playbook.
+
 #### What are the registered variables under Ansible? 
 Registered variables store the output of tasks for later use.
+
 #### By default, the Ansible reboot module waits for how many seconds. Is there any way to increase it? 
 By default, it waits for 600 seconds. You can increase it using the reboot_timeout parameter.
+
 #### Can docker modules be implemented in Ansible? If so, how can you use it?
  Yes, Ansible can manage Docker containers using community.docker modules.
 ```
@@ -141,46 +162,46 @@ Use tools like Molecule and Testinfra for testing Ansible roles and playbooks.
 
 - Ansible's architecture is designed to be simple and agentless, making it easy to deploy and manage. Here's an overview of its key components and how they interact:
 -Key Components
-- Control Node:
+- **Control Node:**
 The machine where Ansible is installed and from which you run your automation scripts (playbooks).
 Requires only SSH access to the managed nodes and Python installed on them.
-- Managed Nodes:
+- **Managed Nodes:**
 The target machines that Ansible manages.
 No need for Ansible to be installed on these nodes; only SSH and Python are required.
-- Inventory:
+- **Inventory:**
 A file or script that lists the managed nodes (hosts).
 Can be static (a simple list of IPs or hostnames) or dynamic (generated by a script that queries an external source).
-- Modules:
+- **Modules:**
 Units of work that Ansible executes on managed nodes.
 Examples include yum, apt, copy, file, and service.
 Can be written in any language that returns JSON, but Python is the most common.
-- Plugins:
+- **Plugins:**
 Extend Ansible's core functionality.
 Types include action plugins, callback plugins, connection plugins, and more.
-- Playbooks:
+- **Playbooks:**
 YAML files that define a series of tasks to be executed on managed nodes.
 Each playbook consists of one or more plays, which map hosts to roles.
-- Roles:
+- **Roles:**
 A way to group tasks, handlers, files, templates, and variables.
 Used to organize complex playbooks.
-- Handlers:
+- **Handlers:**
 Tasks that are triggered by the notify directive in other tasks.
 Typically used to restart services.
-- Facts:
+- **Facts:**
 Information about the managed nodes collected by Ansible.
 Can be accessed in playbooks and templates.
-- Vars:
+- **Vars:**
 Variables that can be defined in playbooks, roles, or inventory.
 Used to customize tasks and templates.
 Workflow
-- Initialization:
+- **Initialization:**
 The control node reads the inventory file and playbooks.
 The control node connects to managed nodes over SSH.
-- Execution:
+- **Execution:**
 The control node sends modules to the managed nodes.
 The modules are executed on the managed nodes.
 Results are sent back to the control node.
-- Configuration Management:
+- **Configuration Management:**
 Playbooks orchestrate the execution of tasks in a defined order.
 Tasks can include installing packages, copying files, configuring services, and more.
 
@@ -231,16 +252,20 @@ Tasks can include installing packages, copying files, configuring services, and 
 The default inventory file is typically located at /etc/ansible/hosts. This file contains information about the hosts (servers) that Ansible will manage.
 Changing the Inventory Path
 Command Line Option:
+```
 ansible-playbook -i /path/to/inventory playbook.yml
+```
 Environment Variable:
+```
 export ANSIBLE_INVENTORY=/path/to/inventory
+```
 ansible-playbook playbook.yml
 Configuration File (ansible.cfg):
 Create or modify ansible.cfg:
-
+```
 [defaults]
 inventory = /path/to/inventory
-
+```
 #### 5. What is Role ? Explain some Roles
 Role : A role is a way to organize related tasks, variables, files, templates, and other resources in a structured manner. Roles provide a reusable and modular approach to managing configuration and deployment tasks
 defaults: Contains default variables for roles. Variables defined here have the lowest precedence, meaning they can be easily overridden by other variable definitions.
@@ -365,41 +390,44 @@ Dynamic Inventory: A dynamic inventory fetches information from external sources
 
 
 #### 14. Suppose I Want to Run a Playbook on Any Specific Inventory: How Should I Do It?
-Answer: You can run a playbook on a specific inventory by specifying the inventory file in the command, e.g., ansible-playbook -i <inventory-file> playbook.yml.
+- Answer: You can run a playbook on a specific inventory by specifying the inventory file in the command, e.g., ansible-playbook -i <inventory-file> playbook.yml.
 
-8.How can you distribute tasks on Ansible?
-9. Extra module in Ansible 
-10. Callback plugin in Ansible
-11. Custom module and core module.
+.
 
 
 #### 2. What are Ansible roles, and how do you use them?
 Answer: Ansible roles are a way to organize Ansible playbooks into reusable components. Each role is structured to contain tasks, handlers, variables, files, templates, and other elements required to perform a particular function. Roles can be reused across different playbooks.
-Scenario: In my work, I create Ansible roles to manage the configuration of servers, such as installing and configuring Apache. This approach allows me to reuse the role in multiple environments, ensuring consistency and reducing duplication.
+- Scenario: In my work, I create Ansible roles to manage the configuration of servers, such as installing and configuring Apache. This approach allows me to reuse the role in multiple environments, ensuring consistency and reducing duplication.
 
 
 
 
-What are Ansible roles, and how do you use them?
+
+#### What are Ansible roles, and how do you use them?
 Ansible roles are a way to organize playbooks into reusable components. Each role contains tasks, variables, files, templates, and handlers specific to a particular service or function. Roles can be used to break down complex playbooks into smaller, more manageable parts, promoting reuse and easier maintenance. They are defined in a specific directory structure and can be imported and applied to hosts in your playbooks.
-3. Ansible Config File
+
+#### 3. Ansible Config File
 Answer: The main configuration file for Ansible is ansible.cfg. This file can define settings such as the inventory file location, SSH options, and other Ansible behaviors. You can place it in the current directory, your home directory, or /etc/ansible/ansible.cfg.
-41. What is group_vars in Ansible?
+
+#### 41. What is group_vars in Ansible?
 In Ansible, group_vars is a directory that contains YAML files defining variables for groups of hosts. These variables apply to all hosts in a specified group. The group_vars directory is located in the Ansible playbook directory and allows you to organize and manage variables more effectively.
 For example, if you have a group called webservers, you can create a file named group_vars/webservers.yml with variables specific to that group:
+```
 # group_vars/webservers.yml
 nginx_version: 1.18.0
 document_root: /var/www/html
-
+```
 These variables will be available to all hosts that belong to the webservers group.
-In Ansible, where are the hosts stored?
+
+#### In Ansible, where are the hosts stored?
 Hosts are typically stored in an inventory file, usually located in /etc/ansible/hosts or specified by the -i option in command-line operations.
-What is the home path of Ansible?
+
+#### What is the home path of Ansible?
 The home path for Ansible configuration files is usually /etc/ansible on Linux systems. User-specific configuration files can be found in ~/.ansible or ~/.ansible.cfg.
-Can you provide Ansible YAML scripts for deploying services on JBoss and Tomcat?
+
+#### Can you provide Ansible YAML scripts for deploying services on JBoss and Tomcat?
 Example for JBoss:
-yaml
-Copy code
+```
 - name: Deploy JBoss Application
   hosts: jboss_servers
   tasks:
@@ -411,11 +439,10 @@ Copy code
       service:
         name: jboss
         state: started
-
+```
 
 Example for Tomcat:
-yaml
-Copy code
+```
 - name: Deploy Tomcat Application
   hosts: tomcat_servers
   tasks:
@@ -427,10 +454,11 @@ Copy code
       service:
         name: tomcat
         state: started
-Can you write a sample code in Ansible? Suppose there is one master Ansible server and 50-60 slave servers. You want to install a command. Take your own command.
+```
+
+#### Can you write a sample code in Ansible? Suppose there is one master Ansible server and 50-60 slave servers. You want to install a command. Take your own command.
 Example Ansible Playbook:
-yaml
-Copy code
+```
 - name: Install a command on all servers
   hosts: all
   become: yes
@@ -439,34 +467,16 @@ Copy code
       apt:
         name: curl
         state: present
-
+```
 
 Explanation: This playbook installs curl on all hosts specified in the inventory file. The become: yes directive escalates privileges to root to perform the installation.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-How do you install Nginx in the Ansible playbook?
+#### How do you install Nginx in the Ansible playbook?
 To install Nginx in an Ansible playbook:
-yaml
-Copy code
+```
 - name: Install Nginx
   hosts: webservers
   become: yes
@@ -475,33 +485,36 @@ Copy code
       apt:
         name: nginx
         state: present
-What are Register targets in Ansible?
+```
+#### What are Register targets in Ansible?
 In Ansible, register is used to capture the output of a task and store it in a variable. This registered variable can be used in subsequent tasks for conditional execution or debugging.
-How do you use Ansible?
+
+#### How do you use Ansible?
 Answer: I use Ansible to automate configuration management, application deployment, and task automation. Ansible uses playbooks written in YAML to define the desired state of the system and execute tasks across multiple machines. It's agentless and relies on SSH for communication, making it straightforward to implement and use.
-You have written Ansible playbooks, can you explain?
+
+#### You have written Ansible playbooks, can you explain?
 Answer: Yes, I have written Ansible playbooks to automate various tasks. Playbooks are YAML files that define a series of tasks to be executed on remote servers. Each playbook contains one or more plays, which map a set of tasks to a group of hosts. For example, I’ve used playbooks to install and configure software, deploy applications, and manage system settings.
 
-Can you tell me the use cases for Ansible playbooks? And what have you done?
+#### Can you tell me the use cases for Ansible playbooks? And what have you done?
 Answer: Ansible playbooks are used for automating tasks such as software installation, configuration management, and system updates. For example, I've used Ansible playbooks to deploy web applications, configure server settings, and ensure consistency across multiple servers. Playbooks can also be used to manage user accounts, deploy databases, and orchestrate complex multi-step processes.
 
 
 
 
-56. Ansible Roles
+#### 56. Ansible Roles
 Ansible roles are a way to organize playbooks and associated files into reusable units. Roles typically contain tasks, handlers, variables, files, templates, and modules. They allow for easy sharing and reuse of Ansible code.
-57. Ansible Tower and its advantages
-Ansible Tower is a web-based interface for managing Ansible automation. Advantages include:
-Visual Dashboard: Provides a visual interface to manage playbooks, inventory, and jobs.
-Role-based Access Control: Manage user access based on roles.
-Job Scheduling: Schedule automation tasks and monitor job progress.
-Inventory Management: Easily manage dynamic and static inventory.
+
+#### 57. Ansible Tower and its advantages
+- Ansible Tower is a web-based interface for managing Ansible automation. Advantages include:
+- **Visual Dashboard:** Provides a visual interface to manage playbooks, inventory, and jobs.
+- **Role-based Access Control:** Manage user access based on roles.
+- **Job Scheduling:** Schedule automation tasks and monitor job progress.
+- **Inventory Management:** Easily manage dynamic and static inventory.
 
 
 
-37. Ansible playbook to copy files from server A to server B
-yaml
-Copy code
+#### 37. Ansible playbook to copy files from server A to server B
+```
 - hosts: server_a
   tasks:
     - name: Copy file to server B
@@ -509,14 +522,13 @@ Copy code
         src: /path/to/source/file
         dest: /path/to/destination/on/server_b
 
+```
 
 
 
 
-
-8. Check whether the file is present or not; if yes, change port number from 80 to 8080 using Ansible Playbook.
-yaml
-Copy code
+####  8. Check whether the file is present or not; if yes, change port number from 80 to 8080 using Ansible Playbook.
+```
 - hosts: localhost
   tasks:
     - name: Check if file exists
@@ -531,4 +543,12 @@ Copy code
         regexp: 'listen 80;'
         line: 'listen 8080;'
       when: file_check.stat.exists
+```
 
+
+
+
+8.How can you distribute tasks on Ansible?
+9. Extra module in Ansible 
+10. Callback plugin in Ansible
+11. Custom module and core module
