@@ -21,106 +21,122 @@ I set up alerts in Azure Monitor by defining alert rules based on metrics, logs,
 
 
 #### Azure Components with Respect to AWS
-Compute
-Azure Virtual Machines vs. AWS EC2 (Elastic Compute Cloud)
+- **Compute**
+- Azure Virtual Machines vs. AWS EC2 (Elastic Compute Cloud)
 Both provide scalable virtual servers for running applications.
-Azure Kubernetes Service (AKS) vs. Amazon EKS (Elastic Kubernetes Service)
+
+- Azure Kubernetes Service (AKS) vs. Amazon EKS (Elastic Kubernetes Service)
 Managed Kubernetes services for container orchestration.
 
-Azure App Services vs. AWS Elastic Beanstalk
+- Azure App Services vs. AWS Elastic Beanstalk
 Platform-as-a-Service (PaaS) for deploying and scaling web apps and APIs.
 
-Azure Functions vs. AWS Lambda
+- Azure Functions vs. AWS Lambda
 Serverless computing for running code in response to events.
-Networking
-Azure Virtual Network (VNet) vs. Amazon VPC (Virtual Private Cloud)
+
+- **Networking**
+
+- Azure Virtual Network (VNet) vs. Amazon VPC (Virtual Private Cloud)
 Isolated network environments in the cloud.
-Azure Load Balancer vs. AWS Elastic Load Balancer (ELB)
+
+- Azure Load Balancer vs. AWS Elastic Load Balancer (ELB)
 Distributes incoming traffic across multiple instances.
-Azure Application Gateway vs. AWS Application Load Balancer (ALB)
+
+- Azure Application Gateway vs. AWS Application Load Balancer (ALB)
 Application layer load balancing (OSI layer 7).
-Azure VPN Gateway vs. AWS VPN
+
+- Azure VPN Gateway vs. AWS VPN
 Secure connection between cloud networks and on-premises infrastructure.
-Storage
-Azure Blob Storage vs. Amazon S3 (Simple Storage Service)
+
+- **Storage**
+  
+- Azure Blob Storage vs. Amazon S3 (Simple Storage Service)
 Object storage for unstructured data.
-Azure Files vs. Amazon EFS (Elastic File System)
+
+- Azure Files vs. Amazon EFS (Elastic File System)
 Managed file shares accessible via SMB.
-Azure Disk Storage vs. Amazon EBS (Elastic Block Store)
+
+- Azure Disk Storage vs. Amazon EBS (Elastic Block Store)
 Block storage for use with VMs.
-Databases
-Azure SQL Database vs. Amazon RDS (Relational Database Service)
+
+
+- **Databases**
+- Azure SQL Database vs. Amazon RDS (Relational Database Service)
 Managed relational databases.
-Azure Cosmos DB vs. Amazon DynamoDB
+- Azure Cosmos DB vs. Amazon DynamoDB
 Globally distributed, multi-model databases.
-Azure Database for PostgreSQL/MySQL vs. Amazon RDS for PostgreSQL/MySQL
+- Azure Database for PostgreSQL/MySQL vs. Amazon RDS for PostgreSQL/MySQL
 Managed PostgreSQL/MySQL databases.
-AI and Machine Learning
-Azure Cognitive Services vs. Amazon AI Services
+- **AI and Machine Learning**
+- Azure Cognitive Services vs. Amazon AI Services
 Pre-built APIs for AI capabilities.
-Azure Machine Learning vs. Amazon SageMaker
+- Azure Machine Learning vs. Amazon SageMaker
 Comprehensive machine learning platforms.
-Analytics
-Azure Synapse Analytics vs. Amazon Redshift
+**Analytics**
+- Azure Synapse Analytics vs. Amazon Redshift
 Integrated analytics services for big data and data warehousing.
-Azure Data Factory vs. AWS Glue
+- Azure Data Factory vs. AWS Glue
 Data integration services for ETL workflows.
-Azure Databricks vs. AWS Glue/Spark on EMR
+- Azure Databricks vs. AWS Glue/Spark on EMR
 Analytics platforms based on Apache Spark.
 Security
-Azure Security Center vs. AWS Security Hub
+- Azure Security Center vs. AWS Security Hub
 Unified security management and threat protection.
-Azure Key Vault vs. AWS KMS (Key Management Service)
+- Azure Key Vault vs. AWS KMS (Key Management Service)
 Safeguard and manage cryptographic keys and secrets.
-Azure Active Directory (AD) vs. AWS IAM (Identity and Access Management)
+- Azure Active Directory (AD) vs. AWS IAM (Identity and Access Management)
 Identity and access management services.
-Developer Tools
-Azure DevOps vs. AWS CodeSuite (CodeCommit, CodeBuild, CodeDeploy, CodePipeline)
+**Developer Tools**
+- Azure DevOps vs. AWS CodeSuite (CodeCommit, CodeBuild, CodeDeploy, CodePipeline)
 Integrated tools for CI/CD.
-Management and Monitoring
-Azure Monitor vs. Amazon CloudWatch
+**Management and Monitoring**
+- Azure Monitor vs. Amazon CloudWatch
 Monitoring and management of cloud resources.
-Azure Automation vs. AWS Systems Manager
+
+- Azure Automation vs. AWS Systems Manager
 Process automation and configuration management.
-IoT
-Azure IoT Hub vs. AWS IoT Core
-Central hubs for IoT device communication.
-Azure IoT Central vs. AWS IoT Core
+- **IoT**
+- Azure IoT Hub vs. AWS IoT Core
+- **Central hubs for IoT device communication.**
+- Azure IoT Central vs. AWS IoT Core
 Managed IoT application platforms.
-Migration
-Azure Migrate vs. AWS Migration Hub
+- **Migration**
+- Azure Migrate vs. AWS Migration Hub
 Central hubs for tracking the migration of on-premises workloads to the cloud.
-Azure Site Recovery vs. AWS Disaster Recovery (DR)
-Disaster recovery services.
+- Azure Site Recovery vs. AWS Disaster Recovery (DR)
+**Disaster recovery services.**
 These components are often the most commonly used due to their essential roles in building and managing cloud-based applications and infrastructure.
 
 
-How do you ensure security compliance in Azure environments?
-To ensure security compliance in Azure, I:
-Use Azure Security Center to monitor and manage security across resources.
-Implement Azure Policy to enforce compliance rules.
-Regularly review and update access controls and permissions.
-Conduct security assessments and vulnerability scans.
-Stay informed about regulatory requirements and update practices accordingly.
-What are the steps to increase VM disk space in Azure?
-To increase VM disk space in Azure:
-Stop the VM.
-Go to the disk settings and increase the disk size.
-Start the VM.
-Extend the disk partition within the OS using Disk Management (Windows) or resize2fs (Linux).
-How do you configure disk snapshot backups using Azure Automation Account Runbooks via PowerShell?
-To configure disk snapshot backups using Azure Automation Account Runbooks:
-Create a new Automation Account in Azure.
-Write a PowerShell script to take disk snapshots using the Azure PowerShell module.
-Create a new Runbook and import the script.
-Schedule the Runbook to run at desired intervals.
-Test the Runbook to ensure it takes snapshots correctly.
-Describe the process of procuring and updating certificates in Azure App Gateway.
-Procuring and updating certificates in Azure App Gateway involves:
-Purchasing or generating an SSL certificate from a trusted Certificate Authority (CA).
-Importing the certificate into Azure Key Vault.
-Configuring the Application Gateway to use the certificate for SSL termination by linking it to the listener.
-Updating the certificate in Key Vault when it expires and updating the Application Gateway configuration to use the new certificate.
+#### How do you ensure security compliance in Azure environments?
+- To ensure security compliance in Azure, I:
+- Use Azure Security Center to monitor and manage security across resources.
+- Implement Azure Policy to enforce compliance rules.
+- Regularly review and update access controls and permissions.
+- Conduct security assessments and vulnerability scans.
+- Stay informed about regulatory requirements and update practices accordingly.
+
+#### What are the steps to increase VM disk space in Azure?
+- To increase VM disk space in Azure:
+- Stop the VM.
+- Go to the disk settings and increase the disk size.
+- Start the VM.
+- Extend the disk partition within the OS using Disk Management (Windows) or resize2fs (Linux).
+- How do you configure disk snapshot backups using Azure Automation Account Runbooks via PowerShell?
+- To configure disk snapshot backups using Azure Automation Account Runbooks:
+- Create a new Automation Account in Azure.
+
+#### Write a PowerShell script to take disk snapshots using the Azure PowerShell module.
+- Create a new Runbook and import the script.
+- Schedule the Runbook to run at desired intervals.
+- Test the Runbook to ensure it takes snapshots correctly.
+
+#### Describe the process of procuring and updating certificates in Azure App Gateway.
+- Procuring and updating certificates in Azure App Gateway involves:
+- Purchasing or generating an SSL certificate from a trusted Certificate Authority (CA).
+- Importing the certificate into Azure Key Vault.
+- Configuring the Application Gateway to use the certificate for SSL termination by linking it to the listener.
+- Updating the certificate in Key Vault when it expires and updating the Application Gateway configuration to use the new certificate.
 
 #### How do you perform a health check on production and non-production environments in Azure?
 Performing a health check on production and non-production environments in Azure involves several steps to ensure the systems are functioning correctly and efficiently:
