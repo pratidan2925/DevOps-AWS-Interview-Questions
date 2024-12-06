@@ -18,14 +18,14 @@ Each layer serves a specific purpose and interacts with adjacent layers to facil
   An IP (Internet Protocol) address is a unique string of numbers separated by periods (for IPv4) or colons (for IPv6) that identifies each computer using the Internet Protocol to communicate over a network. IP addresses are essential for routing data between devices on a network or across the internet.
  
 #### What is the difference between  public key and  private key?
-Public Key: Used for encryption and verification. Shared openly.
-Private Key: Used for decryption and signing. Kept secret by the owner
+- Public Key: Used for encryption and verification. Shared openly.
+- Private Key: Used for decryption and signing. Kept secret by the owner
  
 #### Protocols and Port numbers
 - FTP --- File Transfer Protocol --- 21
 - SMTP --- Simple Mail Transfer Protocol --- 25
 - TELNET --- Terminal  Network  ---  21
-  -  DNS --- Domain Name Systems --- 53
+-  DNS --- Domain Name Systems --- 53
 - HTTP --- Hypertext Transfer Protocol --- 80
 - HTTPS  --- Hypertext Transfer Protocol Secure --- 443 / 8443
 - RDP ---  Remote Desktop Protocol  --- 3389
@@ -45,7 +45,7 @@ Private Key: Used for decryption and signing. Kept secret by the owner
 - Hybrid: Combination of different topologies for flexibility.
 
 #### 7.  What do you mean by Look back address ?
-The term "loopback address" typically refers to a special IP address used to send network traffic back to the same device. In IPv4, the loopback address is 127.0.0.1, while in IPv6, it's represented as "::1".
+- The term "loopback address" typically refers to a special IP address used to send network traffic back to the same device. In IPv4, the loopback address is 127.0.0.1, while in IPv6, it's represented as "::1".
 This loopback address allows a device to communicate with itself, useful for testing network applications or troubleshooting connectivity issues. When a device sends data to the loopback address, it's routed internally within the device without being transmitted over the network.
 
 
@@ -54,26 +54,29 @@ A reverse proxy sits between clients and backend servers, forwarding client requ
 
 
 
-What are the differences between HTTP and HTTPS?
-HTTP (HyperText Transfer Protocol): A protocol used for transmitting data over the web. It is not encrypted, making it vulnerable to interception.
-HTTPS (HyperText Transfer Protocol Secure): An extension of HTTP that uses encryption (SSL/TLS) to secure data transmitted between the client and server, providing confidentiality and integrity.
+#### What are the differences between HTTP and HTTPS?
+- HTTP (HyperText Transfer Protocol): A protocol used for transmitting data over the web. It is not encrypted, making it vulnerable to interception.
+- HTTPS (HyperText Transfer Protocol Secure): An extension of HTTP that uses encryption (SSL/TLS) to secure data transmitted between the client and server, providing confidentiality and integrity.
 
-How do you handle and resolve CPU-related tickets?
-To handle CPU-related tickets, you would:
-Analyze resource usage and identify processes consuming high CPU.
-Check for resource limits and requests in Kubernetes or other environments.
-Optimize application performance, adjust configurations, or scale resources as needed.
-Implement monitoring and alerts to proactively manage CPU utilization.
+#### How do you handle and resolve CPU-related tickets?
+- To handle CPU-related tickets, you would:
+- Analyze resource usage and identify processes consuming high CPU.
+- Check for resource limits and requests in Kubernetes or other environments.
+- Optimize application performance, adjust configurations, or scale resources as needed.
+- Implement monitoring and alerts to proactively manage CPU utilization.
 
 
 
-18. What is CDN?
+#### 18. What is CDN?
 A CDN (Content Delivery Network) is a distributed network of servers that deliver web content based on a user's geographic location, improving performance and redundancy.
-5. What is SSL and TLS?
+
+
+#### 5. What is SSL and TLS?
 SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic protocols designed to provide communication security over a network. TLS is the successor to SSL, offering improved security.
 
 
-58. What is gRPC and its uses?
+#### 58. What is gRPC and its uses?
 gRPC (Google Remote Procedure Call) is a high-performance RPC framework that uses HTTP/2 for transport, Protocol Buffers as the interface description language, and enables efficient communication between services. It's commonly used in microservices architectures for inter-service communication due to its performance and support for multiple programming languages.
-59. What is DNS?
+
+#### 59. What is DNS?
 The Domain Name System (DNS) translates human-readable domain names (like www.example.com) into IP addresses that computers use to identify each other on the network. DNS allows users to access websites using easy-to-remember names instead of numerical IP addresses.
