@@ -2,23 +2,23 @@
 #### Introduction:
 
 - Good [morning/afternoon], it's my pleasure to introduce myself. My name is ----, and I am a dedicated Cloud and DevOps Engineer with over -----of experience. My journey in technology began during my Bachelor of Engineering in Computer Science from ------, where I developed a strong foundation in programming, system administration, and cloud computing.
-Professional Background:
+- **Professional Background:**
 - My career took off at -----------------------, where I work as a DevOps and Cloud Engineer. Over the past few years, I’ve had the privilege to work on complex and impactful projects for several clients. These projects provided me with invaluable experience in cloud infrastructure, CI/CD pipeline management, automation, and security.
-**Technical Expertise:**
+- **Technical Expertise:**
 - A significant portion of my work revolves around cloud platforms, particularly AWS and Azure. I have a deep understanding of various AWS services, including EC2, S3, RDS, VPC, and Lambda, which I’ve used to optimize application performance, scalability, and cost-efficiency. My expertise also extends to Terraform, a tool I frequently use for Infrastructure as Code (IaC), enabling consistent and automated cloud resource management.
 - In addition to cloud platforms, I am proficient in CI/CD tools like Jenkins and Azure DevOps. I’ve designed and implemented pipelines that have significantly streamlined our development and deployment processes, reducing manual errors and accelerating delivery timelines. My experience with containerization using Docker and orchestration with Kubernetes has allowed me to efficiently manage application life cycles, ensuring that our deployments are consistent across different environments.
-**Key Projects:**
+- **Key Projects:**
 - I worked on One of the bank projects, where I was tasked with enhancing their security practices within their CI/CD pipelines. I implemented a DevSecOps pipeline using Jenkins, integrating security checks throughout the development process. This not only improved the security of their applications but also ensured that the development team could continue to work efficiently without being bogged down by manual security audits.
 - Another project for Cisco involved optimizing their cloud infrastructure across AWS. I utilized Terraform to automate the provisioning and scaling of resources, which significantly reduced manual intervention and ensured that the infrastructure was always in line with best practices. Additionally, I automated several infrastructure tasks using Ansible, such as environment configuration, user management, and continuous deployment, which helped standardize processes and improve overall efficiency.
-**Skill set and Strengths:**
+- **Skill set and Strengths:**
 - My technical skillset includes source code management with Git and GitHub, configuration management with Ansible, and scripting in Bash and Shell. I have a solid background in Linux systems administration, which has been crucial in managing the environments in which our applications run.
 - One of my key strengths is my ability to troubleshoot and resolve issues quickly. Whether it's addressing deployment errors, optimizing cloud resources, or resolving security vulnerabilities, I have a proven track record of tackling challenges head-on and finding effective solutions. I am also highly collaborative, often working closely with cross-functional teams to ensure that our goals are aligned and that we are all moving in the same direction.
 
 #### Add security tools and devOps also. sonarQube also artifactry to manage artifact
-**Career Objective:**
-Looking ahead, my goal is to continue growing my expertise in cloud and DevOps engineering. I am particularly interested in roles that involve architecting and implementing designs for multi-cloud environments and infrastructure setups. I am passionate about leveraging technology to deliver maximum value, whether through optimized cloud solutions, strategic infrastructure planning, or enhancing security practices.
-**Conclusion:**
-In conclusion, my experience and skills make me well-suited for roles that require a deep understanding of cloud platforms, CI/CD processes, and infrastructure automation. I am excited about the possibility of bringing my expertise to new challenges and contributing to the success of innovative projects. Thank you for your time, and I look forward to discussing how I can contribute to your team.
+- **Career Objective:**
+- Looking ahead, my goal is to continue growing my expertise in cloud and DevOps engineering. I am particularly interested in roles that involve architecting and implementing designs for multi-cloud environments and infrastructure setups. I am passionate about leveraging technology to deliver maximum value, whether through optimized cloud solutions, strategic infrastructure planning, or enhancing security practices.
+- **Conclusion:**
+- In conclusion, my experience and skills make me well-suited for roles that require a deep understanding of cloud platforms, CI/CD processes, and infrastructure automation. I am excited about the possibility of bringing my expertise to new challenges and contributing to the success of innovative projects. Thank you for your time, and I look forward to discussing how I can contribute to your team.
 
 
 
@@ -58,25 +58,18 @@ I want to work here because your organization is known for its innovative approa
  In 5 years, I see myself as a senior Cloud and DevOps Engineer, leading a team of professionals in designing and implementing large-scale cloud infrastructure solutions. I aim to deepen my expertise in multi-cloud environments, security practices, and automation, and I hope to contribute to strategic decision-making within an organization. Ultimately, I want to continue growing my technical skills while also taking on more leadership responsibilities.
  
 #### Do you have any questions?
-- Can you tell me more about the specific challenges your team is currently facing in cloud and DevOps, and how this role will contribute to addressing those challenges?
+- Can you tell me more about the specific challenges your team is currently facing in cloud and DevOps, and how this role will
+
+ ####  contribute to addressing those challenges?
 - What are the growth opportunities available within the company for someone in this role?
 - How does your organization stay ahead of the curve in terms of cloud technology and DevOps practices?
 - On which tool i will get an opportunity to work on
 - 
 --- 
- - At last say i would like to work with you
-In order to match expectations of current industry standard or requirements where I need to improve myself ?
-Nntr bolaycha i would like to tell you ....... Me hey study krt ahe hey improve krt ahe or smjl Tula kahi yete te tyan v4rl nhi tya vr kaam kele bolaycha
-Sagl zal ki end la bolaycha if u have few minutes please tell me little about yourself.... For ex postion experience etc bhari vatte
-And ek line last la bolaycha thank you for your valuable feedback and thank you for your time to join this call have a nice day bye bye
-Hey Aaj sangitl te points note kr nd zal possible tr try krt jaa
- Khup bhari note vr end hote interview
-
-Sometimes last impression is best impression 😜
 
 ---
 
-responsibilities
+#### responsibilities
 In this role, I designed and implemented secure and efficient DevSecOps pipelines, integrating security practices into the CI/CD process to enhance application security. I managed a multi-cloud environment using AWS and Azure, ensuring high availability, disaster recovery, and cost optimization through automation and cross-cloud redundancy. I also leveraged tools like Terraform, Ansible, and Jenkins to automate infrastructure provisioning, configuration management, and deployment, ensuring seamless integration, testing, and deployment across environments. My work included implementing critical security measures, such as IaC security scans and secrets management, and optimizing application performance using load balancing and event-driven AWS Lambda functions. Additionally, I managed artifact repositories, enforced code quality checks with SonarQube, and ensured effective collaboration through Git and GitHub.
 
 
@@ -210,88 +203,5 @@ Answer: No, I have not received any formal awards. However, I have consistently 
 
  --- 
 
-Providing build machine and workflow for developers
 
-
-Developers do changes locally, execute local build, push changes to SCM, create MR/PR, run CI pipelines, merge into major branch
-In special cases like urgent production fixes, create AIX branch, make changes, merge back to major branch
-✦
-Implementing a solution to reduce local build time
-02:13
-Proposing a large AWS machine for code cloning and execution to expedite results
-Implementing access to the AWS machine only via command line, logging developer commands, and automated process to stop EC2 machine
-✦
-Key activities to manage access and logging for a Cloud instance.
-06:52
-Provided access via session manager and IM user for restricted access to instance.
-Captured commands executed in Cloudwatch for auditing and analysis purposes.
-✦
-Setting up EC2 machine, attaching policies, and configuring CloudWatch
-09:08
-Creating policies from scratch and attaching to the EC2 machine
-Configuring CloudWatch for monitoring and logging
-✦
-Setup developer access to AWS resources
-13:30
-Creating access key and secret key for developer authentication.
-Configuring AWS CLI and using AWS CLI commands to connect via session manager.
-✦
-Monitoring user activities and setting up automatic stop using EventBridge
-15:45
-Capturing user session commands for auditing purposes
-Setting up scheduled rule in EventBridge for automatic instance stop
-✦
-Managing self-managed node groups with different instance types and configurations for tools like Jenkins and Grafana.
-19:57
-Self-managed node groups allow deploying applications based on requirements of different CD tools.
-Custom configurations like Kubernetes plug-in and Fleet Manager used for large pipelines in Jenkins.
-✦
-Cloud/Devops Engineer's daily activities involve managing caching, secrets management, and integrating with other tools.
-22:03
-Caching management involves storing and using caches for smaller tasks using S3 and AWS Secret Manager.
-Integration with other tools like Garett, Grafana, Prometheus, and Jenkins for creating statistics and dashboards.
-✦
-Importance of Access Management and Configuration in Cloud/DevOps
-26:17
-Access management is crucial for authenticating services and managing user permissions.
-Configuration using tools like Terraform ensures quick replication and proper auditing.
-✦
-Maintaining availability through multiple environments
-28:19
-Implement new features in integration environment before moving to production
-Use Terrant tool to manage infrastructure code across multiple environments easily
-✦
-Transition from Harbor to JFrog Artifactory
-32:18
-Challenges with Harbor led to the decision to switch to JFrog due to lack of features, downtime, and backup issues.
-To implement production-grade JFrog Artifactory, various components like Artifactory UI, Maven, Docker, and X-ray are required for communication and artifact storage.
-✦
-X-ray component for artifact security scanning and deletion
-34:12
-X-ray component scans artifacts for security vulnerabilities and issues, allowing for deletion of critical alerts.
-Importance of jrog Artifactory Edge node in managing large number of consumers, developers, pipelines, and environments for deployment.
-✦
-Importance of Edge node in production grade J artifactory setup
-38:05
-Edge node enables high availability and faster application deployment
-Machine control used for managing components and infrastructure setup
-✦
-Setting up artifact storage using MySQL cluster and S3
-Artifacts uploaded are stored in MySQL database for metadata information
-Actual artifacts are stored in S3 for efficient storage and retrieval
-Managing cloud infrastructure efficiency
-Experimenting with different instance types to optimize costs and performance
-Documenting and suggesting better instance types for cost savings and improved performance
-Utilizing Confluence for documentation and decision-making
-Confluence is commonly used for documentation in organizations to present data to management and application teams for decision-making on resources.
-Improving performance, reducing costs, and enhancing architectural decisions are key responsibilities for a DevOps Engineer.
-Implementing Git cache for faster pipeline execution
-Nightly Jenkins job creates tarball of repositories for caching purposes
-Using 'git clone' with '--reference' option to fetch only changes from remote repository for faster pipeline execution
-Moved artifactory artifact to AWS S3 for faster download
-Artifactory artifact download was slow due to being hosted on a different internal cloud
-Ran independent stages in parallel to reduce build time
-Implementing code coverage and deployment strategies as a Cloud/Devops Engineer
-Execute code coverage on changed files for faster performance
-Used strategies for deployment, but too much to cover in single video
 
