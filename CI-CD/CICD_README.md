@@ -1,3 +1,22 @@
+**2.  CI/CD (Continuous Integration/Continuous Delivery or Deployment):**
+
+**Continuous Integration (CI):**
+- What: A development practice where developers frequently integrate their code changes into a shared repository.
+- Purpose: Detect and fix integration issues early.
+- How: Automated builds and tests run every time code is committed, ensuring the codebase is always in a workable state.
+
+**Continuous Delivery (CD):**
+- What: An extension of CI where code changes are automatically prepared for a release to production.
+- Purpose: Ensure that the codebase can be deployed to production anytime.
+- How: Automates the release process up to the point of deployment, including additional testing and staging steps.
+
+**Continuous Deployment (CD):**
+
+- What: Similar to continuous delivery, every change that passes the automated tests is automatically deployed to production.
+- Purpose: Minimize manual intervention in the deployment process, delivering new features and updates quickly.
+- How: Automates the entire process from code commit to production deployment, ensuring rapid and reliable releases.
+- Overall Purpose: CI/CD aims to improve software quality and speed up the development and deployment process, making it easier to deliver new features and fixes to users frequently and reliably.
+
 #### 13. What are the benefits and uses of CI/CD?
 - Answer: CI/CD offers several benefits, including:
 - Automation: Automates the process of building, testing, and deploying code.
