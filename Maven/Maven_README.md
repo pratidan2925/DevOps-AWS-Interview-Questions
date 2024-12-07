@@ -70,7 +70,8 @@ While S3 can be used to store artifacts, it does not provide the same features a
 
 
 
-Where should Nexus credentials be stored securely?
+#### Where should Nexus credentials be stored securely?
 Nexus credentials should be stored in secure locations such as environment variables, encrypted secrets management tools, or configuration files with restricted access.
-What is Maven, and what are its primary uses?
+
+#### What is Maven, and what are its primary uses?
 Maven is a build automation and project management tool primarily used for Java projects. It manages project dependencies, builds artifacts, and standardizes project structures through XML configuration files (pom.xml).
