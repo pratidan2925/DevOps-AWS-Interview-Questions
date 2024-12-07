@@ -1,7 +1,7 @@
 #### What is Maven ? 
-What: A build automation tool primarily used for Java projects.
-Purpose: Simplifies the build process (compiling code, running tests, packaging, etc.) and manages project dependencies.
-How: Uses a pom.xml file to configure projects, list dependencies, and define build steps.
+- What: A build automation tool primarily used for Java projects.
+- Purpose: Simplifies the build process (compiling code, running tests, packaging, etc.) and manages project dependencies.
+- How: Uses a pom.xml file to configure projects, list dependencies, and define build steps.
 
 
 #### Explain the maven goal or lifecycle
@@ -17,7 +17,7 @@ How: Uses a pom.xml file to configure projects, list dependencies, and define bu
 - Install Jenkins: Ensure Jenkins is installed and running.
 - Install Maven: Download and install Maven from Maven's official site.
 - Configure Maven in Jenkins:
-Open Jenkins Dashboard (http://localhost:8080).
+-Open Jenkins Dashboard (http://localhost:8080).
 - Go to Manage Jenkins > Global Tool Configuration.
 - Under Maven, click Add Maven.
 - Name it (e.g., Maven 3.6.3).
@@ -50,19 +50,22 @@ Open Jenkins Dashboard (http://localhost:8080).
 
 
 
-How do you pull artifacts from NEXUS?
-To pull artifacts from Nexus, you can use tools like Maven, Gradle, or the Nexus REST API. For example, with Maven:
-xml
-Copy code
+#### How do you pull artifacts from NEXUS?
+- To pull artifacts from Nexus, you can use tools like Maven, Gradle, or the Nexus REST API. For example, with Maven:
+```
 <dependency>
     <groupId>com.example</groupId>
     <artifactId>my-artifact</artifactId>
     <version>1.0.0</version>
 </dependency>
-Configure the Maven repository in your settings.xml file to point to Nexus.
-What is the use case of Nexus?
+
+```
+- Configure the Maven repository in your settings.xml file to point to Nexus.
+
+#### What is the use case of Nexus?
 Nexus is a repository manager used to store and manage artifacts like binaries, libraries, and dependencies. It supports various formats such as Maven, npm, Docker, and more. Nexus is used to streamline build processes, manage dependencies, and store artifacts in a centralized location.
-Can we use S3 instead of Nexus?
+
+#### Can we use S3 instead of Nexus?
 While S3 can be used to store artifacts, it does not provide the same features as Nexus, such as version management, repository indexing, and metadata support. Nexus offers more comprehensive artifact management capabilities, including support for different repository formats and advanced features like proxying external repositories. However, for simple artifact storage, S3 can be a viable option.
 
 
