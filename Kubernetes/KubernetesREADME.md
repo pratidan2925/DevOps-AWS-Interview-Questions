@@ -1,127 +1,127 @@
 # Kubernetes
 
-How is Kubernetes different from Docker Swarm?
-Kubernetes: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides features like service discovery, load balancing, automated rollouts/rollbacks, and self-healing.
-Docker Swarm: Docker Swarm is Docker's native clustering and orchestration tool. It focuses on simplicity and Docker-native integration, providing basic orchestration capabilities without some of the advanced features of Kubernetes.
+#### How is Kubernetes different from Docker Swarm?
+- Kubernetes: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of - - containerized applications. It provides features like service discovery, load balancing, automated rollouts/rollbacks, and self-healing.
+- Docker Swarm: Docker Swarm is Docker's native clustering and orchestration tool. It focuses on simplicity and Docker-native integration, providing basic orchestration capabilities without some of the advanced features of Kubernetes.
 
-What is Kubernetes?
+#### What is Kubernetes?
 Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It abstracts the underlying infrastructure, providing a consistent and declarative API to manage containerized applications at scale.
 
-How is Kubernetes related to Docker?
+#### How is Kubernetes related to Docker?
 Kubernetes can run Docker containers, but Kubernetes itself is not tied to Docker. It supports various container runtimes (containerd, CRI-O, etc.) through its Container Runtime Interface (CRI). Kubernetes provides orchestration capabilities for containers, irrespective of the container runtime.
 
-What is Container Orchestration?
+#### What is Container Orchestration?
 Container orchestration is the automated process of managing, deploying, scaling, and networking containers. It ensures that applications run as expected in dynamic and large-scale containerized environments, handling tasks like load balancing, service discovery, and automated deployments.
 
-How does Kubernetes simplify containerized Deployment?
-Kubernetes simplifies containerized deployment by providing:
-Automated Deployments: Declarative configuration for defining application deployments.
-Scalability: Automated scaling of applications based on resource usage.
-Service Discovery and Load Balancing: Automatically routes traffic to containers using Services.
-Self-healing: Restarts or replaces containers that fail or become unresponsive.
+#### How does Kubernetes simplify containerized Deployment?
+- Kubernetes simplifies containerized deployment by providing:
+- Automated Deployments: Declarative configuration for defining application deployments.
+- Scalability: Automated scaling of applications based on resource usage.
+- Service Discovery and Load Balancing: Automatically routes traffic to containers using Services.
+- Self-healing: Restarts or replaces containers that fail or become unresponsive.
 
-What is Minikube?
+#### What is Minikube?
 Minikube is a tool that runs a single-node Kubernetes cluster locally on your machine. It is designed for development and testing Kubernetes applications on a local environment before deploying to a production Kubernetes cluster.
 
-What is Kubectl?
+#### What is Kubectl?
 kubectl is the command-line tool used to interact with Kubernetes clusters. It allows users to deploy and manage applications, inspect cluster resources, manage cluster nodes, and view logs.
 
-What is Kubelet?
+#### What is Kubelet?
 kubelet is the primary node agent that runs on each node in a Kubernetes cluster. It ensures containers are running in a Pod by managing their lifecycle, handling container probes, and reporting node health to the Kubernetes control plane.
 
-What do you understand about Kube-proxy?
+#### What do you understand about Kube-proxy?
 kube-proxy is a Kubernetes network proxy that runs on each node in the cluster. It maintains network rules required to forward traffic to Pods and services based on IP and port address.
 
-What is the role of kube-apiserver and kube-scheduler?
-kube-apiserver: The Kubernetes API server exposes the Kubernetes API, which is the central management point for the Kubernetes cluster. It handles API requests, validates and configures data, and maintains the state of the cluster.
-kube-scheduler: The Kubernetes scheduler is responsible for placing Pods onto available nodes in the cluster. It selects nodes based on resource requirements, node affinity/anti-affinity rules, and other constraints.
+#### What is the role of kube-apiserver and kube-scheduler?
+- kube-apiserver: The Kubernetes API server exposes the Kubernetes API, which is the central management point for the Kubernetes cluster. It handles API requests, validates and configures data, and maintains the state of the cluster.
+- kube-scheduler: The Kubernetes scheduler is responsible for placing Pods onto available nodes in the cluster. It selects nodes based on resource requirements, node affinity/anti-affinity rules, and other constraints.
 
-Can you briefly talk about the Kubernetes controller manager?
+#### Can you briefly talk about the Kubernetes controller manager?
 The Kubernetes controller manager is a component of the Kubernetes control plane that runs controller processes. These controllers include Node Controller, ReplicaSet Controller, Endpoint Controller, and many others. They monitor the state of cluster resources and work to ensure the desired state matches the actual state.
 
-What is ETCD?
+#### What is ETCD?
 etcd is a distributed key-value store used by Kubernetes to store cluster configuration and state. It serves as the cluster's backing store for all cluster data, including the state of the Kubernetes API objects, configuration details, and metadata.
 
-What do you understand about load balancers in Kubernetes?
+#### What do you understand about load balancers in Kubernetes?
 In Kubernetes, a load balancer is a Service type that exposes an application running on a set of Pods as a network service. It automatically distributes incoming traffic across the Pods that belong to the Service, providing load balancing for the application.
 
-What is the difference between a replica set and a replication controller?
-ReplicaSet: A ReplicaSet is the next-generation Replication Controller. It ensures a specific number of Pod replicas are running at any given time. It supports more expressive Pod selectors and is the preferred choice for deployments.
-Replication Controller: A Replication Controller is an older Kubernetes object that ensures a specified number of Pod replicas are running. It is recommended to use ReplicaSet or Deployment instead of Replication Controller for newer deployments.
+#### What is the difference between a replica set and a replication controller?
+- ReplicaSet: A ReplicaSet is the next-generation Replication Controller. It ensures a specific number of Pod replicas are running at any given time. It supports more expressive Pod selectors and is the preferred choice for deployments.
+- Replication Controller: A Replication Controller is an older Kubernetes object that ensures a specified number of Pod replicas are running. It is recommended to use ReplicaSet or Deployment instead of Replication Controller for newer deployments.
 
-What is a Headless Service?
+#### What is a Headless Service?
 A Headless Service in Kubernetes is a Service that does not have a cluster IP assigned. It is used for services that do not require load balancing or a stable network identity. DNS records are created for each Pod in the Headless Service.
 
-What are K8s?
+#### What are K8s?
 "K8s" is a shorthand term used for "Kubernetes". It's derived from the word "Kubernetes" itself, taking the first and last letters, and replacing the 8 letters in between with a number.
 
-What are the features of Kubernetes?
-Container Orchestration: Automated deployment, scaling, and management of containerized applications.
-Service Discovery and Load Balancing: Automatic DNS-based service discovery and load balancing for application services.
-Self-healing: Auto-restart, rescheduling, and replication of containers in case of failures.
-Storage Orchestration: Automatic mounting of storage systems.
-Automated Rollouts/Rollbacks: Support for deployment patterns like blue-green and canary deployments.
-Secrets and Configuration Management: Secure storage and management of sensitive information.
-Batch Execution: Management of batch and CI workloads.
+#### What are the features of Kubernetes?
+- Container Orchestration: Automated deployment, scaling, and management of containerized applications.
+- Service Discovery and Load Balancing: Automatic DNS-based service discovery and load balancing for application services.
+- Self-healing: Auto-restart, rescheduling, and replication of containers in case of failures.
+- Storage Orchestration: Automatic mounting of storage systems.
+- Automated Rollouts/Rollbacks: Support for deployment patterns like blue-green and canary deployments.
+- Secrets and Configuration Management: Secure storage and management of sensitive information.
+- Batch Execution: Management of batch and CI workloads.
 
-What are the main components of Kubernetes architecture?
-Master Components: kube-apiserver, etcd, kube-scheduler, kube-controller-manager.
-Node Components: kubelet, kube-proxy, container runtime (like Docker, containerd).
-Networking: Pod network, Service network, DNS.
-Add-ons: DNS, Dashboard, Ingress controllers.
+#### What are the main components of Kubernetes architecture?
+- Master Components: kube-apiserver, etcd, kube-scheduler, kube-controller-manager.
+- Node Components: kubelet, kube-proxy, container runtime (like Docker, containerd).
+- Networking: Pod network, Service network, DNS.
+- Add-ons: DNS, Dashboard, Ingress controllers.
 
-What is the role of Kube-apiserver?
+#### What is the role of Kube-apiserver?
 Already answered in question 10.
 
-What process runs on Kubernetes Master Node?
+#### What process runs on Kubernetes Master Node?
 Kubernetes Master Node runs processes like kube-apiserver, etcd, kube-scheduler, and kube-controller-manager to manage and control the Kubernetes cluster.
 
-What is the job of the kube-scheduler?
+#### What is the job of the kube-scheduler?
 Already answered in question 10.
 
-What is ‘Heapster’ in Kubernetes?
+#### What is ‘Heapster’ in Kubernetes?
 Heapster was a Kubernetes-native project for cluster-wide monitoring and performance analysis. It collected and stored performance metrics from Kubernetes nodes and containers. However, Heapster is deprecated in favor of Metrics Server and other monitoring solutions.
 
-What is a Namespace in Kubernetes?
+#### What is a Namespace in Kubernetes?
 A Namespace in Kubernetes is a virtual cluster inside a Kubernetes cluster. It provides a way to partition a Kubernetes cluster into multiple virtual clusters, allowing teams or projects to have their own isolated environments.
 
-Name the initial namespaces from which Kubernetes starts?
-Kubernetes starts with four initial namespaces:
-default: The default namespace for objects with no other namespace.
-kube-system: Namespace for objects created by Kubernetes system.
-kube-public: Contains public information about the cluster.
-kube-node-lease: Used by the kubelet to update node status
+#### Name the initial namespaces from which Kubernetes starts?
+- Kubernetes starts with four initial namespaces:
+- default: The default namespace for objects with no other namespace.
+- kube-system: Namespace for objects created by Kubernetes system.
+- kube-public: Contains public information about the cluster.
+- kube-node-lease: Used by the kubelet to update node status
 
-What is the Kubernetes controller manager?
+#### What is the Kubernetes controller manager?
 The Kubernetes controller manager is a daemon that embeds the core control loops shipped with Kubernetes. It runs various controllers that regulate the state of the cluster, such as Node Controller, ReplicaSet Controller, Endpoint Controller, Namespace Controller, and others.
 
-What are the types of controller managers?
-There are several types of controller managers in Kubernetes, each responsible for managing different aspects of the cluster:
-Node Controller: Manages nodes and their lifecycle.
-ReplicaSet Controller: Ensures the desired number of Pod replicas are running.
-Endpoint Controller: Populates the Endpoints object (joins Services & Pods).
-Namespace Controller: Manages namespaces.
-Service Account & Token Controllers: Manage API access tokens and service accounts.
-Persistent Volume Controller: Manages Persistent Volumes.
+#### What are the types of controller managers?
+- There are several types of controller managers in Kubernetes, each responsible for managing different aspects of the cluster:
+- Node Controller: Manages nodes and their lifecycle.
+- ReplicaSet Controller: Ensures the desired number of Pod replicas are running.
+- Endpoint Controller: Populates the Endpoints object (joins Services & Pods).
+- Namespace Controller: Manages namespaces.
+- Service Account & Token Controllers: Manage API access tokens and service accounts.
+- Persistent Volume Controller: Manages Persistent Volumes.
 
-What are the different services within Kubernetes?
-In Kubernetes, services are abstractions that define a logical set of Pods and a policy by which to access them. Types of services include:
-ClusterIP: Exposes a service on an internal IP address.
-NodePort: Exposes a service on a static port on each node.
-LoadBalancer: Exposes a service using a cloud provider’s load balancer.
-ExternalName: Maps a service to a DNS name.
-Headless Service: Provides a DNS entry but does not load balance.
+#### What are the different services within Kubernetes?
+- In Kubernetes, services are abstractions that define a logical set of Pods and a policy by which to access them. Types of services include:
+- ClusterIP: Exposes a service on an internal IP address.
+- NodePort: Exposes a service on a static port on each node.
+- LoadBalancer: Exposes a service using a cloud provider’s load balancer.
+- ExternalName: Maps a service to a DNS name.
+- Headless Service: Provides a DNS entry but does not load balance.
 
 #### 24. What are nodes in Kubernetes?
 Answer: Nodes in Kubernetes are the worker machines that run containerized applications. Each node contains the necessary components to run Pods, including the container runtime, kubelet (agent that manages containers), and kube-proxy (handles network communication). Nodes can be physical or virtual machines and are managed by the Kubernetes control plane.
 #### 25. What is a Pod in Kubernetes?
 Answer: A Pod is the smallest and simplest deployable unit in Kubernetes. It is a group of one or more containers that share the same network namespace, IP address, and storage. Pods are used to deploy applications and manage containerized workloads, and they enable containers within the same Pod to communicate with each other using localhost.
 #### 26. What are Services in Kubernetes?
-Answer: Services in Kubernetes provide a stable network endpoint for accessing a set of Pods. They abstract the underlying Pods and allow for load balancing and service discovery. Types of Services include:
-ClusterIP: Accessible only within the Kubernetes cluster.
-NodePort: Accessible externally via a port on each node.
-LoadBalancer: Provisioned with an external load balancer for access outside the cluster.
-ExternalName: Maps the Service to an external DNS name.
+- Answer: Services in Kubernetes provide a stable network endpoint for accessing a set of Pods. They abstract the underlying Pods and allow for load balancing and service discovery. Types of Services include:
+- ClusterIP: Accessible only within the Kubernetes cluster.
+- NodePort: Accessible externally via a port on each node.
+- LoadBalancer: Provisioned with an external load balancer for access outside the cluster.
+- ExternalName: Maps the Service to an external DNS name.
 #### 27. How does a Load Balancer work in Kubernetes?
 Answer: In Kubernetes, a Load Balancer Service type provisions an external load balancer that distributes incoming traffic across multiple Pods. When a Service of type LoadBalancer is created, Kubernetes integrates with the cloud provider to set up a load balancer, which then routes traffic to the Pods associated with the Service. This ensures high availability and fault tolerance for applications.
 #### 28. Explain Blue-Green Deployment.
@@ -129,8 +129,8 @@ Answer: Blue-Green Deployment is a strategy for minimizing downtime and reducing
 
 
 #### 3. Have you upgraded any Kubernetes clusters?
-Answer: Yes, I have experience upgrading Kubernetes clusters. The upgrade process usually involves upgrading the control plane components (like kube-apiserver, etcd, etc.) followed by the worker nodes. The specific steps depend on the managed Kubernetes service (e.g., EKS, AKS, or GKE) or if it's a self-managed cluster.
-Scenario: In a previous role, I upgraded an EKS cluster from version 1.18 to 1.20. The upgrade was planned during a maintenance window to minimize disruption. I first upgraded the control plane through the AWS Management Console and then incrementally upgraded the worker nodes by draining and replacing them.
+- Answer: Yes, I have experience upgrading Kubernetes clusters. The upgrade process usually involves upgrading the control plane components (like kube-apiserver, etcd, etc.) followed by the worker nodes. The specific steps depend on the managed Kubernetes service (e.g., EKS, AKS, or GKE) or if it's a self-managed cluster.
+- Scenario: In a previous role, I upgraded an EKS cluster from version 1.18 to 1.20. The upgrade was planned during a maintenance window to minimize disruption. I first upgraded the control plane through the AWS Management Console and then incrementally upgraded the worker nodes by draining and replacing them.
 
 #### 4. How do you deploy an application in a Kubernetes cluster?
 Answer: Deploying an application in a Kubernetes cluster typically involves creating and applying YAML manifests for resources like Deployments, Services, ConfigMaps, and Secrets. The kubectl apply -f <filename> command is used to apply these configurations.
@@ -139,15 +139,16 @@ Scenario: In a project, I deployed a microservices application to a Kubernetes c
 #### 5. How do you communicate with a Jenkins server and a Kubernetes cluster?
 Answer: To communicate between Jenkins and a Kubernetes cluster, I use the Kubernetes plugin in Jenkins. This plugin allows Jenkins to dynamically launch Kubernetes pods as Jenkins agents to execute CI/CD jobs.
 Scenario: I configured Jenkins to deploy applications to a Kubernetes cluster. Jenkins used a kubeconfig file with appropriate RBAC permissions to interact with the cluster. This allowed Jenkins to execute kubectl commands and deploy updates during the CI/CD pipeline.
+
 #### 7. **Explain Kubernetes and its role in container orchestration.**
-   - Answer: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides features such as load balancing, automatic rollouts and rollbacks, and self-healing of applications.
+Answer: Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides features such as load balancing, automatic rollouts and rollbacks, and self-healing of applications.
 
 
 
 #### 9. **Describe your experience with Kubernetes deployments. How do you manage configurations and scale applications?**
-   - Answer: I manage Kubernetes deployments using YAML manifests or Helm charts. I define Deployments for application lifecycle management, ConfigMaps and Secrets for configuration management, and Horizontal Pod Autoscalers for automatic scaling based on resource usage metrics.
+Answer: I manage Kubernetes deployments using YAML manifests or Helm charts. I define Deployments for application lifecycle management, ConfigMaps and Secrets for configuration management, and Horizontal Pod Autoscalers for automatic scaling based on resource usage metrics.
 #### 4. **How do you ensure security in Docker containers and Kubernetes deployments?**
-   - Answer: "I ensure container security by adhering to best practices such as using minimal base images, regularly updating images and dependencies, and implementing least privilege principles. In Kubernetes, I configure Pod Security Policies, network policies, and secrets management to enhance security posture."
+Answer: "I ensure container security by adhering to best practices such as using minimal base images, regularly updating images and dependencies, and implementing least privilege principles. In Kubernetes, I configure Pod Security Policies, network policies, and secrets management to enhance security posture."
 
 #### 5. **Explain the process of deploying a microservices-based application using Docker and managing it with Kubernetes.**
    - Answer: "I containerize individual microservices using Docker, ensuring each service is isolated and scalable. In Kubernetes, I define Deployments and Services to manage application lifecycle and expose services internally or externally. I use Helm for package management and manage configurations using ConfigMaps and Secrets."
@@ -160,10 +161,8 @@ Scenario: I configured Jenkins to deploy applications to a Kubernetes cluster. J
 ---
 #### 2.Cloud Control Manager in Kubernetes
 - On a broad level, you can divide the kubernetes components in two parts
-
-1. Control Plane (API SERVER, SCHEDULER, Controller Manager, C-CM, ETCD)
-
-2. Data Plane (Kubelet, Kube-proxy, Container Runtime)
+- 1. Control Plane (API SERVER, SCHEDULER, Controller Manager, C-CM, ETCD)
+- 2. Data Plane (Kubelet, Kube-proxy, Container Runtime)
 ---
 #### 3. What are the main differences between the Docker Swarm and Kubernetes?
 
@@ -194,7 +193,6 @@ Scenario: I configured Jenkins to deploy applications to a Kubernetes cluster. J
 ---
 #### 8. What is the role of Kubelet?
 - Kubelet manages the containers that are scheduled to run on that node. It ensures that the containers are running and healthy, and that the resources they need are available.
-
 - Kubelet communicates with the Kubernetes API server to get information about the containers that should be running on the node, and then starts and stops the containers as needed to maintain the desired state. It also monitors the containers to ensure that they are running correctly, and restarts them if necessary..
 ---
 #### 9.Day-to-day activities on Kubernetes
@@ -203,40 +201,35 @@ Scenario: I configured Jenkins to deploy applications to a Kubernetes cluster. J
 ---
 
 
-#### Explain the Cluster architecture
-
-
-
-
 # Common pod issues in Kubernetes and their resolutions
 
 #### 1. Kubernetes is unable to pull the container image:-
-Check image name: Ensure the image name and tag are correct.
-Check image registry: Ensure the image is available in the specified container registry.
-Credentials: If the image is in a private registry, make sure the proper image pull secret is configured and associated with the pod.
-Command: Use kubectl describe pod <pod-name> to see the exact error message related to image pulling.
+- Check image name: Ensure the image name and tag are correct.
+- Check image registry: Ensure the image is available in the specified container registry.
+- Credentials: If the image is in a private registry, make sure the proper image pull secret is configured and associated with the pod.
+- Command: Use kubectl describe pod <pod-name> to see the exact error message related to image pulling.
 
 #### 2. Pods keep crashing and restarting:-
-Check logs: Use kubectl logs <pod-name> to check the application logs for errors.
-Describe the pod: Use kubectl describe pod <pod-name> to get more detailed information about the pod's state and recent events.
-Resource limits: Ensure the pod has enough CPU and memory. Adjust resources.requests and resources.limits in the pod spec if necessary.
-Health checks: Ensure your readiness and liveness probes are correctly configured to reflect the application's state.
+- Check logs: Use kubectl logs <pod-name> to check the application logs for errors.
+- Describe the pod: Use kubectl describe pod <pod-name> to get more detailed information about the pod's state and recent events.
+- Resource limits: Ensure the pod has enough CPU and memory. Adjust resources.requests and resources.limits in the pod spec if necessary.
+- Health checks: Ensure your readiness and liveness probes are correctly configured to reflect the application's state.
 
 #### 3. Pods are being killed due to running out of memory:-
-Resource limits: Set appropriate resources.requests and resources.limits for memory in the pod spec.
-Memory leaks: Check your application for memory leaks or inefficiencies.
-Monitoring: Use tools like Prometheus and Grafana to monitor memory usage and adjust the resources accordingly.
+- Resource limits: Set appropriate resources.requests and resources.limits for memory in the pod spec.
+- Memory leaks: Check your application for memory leaks or inefficiencies.
+- Monitoring: Use tools like Prometheus and Grafana to monitor memory usage and adjust the resources accordingly.
 
 #### 4. Pods remain in the "Pending" state and are not scheduled:-
-Resource availability: Ensure there are enough resources (CPU, memory) available in the cluster to schedule the pod. Check with kubectl describe nodes.
-Node selectors and affinities: Verify that any node selectors, affinities, or taints and tolerations are correctly configured and match available nodes.
-Cluster capacity: If the cluster is running out of resources, consider scaling up the cluster by adding more nodes.
+- Resource availability: Ensure there are enough resources (CPU, memory) available in the cluster to schedule the pod. Check with kubectl describe nodes.
+- Node selectors and affinities: Verify that any node selectors, affinities, or taints and tolerations are correctly configured and match available nodes.
+- Cluster capacity: If the cluster is running out of resources, consider scaling up the cluster by adding more nodes.
 
 #### 5. Pods are not scheduled because nodes are in the "NotReady" state:-
-Node status: Check the status of nodes with kubectl get nodes.
-Kubelet status: Ensure the kubelet service is running on the node.
-Network issues: Check for network connectivity issues between the node and the control plane.
-Node health: Investigate node-specific issues such as disk pressure, memory pressure, or PID pressure.
+- Node status: Check the status of nodes with kubectl get nodes.
+- Kubelet status: Ensure the kubelet service is running on the node.
+- Network issues: Check for network connectivity issues between the node and the control plane.
+- Node health: Investigate node-specific issues such as disk pressure, memory pressure, or PID pressure.
 
 
 
@@ -309,14 +302,14 @@ Node health: Investigate node-specific issues such as disk pressure, memory pres
 Helm is a powerful package manager for Kubernetes that helps you manage Kubernetes applications. Helm uses a packaging format called charts, which are collections of files that describe a related set of Kubernetes resources.
 
 #### Explain how to create a Kubernetes cluster from scratch.
-To create a Kubernetes cluster from scratch:
-Install Docker on all nodes.
-Install kubeadm, kubelet, and kubectl on all nodes.
-Initialize the master node with kubeadm init.
-Configure kubectl for the root user.
-Install a network plugin (e.g., Flannel, Calico).
-Join worker nodes to the cluster using the token generated by kubeadm init.
-Verify the cluster with kubectl get nodes.
+- To create a Kubernetes cluster from scratch:
+- Install Docker on all nodes.
+- Install kubeadm, kubelet, and kubectl on all nodes.
+- Initialize the master node with kubeadm init.
+- Configure kubectl for the root user.
+- Install a network plugin (e.g., Flannel, Calico).
+- Join worker nodes to the cluster using the token generated by kubeadm init.
+- Verify the cluster with kubectl get nodes.
 
 #### How do you deploy a multi-container pod? Provide a sample YAML configuration.
 yaml
@@ -338,10 +331,10 @@ spec:
 ```
 
 #### Describe the process of setting up and configuring a Kubernetes Ingress Controller.
-Deploy an Ingress Controller (e.g., NGINX Ingress Controller) using a YAML file or Helm chart.
-Create an Ingress resource that defines the rules for routing traffic to services.
-Configure DNS to point to the Ingress Controller’s IP address.
-Apply the Ingress resource using kubectl apply -f ingress.yaml.
+- Deploy an Ingress Controller (e.g., NGINX Ingress Controller) using a YAML file or Helm chart.
+- Create an Ingress resource that defines the rules for routing traffic to services.
+- Configure DNS to point to the Ingress Controller’s IP address.
+- Apply the Ingress resource using kubectl apply -f ingress.yaml.
 
 
 #### How do you configure persistent storage in Kubernetes? Provide examples of Persistent Volume (PV) and Persistent Volume Claim (PVC).
@@ -378,27 +371,27 @@ spec:
 A StatefulSet manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods. Use StatefulSets when you need stable, unique network identifiers, stable storage, ordered, graceful deployment, and scaling. Examples include databases, Kafka, and other applications that require persistent storage.
 
 #### Explain how to perform a rolling update and a rollback in Kubernetes.
-Rolling Update: Update the Deployment with a new image version using kubectl set image deployment/my-deployment my-container=my-image:2.0.
-Rollback: Roll back to a previous version using kubectl rollout undo deployment/my-deployment.
+- Rolling Update: Update the Deployment with a new image version using kubectl set image deployment/my-deployment my-container=my-image:2.0.
+- Rollback: Roll back to a previous version using kubectl rollout undo deployment/my-deployment.
 
 #### Describe the process of setting up Kubernetes RBAC (Role-Based Access Control) for a new project.
-Create a Role or ClusterRole with necessary permissions.
-Create a RoleBinding or ClusterRoleBinding to bind the Role to a user, group, or service account.
-Apply the configurations using kubectl apply -f role.yaml and kubectl apply -f rolebinding.yaml.
+- Create a Role or ClusterRole with necessary permissions.
+- Create a RoleBinding or ClusterRoleBinding to bind the Role to a user, group, or service account.
+- Apply the configurations using kubectl apply -f role.yaml and kubectl apply -f rolebinding.yaml.
 
 #### How do you monitor and log Kubernetes clusters? Name tools and approaches you use.
-Monitoring: Use Prometheus and Grafana for metrics collection and visualization.
-Logging: Use ELK stack (Elasticsearch, Logstash, Kibana) or Fluentd for log aggregation and analysis.
+- Monitoring: Use Prometheus and Grafana for metrics collection and visualization.
+- Logging: Use ELK stack (Elasticsearch, Logstash, Kibana) or Fluentd for log aggregation and analysis.
 Approach: Install monitoring agents on nodes, set up dashboards in Grafana, and configure alerting rules in Prometheus.
 
 #### Explain how to set up and manage a Kubernetes Cluster Autoscaler.
-Install the Cluster Autoscaler using a Helm chart or YAML file.
-Configure the autoscaler with appropriate parameters like minimum and maximum node counts.
-Ensure the cloud provider’s IAM roles and permissions are correctly set up for scaling.
-Apply the configuration using kubectl apply -f cluster-autoscaler.yaml.
+- Install the Cluster Autoscaler using a Helm chart or YAML file.
+- Configure the autoscaler with appropriate parameters like minimum and maximum node counts.
+- Ensure the cloud provider’s IAM roles and permissions are correctly set up for scaling.
+- Apply the configuration using kubectl apply -f cluster-autoscaler.yaml.
 
 #### How do you handle configuration management in Kubernetes? Provide examples using ConfigMaps and Secrets.
-ConfigMaps:
+**ConfigMaps:**
 yaml
 Copy code
 ```
@@ -413,7 +406,7 @@ data:
     }
 ```
 
-Secrets:
+**Secrets:**
 yaml
 Copy code
 ```
@@ -428,12 +421,12 @@ data:
 ```
 
 #### Describe the steps to troubleshoot a pod that is stuck in a CrashLoopBackOff state.
-Check the pod's logs with kubectl logs <pod-name>.
-Describe the pod to get more information with kubectl describe pod <pod-name>.
-Look for errors or issues in the pod's configuration.
-Check the events section in the pod description for relevant events.
-Ensure dependencies (e.g., services, config maps) are available and correctly configured.
-Inspect resource usage and limits.
+- Check the pod's logs with kubectl logs <pod-name>.
+- Describe the pod to get more information with kubectl describe pod <pod-name>.
+- Look for errors or issues in the pod's configuration.
+- Check the events section in the pod description for relevant events.
+- Ensure dependencies (e.g., services, config maps) are available and correctly configured.
+- Inspect resource usage and limits.
 
 #### How do you implement and manage network policies in Kubernetes? Provide a sample YAML configuration.
 yaml
@@ -464,10 +457,10 @@ spec:
 ```
 
 #### What are the steps to upgrade a Kubernetes cluster without downtime?
-Ensure high availability by having multiple replicas of critical components.
-Upgrade the master nodes one at a time.
-Upgrade worker nodes by draining them, upgrading, and then uncordoning.
-Use rolling updates for application deployments to ensure no downtime.
+- Ensure high availability by having multiple replicas of critical components.
+- Upgrade the master nodes one at a time.
+- Upgrade worker nodes by draining them, upgrading, and then uncordoning.
+- Use rolling updates for application deployments to ensure no downtime.
 
 #### Explain how to use Helm for application deployment. Describe the structure of a Helm chart.
 Using Helm:
@@ -493,8 +486,8 @@ my-chart/
 ```
 
 #### How do you configure horizontal pod autoscaling in Kubernetes? What metrics can you use?
-Create a HorizontalPodAutoscaler resource.
-Use metrics like CPU utilization, memory usage, or custom metrics from Prometheus.
+- Create a HorizontalPodAutoscaler resource.
+- Use metrics like CPU utilization, memory usage, or custom metrics from Prometheus.
 Example YAML:
 yaml
 Copy code
@@ -514,35 +507,35 @@ spec:
 ```
 
 #### Describe the process of setting up a custom admission controller in Kubernetes.
-Write a webhook server that implements the admission logic.
-Deploy the webhook server.
-Create a MutatingWebhookConfiguration or ValidatingWebhookConfiguration resource to register the webhook with the API server.
-Ensure the webhook server is reachable by the Kubernetes API server.
+- Write a webhook server that implements the admission logic.
+- Deploy the webhook server.
+- Create a MutatingWebhookConfiguration or ValidatingWebhookConfiguration resource to register the webhook with the API server.
+- Ensure the webhook server is reachable by the Kubernetes API server.
 
 #### How do you secure a Kubernetes cluster? Discuss network security, pod security policies, and image security.
-Network Security: Use Network Policies to control traffic flow.
-Pod Security Policies: Define policies for restricting Pod specifications.
-Image Security: Use trusted image registries, scan images for vulnerabilities, and use image signing.
+- Network Security: Use Network Policies to control traffic flow.
+- Pod Security Policies: Define policies for restricting Pod specifications.
+- Image Security: Use trusted image registries, scan images for vulnerabilities, and use image signing.
 
 #### 18 . Explain how to set up a Kubernetes Federation for multi-cluster management.
-Install Federation components in a host cluster.
-Join member clusters to the federation control plane.
-Use Federated resources (e.g., FederatedDeployment) to manage resources across clusters.
-Monitor and manage federated clusters from the host cluster.
+- Install Federation components in a host cluster.
+- Join member clusters to the federation control plane.
+- Use Federated resources (e.g., FederatedDeployment) to manage resources across clusters.
+- Monitor and manage federated clusters from the host cluster.
 
 
 #### 19. How do you handle secret management in Kubernetes? Compare using Secrets vs. external secret management tools.
-Kubernetes Secrets: Store sensitive information within the cluster, easy to use with native Kubernetes integration.
-External Secret Management Tools: Use tools like HashiCorp Vault for enhanced security features, centralized secret management, and better audit capabilities.
+- Kubernetes Secrets: Store sensitive information within the cluster, easy to use with native Kubernetes integration.
+- External Secret Management Tools: Use tools like HashiCorp Vault for enhanced security features, centralized secret management, and better audit capabilities.
 
 #### 20. What strategies do you use for disaster recovery in a Kubernetes environment?
-Backup: Regularly back up ETCD, application data, and configuration.
-Redundancy: Use multi-zone and multi-region clusters.
-Recovery: Have documented recovery procedures, automate the restoration process, and regularly test disaster recovery plans.
+- Backup: Regularly back up ETCD, application data, and configuration.
+- Redundancy: Use multi-zone and multi-region clusters.
+- Recovery: Have documented recovery procedures, automate the restoration process, and regularly test disaster recovery plans.
 
 ### 1. Explain the deployment manifest file?
-Answer: A deployment manifest file in Kubernetes is a YAML file that defines the desired state for a set of pods, including the container image, replicas, labels, and other configurations. It describes how to create and update the deployment of applications within the cluster.
-Example:
+- Answer: A deployment manifest file in Kubernetes is a YAML file that defines the desired state for a set of pods, including the container image, replicas, labels, and other configurations. It describes how to create and update the deployment of applications within the cluster.
+- Example:
 yaml
 Copy code
 ```
@@ -570,9 +563,9 @@ Scenario: I used a deployment manifest file to automate the deployment of a web 
 
 ### 2. Choreography vs Orchestration in Kubernetes?
 Answer:
-Choreography: Refers to the decentralized control where each microservice is responsible for its own behavior and interactions. It’s more about services being aware of each other and coordinating actions.
-Orchestration: Involves a central control mechanism that coordinates and manages the deployment, scaling, and operation of microservices. Kubernetes orchestration involves managing pods, services, and deployments centrally.
-Scenario: In Kubernetes, orchestration is achieved through controllers like Deployments and StatefulSets, which handle the lifecycle of pods and services, whereas choreography might involve services communicating through messaging systems or APIs.
+- Choreography: Refers to the decentralized control where each microservice is responsible for its own behavior and interactions. It’s more about services being aware of each other and coordinating actions.
+- Orchestration: Involves a central control mechanism that coordinates and manages the deployment, scaling, and operation of microservices. Kubernetes orchestration involves managing pods, services, and deployments centrally.
+- Scenario: In Kubernetes, orchestration is achieved through controllers like Deployments and StatefulSets, which handle the lifecycle of pods and services, whereas choreography might involve services communicating through messaging systems or APIs.
 
 ### 3. What is the difference between stateless and stateful microservices?
 Answer:
