@@ -1,17 +1,17 @@
 # Networking
 
 #### what is TCP IP protocol
-TCP/IP (Transmission Control Protocol/Internet Protocol) is a set of communication protocols used to connect network devices on the internet. It defines how data should be transmitted, routed, and received across networks . TCP (Transmission Control Protocol): Ensures reliable, ordered delivery of data between applications.
-IP (Internet Protocol): Handles addressing and routing of data packets to ensure they reach the correct destination.
+- TCP/IP (Transmission Control Protocol/Internet Protocol) is a set of communication protocols used to connect network devices on the internet. It defines how data should be transmitted, routed, and received across networks . TCP (Transmission Control Protocol): Ensures reliable, ordered delivery of data between applications.
+- IP (Internet Protocol): Handles addressing and routing of data packets to ensure they reach the correct destination.
 
 
  
  
 #### Explain OSI model
-OSI (Open Systems Interconnection)
-the OSI model helps us understand the different parts involved in sending and receiving data over a network, from the physical wires to the software applications
+- OSI (Open Systems Interconnection)
+- the OSI model helps us understand the different parts involved in sending and receiving data over a network, from the physical wires to the software applications
 
-Each layer serves a specific purpose and interacts with adjacent layers to facilitate communication between devices
+- Each layer serves a specific purpose and interacts with adjacent layers to facilitate communication between devices
  
  
 #### What is IP ADDRESS ?
@@ -32,7 +32,10 @@ Each layer serves a specific purpose and interacts with adjacent layers to facil
 - SSH  ---  Secure Shell --- 22
 - RDS for MYSQL   ---   3306
 - RDS for  DB2   ---   50000
-
+- DNS (Domain Name System): 53 (UDP/TCP)
+- FTP (File Transfer Protocol): 20 (Data), 21 (Control)
+- DHCP (Dynamic Host Configuration Protocol): 67 (Server), 68 (Client)
+- Squid (Proxy Server): 3128
 
  
 #### Explain Network topology
@@ -46,7 +49,7 @@ Each layer serves a specific purpose and interacts with adjacent layers to facil
 
 #### 7.  What do you mean by Look back address ?
 - The term "loopback address" typically refers to a special IP address used to send network traffic back to the same device. In IPv4, the loopback address is 127.0.0.1, while in IPv6, it's represented as "::1".
-This loopback address allows a device to communicate with itself, useful for testing network applications or troubleshooting connectivity issues. When a device sends data to the loopback address, it's routed internally within the device without being transmitted over the network.
+- This loopback address allows a device to communicate with itself, useful for testing network applications or troubleshooting connectivity issues. When a device sends data to the loopback address, it's routed internally within the device without being transmitted over the network.
 
 
 #### 8.  Explain Reverse proxy concept
