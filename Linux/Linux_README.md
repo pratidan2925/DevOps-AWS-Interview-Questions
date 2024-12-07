@@ -149,16 +149,16 @@ Functionality: Performs find-and-replace, text transformation, and filtering.
 Usage Example: sed 's/error/success/' logfile.txt - Replaces the first occurrence of "error" with "success" in each line of logfile.txt.
 --- 
 #### Explain Cat vs more command
-- cat (concatenate):
+**- cat (concatenate):**
 Purpose: Displays the content of files and concatenates them.
 Functionality: Outputs the entire content of a file to the terminal.
 Usage Example: cat filename.txt - Displays the full content of filename.txt.
 
-- more:
+**- more:**
 Purpose: Displays the content of files one screen at a time.
 Functionality: Allows for paginated viewing of long text files, enabling scrolling through the content.
 Usage Example: more filename.txt - Displays the content of filename.txt one screen at a time.
-Summary:
+**Summary:**
 cat is used to quickly display the full content of a file.
 more is used to view the content of a file one page at a time, which is useful for long files.
 
@@ -1148,416 +1148,438 @@ Export the directory using the exportfs command.
 Start or restart the NFS server (systemctl restart nfs-server or service nfs-server restart).
 Configure firewall rules if necessary (ufw or firewalld) to allow NFS traffic.
 Example /etc/exports entry: /shared_directory   *(rw,sync,no_root_squash)
-What are the default ports used for SMTP, DNS, FTP, DHCP, SSH, and squid?
-Default ports:
-SMTP (Simple Mail Transfer Protocol): 25
-DNS (Domain Name System): 53 (UDP/TCP)
-FTP (File Transfer Protocol): 20 (Data), 21 (Control)
-DHCP (Dynamic Host Configuration Protocol): 67 (Server), 68 (Client)
-SSH (Secure Shell): 22
-Squid (Proxy Server): 3128
 
-How to lock a user account in Linux?
-To lock a user account in Linux, you can use the passwd command with the -l option:
-sudo passwd -l username
-This locks the specified user account (username). Locked accounts prevent the user from logging in.
 
-What is the ‘ls’ command and what does it do?
-The ls command in Linux lists directory contents:
-Without options, ls lists files and directories in the current directory.
-Common options include -l (long format), -a (show hidden files), -h (human-readable sizes), etc.
 
-What is the tail command in Linux?
-The tail command displays the last part of a file:
-By default, tail shows the last 10 lines of a file.
-Options like -n can be used to specify the number of lines (-n 20 for example).
--f option can be used to follow (tail -f) the output of a file in real-time.
-Example: tail -n 20 filename.log
+#### How to lock a user account in Linux?
+- To lock a user account in Linux, you can use the passwd command with the -l option:
+- sudo passwd -l username
+- This locks the specified user account (username). Locked accounts prevent the user from logging in.
 
-What is grep command in Linux?
-The grep command searches for patterns in files:
-It prints lines matching a specified pattern or regular expression from one or more files.
-Options like -i (ignore case), -r (recursive), -v (invert match), etc., enhance its functionality.
-Example: grep "pattern" filename
-What is ps command in Linux?
-The ps command shows information about processes:
-Without options, ps lists processes running in the current terminal session.
-Options like -ef (all processes), -aux (all processes with more details), -u (specific user processes), etc., provide different views.
-Example: ps -aux
-What is the env command in Linux?
-The env command runs a command in a modified environment:
-It prints the current environment or runs a command with specified environment variables.
-Useful for setting temporary environment variables or checking the environment before executing a script.
-Example: env
-What is the top command in Linux?
-The top command displays real-time system resource usage:
-It shows information such as CPU usage, memory usage, running processes, load averages, etc.
-Interactive and updates continuously until you exit.
-Example: top
-What is netstat command in Linux?
-The netstat command displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships:
-It prints network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
-Options like -t (TCP connections), -u (UDP connections), -l (listening ports), -r (routing table), etc., specify the type of information to display.
-Example: netstat -tuln
-What is lsof command in Linux?
-lsof stands for "list open files".
-It is used to list all open files and the processes that opened them.
-It can also list network connections (lsof -i) and files opened by a specific user (lsof -u username).
-Example: lsof -i :80   # List processes using port 80
+#### What is the ‘ls’ command and what does it do?
+- The ls command in Linux lists directory contents:
+- Without options, ls lists files and directories in the current directory.
+- Common options include -l (long format), -a (show hidden files), -h (human-readable sizes), etc.
 
-Explain about chmod command?
-chmod stands for "change mode".
-It is used to change the file or directory permissions in Linux.
-Permissions can be changed using symbolic (+/- permissions) or octal (numeric) modes.
-Example: chmod +x filename   # Add execute permission to file
-Explain about chown command?
-chown stands for "change owner".
-It is used to change the owner and/or group of a file or directory in Linux.
-Example: chown user:group filename   # Change owner and group of file
-What is the cp command in Linux?
-cp stands for "copy".
-It is used to copy files or directories in Linux.
-Syntax: cp source destination
-Example: cp file1.txt file2.txt   # Copy file1.txt to file2.txt
+#### What is the tail command in Linux?
+- The tail command displays the last part of a file:
+- By default, tail shows the last 10 lines of a file.
+- Options like -n can be used to specify the number of lines (-n 20 for example).
+- -f option can be used to follow (tail -f) the output of a file in real-time.
+- Example: tail -n 20 filename.log
 
-How to remove a file or directory from the system in Linux?
-To remove a file: rm filename
-To remove an empty directory: rmdir directory
-To remove a directory and its contents recursively: rm -r directory
-Example: rm file.txt
+#### What is grep command in Linux?
+- The grep command searches for patterns in files:
+- It prints lines matching a specified pattern or regular expression from one or more files.
+- Options like -i (ignore case), -r (recursive), -v (invert match), etc., enhance its functionality.
+- Example: grep "pattern" filename
 
-What is mkdir in Linux?
-mkdir stands for "make directory".
-It is used to create new directories in Linux.
-Example: mkdir directory_name
+#### What is ps command in Linux?
+- The ps command shows information about processes:
+- Without options, ps lists processes running in the current terminal session.
+- Options like -ef (all processes), -aux (all processes with more details), -u (specific user processes), etc., provide different views.
+- Example: ps -aux
 
-Explain rmdir command in Linux?
-rmdir stands for "remove directory".
-It is used to remove empty directories in Linux.
-Example: rmdir directory_name
+#### What is the env command in Linux?
+- The env command runs a command in a modified environment:
+- It prints the current environment or runs a command with specified environment variables.
+- Useful for setting temporary environment variables or checking the environment before executing a script.
+- Example: env
 
-How to exit from vi editors?
-To exit vi editor:
-Press Esc key to ensure you are in command mode.
-Type :q to quit without saving changes.
-Type :wq to save changes and quit.
-Type :q! to force quit without saving changes.
-Example: :q    # Quit vi editor
-How to delete information from a file in vi?
-To delete text in vi editor:
-Press Esc key to switch to command mode.
-Move the cursor to the line or characters you want to delete.
-Press dd to delete the current line.
-Use x to delete the character under the cursor.
-Example: dd    # Delete current line
-Enlist some Linux file content commands?
-Commands to view file contents in Linux:
-cat: Display file contents.
-head: Display first few lines of a file.
-tail: Display last few lines of a file.
-more or less: View file contents page by page.
-grep: Search for patterns in files.
-Example: cat file.txt
-Enlist some Linux distributors (Distros) along with their usage?
-Popular Linux distributions:
-Ubuntu: General-purpose, user-friendly.
-CentOS: Enterprise-grade, stable, used for servers.
-Debian: Stable, community-driven, versatile.
-Fedora: Rapid updates, bleeding-edge features.
-Red Hat Enterprise Linux (RHEL): Commercial, for enterprise use.
-Arch Linux: Rolling-release, minimalistic, for advanced users.
-Linux Mint: User-friendly, based on Ubuntu.
-openSUSE: Stable, suitable for desktops and servers
+#### What is the top command in Linux?
+- The top command displays real-time system resource usage:
+- It shows information such as CPU usage, memory usage, running processes, load averages, etc.
+- Interactive and updates continuously until you exit.
+- Example: top
 
-Why we use LINUX?
-Reasons for using Linux:
-Open-source nature.
-Security and stability.
-Customizability and flexibility.
-Rich command-line interface.
-Wide range of distributions for different use cases.
-Community support and large software ecosystem.
+#### What is netstat command in Linux?
+- The netstat command displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships:
+- It prints network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+- Options like -t (TCP connections), -u (UDP connections), -l (listening ports), -r (routing table), etc., specify the type of information to display.
+- Example: netstat -tuln
 
-What are the features of the Linux operating system?
-Features of Linux:
-Multi-user capability.
-Multi-tasking support.
-Security with permissions and user management.
-Networking capabilities.
-Portability across different hardware architectures.
-Scalability from embedded devices to supercomputers.
-Open-source software model.
-Command-line interface and scripting support.
+#### What is lsof command in Linux?
+- lsof stands for "list open files".
+- It is used to list all open files and the processes that opened them.
+- It can also list network connections (lsof -i) and files opened by a specific user (lsof -u username).
+- Example: lsof -i :80   # List processes using port 80
 
-Differentiate between BASH and DOS?
-BASH (Bourne Again SHell):
-Default shell in most Linux distributions.
-Rich set of features like scripting, variables, functions.
-Case-sensitive.
-Supports piping and redirection extensively.
-DOS (Disk Operating System):
-Command-line interface for older Microsoft operating systems.
-Not as feature-rich as BASH.
-Case-insensitive.
-Limited scripting capabilities.
+#### Explain about chmod command?
+- chmod stands for "change mode".
+- It is used to change the file or directory permissions in Linux.
+- Permissions can be changed using symbolic (+/- permissions) or octal (numeric) modes.
+- Example: chmod +x filename   # Add execute permission to file
 
-What is meant by internal commands and external commands?
-Internal commands:
-Commands that are built into the shell (e.g., cd, echo in BASH).
-Executed directly by the shell itself.
-External commands:
-Commands that exist as separate executable files (e.g., /bin/ls, /usr/bin/grep).
-Executed by creating a new process by the shell.
+#### Explain about chown command?
+- chown stands for "change owner".
+- It is used to change the owner and/or group of a file or directory in Linux.
+- Example: chown user:group filename   # Change owner and group of file
 
-What is meant by PIPE in Linux?
-PIPE (|):
-A way to chain commands in Linux.
-Redirects the output of one command as input to another command.
-Allows for complex command-line operations.
-Example: ls -l | grep "file"
-Describe how a parent and child process communicate with each other?
-Parent and child processes:
-Parent process creates child processes using fork() system call.
-Communication can occur via shared memory, pipes, signals, or files.
-IPC (Inter-Process Communication) mechanisms like pipe(), socket(), or message queues are used.
-Examples include passing data through standard input/output or using explicit IPC mechanisms.
+#### What is the cp command in Linux?
+- cp stands for "copy".
+- It is used to copy files or directories in Linux.
+- Syntax: cp source destination
+- Example: cp file1.txt file2.txt   # Copy file1.txt to file2.txt
 
-What is a Stateless Linux Server?
-A stateless Linux server:
-Does not retain any local state or data.
-Uses network storage or cloud storage for all data.
-Can be easily replaced or scaled horizontally.
-Configuration and application data are managed centrally.
+#### How to remove a file or directory from the system in Linux?
+- To remove a file: rm filename
+- To remove an empty directory: rmdir directory
+- To remove a directory and its contents recursively: rm -r directory
+- Example: rm file.txt
 
-Explain the features of Stateless Linux Server?
-Features of Stateless Linux Server:
-Simplified management and deployment.
-Enhanced security due to lack of persistent data.
-Scalability and resilience in cloud environments.
-Reduced maintenance overhead.
-Ideal for environments requiring rapid deployment and automation.
+#### What is mkdir in Linux?
+- mkdir stands for "make directory".
+- It is used to create new directories in Linux.
+- Example: mkdir directory_name
 
-What is Zombie Process?
-Zombie Process:
-A process that has completed execution but still has an entry in the process table.
-It is terminated but its entry remains until its parent process calls wait() or waitpid() system call to read its exit status.
-Zombies consume system resources until they are removed.
-Usually, handled automatically by the operating system.
+#### Explain rmdir command in Linux?
+- rmdir stands for "remove directory".
+- It is used to remove empty directories in Linux.
+- Example: rmdir directory_name
 
-Explain the work of the Ctrl+Alt+Del key combination on the Linux operating system?
+#### How to exit from vi editors?
+- To exit vi editor:
+- Press Esc key to ensure you are in command mode.
+- Type :q to quit without saving changes.
+- Type :wq to save changes and quit.
+- Type :q! to force quit without saving changes.
+- Example: :q    # Quit vi editor
+
+#### How to delete information from a file in vi?
+- To delete text in vi editor:
+- Press Esc key to switch to command mode.
+- Move the cursor to the line or characters you want to delete.
+- Press dd to delete the current line.
+- Use x to delete the character under the cursor.
+- Example: dd    # Delete current line
+
+#### Enlist some Linux file content commands?
+- Commands to view file contents in Linux:
+- cat: Display file contents.
+- head: Display first few lines of a file.
+- tail: Display last few lines of a file.
+- more or less: View file contents page by page.
+- grep: Search for patterns in files.
+- Example: cat file.txt
+
+#### Enlist some Linux distributors (Distros) along with their usage?
+- Popular Linux distributions:
+- Ubuntu: General-purpose, user-friendly.
+- CentOS: Enterprise-grade, stable, used for servers.
+- Debian: Stable, community-driven, versatile.
+- Fedora: Rapid updates, bleeding-edge features.
+- Red Hat Enterprise Linux (RHEL): Commercial, for enterprise use.
+- Arch Linux: Rolling-release, minimalistic, for advanced users.
+- Linux Mint: User-friendly, based on Ubuntu.
+- openSUSE: Stable, suitable for desktops and servers
+
+#### Why we use LINUX?
+- Reasons for using Linux:
+- Open-source nature.
+- Security and stability.
+- Customizability and flexibility.
+- Rich command-line interface.
+- Wide range of distributions for different use cases.
+- Community support and large software ecosystem.
+
+#### What are the features of the Linux operating system?
+- **Features of Linux:**
+- Multi-user capability.
+- Multi-tasking support.
+- Security with permissions and user management.
+- Networking capabilities.
+- Portability across different hardware architectures.
+- Scalability from embedded devices to supercomputers.
+- Open-source software model.
+- Command-line interface and scripting support.
+
+#### Differentiate between BASH and DOS?
+- **BASH (Bourne Again SHell):**
+- Default shell in most Linux distributions.
+- Rich set of features like scripting, variables, functions.
+- Case-sensitive.
+- Supports piping and redirection extensively.
+- **DOS (Disk Operating System):**
+- Command-line interface for older Microsoft operating systems.
+- Not as feature-rich as BASH.
+- Case-insensitive.
+- Limited scripting capabilities.
+
+#### What is meant by internal commands and external commands?
+- **Internal commands:**
+- Commands that are built into the shell (e.g., cd, echo in BASH).
+- Executed directly by the shell itself.
+- **External commands:**
+- Commands that exist as separate executable files (e.g., /bin/ls, /usr/bin/grep).
+- Executed by creating a new process by the shell.
+
+#### What is meant by PIPE in Linux?
+- PIPE (|):
+- A way to chain commands in Linux.
+- Redirects the output of one command as input to another command.
+- Allows for complex command-line operations.
+- Example: ls -l | grep "file"
+
+#### Describe how a parent and child process communicate with each other?
+- Parent and child processes:
+- Parent process creates child processes using fork() system call.
+- Communication can occur via shared memory, pipes, signals, or files.
+- IPC (Inter-Process Communication) mechanisms like pipe(), socket(), or message queues are used.
+- Examples include passing data through standard input/output or using explicit IPC mechanisms.
+
+#### What is a Stateless Linux Server?
+- A stateless Linux server:
+- Does not retain any local state or data.
+- Uses network storage or cloud storage for all data.
+- Can be easily replaced or scaled horizontally.
+- Configuration and application data are managed centrally.
+
+#### Explain the features of Stateless Linux Server?
+- Features of Stateless Linux Server:
+- Simplified management and deployment.
+- Enhanced security due to lack of persistent data.
+- Scalability and resilience in cloud environments.
+- Reduced maintenance overhead.
+- Ideal for environments requiring rapid deployment and automation.
+
+#### What is Zombie Process?
+**Zombie Process:**
+- A process that has completed execution but still has an entry in the process table.
+- It is terminated but its entry remains until its parent process calls wait() or waitpid() system call to read its exit status.
+- Zombies consume system resources until they are removed.
+- Usually, handled automatically by the operating system.
+
+#### Explain the work of the Ctrl+Alt+Del key combination on the Linux operating system?
 In Linux, the Ctrl+Alt+Del key combination is typically used to initiate a system reboot. When pressed, it sends a reboot signal to the system, which will start the shutdown process and then reboot the system.
 
-Why is Linux considered more secure than other operating systems?
-Linux is considered more secure than other operating systems due to several factors:
-Open Source: Transparency allows for peer review and quick fixes.
-Permissions: Strong user and file permissions system.
-Security Modules: Supports various security modules like SELinux and AppArmor.
-Updates: Regular security updates and patches.
-Limited Privileges: Services run with limited privileges by default.
-Community Support: Active community and quick responses to security vulnerabilities.
+#### Why is Linux considered more secure than other operating systems?
+- Linux is considered more secure than other operating systems due to several factors:
+- Open Source: Transparency allows for peer review and quick fixes.
+- Permissions: Strong user and file permissions system.
+- Security Modules: Supports various security modules like SELinux and AppArmor.
+- Updates: Regular security updates and patches.
+- Limited Privileges: Services run with limited privileges by default.
+- Community Support: Active community and quick responses to security vulnerabilities.
 
-What is the tail command in Linux?
-The tail command in Linux is used to display the last part of a file.
-Syntax: tail [options] filename
-Example: tail -n 10 file.txt   # Display the last 10 lines of file.txt
+#### What is the tail command in Linux?
+- The tail command in Linux is used to display the last part of a file.
+- Syntax: tail [options] filename
+- Example: tail -n 10 file.txt   # Display the last 10 lines of file.txt
 
-What is the cat command in Linux?
-The cat command in Linux is used to concatenate and display the contents of files.
-Syntax: cat [options] filename
-Example: cat file.txt   # Display contents of file.txt
+#### What is the cat command in Linux?
+- The cat command in Linux is used to concatenate and display the contents of files.
+- Syntax: cat [options] filename
+- Example: cat file.txt   # Display contents of file.txt
 
-What is the grep command in Linux?
-The grep command in Linux is used to search for patterns in files or input streams.
-Syntax: grep [options] pattern [filename]
-Example: grep "error" logfile.txt   # Search for lines containing "error" in logfile.txt
+#### What is the grep command in Linux?
+- The grep command in Linux is used to search for patterns in files or input streams.
+- Syntax: grep [options] pattern [filename]
+- Example: grep "error" logfile.txt   # Search for lines containing "error" in logfile.txt
 
 
-What is ps command in Linux?
-The ps command in Linux is used to display information about running processes.
-Syntax: ps [options]
-Example: ps aux   # Display a detailed list of all running processes
+#### What is ps command in Linux?
+- The ps command in Linux is used to display information about running processes.
+- Syntax: ps [options]
+- Example: ps aux   # Display a detailed list of all running processes
 
-What is the env command in Linux?
-The env command in Linux is used to display the current environment variables or run a command in a modified environment.
-Syntax: env [options] [command]
-Example: env   # Display all environment variables
-env PATH=/bin:/usr/bin ls   # Run `ls` command with modified PATH
+#### What is the env command in Linux?
+- The env command in Linux is used to display the current environment variables or run a command in a modified environment.
+- Syntax: env [options] [command]
+- Example: env   # Display all environment variables
+- env PATH=/bin:/usr/bin ls   # Run `ls` command with modified PATH
 
-What is the top Command in Linux?
-The top command in Linux is used to display dynamic real-time information about running processes and system resource usage.
-It provides a task manager-like interface showing CPU, memory, and other system information.
-Example: top   # Display real-time system usage statistics
+#### What is the top Command in Linux?
+- The top command in Linux is used to display dynamic real-time information about running processes and system resource usage.
+- It provides a task manager-like interface showing CPU, memory, and other system information.
+- Example: top   # Display real-time system usage statistics
 
-What is the netstat command in Linux?
-The netstat command in Linux is used to display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
-Syntax: netstat [options]
-Example:netstat -tulpn   # Display listening TCP and UDP connections with PIDs
+#### What is the netstat command in Linux?
+- The netstat command in Linux is used to display network connections, routing tables, interface statistics, masquerade connections, - -and multicast memberships.
+- Syntax: netstat [options]
+- Example:netstat -tulpn   # Display listening TCP and UDP connections with PIDs
 
-What is the lsof command in Linux?
-The lsof command in Linux is used to list open files, including files opened by processes.
-It can also list network connections and various types of files opened by a specific user.
-Example:lsof -i :80   # List processes using port 80
-What is the df command in Linux?
-The df command in Linux is used to display disk space usage of file systems.
-             Syntax: df [options]
-            Example: df -h   # Display disk space usage in human-readable format
+#### What is the lsof command in Linux?
+- The lsof command in Linux is used to list open files, including files opened by processes.
+- It can also list network connections and various types of files opened by a specific user.
+- Example:lsof -i :80   # List processes using port 80
 
-What is the du command in Linux?
-The du command in Linux is used to estimate file space usage.
-            Syntax: du [options] [file or directory]
-Example: du -sh *   # Display total disk usage of files and directories in current directory
+#### What is the df command in Linux?
+- The df command in Linux is used to display disk space usage of file systems.
+ -             Syntax: df [options]
+ -            Example: df -h   # Display disk space usage in human-readable format
 
-What is the iptables command in Linux?
-The iptables command in Linux is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel's firewall.
-It is used to configure IPv4 packet filtering and NAT (Network Address Translation).
-Example: iptables -A INPUT -p tcp --dport 80 -j ACCEPT   # Allow incoming TCP traffic on port 80
+#### What is the du command in Linux?
+- The du command in Linux is used to estimate file space usage.
+-             Syntax: du [options] [file or directory]
+- Example: du -sh *   # Display total disk usage of files and directories in current directory
 
-What is the difference between Linux and Windows?
-Linux:
-Open-source operating system.
-Supports multiple desktop environments (GNOME, KDE, etc.).
-Command-line interface (CLI) driven with powerful shell scripting.
-Security features like permissions, SELinux, etc.
-Windows:
-Proprietary operating system from Microsoft.
-GUI-centric with Command Prompt and PowerShell.
-More widely used in desktop environments.
-Integrated with Microsoft ecosystem
+#### What is the iptables command in Linux?
+- The iptables command in Linux is used to set up, maintain, and inspect the tables of IP packet filter rules in the Linux kernel's firewall.
+- It is used to configure IPv4 packet filtering and NAT (Network Address Translation).
+- Example: iptables -A INPUT -p tcp --dport 80 -j ACCEPT   # Allow incoming TCP traffic on port 80
 
-What does the cd - command do?
-The cd - command in Linux changes the working directory to the previous directory you were in.
-It toggles between the current and the previous directory.
-Example: cd /var/log
-cd -
+#### What is the difference between Linux and Windows?
+- **Linux:**
+- Open-source operating system.
+- Supports multiple desktop environments (GNOME, KDE, etc.).
+- Command-line interface (CLI) driven with powerful shell scripting.
+- Security features like permissions, SELinux, etc.
+- **Windows:**
+- Proprietary operating system from Microsoft.
+- GUI-centric with Command Prompt and PowerShell.
+- More widely used in desktop environments.
+- Integrated with Microsoft ecosystem
 
-What does cd command do?
-The cd command in Linux is used to change the current working directory.
-Syntax: cd [directory]
-Example: cd /home/user   # Change directory to /home/user
-What does (cd dir && command) do?
-(cd dir && command) is a shell command that changes the directory temporarily (cd dir) and then executes a command (command) in that directory.
-It ensures that command is executed in the context of the specified directory (dir) without permanently changing the current working directory.
+#### What does the cd - command do?
+- The cd - command in Linux changes the working directory to the previous directory you were in.
+- It toggles between the current and the previous directory.
+- Example: cd /var/log
+- cd -
 
-What does pushd command do?
-The pushd command in Linux is used to push the current directory onto the directory stack and change to the specified directory.
-It allows easy navigation between directories using the directory stack.
-Example: pushd /var/log   # Push /var/log onto stack and change to /var/log
+#### What does cd command do?
+- The cd command in Linux is used to change the current working directory.
+- Syntax: cd [directory]
+- Example: cd /home/user   # Change directory to /home/user
 
-What is ls -lSr command?
-ls -lSr is a combination of options for the ls command in Linux.
--l: Long listing format to display detailed information about files.
--S: Sort files by size, largest file first.
--r: Reverse the order of sorting.
-Example: ls -lSr   # List files in long format, sorted by size in descending order
+#### What does (cd dir && command) do?
+- (cd dir && command) is a shell command that changes the directory temporarily (cd dir) and then executes a command (command) in that directory.
+- It ensures that command is executed in the context of the specified directory (dir) without permanently changing the current working directory.
 
-What is du -s * | sort -k1,1rn | head command used for?
-du -s * | sort -k1,1rn | head is a command pipeline in Linux.
-du -s *: Displays total disk usage (du) of each file and directory (*) in the current directory.
-sort -k1,1rn: Sorts the output by the first field (-k1) numerically (n) in reverse order (r).
-head: Displays the first few lines of the sorted output.
-Example: du -s * | sort -k1,1rn | head   # Display top disk usage files and directories in current
+#### What does pushd command do?
+- The pushd command in Linux is used to push the current directory onto the directory stack and change to the specified directory.
+- It allows easy navigation between directories using the directory stack.
+- Example: pushd /var/log   # Push /var/log onto stack and change to /var/log
 
-What does this du -hs /home/* | sort -k1,1h command do?
-du -hs /home/*: Displays the disk usage (du) of each directory (/home/*) in a human-readable (-h) format and summarizes (-s) the total usage.
-|: Pipe symbol, redirects the output of the du command to the sort command.
-sort -k1,1h: Sorts (sort) the output by the first field (-k1) in a human-readable (-h) format, which sorts numbers with unit suffixes appropriately (like KB, MB).
-What is df -h command?
-df -h command is used to display disk space usage of all mounted file systems in a human-readable format.
--h: Display sizes in a human-readable format (e.g., MB, GB).
-Example: df -h   # Display disk space usage of all mounted file systems
+#### What is ls -lSr command?
+- ls -lSr is a combination of options for the ls command in Linux.
+- -l: Long listing format to display detailed information about files.
+- -S: Sort files by size, largest file first.
+- -r: Reverse the order of sorting.
+- Example: ls -lSr   # List files in long format, sorted by size in descending order
 
-What is df -i command?
-df -i command is used to display inode usage information for all mounted file systems.
--i: Display information about file system inodes.
-Example: df -i   # Display inode usage information for all mounted file systems
+#### What is du -s * | sort -k1,1rn | head command used for?
+- du -s * | sort -k1,1rn | head is a command pipeline in Linux.
+- du -s *: Displays total disk usage (du) of each file and directory (*) in the current directory.
+- sort -k1,1rn: Sorts the output by the first field (-k1) numerically (n) in reverse order (r).
+- head: Displays the first few lines of the sorted output.
+- Example: du -s * | sort -k1,1rn | head   # Display top disk usage files and directories in current
 
-What is fdisk -l command used for?
-fdisk -l command is used to list all partitions on a disk.
--l: List the partition table for the specified device(s) and exit.
-Example: fdisk -l /dev/sda   # List partitions on the disk /dev/sda
+#### What does this du -hs /home/* | sort -k1,1h command do?
+- du -hs /home/*: Displays the disk usage (du) of each directory (/home/*) in a human-readable (-h) format and summarizes (-s) the total usage.
+- |: Pipe symbol, redirects the output of the du command to the sort command.
+- sort -k1,1h: Sorts (sort) the output by the first field (-k1) in a human-readable (-h) format, which sorts numbers with unit suffixes appropriately (like KB, MB).
 
-How do you kill the program using one port in Linux?
-To kill a program using a specific port in Linux, you can use the lsof and kill commands together.
-bash
-Copy code
+#### What is df -h command?
+- df -h command is used to display disk space usage of all mounted file systems in a human-readable format.
+- -h: Display sizes in a human-readable format (e.g., MB, GB).
+- Example: df -h   # Display disk space usage of all mounted file systems
+
+#### What is df -i command?
+- df -i command is used to display inode usage information for all mounted file systems.
+- -i: Display information about file system inodes.
+- Example: df -i   # Display inode usage information for all mounted file systems
+
+#### What is fdisk -l command used for?
+- fdisk -l command is used to list all partitions on a disk.
+- -l: List the partition table for the specified device(s) and exit.
+- Example: fdisk -l /dev/sda   # List partitions on the disk /dev/sda
+
+#### How do you kill the program using one port in Linux?
+- To kill a program using a specific port in Linux, you can use the lsof and kill commands together.
+```
 lsof -i :<port_number>   # Find the PID (Process ID) of the program using the port
 kill -9 <PID>            # Kill the process using the PID
 Replace <port_number> with the actual port number (e.g., 8080) and <PID> with the Process ID obtained from lsof command
-
-How do you limit memory usage for commands?
-You can limit memory usage for commands using the ulimit command.
-bash
-Copy code
+```
+#### How do you limit memory usage for commands?
+- You can limit memory usage for commands using the ulimit command.
+```
 ulimit -v <memory_limit_in_kilobytes>   # Limit virtual memory usage
-This sets a maximum limit on the amount of virtual memory that can be used by subsequent commands in the current shell session.
+```
+- This sets a maximum limit on the amount of virtual memory that can be used by subsequent commands in the current shell session.
 
-How do you get the full path of a file in Linux?
-Use the realpath command to get the full canonicalized path of a file.
-bash
-Copy code
+#### How do you get the full path of a file in Linux?
+- Use the realpath command to get the full canonicalized path of a file.
+```
 realpath /path/to/file   # Display the full path of the file
+```
+#### How do you list the contents of tar.gz and extract only one file?
+- To list contents of a .tar.gz file: tar -tzf archive.tar.gz   # List contents of the tar.gz archiv
+- To extract only one file from a .tar.gz archive: tar -xzf archive.tar.gz path/to/file   # Extract specific file from tar.gz archive
 
-How do you list the contents of tar.gz and extract only one file?
-To list contents of a .tar.gz file: tar -tzf archive.tar.gz   # List contents of the tar.gz archiv
-To extract only one file from a .tar.gz archive: tar -xzf archive.tar.gz path/to/file   # Extract specific file from tar.gz archive
+#### How do you find who is logged in?
+- Use the who command to display information about users who are currently logged in.
+- who   # Display who is logged in
 
-How do you find who is logged in?
-Use the who command to display information about users who are currently logged in.
-who   # Display who is logged in
-
-How do you check the permissions of each directory to a file? -
+#### How do you check the permissions of each directory to a file? -
 - Use the ls command with -l option to display detailed file and directory permissions.
-ls -l   # Display permissions for files and directories in the current directory
+- ls -l   # Display permissions for files and directories in the current directory
 
-How do you run the command every time a file is modified?
-You can use inotifywait command along with a loop to achieve this.
+#### How do you run the command every time a file is modified?
+
+- You can use inotifywait command along with a loop to achieve this.
+```
 while inotifywait -e modify file.txt; do
     # Command to run when file.txt is modified
     echo "File modified!"
 done
-
-How to copy text to the clipboard?
-You can use xclip or xsel commands to copy text to the clipboard in Linux.
+```
+#### How to copy text to the clipboard?
+- You can use xclip or xsel commands to copy text to the clipboard in Linux.
+```
      echo "Text to copy" | xclip -selection clipboard
-How do you check resources usage?
-Use commands like top, htop, free, vmstat, or sar to check resource usage (CPU, memory, disk, etc.) in Linux.
-top   # Display real-time system resource usage
-How do you run a command for a limited time?
-Use the timeout command to run a command for a specified duration.
-timeout 10s command   # Run 'command' for 10 seconds
-How do you combine two lines from two sorted files in Linux?
- Use paste command to merge lines from two files side by side.
-paste file1.txt file2.txt   # Combine lines from file1.txt and file2.txt
+```
+#### How do you check resources usage?
+- Use commands like top, htop, free, vmstat, or sar to check resource usage (CPU, memory, disk, etc.) in Linux.
+- top   # Display real-time system resource usage
+
+#### How do you run a command for a limited time?
+- Use the timeout command to run a command for a specified duration.
+- timeout 10s command   # Run 'command' for 10 seconds
+
+#### How do you combine two lines from two sorted files in Linux?
+-  Use paste command to merge lines from two files side by side.
+- paste file1.txt file2.txt   # Combine lines from file1.txt and file2.txt
 
 
 
 
-What is realm command?
+#### What is realm command?
 realm is a command-line tool used to manage and configure Kerberos realms and other related security realms on Linux systems, often used to join a Linux machine to an Active Directory domain.
-What type of Linux machine do you use most frequently?
+
+#### What type of Linux machine do you use most frequently?
 I frequently use Ubuntu for development and Amazon Linux for AWS environments. Both are popular choices for their stability and compatibility with various tools.
-How do you check disk space in Linux? What command do you use?
+
+#### How do you check disk space in Linux? What command do you use?
 To check disk space, I use the df -h command, which displays disk space usage in a human-readable format.
-What command do you use in Linux to check CPU utilization?
+
+#### What command do you use in Linux to check CPU utilization?
 To check CPU utilization, I use the top or htop command. Alternatively, mpstat from the sysstat package provides detailed CPU usage statistics.
-HHow do you manage services and applications on a Linux server?
+
+#### HHow do you manage services and applications on a Linux server?
 On a Linux server, I manage services using systemd commands like systemctl start/stop/restart/status <service>. Applications can be managed using package managers like apt for Debian-based systems or yum for Red Hat-based systems. I also use SSH for remote management and configuration files to control application settings.
-In Linux, do you know what hard links and soft links are?
+
+#### In Linux, do you know what hard links and soft links are?
 "Yes, hard links point to the same inode on the filesystem, meaning they reference the same file data. Soft links, or symbolic links, are pointers to another file or directory, which can be on different filesystems and have different inode numbers."
-How will you create a user in Linux? Now make that user a Sudo user. How will you do that?
+
+#### How will you create a user in Linux? Now make that user a Sudo user. How will you do that?
 "To create a user, you can use the useradd command. For example: sudo useradd newuser. To set a password: sudo passwd newuser. To make the user a sudo user, you would add them to the sudo group: sudo usermod -aG sudo newuser."
-Suppose you have an EC2 server in which Linux is running and you get an alert that your server's disk space utilization has gone above 90%. How will you troubleshoot it?
+
+#### Suppose you have an EC2 server in which Linux is running and you get an alert that your server's disk space utilization has gone above 90%. How will you troubleshoot it?
 "I would use commands like df -h to check disk usage and du -sh /* to identify large directories. I’d also review logs and remove unnecessary files or directories."
-How will you find out the top 10 files that are occupying the most space?
+
+#### How will you find out the top 10 files that are occupying the most space?
 "Use the command du -ah / | sort -rh | head -n 10 to list the top 10 largest files and directories."
 
 
 
-Do you know how to run cron jobs on a Linux server?
+#### Do you know how to run cron jobs on a Linux server?
 "Yes, you can use the crontab command to schedule cron jobs. Edit the crontab with crontab -e and add the job with the appropriate schedule and command."
-In Linux, how do you change the permissions of files?
+
+#### In Linux, how do you change the permissions of files?
 "Use the chmod command to change file permissions. For example, chmod 755 file.txt sets read, write, and execute permissions for the owner, and read and execute permissions for others."
-How do you change the ownership of files in Linux?
+
+#### How do you change the ownership of files in Linux?
 "Use the chown command. For example, chown user:group file.txt changes the owner and group of the file."
 
 
