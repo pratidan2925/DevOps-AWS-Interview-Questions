@@ -16,7 +16,7 @@
  ---
 #### 777 in Linux
 
-In Linux, "777" is a file permission notation representing full read, write, and execute permissions for the owner, group, and others.
+- In Linux, "777" is a file permission notation representing full read, write, and execute permissions for the owner, group, and others.
  ---
 #### Which Linux  and Windows version do you use?
 
